@@ -12,72 +12,16 @@
 			    <span class="ui-icon"/>
 			     <a href="#">default models</a>
 			  </h3>
-			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
-				<table class="tree">
-				<?foreach(get_data('commonModels') as $id => $data):?>
-					<tr id="node-<?=$id?>">
-						<td>
-							<a id="item-<?=$id?>" class='item' href="#" ><?=$data['label']?></a>
-							<ul id="menu-<?=$id?>" class="menu" style="display:none;">
-								<li><a class='form-nav' href="<?=_url('type=0&uri='.$data['uri'], 'addModelInstance')?>">add instance</a></li>
-								<li><a class='form-nav' href="<?=_url('type=0&uri='.$data['uri'], 'editModel')?>">edit</a></li>
-								<li><a class='nav' href="<?=_url('type=0&uri='.$data['uri'], 'deleteModel')?>">delete</a></li>
-							</ul>
-						</td>
-					</tr>
-					<?foreach($data['instances'] as $iid => $idata):?>
-					<tr class="child-of-node-<?=$id?>">
-						<td>
-							<a id="item-<?=$iid?>" class='item' href="#" ><?=$idata['label']?></a>
-							<ul id="menu-<?=$iid?>" class="menu" style="display:none;">
-								<li>
-									<a class='form-nav' href="<?=_url(array('type'=> 1, 'uri'=> $idata['uri'], 'classUri' => $data['uri']), 'editModelInstance')?>">edit</a>
-								</li>
-								<li>
-									<a class='nav' href="<?=_url(array('type'=> 1, 'uri'=> $idata['uri'], 'classUri' => $data['uri']), 'deleteModelInstance')?>">delete</a>
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<?endforeach?>
-				<?endforeach?>
-				</table>
+			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" style="padding:0em 0em 1em 1em;">
+				<div id="common-subject-tree" ></div>
 			</div>
 			
 			<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
 			    <span class="ui-icon"/>
 			     <a href="#">custom models</a>
 			  </h3>
-			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
-				<table class="tree">
-				<?foreach(get_data('customModels') as $id => $data):?>
-					<tr id="node-<?=$id?>">
-						<td>
-							<a id="item-<?=$id?>" class='item' href="#" ><?=$data['label']?></a>
-							<ul id="menu-<?=$id?>" class="menu" style="display:none;">
-								<li><a class='nav' href="<?=_url('type=1&uri='.$data['uri'], 'addModelInstance')?>">add instance</a></li>
-								<li><a class='nav' href="<?=_url('type=1&uri='.$data['uri'], 'editModel')?>">edit</a></li>
-								<li><a class='nav' href="<?=_url('type=1&uri='.$data['uri'], 'deleteModel')?>">delete</a></li>
-							</ul>
-						</td>
-					</tr>
-					<?foreach($data['instances'] as $iid => $idata):?>
-					<tr class="child-of-node-<?=$id?>">
-						<td>
-							<a id="item-<?=$iid?>" class='item' href="#" ><?=$idata['label']?></a>
-							<ul id="menu-<?=$iid?>" class="menu" style="display:none;">
-								<li>
-									<a class='nav' href="<?=_url(array('type'=> 1, 'uri'=> $idata['uri'], 'classUri' => $data['uri']), 'editModelInstance')?>">edit</a>
-								</li>
-								<li>
-									<a class='nav' href="<?=_url(array('type'=> 1, 'uri'=> $idata['uri'], 'classUri' => $data['uri']), 'deleteModelInstance')?>">delete</a>
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<?endforeach?>
-				<?endforeach?>
-				</table>
+			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" style="padding:0em 0em 1em 1em;">
+				<div id="custom-subject-tree" ></div>				
 			</div>
 		</div>
 		<div style="margin:15px;">
@@ -94,6 +38,85 @@
 <br />
 <script type="text/javascript">
 	var activeItem = <?=get_data('currentNode')?>;
+	$(function(){
+		$(".ui-accordion").accordion({
+			fillSpace: false,
+			autoHeight: false,
+			collapsible: true,
+			active: 0,
+			icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' }
+		});
+		$("#common-subject-tree, #custom-subject-tree").tree({
+			data: {
+				type: "json",
+				async : true,
+				opts: {
+					method : "POST",
+					url: "<?=_url(null, 'getSubjectModel')?>" 
+				}
+			},
+			types: {
+			 "default" : {
+					renameable	: false,
+					deletable	: true,
+					creatable	: true,
+					draggable	: false
+				}
+			},
+			ui: {
+				theme_name : "custom"
+			},
+			callback : {
+				beforedata:function(NODE, TREE_OBJ) { 
+					return { 
+						modelType : $(TREE_OBJ.container).attr('id').replace('-subject-tree','') 
+					} 
+				},
+				onselect: function(NODE, TREE_OBJ){
+					try{
+						if($(NODE).hasClass('node-class')){
+							openForm("<?=_url(array('currentNode'=> 1), 'editModel')?>classUri="+$(NODE).attr('id'));
+						}
+						if($(NODE).hasClass('node-instance')){
+							PNODE = TREE_OBJ.parent(NODE);
+							openForm("<?=_url(array('currentNode'=> 1), 'editModelInstance')?>classUri="+$(PNODE).attr('id') + "&uri="+$(NODE).attr('id'));
+						}
+					}
+					catch(exp){alert(exp)}
+					return false;
+				}
+			},
+			plugins: {
+				contextmenu : {
+					items : {
+						edit: {
+							label: "Edit",
+							icon: "",
+							visible : function (NODE, TREE_OBJ) {
+								return true;
+							},
+							action  : function(NODE, TREE_OBJ){
+								TREE_OBJ.select_branch(NODE);
+							},
+		                    separator_before : true
+						},
+						create:{
+							label: "Create instance",
+							visible: function (NODE, TREE_OBJ) {
+								if(NODE.length != 1) {
+									return false; 
+								}
+								if(!$(NODE).hasClass('node-class')){ 
+									return false;
+								}
+								return TREE_OBJ.check("creatable", NODE);
+							}
+						},
+						rename: false,
+					}
+				}
+			}
+		});
+	});
 </script>
-<script type="text/javascript" src="<?=BASE_WWW?>js/tree.js"></script>
 <?include('footer.tpl');?>

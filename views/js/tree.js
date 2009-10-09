@@ -10,7 +10,7 @@ $(function(){
 	});
 	
 	//render the html table into an expandable tree
-	$(".tree").treeTable({
+	/*$(".tree").treeTable({
 		clickableNodeNames: false
 	});
 	
@@ -22,6 +22,6 @@ $(function(){
 		else{
 			item.css({'display': 'none'});
 		}
-	});
+	});*/
 
 });

@@ -8,47 +8,72 @@ class Subjects extends Module {
  * controller actions
  */
 
+	/**
+	 * main action
+	 * @return void
+	 */
 	public function index(){
-		
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		
-		$commonModels = array();
-		$customModels = array();
-		
-		foreach($subjectService->getSubjectModels()->getIterator() as $model){
-			
-			$instances = array();
-			foreach($subjectService->getSubjects($model)->getIterator() as $instance){
-				$instances[uniqid()] = array(
-					'label' 	=> $instance->getLabel(),
-					'uri'		=> tao_helpers_Uri::encode($instance->uriResource)
-				);
-			}
-			
-			$modelData = array(
-				'label' 	=> $model->getLabel(),
-				'uri'		=> tao_helpers_Uri::encode($model->uriResource),
-				'instances'	=> $instances
-			);
-			
-			if($subjectService->isCustom($model)){
-				$customModels[uniqid()] = $modelData;
-			}
-			else{
-				$commonModels[uniqid()] = $modelData;
-			}
-		}
-		
-		$this->setData('commonModels', $commonModels);
-		$this->setData('customModels', $customModels);
-		
 		$this->setData('currentNode', (!is_null($this->getRequestParameter('currentNode'))) ? $this->getRequestParameter('currentNode') : -1 );
-		
 		$this->setView('index.tpl');
 	}
 	
+	/**
+	 * Render json data to populate the subject tree 
+	 * 'modelType' must be in request parameter
+	 * @return void
+	 */
+	public function getSubjectModel(){
+		$data = array();
+		
+		//check parameters
+		$modelType = $this->getRequestParameter('modelType');
+		if(is_null($modelType) || empty($modelType)){
+			throw new Exception("Please specify a type of model");
+		}
+		
+		//get subject models
+		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
+		foreach($subjectService->getSubjectModels()->getIterator() as $model){
+			
+			if($subjectService->isCustom($model) && $modelType == 'common'){
+				continue;
+			}
+			if(!$subjectService->isCustom($model) && $modelType == 'custom'){
+				continue;
+			}
+			
+			//format instances for json tree datastore 
+			$instances = array();
+			foreach($subjectService->getSubjects($model)->getIterator() as $instance){
+				$instances[] = array(
+					'data' 	=> $instance->getLabel(),
+					'attributes' => array(
+						'id' => tao_helpers_Uri::encode($instance->uriResource),
+						'class' => 'node-instance'
+					)
+				);
+			}
+			
+			//format classes for json tree datastore 
+			$modelData = array(
+					'data' 	=> $model->getLabel(),
+					'attributes' => array(
+							'id' => tao_helpers_Uri::encode($model->uriResource),
+							'class' => 'node-class'
+						),
+					'children'	=> $instances
+				);
+			$data[] = $modelData;
+		}
+		
+		//render directly the json
+		echo json_encode($data);
+	}
 	
-	
+	/**
+	 * Enable to the user to add a new model (ie. an RDF Class)
+	 * @return 
+	 */
 	public function addModel(){
 		
 		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
@@ -69,13 +94,38 @@ class Subjects extends Module {
 		$this->setView('form.tpl');
 	}
 	
+	/**
+	 * Enable to the user to edit a model (ie. an RDF Class)
+	 * @return 
+	 */
 	public function editModel(){
-		echo 'edit model';
-		$this->forward('Subjects', 'index');
+		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
+		$model = $this->getCurrentModel();
+		if(!$subjectService->isCustom($model)){
+			throw new Exception("You cannot edit a model you have not created");
+		}
+		
+		$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( $model );
+		
+		$this->setData('formTitle', 'Edit subject model');
+		$this->setData('myForm', $myForm->render());
+		
+		$this->setView('form.tpl');
 	}
 	
+	/**
+	 * Enable to the user to remove a model
+	 * @return 
+	 */
 	public function deleteModel(){
-		echo 'model deleted';
+		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
+	
+		$model = $this->getCurrentModel();
+		if(!$subjectService->isCustom($model)){
+			throw new Exception("You cannot delete a model you have not created");
+		}
+		
+		
 		$this->forward('Subjects', 'index');
 	}
 	
@@ -117,7 +167,7 @@ class Subjects extends Module {
 			$this->setView('form.tpl');
 		}
 		catch(Exception $e){
-			print $e;	
+			print "<pre>$e</pre>";	
 		}
 	}
 	

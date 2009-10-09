@@ -187,6 +187,7 @@ class taoSubjects_models_classes_SubjectsService
 			$returnValue = $this->getOneInstanceBy( $clazz, $identifier, $mode);
 		}
 		
+		
         // section 10-13-1-45-792423e0:12398d13f24:-8000:0000000000001818 end
 
         return $returnValue;
