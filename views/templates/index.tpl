@@ -99,7 +99,10 @@
 							label: "Edit",
 							icon: "",
 							visible : function (NODE, TREE_OBJ) {
-								return true;
+								if( $(TREE_OBJ.container).attr('id').replace('-subject-tree','') == 'custom' || $(NODE).hasClass('node-instance') ){
+									return true;
+								}
+								return false;
 							},
 							action  : function(NODE, TREE_OBJ){
 								TREE_OBJ.select_branch(NODE);

@@ -167,7 +167,7 @@ class Subjects extends Module {
 		$instance = $subjectService->createInstance($this->getCurrentModel());
 		echo json_encode(array(
 			'label'	=> $instance->getLabel(),
-			'uri' 	=> $instance->uriResource
+			'uri' 	=> tao_helpers_Uri::encode($instance->uriResource)
 		));
 	}
 	
