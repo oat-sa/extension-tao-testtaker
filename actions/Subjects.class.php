@@ -1,6 +1,10 @@
 <?php
 /**
- * Subjects Controller 
+ * Subjects Controller provide actions performed from url resolution
+ * 
+ * @author Bertrand Chevrier, <taosupport@tudor.lu>
+ * @package taoSubjects
+ * @subpackage actions
  */
 class Subjects extends Module {
 
@@ -23,6 +27,11 @@ class Subjects extends Module {
 	 * @return void
 	 */
 	public function getSubjectModel(){
+		
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		
 		$data = array();
 		
 		//check parameters
@@ -109,7 +118,6 @@ class Subjects extends Module {
 		
 		$this->setData('formTitle', 'Edit subject model');
 		$this->setData('myForm', $myForm->render());
-		
 		$this->setView('form.tpl');
 	}
 	
@@ -119,30 +127,48 @@ class Subjects extends Module {
 	 */
 	public function deleteModel(){
 		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-	
 		$model = $this->getCurrentModel();
 		if(!$subjectService->isCustom($model)){
 			throw new Exception("You cannot delete a model you have not created");
 		}
 		
-		
 		$this->forward('Subjects', 'index');
 	}
 	
+	/**
+	 * add an instance of the selected model
+	 * @return 
+	 */
 	public function addModelInstance(){
 		try{
 			$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( 
 				$this->getCurrentModel()
 			);
-			
 			$this->setData('formTitle', 'Add a model instance');
 			$this->setData('myForm', $myForm->render());
-			
 			$this->setView('form.tpl');
 		}
 		catch(Exception $e){
 			print $e;	
 		}
+	}
+	
+	/**
+	 * 
+	 * @return 
+	 */
+	public function createInstance(){
+		
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		
+		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
+		$instance = $subjectService->createInstance($this->getCurrentModel());
+		echo json_encode(array(
+			'label'	=> $instance->getLabel(),
+			'uri' 	=> $instance->uriResource
+		));
 	}
 	
 	public function editModelInstance(){

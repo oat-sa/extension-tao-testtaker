@@ -46,7 +46,7 @@ $GLOBALS['classpath']			= array(DIR_CORE,
 										DIR_HELPERS);
 
 # theme directory
-$GLOBALS['dir_theme']		= "default/";
+$GLOBALS['dir_theme']		= "templates/";
 
 # language
 $GLOBALS['lang']			= 'en';

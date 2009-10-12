@@ -27,7 +27,7 @@
 		<div style="margin:15px;">
 			<span class="ui-state-default ui-corner-all" style="padding:5px;margin-right:10px;">
 				<img src="<?=BASE_WWW?>img/add.png" />
-				<a class='form-nav' href="<?=_url(null, 'addModel')?>" >Add a Subject Model</a>
+				<a class='form-nav' href="<?=_url('addModel')?>" >Add a Subject Model</a>
 			</span>
 		</div>
 	</div>
@@ -52,7 +52,7 @@
 				async : true,
 				opts: {
 					method : "POST",
-					url: "<?=_url(null, 'getSubjectModel')?>" 
+					url: "<?=_url('getSubjectModel')?>" 
 				}
 			},
 			types: {
@@ -75,11 +75,17 @@
 				onselect: function(NODE, TREE_OBJ){
 					try{
 						if($(NODE).hasClass('node-class')){
-							openForm("<?=_url(array('currentNode'=> 1), 'editModel')?>classUri="+$(NODE).attr('id'));
+							_load("#form-container", 
+								"<?=_url('editModel')?>",
+								{classUri:$(NODE).attr('id'), currentNode: 1}
+							);
 						}
 						if($(NODE).hasClass('node-instance')){
 							PNODE = TREE_OBJ.parent(NODE);
-							openForm("<?=_url(array('currentNode'=> 1), 'editModelInstance')?>classUri="+$(PNODE).attr('id') + "&uri="+$(NODE).attr('id'));
+							_load("#form-container", 
+								"<?=_url('editModelInstance')?>", 
+								{classUri: $(PNODE).attr('id'),  uri: $(NODE).attr('id'), currentNode: 1}
+							);
 						}
 					}
 					catch(exp){alert(exp)}
@@ -110,6 +116,31 @@
 									return false;
 								}
 								return TREE_OBJ.check("creatable", NODE);
+							},
+							action	: function (NODE, TREE_OBJ) { 
+								
+								$.ajax({
+									url: "<?=_url('createInstance')?>",
+									type: "POST",
+									data: {classUri: $(NODE).attr('id')},
+									dataType: 'json',
+									success: function(response){
+										if(response.uri){
+											TREE_OBJ.select_branch(
+												TREE_OBJ.create({
+													data: response.label,
+													attributes: {
+														id: response.uri,
+														class: 'node-instance'
+													}
+												}, TREE_OBJ.get_node(NODE[0]))
+											);
+										}
+									}
+								});
+								
+								
+								 
 							}
 						},
 						rename: false,
