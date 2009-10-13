@@ -35,8 +35,8 @@ class Subjects extends Module {
 		$data = array();
 		
 		//check parameters
-		$modelType = $this->getRequestParameter('modelType');
-		if(is_null($modelType) || empty($modelType)){
+		$type = $this->getRequestParameter('type');
+		if(is_null($type) || empty($type)){
 			throw new Exception("Please specify a type of model");
 		}
 		
@@ -44,10 +44,10 @@ class Subjects extends Module {
 		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
 		foreach($subjectService->getSubjectModels()->getIterator() as $model){
 			
-			if($subjectService->isCustom($model) && $modelType == 'common'){
+			if($subjectService->isCustom($model) && $type == 'common-subject'){
 				continue;
 			}
-			if(!$subjectService->isCustom($model) && $modelType == 'custom'){
+			if(!$subjectService->isCustom($model) && $type == 'custom-subject'){
 				continue;
 			}
 			

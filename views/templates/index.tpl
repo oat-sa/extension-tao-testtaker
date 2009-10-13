@@ -10,18 +10,18 @@
 		<div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
 			<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
 			    <span class="ui-icon"/>
-			     <a href="#">default models</a>
+			     <a href="#">default subjects models</a>
 			  </h3>
 			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" style="padding:0em 0em 1em 1em;">
-				<div id="common-subject-tree" ></div>
+				<div id="common-subject" ></div>
 			</div>
 			
 			<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
 			    <span class="ui-icon"/>
-			     <a href="#">custom models</a>
+			     <a href="#">custom subjects models</a>
 			  </h3>
 			<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" style="padding:0em 0em 1em 1em;">
-				<div id="custom-subject-tree" ></div>				
+				<div id="custom-subject" ></div>				
 			</div>
 		</div>
 		<div style="margin:15px;">
@@ -37,8 +37,18 @@
 </div>
 <br />
 <script type="text/javascript">
+	
+	var treeOptions = {
+		formContainer: '#form-container',
+		editClassAction: "<?=_url('editModel')?>",
+		editInstanceAction: "<?=_url('editModelInstance')?>", 
+		classEditable: true,
+		createInstanceAction: "<?=_url('createInstance')?>"
+	};
+	
 	var activeItem = <?=get_data('currentNode')?>;
 	$(function(){
+		
 		$(".ui-accordion").accordion({
 			fillSpace: false,
 			autoHeight: false,
@@ -46,111 +56,10 @@
 			active: 0,
 			icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' }
 		});
-		$("#common-subject-tree, #custom-subject-tree").tree({
-			data: {
-				type: "json",
-				async : true,
-				opts: {
-					method : "POST",
-					url: "<?=_url('getSubjectModel')?>" 
-				}
-			},
-			types: {
-			 "default" : {
-					renameable	: false,
-					deletable	: true,
-					creatable	: true,
-					draggable	: false
-				}
-			},
-			ui: {
-				theme_name : "custom"
-			},
-			callback : {
-				beforedata:function(NODE, TREE_OBJ) { 
-					return { 
-						modelType : $(TREE_OBJ.container).attr('id').replace('-subject-tree','') 
-					} 
-				},
-				onselect: function(NODE, TREE_OBJ){
-					try{
-						if($(NODE).hasClass('node-class')){
-							_load("#form-container", 
-								"<?=_url('editModel')?>",
-								{classUri:$(NODE).attr('id'), currentNode: 1}
-							);
-						}
-						if($(NODE).hasClass('node-instance')){
-							PNODE = TREE_OBJ.parent(NODE);
-							_load("#form-container", 
-								"<?=_url('editModelInstance')?>", 
-								{classUri: $(PNODE).attr('id'),  uri: $(NODE).attr('id'), currentNode: 1}
-							);
-						}
-					}
-					catch(exp){alert(exp)}
-					return false;
-				}
-			},
-			plugins: {
-				contextmenu : {
-					items : {
-						edit: {
-							label: "Edit",
-							icon: "",
-							visible : function (NODE, TREE_OBJ) {
-								if( $(TREE_OBJ.container).attr('id').replace('-subject-tree','') == 'custom' || $(NODE).hasClass('node-instance') ){
-									return true;
-								}
-								return false;
-							},
-							action  : function(NODE, TREE_OBJ){
-								TREE_OBJ.select_branch(NODE);
-							},
-		                    separator_before : true
-						},
-						create:{
-							label: "Create instance",
-							visible: function (NODE, TREE_OBJ) {
-								if(NODE.length != 1) {
-									return false; 
-								}
-								if(!$(NODE).hasClass('node-class')){ 
-									return false;
-								}
-								return TREE_OBJ.check("creatable", NODE);
-							},
-							action	: function (NODE, TREE_OBJ) { 
-								
-								$.ajax({
-									url: "<?=_url('createInstance')?>",
-									type: "POST",
-									data: {classUri: $(NODE).attr('id')},
-									dataType: 'json',
-									success: function(response){
-										if(response.uri){
-											TREE_OBJ.select_branch(
-												TREE_OBJ.create({
-													data: response.label,
-													attributes: {
-														id: response.uri,
-														class: 'node-instance'
-													}
-												}, TREE_OBJ.get_node(NODE[0]))
-											);
-										}
-									}
-								});
-								
-								
-								 
-							}
-						},
-						rename: false,
-					}
-				}
-			}
-		});
+		
+		new GenerisTreeClass('#common-subject', "<?=_url('getSubjectModel')?>", treeOptions);
+		new GenerisTreeClass('#custom-subject', "<?=_url('getSubjectModel')?>", treeOptions);
 	});
+	
 </script>
 <?include('footer.tpl');?>
