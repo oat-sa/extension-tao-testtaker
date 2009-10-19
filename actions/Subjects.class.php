@@ -8,6 +8,12 @@
  */
 class Subjects extends Module {
 
+	protected $service = null;
+
+	public function __construct(){
+		
+	}
+	
 /*
  * controller actions
  */
@@ -41,19 +47,18 @@ class Subjects extends Module {
 		}
 		
 		//get subject models
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		foreach($subjectService->getSubjectModels()->getIterator() as $model){
+		foreach($this->service->getSubjectModels()->getIterator() as $model){
 			
-			if($subjectService->isCustom($model) && $type == 'common-subject'){
+			if($this->service->isCustom($model) && $type == 'common-subject'){
 				continue;
 			}
-			if(!$subjectService->isCustom($model) && $type == 'custom-subject'){
+			if(!$this->service->isCustom($model) && $type == 'custom-subject'){
 				continue;
 			}
 			
 			//format instances for json tree datastore 
 			$instances = array();
-			foreach($subjectService->getSubjects($model)->getIterator() as $instance){
+			foreach($this->service->getSubjects($model)->getIterator() as $instance){
 				$instances[] = array(
 					'data' 	=> $instance->getLabel(),
 					'attributes' => array(
@@ -85,17 +90,16 @@ class Subjects extends Module {
 	 */
 	public function addModel(){
 		
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		$commonProperties = array();
-		foreach($subjectService->getSubjectClassProperties()->getIterator() as $propertyClass){
-			$commonProperties[uniqid()] = array(
-					'label' 	=> $propertyClass->getLabel(),
-					'uri'		=> tao_helpers_Uri::encode($propertyClass->uriResource)
-				);
+		$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( new core_kernel_classes_Class( 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Class' ) );
+		if($myForm->isSubmited()){
+			if($myForm->isValid()){
+				
+				
+				$model = $this->service->createSubjectModel($myForm->getValue('http://www.w3.org/2000/01/rdf-schema#label'));			
+				$this->setData('message', 'Model added');
+				//$this->forward('Subjects', 'index');
+			}
 		}
-		$this->setData('commonProperties', $commonProperties);
-		
-		$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( new core_kernel_classes_Class( 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property' ) );
 		
 		$this->setData('formTitle', 'Add a subject model');
 		$this->setData('myForm', $myForm->render());
@@ -108,9 +112,8 @@ class Subjects extends Module {
 	 * @return 
 	 */
 	public function editModel(){
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
 		$model = $this->getCurrentModel();
-		if(!$subjectService->isCustom($model)){
+		if(!$this->service->isCustom($model)){
 			throw new Exception("You cannot edit a model you have not created");
 		}
 		
@@ -126,9 +129,8 @@ class Subjects extends Module {
 	 * @return 
 	 */
 	public function deleteModel(){
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
 		$model = $this->getCurrentModel();
-		if(!$subjectService->isCustom($model)){
+		if(!$this->service->isCustom($model)){
 			throw new Exception("You cannot delete a model you have not created");
 		}
 		
@@ -163,8 +165,7 @@ class Subjects extends Module {
 			throw new Exception("wrong request mode");
 		}
 		
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		$instance = $subjectService->createInstance($this->getCurrentModel());
+		$instance = $this->service->createInstance($this->getCurrentModel());
 		echo json_encode(array(
 			'label'	=> $instance->getLabel(),
 			'uri' 	=> tao_helpers_Uri::encode($instance->uriResource)
@@ -180,10 +181,7 @@ class Subjects extends Module {
 			);
 			if($myForm->isSubmited()){
 				if($myForm->isValid()){
-					$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-					
-					$subjectService->bindProperties($subject, $myForm->getValues());
-					
+					$this->service->bindProperties($subject, $myForm->getValues());
 					$this->setData('message', 'Form submited');
 				}
 			}
@@ -202,10 +200,8 @@ class Subjects extends Module {
 		$message = "Unable to delete subject";
 		try{
 			$subject = $this->getCurrentSubject();
-			$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-			
-			if($subjectService->isCustom($subject)){
-				if($subjectService->deleteSubject($subject)){
+			if($this->service->isCustom($subject)){
+				if($this->service->deleteSubject($subject)){
 					$message = "Subject deleted successfully!";
 				}
 			}
@@ -232,10 +228,8 @@ class Subjects extends Module {
 			throw new Exception("No valid uri found");
 		}
 		
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		
-		$model = $subjectService->getSubjectModel($classUri);
-		$subject = $subjectService->getSubject($uri, 'uri', $model);
+		$model = $this->service->getSubjectModel($classUri);
+		$subject = $this->service->getSubject($uri, 'uri', $model);
 		if(is_null($subject)){
 			throw new Exception("No subject found for the uri {$uri}");
 		}
@@ -244,14 +238,13 @@ class Subjects extends Module {
 	}
 	
 	private function getCurrentModel(){
+		$this->service = tao_models_classes_ServiceFactory::get('Subjects');
 		$classUri = tao_helpers_Uri::decode($this->getRequestParameter('classUri'));
 		if(is_null($classUri) || empty($classUri)){
 			throw new Exception("No valid uri found");
 		}
 		
-		$subjectService = tao_models_classes_ServiceFactory::get('Subjects');
-		
-		$model = $subjectService->getSubjectModel($classUri);
+		$model = $this->service->getSubjectModel($classUri);
 		if(is_null($model)){
 			throw new Exception("No class found for the uri {$classUri}");
 		}

@@ -9,10 +9,10 @@ error_reporting(E_ALL);
  *
  * This file is part of Generis Object Oriented API.
  *
- * Automatically generated on 21.09.2009, 14:23:16 with ArgoUML PHP module 
+ * Automatically generated on 19.10.2009, 10:28:24 with ArgoUML PHP module 
  * (last revised $Date: 2008-04-19 08:22:08 +0200 (Sat, 19 Apr 2008) $)
  *
- * @author Bertrand Chevrier, <taosupport@tudor.lu>
+ * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -25,7 +25,7 @@ if (0 > version_compare(PHP_VERSION, '5')) {
  * The Service class is an abstraction of each service instance. 
  * Used to centralize the behavior related to every servcie instances.
  *
- * @author Bertrand Chevrier, <taosupport@tudor.lu>
+ * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
  */
 require_once('tao/models/classes/class.Service.php');
 
@@ -41,7 +41,7 @@ require_once('tao/models/classes/class.Service.php');
  * Short description of class taoSubjects_models_classes_SubjectsService
  *
  * @access public
- * @author Bertrand Chevrier, <taosupport@tudor.lu>
+ * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -75,7 +75,7 @@ class taoSubjects_models_classes_SubjectsService
      * @access protected
      * @var array
      */
-    protected $subjectsOntologies = array('http://www.tao.lu/Ontologies/TAOSubject.rdf#');
+    protected $subjectsOntologies = array('http://www.tao.lu/Ontologies/TAOSubject.rdf');
 
     // --- OPERATIONS ---
 
@@ -83,7 +83,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method __construct
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @return mixed
      */
     public function __construct()
@@ -92,17 +92,13 @@ class taoSubjects_models_classes_SubjectsService
 		
 		parent::__construct();
 		
+		
+		
 		$this->subjectClass 	= new core_kernel_classes_Class( TAO_SUBJECT_CLASS );
 		$this->localNamespace	= LOCAL_NAMESPACE;
 
-		$ontologies = array_merge($this->ontologies, $this->subjectsOntologies);
-		if(count($ontologies) > 0){
-			$session = core_kernel_classes_Session::singleton();
-			foreach($ontologies as $ontology){
-				$session->model->loadModel($ontology);
-			}
-		}
-		
+		$this->loadOntologies($this->subjectsOntologies);
+
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
     }
 
@@ -110,7 +106,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjects
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Class clazz
      * @param  array options
      * @return core_kernel_classes_ContainerCollection
@@ -168,7 +164,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubject
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  string identifier
      * @param  string mode
      * @param  Class clazz
@@ -197,7 +193,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjectModels
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @return core_kernel_classes_ContainerCollection
      */
     public function getSubjectModels()
@@ -217,7 +213,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjectModel
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  string uri
      * @return core_kernel_classes_Class
      */
@@ -241,7 +237,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjectClassProperties
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @return core_kernel_classes_ContainerCollection
      */
     public function getSubjectClassProperties()
@@ -272,7 +268,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method createSubjectModel
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  string label
      * @param  array properties
      * @return core_kernel_classes_Class
@@ -307,7 +303,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method deleteSubject
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Resource subject
      * @return boolean
      */
@@ -332,7 +328,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method isCustom
      *
      * @access public
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Resource resource
      * @return boolean
      */
@@ -365,7 +361,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method isASubjectModel
      *
      * @access protected
-     * @author Bertrand Chevrier, <taosupport@tudor.lu>
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Class clazz
      * @return boolean
      */
@@ -378,7 +374,7 @@ class taoSubjects_models_classes_SubjectsService
 			$returnValue = true;	
 		}
 		else{
-			foreach($this->getSubjectModels()->getIterator() as $subclass){
+			foreach($this->getSubjectModels() as $subclass){
 				if($clazz->uriResource == $subclass->uriResource){
 					$returnValue = true;
 					break;	

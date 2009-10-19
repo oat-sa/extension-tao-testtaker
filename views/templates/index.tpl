@@ -35,7 +35,6 @@
 		<div id="form-container" ></div>
 	</div>
 </div>
-<br />
 <script type="text/javascript">
 	
 	var treeOptions = {
@@ -59,6 +58,7 @@
 		
 		new GenerisTreeClass('#common-subject', "<?=_url('getSubjectModel')?>", treeOptions);
 		new GenerisTreeClass('#custom-subject', "<?=_url('getSubjectModel')?>", treeOptions);
+		
 	});
 	
 </script>
