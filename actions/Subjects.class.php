@@ -11,7 +11,7 @@ class Subjects extends Module {
 	protected $service = null;
 
 	public function __construct(){
-		
+		$this->service = tao_models_classes_ServiceFactory::get('Subjects');
 	}
 	
 /*
@@ -238,7 +238,6 @@ class Subjects extends Module {
 	}
 	
 	private function getCurrentModel(){
-		$this->service = tao_models_classes_ServiceFactory::get('Subjects');
 		$classUri = tao_helpers_Uri::decode($this->getRequestParameter('classUri'));
 		if(is_null($classUri) || empty($classUri)){
 			throw new Exception("No valid uri found");

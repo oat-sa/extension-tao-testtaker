@@ -1,5 +1,5 @@
 <script type="text/javascript">
 $(function(){
-	uiNaviguate();
+	loadControls();
 });
 </script>
