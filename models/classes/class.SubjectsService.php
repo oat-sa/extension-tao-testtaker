@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of Generis Object Oriented API.
  *
- * Automatically generated on 19.10.2009, 10:28:24 with ArgoUML PHP module 
+ * Automatically generated on 27.10.2009, 13:43:15 with ArgoUML PHP module 
  * (last revised $Date: 2008-04-19 08:22:08 +0200 (Sat, 19 Apr 2008) $)
  *
  * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
@@ -320,6 +320,29 @@ class taoSubjects_models_classes_SubjectsService
 		}
 		
         // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:000000000000179D end
+
+        return (bool) $returnValue;
+    }
+
+    /**
+     * Short description of method deleteSubjectModel
+     *
+     * @access public
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @param  Class clazz
+     * @return boolean
+     */
+    public function deleteSubjectModel( core_kernel_classes_Class $clazz)
+    {
+        $returnValue = (bool) false;
+
+        // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 begin
+		if(!is_null($clazz)){
+			if($this->isASubjectModel($clazz)){
+				$returnValue = $clazz->delete();
+			}
+		}
+        // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 end
 
         return (bool) $returnValue;
     }

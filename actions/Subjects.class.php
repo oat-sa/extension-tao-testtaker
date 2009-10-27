@@ -23,7 +23,8 @@ class Subjects extends Module {
 	 * @return void
 	 */
 	public function index(){
-		$this->setData('currentNode', (!is_null($this->getRequestParameter('currentNode'))) ? $this->getRequestParameter('currentNode') : -1 );
+		$context = Context::getInstance();
+		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
 		$this->setView('index.tpl');
 	}
 	
@@ -32,189 +33,177 @@ class Subjects extends Module {
 	 * 'modelType' must be in request parameter
 	 * @return void
 	 */
-	public function getSubjectModel(){
+	public function getSubjects(){
 		
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
-		
-		$data = array();
-		
-		//check parameters
-		$type = $this->getRequestParameter('type');
-		if(is_null($type) || empty($type)){
-			throw new Exception("Please specify a type of model");
-		}
-		
-		//get subject models
-		foreach($this->service->getSubjectModels()->getIterator() as $model){
-			
-			if($this->service->isCustom($model) && $type == 'common-subject'){
-				continue;
-			}
-			if(!$this->service->isCustom($model) && $type == 'custom-subject'){
-				continue;
-			}
-			
-			//format instances for json tree datastore 
-			$instances = array();
-			foreach($this->service->getSubjects($model)->getIterator() as $instance){
-				$instances[] = array(
-					'data' 	=> $instance->getLabel(),
-					'attributes' => array(
-						'id' => tao_helpers_Uri::encode($instance->uriResource),
-						'class' => 'node-instance'
-					)
-				);
-			}
-			
-			//format classes for json tree datastore 
-			$modelData = array(
-					'data' 	=> $model->getLabel(),
-					'attributes' => array(
-							'id' => tao_helpers_Uri::encode($model->uriResource),
-							'class' => 'node-class'
-						),
-					'children'	=> $instances
-				);
-			$data[] = $modelData;
-		}
-		
-		//render directly the json
+		$highlightUri = '';
+		if($this->hasSessionAttribute("showNodeUri")){
+			$highlightUri = $this->getSessionAttribute("showNodeUri");
+			unset($_SESSION[SESSION_NAMESPACE]["showNodeUri"]);
+		} 
+		/*$data = array();
+		foreach($this->service->getSubjectModels() as $model){
+			$data = array_merge($data, $this->service->toTree($model, true, true, $highlightUri));
+		}*/
+		$data = $this->service->toTree(new core_kernel_classes_Class( TAO_SUBJECT_CLASS ), true, true, $highlightUri);
 		echo json_encode($data);
 	}
 	
 	/**
-	 * Enable to the user to add a new model (ie. an RDF Class)
-	 * @return 
+	 * Add an item instance
 	 */
-	public function addModel(){
-		
-		$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( new core_kernel_classes_Class( 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Class' ) );
+	public function addInstance(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		$model = $this->getCurrentModel();
+		$subject = $this->service->createInstance($model);
+		if($subject instanceof core_kernel_classes_Resource){
+			echo json_encode(array(
+				'label'	=> $subject->getLabel(),
+				'uri' 	=> tao_helpers_Uri::encode($subject->uriResource)
+			));
+		}
+	}
+	
+	/**
+	 * edit an item instance
+	 */
+	public function editInstance(){
+		$model = $this->getCurrentModel();
+		$subject = $this->getCurrentSubject();
+		$myForm = tao_helpers_form_GenerisFormFactory::instanceEditor($model, $subject);
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				
+				$this->service->bindProperties($subject, $myForm->getValues());
 				
-				$model = $this->service->createSubjectModel($myForm->getValue('http://www.w3.org/2000/01/rdf-schema#label'));			
-				$this->setData('message', 'Model added');
-				//$this->forward('Subjects', 'index');
+				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
+				$this->setData('message', 'Subject saved');
+				$this->setData('reload', true);
+				$this->forward('Subjects', 'index');
 			}
 		}
 		
-		$this->setData('formTitle', 'Add a subject model');
+		$this->setData('formTitle', 'Create a new Subject');
 		$this->setData('myForm', $myForm->render());
-		
-		$this->setView('form.tpl');
+		$this->setView('form.tpl');;
 	}
 	
 	/**
-	 * Enable to the user to edit a model (ie. an RDF Class)
-	 * @return 
+	 * Sub Class
+	 */
+	public function addModel(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		$model = $this->service->createSubClass($this->getCurrentModel());
+		if($model instanceof core_kernel_classes_Class){
+			echo json_encode(array(
+				'label'	=> $model->getLabel(),
+				'uri' 	=> tao_helpers_Uri::encode($model->uriResource)
+			));
+		}
+	}
+	
+	/**
+	 * Edit a class
 	 */
 	public function editModel(){
-		$model = $this->getCurrentModel();
-		if(!$this->service->isCustom($model)){
-			throw new Exception("You cannot edit a model you have not created");
+		$myForm = tao_helpers_form_GenerisFormFactory::classEditor($this->getCurrentModel(), new core_kernel_classes_Class( TAO_SUBJECT_CLASS ));
+		if($myForm->isSubmited()){
+			if($myForm->isValid()){
+				
+				$classValues = array();
+				$propertyValues = array();
+				foreach($myForm->getValues() as $key => $value){
+					if(preg_match("/^class_/", $key)){
+						$classKey =  tao_helpers_Uri::decode(str_replace('class_', '', $key));
+						$classValues[$classKey] =  tao_helpers_Uri::decode($value);
+					}
+					if(preg_match("/^property_/", $key)){
+						$key = str_replace('property_', '', $key);
+						$propNum = substr($key, 0, 1 );
+						$propKey = tao_helpers_Uri::decode(str_replace($propNum.'_', '', $key));
+						$propertyValues[$propNum][$propKey] = tao_helpers_Uri::decode($value);
+					}
+				}
+				$clazz = $this->service->bindProperties($this->getCurrentModel(), $classValues);
+				foreach($propertyValues as $propNum => $properties){
+					$this->service->bindProperties(new core_kernel_classes_Resource(tao_helpers_Uri::decode($_POST['propertyUri'.$propNum])), $properties);
+				}
+				if($clazz instanceof core_kernel_classes_Resource){
+					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->uriResource));
+				}
+				$this->setData('message', 'model saved');
+				$this->setData('reload', true);
+				$this->forward('Items', 'index');
+			}
 		}
 		
-		$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( $model );
-		
-		$this->setData('formTitle', 'Edit subject model');
+		$this->setData('formTitle', 'Edit a model');
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form.tpl');
 	}
 	
 	/**
-	 * Enable to the user to remove a model
-	 * @return 
+	 * delete an item or an item class
+	 * called via ajax
 	 */
-	public function deleteModel(){
-		$model = $this->getCurrentModel();
-		if(!$this->service->isCustom($model)){
-			throw new Exception("You cannot delete a model you have not created");
-		}
-		
-		$this->forward('Subjects', 'index');
-	}
-	
-	/**
-	 * add an instance of the selected model
-	 * @return 
-	 */
-	public function addModelInstance(){
-		try{
-			$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( 
-				$this->getCurrentModel()
-			);
-			$this->setData('formTitle', 'Add a model instance');
-			$this->setData('myForm', $myForm->render());
-			$this->setView('form.tpl');
-		}
-		catch(Exception $e){
-			print $e;	
-		}
-	}
-	
-	/**
-	 * 
-	 * @return 
-	 */
-	public function createInstance(){
-		
+	public function delete(){
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
 		
-		$instance = $this->service->createInstance($this->getCurrentModel());
-		echo json_encode(array(
-			'label'	=> $instance->getLabel(),
-			'uri' 	=> tao_helpers_Uri::encode($instance->uriResource)
-		));
+		$deleted = false;
+		if($this->getRequestParameter('uri')){
+			$deleted = $this->service->deleteSubject($this->getCurrentSubject());
+		}
+		else{
+			$deleted = $this->service->deleteSubjectModel($this->getCurrentModel());
+		}
+		echo json_encode(array('deleted'	=> $deleted));
 	}
 	
-	public function editModelInstance(){
-		try{
-			$subject = $this->getCurrentSubject();
-			$myForm = tao_helpers_form_GenerisFormFactory::createFromClass( 
-				$this->getCurrentModel(),
-				$subject
-			);
-			if($myForm->isSubmited()){
-				if($myForm->isValid()){
-					$this->service->bindProperties($subject, $myForm->getValues());
-					$this->setData('message', 'Form submited');
-				}
-			}
-			$this->setData('formTitle', 'Edit model instance');
-			$this->setData('myForm', $myForm->render());
-			
-			$this->setView('form.tpl');
+	/**
+	 * duplicate an item instance by property copy
+	 */
+	public function duplicate(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
 		}
-		catch(Exception $e){
-			print "<pre>$e</pre>";	
-		}
-	}
-	
-	public function deleteModelInstance(){
 		
-		$message = "Unable to delete subject";
-		try{
-			$subject = $this->getCurrentSubject();
-			if($this->service->isCustom($subject)){
-				if($this->service->deleteSubject($subject)){
-					$message = "Subject deleted successfully!";
+		$subject = $this->getCurrentSubject();
+		$model = $this->getCurrentModel();
+		
+		$clone = $this->service->createInstance($model);
+		if(!is_null($clone)){
+			
+			foreach($model->getProperties() as $property){
+				foreach($subject->getPropertyValues($property) as $propertyValue){
+					$clone->setPropertyValue($property, $propertyValue);
 				}
 			}
-			else{
-				$message .=  " which has not been created from this interface." ;
-			}
-			
+			$clone->setLabel($subject->getLabel()."'");
+			echo json_encode(array(
+				'label'	=> $clone->getLabel(),
+				'uri' 	=> tao_helpers_Uri::encode($clone->uriResource)
+			));
 		}
-		catch(Exception $e){
-			$message .= ". {$e->getMessage()}";
-		}
-		$this->setData('message', $message);
-		$this->forward('Subjects', 'index');
+	}
+	
+	public function import(){
+		$context = Context::getInstance();
+		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
+		$this->setView('index.tpl');
+	}
+	
+	public function export(){
+		$context = Context::getInstance();
+		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
+		$this->setView('index.tpl');
 	}
 	
 

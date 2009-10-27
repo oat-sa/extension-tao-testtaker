@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<extension name="Subjects" url="/taoSubjects/Subjects/index">
+		<sections>
+			<section name="subjects" url="/taoSubjects/Subjects/index">
+				<trees>
+					<tree name="subjects profiles" 
+						dataUrl="/taoSubjects/Subjects/getSubjects" 
+						editClassUrl="/taoSubjects/Subjects/editModel"
+						editInstanceUrl="/taoSubjects/Subjects/editInstance"
+						addInstanceUrl="/taoSubjects/Subjects/addInstance"
+						addSubClassUrl="/taoSubjects/Subjects/addModel"
+						deleteUrl="/taoSubjects/Subjects/delete"
+						duplicateUrl="/taoSubjects/Subjects/duplicate"
+					/>
+				</trees>
+				<actions>
+					<action name="import" url="/taoSubjects/Subjects/import" />
+					<action name="export" url="/taoSubjects/Subjects/export" />
+				</actions>
+			</section>
+		</sections>
+	</extension>
