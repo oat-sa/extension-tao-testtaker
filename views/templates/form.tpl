@@ -1,7 +1,9 @@
 <?include('header.tpl')?>
 
-<div class="ui-widget-header ui-corner-top ui-state-default" style="padding:5px;"><?=get_data('formTitle')?>:</div>
-<div class="ui-widget-content ui-corner-bottom ui-state-default" style="padding:5px; font-size:0.9em;">
+<div id="form-title" class="ui-widget-header ui-corner-top ui-state-default">
+	<?=get_data('formTitle')?>
+</div>
+<div id="form-container" class="ui-widget-content ui-corner-bottom ui-state-default">
 	<?=get_data('myForm')?>
 </div>
 

@@ -52,7 +52,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * Add an item instance
+	 * Add an subject instance
 	 */
 	public function addInstance(){
 		if(!tao_helpers_Request::isAjax()){
@@ -69,7 +69,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * edit an item instance
+	 * edit an subject instance
 	 */
 	public function editInstance(){
 		$model = $this->getCurrentModel();
@@ -93,7 +93,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * Sub Class
+	 * add a subject model (subclass Subject)
 	 */
 	public function addModel(){
 		if(!tao_helpers_Request::isAjax()){
@@ -109,7 +109,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * Edit a class
+	 * Edit a subject model (edit a class)
 	 */
 	public function editModel(){
 		$myForm = tao_helpers_form_GenerisFormFactory::classEditor($this->getCurrentModel(), new core_kernel_classes_Class( TAO_SUBJECT_CLASS ));
@@ -139,7 +139,7 @@ class Subjects extends Module {
 				}
 				$this->setData('message', 'model saved');
 				$this->setData('reload', true);
-				$this->forward('Items', 'index');
+				$this->forward('Subjects', 'index');
 			}
 		}
 		
@@ -149,7 +149,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * delete an item or an item class
+	 * delete a subject or a subject model
 	 * called via ajax
 	 */
 	public function delete(){
@@ -168,7 +168,7 @@ class Subjects extends Module {
 	}
 	
 	/**
-	 * duplicate an item instance by property copy
+	 * duplicate a subject instance by property copy
 	 */
 	public function duplicate(){
 		if(!tao_helpers_Request::isAjax()){
