@@ -44,7 +44,8 @@ class SubecjtsServiceTestCase extends UnitTestCase {
 		$this->assertIsA($subjectService, 'taoSubjects_models_classes_SubjectsService');
 		
 		//create a custom model for the needs of the test
-		$testModelClass = $subjectService->createSubjectModel(
+		$testModelClass = $subjectService->createSubjectClass(
+			null,
 			'aSubjectModel',
 			array(
 				'aProperty' => 'aValue',
@@ -58,11 +59,11 @@ class SubecjtsServiceTestCase extends UnitTestCase {
 		//create instances of the created custom subject model
 		$testModelInstance = $subjectService->createInstance($testModelClass, 'anInstance');
 		$this->assertIsA( $testModelInstance, 'core_kernel_classes_Resource');
-		$this->assertEqual($testModelClass->getProperties()->count(), 2);
+		$this->assertEqual(count($testModelClass->getProperties()), 2);
 		
 		$properties = array();
 		$i = 0;
-		foreach($testModelClass->getProperties()->getIterator() as $testPorperty){
+		foreach($testModelClass->getProperties() as $testPorperty){
 			$properties[$testPorperty->uriResource] = 'aValue_' . $i;
 			$i++;
 		}
@@ -82,18 +83,18 @@ class SubecjtsServiceTestCase extends UnitTestCase {
 		//edit property
 		$newProperties = array();
 		$i = 0;
-		foreach($testModelClass->getProperties()->getIterator() as $testPorperty){
+		foreach($testModelClass->getProperties() as $testPorperty){
 			$newProperties[$testPorperty->uriResource] = 'anEditedValue_' . $i;
 			$i++;
 		}
 		$testModelInstance = $subjectService->bindProperties( $testModelInstance, $newProperties );
 		
 		//clean the created resources
-		/*$testModelInstance->delete();
-		foreach($testModelClass->getProperties()->getIterator() as $testPorperty){
+		$testModelInstance->delete();
+		foreach($testModelClass->getProperties() as $testPorperty){
 			$testPorperty->delete();
 		}
-		$testModelClass->delete();*/
+		$testModelClass->delete();
 	}
 	
 }
