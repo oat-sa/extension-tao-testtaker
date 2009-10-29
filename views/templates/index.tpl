@@ -1,6 +1,6 @@
 <?include('header.tpl')?>
 
-<div id="main-container">
+<div class="main-container">
 	<?=get_data('content')?>
 </div>
 

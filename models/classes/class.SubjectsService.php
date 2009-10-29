@@ -9,7 +9,7 @@ error_reporting(E_ALL);
  *
  * This file is part of Generis Object Oriented API.
  *
- * Automatically generated on 27.10.2009, 13:43:15 with ArgoUML PHP module 
+ * Automatically generated on 29.10.2009, 14:06:46 with ArgoUML PHP module 
  * (last revised $Date: 2008-04-19 08:22:08 +0200 (Sat, 19 Apr 2008) $)
  *
  * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
@@ -91,12 +91,8 @@ class taoSubjects_models_classes_SubjectsService
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 begin
 		
 		parent::__construct();
-		
-		
-		
 		$this->subjectClass 	= new core_kernel_classes_Class( TAO_SUBJECT_CLASS );
 		$this->localNamespace	= LOCAL_NAMESPACE;
-
 		$this->loadOntologies($this->subjectsOntologies);
 
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
@@ -179,7 +175,7 @@ class taoSubjects_models_classes_SubjectsService
 		if(is_null($clazz)){
 			$clazz = $this->subjectClass;
 		}
-		if($this->isASubjectModel($clazz)){
+		if($this->isSubjectClass($clazz)){
 			$returnValue = $this->getOneInstanceBy( $clazz, $identifier, $mode);
 		}
 		
@@ -190,19 +186,19 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method getSubjectModels
+     * Short description of method getSubjectClasses
      *
      * @access public
      * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @return core_kernel_classes_ContainerCollection
      */
-    public function getSubjectModels()
+    public function getSubjectClasses()
     {
         $returnValue = null;
 
         // section 10-13-1-45--7118a60:123a410cfcb:-8000:0000000000001895 begin
 		
-		$returnValue = $this->subjectClass->getSubClasses();
+		$returnValue = $this->subjectClass->getSubClasses(true);
 		
         // section 10-13-1-45--7118a60:123a410cfcb:-8000:0000000000001895 end
 
@@ -210,24 +206,31 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method getSubjectModel
+     * get a subject subclass by uri. 
+     * If the uri is not set, it returns the subject class (the top level class.
+     * If the uri don't reference a subject subclass, it returns null
      *
      * @access public
      * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  string uri
      * @return core_kernel_classes_Class
      */
-    public function getSubjectModel($uri)
+    public function getSubjectClass($uri = '')
     {
         $returnValue = null;
 
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001891 begin
-
-		$clazz = new core_kernel_classes_Class($uri);
-		if($this->isASubjectModel($clazz)){
-			$returnValue = $clazz;
+		
+		if(empty($uri) && !is_null($this->subjectClass)){
+			$returnValue = $this->subjectClass;
 		}
-
+		else{
+			$clazz = new core_kernel_classes_Class($uri);
+			if($this->isSubjectClass($clazz)){
+				$returnValue = $clazz;
+			}
+		}
+		
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001891 end
 
         return $returnValue;
@@ -265,35 +268,39 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method createSubjectModel
+     * Short description of method createSubjectClass
      *
      * @access public
      * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @param  Class clazz
      * @param  string label
      * @param  array properties
      * @return core_kernel_classes_Class
      */
-    public function createSubjectModel($label, $properties = array())
+    public function createSubjectClass( core_kernel_classes_Class $clazz = null, $label = '', $properties = array())
     {
         $returnValue = null;
 
         // section 10-13-1-45--23b8408f:123a2bfe34c:-8000:0000000000001880 begin
 		
-		$subjectModelClass = $this->subjectClass->createSubClass(
-			$label,
-			$label . ' subject created from ' . get_class($this) . ' the '. date('Y-m-d h:i:s') 
-		);
-		
-		foreach($properties as $propertyName => $propertyValue){
-			$myProperty = $subjectModelClass->createProperty(
-				$propertyName,
-				$propertyName . ' ' . $label .' subject property created from ' . get_class($this) . ' the '. date('Y-m-d h:i:s') 
-			);
-			
-			//@todo implement check if there is a widget key and/or a range key
+		if(is_null($clazz)){
+			$clazz = $this->subjectClass;
 		}
-		$returnValue = $subjectModelClass;
 		
+		if($this->isSubjectClass($clazz)){
+		
+			$subjectClass = $this->createSubClass($clazz, $label);
+			
+			foreach($properties as $propertyName => $propertyValue){
+				$myProperty = $subjectClass->createProperty(
+					$propertyName,
+					$propertyName . ' ' . $label .' subject property created from ' . get_class($this) . ' the '. date('Y-m-d h:i:s') 
+				);
+				
+				//@todo implement check if there is a widget key and/or a range key
+			}
+			$returnValue = $subjectClass;
+		}
         // section 10-13-1-45--23b8408f:123a2bfe34c:-8000:0000000000001880 end
 
         return $returnValue;
@@ -325,20 +332,20 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method deleteSubjectModel
+     * Short description of method deleteSubjectClass
      *
      * @access public
      * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Class clazz
      * @return boolean
      */
-    public function deleteSubjectModel( core_kernel_classes_Class $clazz)
+    public function deleteSubjectClass( core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
 
         // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 begin
 		if(!is_null($clazz)){
-			if($this->isASubjectModel($clazz)){
+			if($this->isSubjectClass($clazz) && $clazz->uriResource != $this->subjectClass->uriResource){
 				$returnValue = $clazz->delete();
 			}
 		}
@@ -381,14 +388,14 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method isASubjectModel
+     * Short description of method isSubjectClass
      *
      * @access protected
      * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
      * @param  Class clazz
      * @return boolean
      */
-    protected function isASubjectModel( core_kernel_classes_Class $clazz)
+    protected function isSubjectClass( core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
 
@@ -397,7 +404,7 @@ class taoSubjects_models_classes_SubjectsService
 			$returnValue = true;	
 		}
 		else{
-			foreach($this->getSubjectModels() as $subclass){
+			foreach($this->getSubjectClasses() as $subclass){
 				if($clazz->uriResource == $subclass->uriResource){
 					$returnValue = true;
 					break;	
