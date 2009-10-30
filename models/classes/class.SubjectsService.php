@@ -301,6 +301,7 @@ class taoSubjects_models_classes_SubjectsService
 			}
 			$returnValue = $subjectClass;
 		}
+		
         // section 10-13-1-45--23b8408f:123a2bfe34c:-8000:0000000000001880 end
 
         return $returnValue;
@@ -344,11 +345,13 @@ class taoSubjects_models_classes_SubjectsService
         $returnValue = (bool) false;
 
         // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 begin
+		
 		if(!is_null($clazz)){
 			if($this->isSubjectClass($clazz) && $clazz->uriResource != $this->subjectClass->uriResource){
 				$returnValue = $clazz->delete();
 			}
 		}
+
         // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 end
 
         return (bool) $returnValue;
@@ -400,6 +403,7 @@ class taoSubjects_models_classes_SubjectsService
         $returnValue = (bool) false;
 
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 begin
+		
 		if($clazz->uriResource == $this->subjectClass->uriResource){
 			$returnValue = true;	
 		}
@@ -411,6 +415,7 @@ class taoSubjects_models_classes_SubjectsService
 				}
 			}
 		}
+		
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 end
 
         return (bool) $returnValue;

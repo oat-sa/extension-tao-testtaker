@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension name="Subjects" url="/taoSubjects/Subjects/index">
+<extension name="Subjects" url="/taoSubjects/Subjects/index" level="2">
 	<sections>
 		<section name="subjects" url="/taoSubjects/Subjects/index">
 			<trees>

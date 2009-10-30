@@ -83,9 +83,9 @@ class Subjects extends Module {
 			}
 		}
 		
-		$this->setData('formTitle', 'Create a new subject');
+		$this->setData('formTitle', 'Edit subject');
 		$this->setData('myForm', $myForm->render());
-		$this->setView('form.tpl');;
+		$this->setView('form.tpl');
 	}
 	
 	/**
@@ -140,7 +140,7 @@ class Subjects extends Module {
 			}
 		}
 		
-		$this->setData('formTitle', 'Edit a model');
+		$this->setData('formTitle', 'Edit subject class');
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form.tpl');
 	}
