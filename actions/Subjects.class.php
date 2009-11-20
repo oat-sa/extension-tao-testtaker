@@ -1,4 +1,7 @@
 <?php
+require_once('tao/actions/CommonModule.class.php');
+require_once('tao/actions/TaoModule.class.php');
+
 /**
  * Subjects Controller provide actions performed from url resolution
  * 
@@ -6,12 +9,44 @@
  * @package taoSubjects
  * @subpackage actions
  */
-class Subjects extends Module {
+class Subjects extends TaoModule {
 
-	protected $service = null;
-
+	/**
+	 * constructor: initialize the service and the default data
+	 * @return Subjects
+	 */
 	public function __construct(){
+		
+		parent::__construct();
+		
+		//the service is initialized by default
 		$this->service = tao_models_classes_ServiceFactory::get('Subjects');
+		$this->defaultData();
+	}
+	
+/*
+ * conveniance methods
+ */
+	
+	/**
+	 * get the instancee of the current subject regarding the 'uri' and 'classUri' request parameters
+	 * @return core_kernel_classes_Resource the subject instance
+	 */
+	private function getCurrentSubject(){
+		
+		$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
+		if(is_null($uri) || empty($uri)){
+			throw new Exception("No valid uri found");
+		}
+		
+		$clazz = $this->getCurrentClass();
+		
+		$subject = $this->service->getSubject($uri, 'uri', $clazz);
+		if(is_null($subject)){
+			throw new Exception("No subject found for the uri {$uri}");
+		}
+		
+		return $subject;
 	}
 	
 /*
@@ -23,6 +58,12 @@ class Subjects extends Module {
 	 * @return void
 	 */
 	public function index(){
+		
+		if($this->getData('reload') == true){
+			unset($_SESSION[SESSION_NAMESPACE]['uri']);
+			unset($_SESSION[SESSION_NAMESPACE]['classUri']);
+		}
+		
 		$context = Context::getInstance();
 		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
 		$this->setView('index.tpl');
@@ -43,8 +84,7 @@ class Subjects extends Module {
 			$highlightUri = $this->getSessionAttribute("showNodeUri");
 			unset($_SESSION[SESSION_NAMESPACE]["showNodeUri"]);
 		} 
-		$data = $this->service->toTree( $this->service->getSubjectClass(), true, true, $highlightUri);
-		echo json_encode($data);
+		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, $highlightUri));
 	}
 	
 	/**
@@ -54,7 +94,7 @@ class Subjects extends Module {
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
-		$clazz = $this->getCurrentSubjectClass();
+		$clazz = $this->getCurrentClass();
 		$subject = $this->service->createInstance($clazz);
 		if(!is_null($subject) && $subject instanceof core_kernel_classes_Resource){
 			echo json_encode(array(
@@ -68,7 +108,7 @@ class Subjects extends Module {
 	 * edit an subject instance
 	 */
 	public function editSubject(){
-		$clazz = $this->getCurrentSubjectClass();
+		$clazz = $this->getCurrentClass();
 		$subject = $this->getCurrentSubject();
 		$myForm = tao_helpers_form_GenerisFormFactory::instanceEditor($clazz, $subject);
 		if($myForm->isSubmited()){
@@ -95,7 +135,7 @@ class Subjects extends Module {
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
-		$clazz = $this->service->createSubjectClass($this->getCurrentSubjectClass());
+		$clazz = $this->service->createSubjectClass($this->getCurrentClass());
 		if(!is_null($clazz) && $clazz instanceof core_kernel_classes_Class){
 			echo json_encode(array(
 				'label'	=> $clazz->getLabel(),
@@ -108,38 +148,17 @@ class Subjects extends Module {
 	 * Edit a subject model (edit a class)
 	 */
 	public function editSubjectClass(){
-		$clazz = $this->getCurrentSubjectClass();
-		$myForm = tao_helpers_form_GenerisFormFactory::classEditor($clazz, $this->service->getSubjectClass());
+		$myForm = $this->editClass($this->getCurrentClass(), $this->service->getSubjectClass());
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
-				
-				$classValues = array();
-				$propertyValues = array();
-				foreach($myForm->getValues() as $key => $value){
-					if(preg_match("/^class_/", $key)){
-						$classKey =  tao_helpers_Uri::decode(str_replace('class_', '', $key));
-						$classValues[$classKey] =  tao_helpers_Uri::decode($value);
-					}
-					if(preg_match("/^property_/", $key)){
-						$key = str_replace('property_', '', $key);
-						$propNum = substr($key, 0, 1 );
-						$propKey = tao_helpers_Uri::decode(str_replace($propNum.'_', '', $key));
-						$propertyValues[$propNum][$propKey] = tao_helpers_Uri::decode($value);
-					}
-				}
-				$clazz = $this->service->bindProperties($clazz, $classValues);
-				foreach($propertyValues as $propNum => $properties){
-					$this->service->bindProperties(new core_kernel_classes_Resource(tao_helpers_Uri::decode($_POST['propertyUri'.$propNum])), $properties);
-				}
-				if($clazz instanceof core_kernel_classes_Class){
+				if($clazz instanceof core_kernel_classes_Resource){
 					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->uriResource));
 				}
-				$this->setData('message', 'subject class saved');
+				$this->setData('message', 'class saved');
 				$this->setData('reload', true);
 				$this->forward('Subjects', 'index');
 			}
 		}
-		
 		$this->setData('formTitle', 'Edit subject class');
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form.tpl');
@@ -159,7 +178,7 @@ class Subjects extends Module {
 			$deleted = $this->service->deleteSubject($this->getCurrentSubject());
 		}
 		else{
-			$deleted = $this->service->deleteSubjectClass($this->getCurrentSubjectClass());
+			$deleted = $this->service->deleteSubjectClass($this->getCurrentClass());
 		}
 		
 		echo json_encode(array('deleted'	=> $deleted));
@@ -174,7 +193,7 @@ class Subjects extends Module {
 		}
 		
 		$subject = $this->getCurrentSubject();
-		$clazz = $this->getCurrentSubjectClass();
+		$clazz = $this->getCurrentClass();
 		
 		$clone = $this->service->createInstance($clazz);
 		if(!is_null($clone)){
@@ -192,51 +211,25 @@ class Subjects extends Module {
 		}
 	}
 	
+	/*
+	 * @TODO implement the following actions
+	 */
+	
+	public function getMetaData(){
+		throw new Exception("Not yet implemented");
+	}
+	
+	public function saveComment(){
+		throw new Exception("Not yet implemented");
+	}
+	
 	public function import(){
-		$context = Context::getInstance();
-		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
-		$this->setView('index.tpl');
+		throw new Exception("Not yet implemented");
 	}
 	
 	public function export(){
-		$context = Context::getInstance();
-		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
-		$this->setView('index.tpl');
+		throw new Exception("Not yet implemented");
 	}
-	
 
-	/*
-	 * conveniance methods
-	 */
-	private function getCurrentSubject(){
-		
-		$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
-		if(is_null($uri) || empty($uri)){
-			throw new Exception("No valid uri found");
-		}
-		
-		$clazz = $this->getCurrentSubjectClass();
-		
-		$subject = $this->service->getSubject($uri, 'uri', $clazz);
-		if(is_null($subject)){
-			throw new Exception("No subject found for the uri {$uri}");
-		}
-		
-		return $subject;
-	}
-	
-	private function getCurrentSubjectClass(){
-		$classUri = tao_helpers_Uri::decode($this->getRequestParameter('classUri'));
-		if(is_null($classUri) || empty($classUri)){
-			throw new Exception("No valid uri found");
-		}
-		
-		$clazz = $this->service->getSubjectClass($classUri);
-		if(is_null($clazz)){
-			throw new Exception("No class found for the uri {$classUri}");
-		}
-		
-		return $clazz;
-	}
 }
 ?>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension name="Subjects" url="/taoSubjects/Subjects/index" level="2">
+<extension name="Testees" url="/taoSubjects/Subjects/index" level="2">
 	<sections>
-		<section name="subjects" url="/taoSubjects/Subjects/index">
+		<section name="Manage testees" url="/taoSubjects/Subjects/index">
 			<trees>
-				<tree name="subjects profiles" 
+				<tree name="Testees library" 
 					dataUrl="/taoSubjects/Subjects/getSubjects" 
 					editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 					editInstanceUrl="/taoSubjects/Subjects/editSubject"
@@ -11,10 +11,14 @@
 					addSubClassUrl="/taoSubjects/Subjects/addSubjectClass"
 					deleteUrl="/taoSubjects/Subjects/delete"
 					duplicateUrl="/taoSubjects/Subjects/cloneSubject"
-					gridUrl=""
 				/>
 			</trees>
 			<actions>
+				<action name="new class" js="subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
+				<action name="new subject" js="instanciate" url="/taoSubjects/Subjects/addSubject" context="class" />
+				<action name="delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
+				<action name="duplicate" js="cloneNode" url="/taoSubjects/Subjects/cloneSubject" context="instance" />
+				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
 				<action name="import" url="/taoSubjects/Subjects/import" />
 				<action name="export" url="/taoSubjects/Subjects/export" />
 			</actions>
