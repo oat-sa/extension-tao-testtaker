@@ -148,7 +148,8 @@ class Subjects extends TaoModule {
 	 * Edit a subject model (edit a class)
 	 */
 	public function editSubjectClass(){
-		$myForm = $this->editClass($this->getCurrentClass(), $this->service->getSubjectClass());
+		$clazz = $this->getCurrentClass();
+		$myForm = $this->editClass($clazz, $this->service->getSubjectClass());
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				if($clazz instanceof core_kernel_classes_Resource){
