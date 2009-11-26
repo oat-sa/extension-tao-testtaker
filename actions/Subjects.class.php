@@ -212,6 +212,18 @@ class Subjects extends TaoModule {
 		}
 	}
 	
+	public function getLists(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		
+		echo json_encode(
+			$this->getListData(array(
+				TAO_SUBJECT_CLASS
+			))
+		);
+	}
+	
 	/*
 	 * @TODO implement the following actions
 	 */
