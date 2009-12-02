@@ -19,8 +19,8 @@
 				<action name="delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
 				<action name="duplicate" js="cloneNode" url="/taoSubjects/Subjects/cloneSubject" context="instance" />
 				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
-				<action name="import" url="/taoSubjects/Subjects/import" />
-				<action name="export" url="/taoSubjects/Subjects/export" />
+				<action name="import" url="/taoSubjects/Subjects/import" context="class" />
+				<action name="export" url="/taoSubjects/Subjects/export" context="class" reload="true" />
 			</actions>
 		</section>
 	</sections>

@@ -187,6 +187,7 @@ class Subjects extends TaoModule {
 	
 	/**
 	 * duplicate a subject instance by property copy
+	 * @return void
 	 */
 	public function cloneSubject(){
 		if(!tao_helpers_Request::isAjax()){
@@ -212,6 +213,10 @@ class Subjects extends TaoModule {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return void
+	 */
 	public function getLists(){
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
@@ -236,13 +241,7 @@ class Subjects extends TaoModule {
 		throw new Exception("Not yet implemented");
 	}
 	
-	public function import(){
-		throw new Exception("Not yet implemented");
-	}
 	
-	public function export(){
-		throw new Exception("Not yet implemented");
-	}
-
+	
 }
 ?>
