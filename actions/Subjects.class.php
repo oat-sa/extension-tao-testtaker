@@ -214,7 +214,7 @@ class Subjects extends TaoModule {
 	}
 	
 	/**
-	 * 
+	 * get the list data: all taoObjects children except the TAO_SUBJECT_CLASS
 	 * @return void
 	 */
 	public function getLists(){
@@ -240,8 +240,6 @@ class Subjects extends TaoModule {
 	public function saveComment(){
 		throw new Exception("Not yet implemented");
 	}
-	
-	
 	
 }
 ?>
