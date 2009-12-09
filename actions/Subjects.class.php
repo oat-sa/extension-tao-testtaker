@@ -125,7 +125,7 @@ class Subjects extends TaoModule {
 		
 		$this->setData('formTitle', 'Edit subject');
 		$this->setData('myForm', $myForm->render());
-		$this->setView('form.tpl');
+		$this->setView('form_group.tpl');
 	}
 	
 	/**
@@ -232,6 +232,22 @@ class Subjects extends TaoModule {
 	/*
 	 * @TODO implement the following actions
 	 */
+	
+	public function getGroups(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		
+		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, ''));
+	}
+	
+	public function saveGroups(){
+		if(!tao_helpers_Request::isAjax()){
+			throw new Exception("wrong request mode");
+		}
+		$saved = false;
+		echo json_encode(array('saved'	=> $saved));
+	}
 	
 	public function getMetaData(){
 		throw new Exception("Not yet implemented");
