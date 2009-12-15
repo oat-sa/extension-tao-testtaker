@@ -5,12 +5,12 @@ error_reporting(E_ALL);
 /**
  * Generis Object Oriented API -
  *
- * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
+ * $Id$
  *
  * This file is part of Generis Object Oriented API.
  *
- * Automatically generated on 29.10.2009, 14:06:46 with ArgoUML PHP module 
- * (last revised $Date: 2008-04-19 08:22:08 +0200 (Sat, 19 Apr 2008) $)
+ * Automatically generated on 15.12.2009, 12:44:07 with ArgoUML PHP module 
+ * (last revised $Date: 2009-04-11 21:57:46 +0200 (Sat, 11 Apr 2009) $)
  *
  * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
  * @package taoSubjects
@@ -75,7 +75,7 @@ class taoSubjects_models_classes_SubjectsService
      * @access protected
      * @var array
      */
-    protected $subjectsOntologies = array('http://www.tao.lu/Ontologies/TAOSubject.rdf');
+    protected $subjectsOntologies = array('http://www.tao.lu/Ontologies/TAOSubject.rdf', 'http://www.tao.lu/Ontologies/TAOGroup.rdf');
 
     // --- OPERATIONS ---
 
@@ -417,6 +417,92 @@ class taoSubjects_models_classes_SubjectsService
 		}
 		
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 end
+
+        return (bool) $returnValue;
+    }
+
+    /**
+     * Short description of method getSubjectGroups
+     *
+     * @access public
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @param  Resource subject
+     * @return array
+     */
+    public function getSubjectGroups( core_kernel_classes_Resource $subject)
+    {
+        $returnValue = array();
+
+        // section 127-0-1-1-3cab853e:12592221770:-8000:0000000000001D27 begin
+		
+		if(!is_null($subject)){
+			$groupClass 		= new core_kernel_classes_Class(TAO_GROUP_CLASS);
+			$membersProperty	= new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
+			
+			foreach($groupClass->getInstances(true) as $instance){
+				foreach($instance->getPropertyValues($membersProperty) as $member){
+					if($member == $subject->uriResource){
+						$returnValue[] = $instance->uriResource;
+						break;
+					}
+				}
+			}
+		}
+
+        // section 127-0-1-1-3cab853e:12592221770:-8000:0000000000001D27 end
+
+        return (array) $returnValue;
+    }
+
+    /**
+     * Short description of method setSubjectGroups
+     *
+     * @access public
+     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @param  Resource subject
+     * @param  array groups
+     * @return boolean
+     */
+    public function setSubjectGroups( core_kernel_classes_Resource $subject, $groups = array())
+    {
+        $returnValue = (bool) false;
+
+        // section 127-0-1-1-3cab853e:12592221770:-8000:0000000000001D2A begin
+		
+		if(!is_null($subject)){
+			$groupClass 		= new core_kernel_classes_Class(TAO_GROUP_CLASS);
+			$membersProperty	= new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
+			
+			$done = 0;
+			foreach($groupClass->getInstances(true) as $instance){
+				$newMembers = array();
+				$updateIt = false;
+				foreach($instance->getPropertyValues($membersProperty) as $member){
+					if($member == $subject->uriResource){
+						$updateIt = true;
+					}
+					else{
+						$newMembers[] = $member;
+					}
+				}
+				if($updateIt){
+					$instance->removePropertyValue($membersProperty);
+					foreach($newMembers as $newMember){
+						$instance->setPropertyValue($membersProperty, $newMember);
+					}
+				}
+				if(in_array($instance->uriResource, $groups)){
+					if($instance->setPropertyValue($membersProperty, $subject->uriResource)){
+						$done++;
+					}
+				}
+			}
+			if($done == count($groups)){
+				$returnValue = true;
+			}
+		}
+		
+        // section 127-0-1-1-3cab853e:12592221770:-8000:0000000000001D2A end
 
         return (bool) $returnValue;
     }

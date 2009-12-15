@@ -126,6 +126,10 @@ class Subjects extends TaoModule {
 			}
 		}
 		
+		$subjectGroups = $this->service->getSubjectGroups($subject);
+		$subjectGroups = array_map("tao_helpers_Uri::encode", $subjectGroups);
+		$this->setData('subjectGroups', json_encode($subjectGroups));
+		
 		$this->setData('formTitle', 'Edit subject');
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form_group.tpl');
@@ -232,25 +236,44 @@ class Subjects extends TaoModule {
 		);
 	}
 	
-	/*
-	 * @TODO implement the following actions
+	/**
+	 * get the list of groups to populate the checkbox tree of groups to link with
+	 * @return void
 	 */
-	
 	public function getGroups(){
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
 		
-		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, ''));
+		echo json_encode($this->service->toTree( new core_kernel_classes_Class(TAO_GROUP_CLASS), true, true, ''));
 	}
 	
+	/**
+	 * save from the checkbox tree the groups to link with 
+	 * @return void
+	 */
 	public function saveGroups(){
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
 		$saved = false;
+		$groups = array();
+		foreach($this->getRequestParameters() as $key => $value){
+			if(preg_match("/^instance_/", $key)){
+				array_push($groups, tao_helpers_Uri::decode($value));
+			}
+		}
+		$subject = $this->getCurrentSubject();
+		
+		if($this->service->setSubjectGroups($subject, $groups)){
+			$saved = true;
+		}
 		echo json_encode(array('saved'	=> $saved));
 	}
+	
+	/*
+	 * @TODO implement the following actions
+	 */
 	
 	public function getMetaData(){
 		throw new Exception("Not yet implemented");

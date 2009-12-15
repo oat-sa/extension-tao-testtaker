@@ -23,7 +23,8 @@
 $(function(){
 	new GenerisTreeFormClass('#group-tree', "/taoSubjects/Subjects/getGroups", {
 		actionId: 'group',
-		saveUrl : '/taoSubjects/Subjects/saveGroups'
+		saveUrl : '/taoSubjects/Subjects/saveGroups',
+		checkedNodes : <?=get_data('subjectGroups')?>
 	});
 });
 </script>
