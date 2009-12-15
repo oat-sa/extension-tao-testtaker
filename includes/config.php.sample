@@ -1,7 +1,12 @@
 <?php 
 /**
  * main configuration file
+ *
+ * @author CRP Henri Tudor - TAO Team - {@link http://www.tao.lu}
+ * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
+ * 
  */
+
 
 # plugins directory
 define("DIR_PLUGIN"			, dirname(__FILE__). "/../plugins/");
