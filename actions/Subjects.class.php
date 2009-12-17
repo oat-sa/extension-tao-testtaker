@@ -87,7 +87,11 @@ class Subjects extends TaoModule {
 			$highlightUri = $this->getSessionAttribute("showNodeUri");
 			unset($_SESSION[SESSION_NAMESPACE]["showNodeUri"]);
 		} 
-		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, $highlightUri));
+		$filter = '';
+		if($this->hasRequestParameter('filter')){
+			$filter = $this->getRequestParameter('filter');
+		}
+		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, $highlightUri, $filter));
 	}
 	
 	/**
