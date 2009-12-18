@@ -66,9 +66,6 @@ class Subjects extends TaoModule {
 			unset($_SESSION[SESSION_NAMESPACE]['uri']);
 			unset($_SESSION[SESSION_NAMESPACE]['classUri']);
 		}
-		
-		$context = Context::getInstance();
-		$this->setData('content', "this is the ". get_class($this) ." module, " . $context->getActionName());
 		$this->setView('index.tpl');
 	}
 	

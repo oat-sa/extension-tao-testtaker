@@ -1,8 +1,12 @@
 <?include('header.tpl')?>
 
 <div class="main-container">
-	<?=get_data('content')?><br />
-	<span class="cut-me">this is a long text cutted withh a more option and a mouseover to display it completly</span>
+	<div class="ext-home-container ui-state-highlight">
+		<h1><img src="<?=BASE_WWW?>img/taoSubjects.png" /> Testees</h1>
+		<p>The Testees module allows to record and manage  testees.<br />
+		Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.). <br />
+		Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.).</p> 
+	</div>
 </div>
 
 <?include('footer.tpl')?>
