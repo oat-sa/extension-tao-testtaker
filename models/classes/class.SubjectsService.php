@@ -3,16 +3,9 @@
 error_reporting(E_ALL);
 
 /**
- * Generis Object Oriented API -
+ * Service methods to manage the Subjects business models using the RDF API.
  *
- * $Id$
- *
- * This file is part of Generis Object Oriented API.
- *
- * Automatically generated on 15.12.2009, 12:44:07 with ArgoUML PHP module 
- * (last revised $Date: 2009-04-11 21:57:46 +0200 (Sat, 11 Apr 2009) $)
- *
- * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+ * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -25,7 +18,7 @@ if (0 > version_compare(PHP_VERSION, '5')) {
  * The Service class is an abstraction of each service instance. 
  * Used to centralize the behavior related to every servcie instances.
  *
- * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+ * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
  */
 require_once('tao/models/classes/class.Service.php');
 
@@ -38,10 +31,10 @@ require_once('tao/models/classes/class.Service.php');
 // section 10-13-1-45-792423e0:12398d13f24:-8000:00000000000017A5-constants end
 
 /**
- * Short description of class taoSubjects_models_classes_SubjectsService
+ * Service methods to manage the Subjects business models using the RDF API.
  *
  * @access public
- * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+ * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -54,7 +47,7 @@ class taoSubjects_models_classes_SubjectsService
     // --- ATTRIBUTES ---
 
     /**
-     * Short description of attribute subjectClass
+     * The RDFS top level subject class
      *
      * @access protected
      * @var Class
@@ -70,7 +63,7 @@ class taoSubjects_models_classes_SubjectsService
     protected $localNamspace = '';
 
     /**
-     * Short description of attribute subjectsOntologies
+     * The ontologies to load
      *
      * @access protected
      * @var array
@@ -83,7 +76,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method __construct
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @return mixed
      */
     public function __construct()
@@ -102,7 +95,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjects
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Class clazz
      * @param  array options
      * @return core_kernel_classes_ContainerCollection
@@ -160,7 +153,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubject
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  string identifier
      * @param  string mode
      * @param  Class clazz
@@ -189,7 +182,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjectClasses
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @return core_kernel_classes_ContainerCollection
      */
     public function getSubjectClasses()
@@ -211,7 +204,7 @@ class taoSubjects_models_classes_SubjectsService
      * If the uri don't reference a subject subclass, it returns null
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  string uri
      * @return core_kernel_classes_Class
      */
@@ -240,7 +233,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method getSubjectClassProperties
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @return core_kernel_classes_ContainerCollection
      */
     public function getSubjectClassProperties()
@@ -271,7 +264,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method createSubjectClass
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Class clazz
      * @param  string label
      * @param  array properties
@@ -308,10 +301,10 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method deleteSubject
+     * delete a subject instance
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Resource subject
      * @return boolean
      */
@@ -333,10 +326,10 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method deleteSubjectClass
+     * delete a subject class or sublcass
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Class clazz
      * @return boolean
      */
@@ -361,7 +354,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method isCustom
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Resource resource
      * @return boolean
      */
@@ -394,7 +387,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method isSubjectClass
      *
      * @access protected
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Class clazz
      * @return boolean
      */
@@ -422,10 +415,10 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method getSubjectGroups
+     * retrieve the list of groups where the subject has been set
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Resource subject
      * @return array
      */
@@ -455,10 +448,10 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method setSubjectGroups
+     * set the list of groups where the subject is
      *
      * @access public
-     * @author Bertrand Chevrier, <chevrier.bertrand@gmail.com>
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Resource subject
      * @param  array groups
      * @return boolean
