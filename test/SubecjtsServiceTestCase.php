@@ -70,10 +70,6 @@ class SubecjtsServiceTestCase extends UnitTestCase {
 
 		$this->assertIsA( $testModelInstance, 'core_kernel_classes_Resource' );
 		
-		//check if the model is recognized as a custom model (in opposition with the default models)
-		$this->assertTrue( $subjectService->isCustom($testModelClass) );
-		
-		
 		$myCustomProperty = $subjectService->getPropertyByLabel($testModelClass, 'aProperty');
 		$this->assertIsA($myCustomProperty, 'core_kernel_classes_Property');
 		

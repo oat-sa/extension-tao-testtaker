@@ -55,14 +55,6 @@ class taoSubjects_models_classes_SubjectsService
     protected $subjectClass = null;
 
     /**
-     * Short description of attribute localNamspace
-     *
-     * @access protected
-     * @var string
-     */
-    protected $localNamspace = '';
-
-    /**
      * The ontologies to load
      *
      * @access protected
@@ -85,68 +77,9 @@ class taoSubjects_models_classes_SubjectsService
 		
 		parent::__construct();
 		$this->subjectClass 	= new core_kernel_classes_Class( TAO_SUBJECT_CLASS );
-		$this->localNamespace	= LOCAL_NAMESPACE;
 		$this->loadOntologies($this->subjectsOntologies);
 
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
-    }
-
-    /**
-     * Short description of method getSubjects
-     *
-     * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
-     * @param  Class clazz
-     * @param  array options
-     * @return core_kernel_classes_ContainerCollection
-     */
-    public function getSubjects( core_kernel_classes_Class $clazz = null, $options = array())
-    {
-        $returnValue = null;
-
-        // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:0000000000001797 begin
-		
-		if(is_null($clazz)){
-			$clazz = $this->subjectClass;
-		}
-		
-		//verify the class type
-		if( $clazz->uriResource != $this->subjectClass->uriResource ){
-			if( ! $clazz->isSubClassOf($this->subjectClass) ){
-				throw new Exception("your clazz argument must referr to a Subject or Subject's subclass in your ontology ");
-			}
-		}
-		
-		$instances = $clazz->getInstances();
-		if($instances->count() > 0){
-			
-			//paginate options
-			//@todo implements
-			if(count($options) > 0){
-			
-				$sequence = $instances->sequence;
-				
-				if(isset($options['order'])){
-					//order sequence by $options['order']
-				}
-				if(isset($options['start'])){
-					//return sequence from $options['start'] index
-				}
-				if(isset($options['offset'])){
-					//return  $options['offset'] elements of the sequence
-				}
-			
-				$returnValue = new core_kernel_classes_ContainerCollection(new core_kernel_classes_Container(__METHOD__),__METHOD__);
-				$returnValue->sequence = $sequence;
-			}
-			else{
-				$returnValue = $instances;
-			}
-		}
-		
-        // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:0000000000001797 end
-
-        return $returnValue;
     }
 
     /**
@@ -238,37 +171,6 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method getSubjectClassProperties
-     *
-     * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
-     * @return core_kernel_classes_ContainerCollection
-     */
-    public function getSubjectClassProperties()
-    {
-        $returnValue = null;
-
-        // section 10-13-1-45-3a1b83be:123dbe69b5e:-8000:00000000000018B8 begin
-		
-		$pattern = "/^".str_replace('/', '\/', preg_quote(TAO_SUBJECT_NAMESPACE))."/";
-		
-		$returnValue = new core_kernel_classes_ContainerCollection(new core_kernel_classes_Container(__METHOD__),__METHOD__);
-		
-		$taoObjectClass = new core_kernel_classes_Class(TAO_OBJECT_CLASS);
-		foreach($taoObjectClass->getSubClasses()->getIterator() as $subClass){
-			
-			if( $subClass->uriResource != $this->subjectClass->uriResource && 
-				preg_match($pattern, $subClass->uriResource)){
-				$returnValue->add($subClass);
-			}
-		}
-		
-        // section 10-13-1-45-3a1b83be:123dbe69b5e:-8000:00000000000018B8 end
-
-        return $returnValue;
-    }
-
-    /**
      * Short description of method createSubjectClass
      *
      * @access public
@@ -323,9 +225,7 @@ class taoSubjects_models_classes_SubjectsService
         // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:000000000000179D begin
 		
 		if(!is_null($subject)){
-			if($this->isCustom($subject)){
 				$returnValue = $subject->delete();
-			}
 		}
 		
         // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:000000000000179D end
@@ -354,39 +254,6 @@ class taoSubjects_models_classes_SubjectsService
 		}
 
         // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 end
-
-        return (bool) $returnValue;
-    }
-
-    /**
-     * Short description of method isCustom
-     *
-     * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
-     * @param  Resource resource
-     * @return boolean
-     */
-    public function isCustom( core_kernel_classes_Resource $resource)
-    {
-        $returnValue = (bool) false;
-
-        // section 10-13-1-45--135fece8:123b76cb3ff:-8000:00000000000018B9 begin
-		
-		if(strpos($resource->uriResource, '#') === 0){
-			//for a short, the namespace is always the local namespace 
-			return true;
-		}
-		
-		$resourceTokens = explode('#',  $resource->uriResource);
-		if(count($resourceTokens) != 2){
-			throw new Exception("The uri {$resource->uriResource} isn't well formated");
-		}
-		
-		if( trim($resourceTokens[0]) == $this->localNamespace ){
-			$returnValue = true;
-		}
-		
-        // section 10-13-1-45--135fece8:123b76cb3ff:-8000:00000000000018B9 end
 
         return (bool) $returnValue;
     }
