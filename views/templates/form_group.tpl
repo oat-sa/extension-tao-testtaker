@@ -1,6 +1,6 @@
 <?include('header.tpl')?>
 
-<div id="group-container" >
+<div id="group-container" class="data-container">
 	<div class="ui-widget ui-state-default ui-widget-header ui-corner-top container-title" >
 		<?=__('Add to group')?>
 	</div>
