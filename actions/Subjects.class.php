@@ -202,18 +202,8 @@ class Subjects extends TaoModule {
 			throw new Exception("wrong request mode");
 		}
 		
-		$subject = $this->getCurrentSubject();
-		$clazz = $this->getCurrentClass();
-		
-		$clone = $this->service->createInstance($clazz);
+		$clone = $this->service->cloneInstance($this->getCurrentSubject(), $this->getCurrentClass());
 		if(!is_null($clone)){
-			
-			foreach($clazz->getProperties() as $property){
-				foreach($subject->getPropertyValues($property) as $propertyValue){
-					$clone->setPropertyValue($property, $propertyValue);
-				}
-			}
-			$clone->setLabel($subject->getLabel()."'");
 			echo json_encode(array(
 				'label'	=> $clone->getLabel(),
 				'uri' 	=> tao_helpers_Uri::encode($clone->uriResource)

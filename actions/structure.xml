@@ -14,13 +14,13 @@
 				/>
 			</trees>
 			<actions>
-				<action name="new class" js="subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
-				<action name="new subject" js="instanciate" url="/taoSubjects/Subjects/addSubject" context="class" />
-				<action name="delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
-				<action name="duplicate" js="duplicateNode" url="/taoSubjects/Subjects/cloneSubject" context="instance" />
+				<action name="new class" js="GenerisAction.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
+				<action name="new subject" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addSubject" context="class" />
+				<action name="delete" js="GenerisAction.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
+				<action name="duplicate" js="GenerisAction.duplicateNode" url="/taoSubjects/Subjects/cloneSubject" context="instance" />
 				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
-				<action name="new property" js="addProperty" url="/taoSubjects/Subjects/addClassProperty" context="class" />
-				<action name="create table" js="resultTable" url="/taoResults/Results/createTable"  context="class" />
+				<action name="new property" js="GenerisAction.addProperty" url="/taoSubjects/Subjects/addClassProperty" context="class" />
+				<action name="create table" js="GenerisAction.resultTable" url="/taoResults/Results/createTable"  context="class" />
 				<action name="import" url="/taoSubjects/Subjects/import" context="class" />
 				<action name="export" url="/taoSubjects/Subjects/export" context="class" reload="true" />
 			</actions>
