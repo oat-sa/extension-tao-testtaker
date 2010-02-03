@@ -1,3 +1,4 @@
 /* auto generated content */
 /* extesion: taoSubjects, lang: LU */
-var i18n_tr_LU = {"Add to group":"","Save":""};
+var langCode = 'LU';
+var i18n_tr = {"Add to group":"","Save":""};

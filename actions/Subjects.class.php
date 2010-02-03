@@ -118,7 +118,6 @@ class Subjects extends TaoModule {
 				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
 				$this->setData('message', 'Subject saved');
 				$this->setData('reload', true);
-				$this->forward('Subjects', 'index');
 			}
 		}
 		
@@ -160,7 +159,6 @@ class Subjects extends TaoModule {
 				}
 				$this->setData('message', 'class saved');
 				$this->setData('reload', true);
-				$this->forward('Subjects', 'index');
 			}
 		}
 		$this->setData('formTitle', 'Edit subject class');
