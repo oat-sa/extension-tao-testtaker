@@ -1,6 +1,63 @@
-msgid "Add to group"
+msgid ""
 msgstr ""
 
+msgid "Edit subject"
+msgstr "Modifier sujet"
+
+msgid "Class saved"
+msgstr "Classe enregistrée"
+
+msgid "Edit subject class"
+msgstr "Modifier la classe sujet"
+
+msgid "Testees"
+msgstr "Sujets"
+
+msgid "Manage testees"
+msgstr "Gérer les sujets"
+
+msgid "Testees library"
+msgstr "Librairie de sujets"
+
+msgid "new class"
+msgstr "nouvelle classe"
+
+msgid "new subject"
+msgstr "nouveau sujet"
+
+msgid "delete"
+msgstr "supprimer"
+
+msgid "duplicate"
+msgstr "dupliquer"
+
+msgid "edit subject"
+msgstr "modifier un sujet"
+
+msgid "new property"
+msgstr "nouvelle propriété"
+
+msgid "create table"
+msgstr "créer un tableau"
+
+msgid "import"
+msgstr "importer "
+
+msgid "export"
+msgstr "exporter"
+
+msgid "Add to group"
+msgstr "Ajouter au groupe"
+
 msgid "Save"
+msgstr "Enregistrer"
+
+msgid "The Testees module allows to record and manage  testees."
+msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
+
+msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr ""
+
+msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 

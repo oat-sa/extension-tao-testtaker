@@ -116,7 +116,7 @@ class Subjects extends TaoModule {
 				$subject = $this->service->bindProperties($subject, $myForm->getValues());
 				
 				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
-				$this->setData('message', 'Subject saved');
+				$this->setData('message', __('Subject saved'));
 				$this->setData('reload', true);
 			}
 		}
@@ -125,7 +125,7 @@ class Subjects extends TaoModule {
 		$subjectGroups = array_map("tao_helpers_Uri::encode", $subjectGroups);
 		$this->setData('subjectGroups', json_encode($subjectGroups));
 		
-		$this->setData('formTitle', 'Edit subject');
+		$this->setData('formTitle', __('Edit subject'));
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form_group.tpl');
 	}
@@ -157,11 +157,11 @@ class Subjects extends TaoModule {
 				if($clazz instanceof core_kernel_classes_Resource){
 					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->uriResource));
 				}
-				$this->setData('message', 'class saved');
+				$this->setData('message', __('Class saved'));
 				$this->setData('reload', true);
 			}
 		}
-		$this->setData('formTitle', 'Edit subject class');
+		$this->setData('formTitle', __('Edit subject class'));
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form.tpl');
 	}
