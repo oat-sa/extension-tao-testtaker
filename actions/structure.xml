@@ -7,17 +7,17 @@
 					dataUrl="/taoSubjects/Subjects/getSubjects" 
 					editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 					editInstanceUrl="/taoSubjects/Subjects/editSubject"
-					addInstanceUrl="/taoSubjects/Subjects/addSubject"
+					addInstanceUrl="/taoSubjects/Subjects/addInstance"
 					addSubClassUrl="/taoSubjects/Subjects/addSubjectClass"
 					deleteUrl="/taoSubjects/Subjects/delete"
-					duplicateUrl="/taoSubjects/Subjects/cloneSubject"
+					duplicateUrl="/taoSubjects/Subjects/cloneInstance"
 				/>
 			</trees>
 			<actions>
 				<action name="new class" js="GenerisAction.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
-				<action name="new subject" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addSubject" context="class" />
+				<action name="new subject" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
 				<action name="delete" js="GenerisAction.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
-				<action name="duplicate" js="GenerisAction.duplicateNode" url="/taoSubjects/Subjects/cloneSubject" context="instance" />
+				<action name="duplicate" js="GenerisAction.duplicateNode" url="/taoSubjects/Subjects/cloneInstance" context="instance" />
 				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
 				<action name="new property" js="GenerisAction.addProperty" url="/taoSubjects/Subjects/addClassProperty" context="class" />
 				<action name="create table" js="GenerisAction.resultTable" url="/taoResults/Results/createTable"  context="class" />

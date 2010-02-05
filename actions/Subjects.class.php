@@ -35,7 +35,7 @@ class Subjects extends TaoModule {
 	 * get the instancee of the current subject regarding the 'uri' and 'classUri' request parameters
 	 * @return core_kernel_classes_Resource the subject instance
 	 */
-	private function getCurrentSubject(){
+	protected function getCurrentInstance(){
 		
 		$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
 		if(is_null($uri) || empty($uri)){
@@ -56,18 +56,6 @@ class Subjects extends TaoModule {
  * controller actions
  */
 
-	/**
-	 * main action
-	 * @return void
-	 */
-	public function index(){
-		
-		if($this->getData('reload') == true){
-			unset($_SESSION[SESSION_NAMESPACE]['uri']);
-			unset($_SESSION[SESSION_NAMESPACE]['classUri']);
-		}
-		$this->setView('index.tpl');
-	}
 	
 	/**
 	 * Render json data to populate the subject tree 
@@ -86,29 +74,13 @@ class Subjects extends TaoModule {
 		echo json_encode($this->service->toTree( $this->service->getSubjectClass(), true, true, '', $filter));
 	}
 	
-	/**
-	 * Add an subject instance
-	 */
-	public function addSubject(){
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
-		}
-		$clazz = $this->getCurrentClass();
-		$subject = $this->service->createInstance($clazz);
-		if(!is_null($subject) && $subject instanceof core_kernel_classes_Resource){
-			echo json_encode(array(
-				'label'	=> $subject->getLabel(),
-				'uri' 	=> tao_helpers_Uri::encode($subject->uriResource)
-			));
-		}
-	}
 	
 	/**
 	 * edit an subject instance
 	 */
 	public function editSubject(){
 		$clazz = $this->getCurrentClass();
-		$subject = $this->getCurrentSubject();
+		$subject = $this->getCurrentInstance();
 		$myForm = tao_helpers_form_GenerisFormFactory::instanceEditor($clazz, $subject);
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
@@ -163,7 +135,7 @@ class Subjects extends TaoModule {
 		}
 		$this->setData('formTitle', __('Edit subject class'));
 		$this->setData('myForm', $myForm->render());
-		$this->setView('form.tpl');
+		$this->setView('form.tpl', true);
 	}
 	
 	/**
@@ -177,31 +149,13 @@ class Subjects extends TaoModule {
 		
 		$deleted = false;
 		if($this->getRequestParameter('uri')){
-			$deleted = $this->service->deleteSubject($this->getCurrentSubject());
+			$deleted = $this->service->deleteSubject($this->getCurrentInstance());
 		}
 		else{
 			$deleted = $this->service->deleteSubjectClass($this->getCurrentClass());
 		}
 		
 		echo json_encode(array('deleted'	=> $deleted));
-	}
-	
-	/**
-	 * duplicate a subject instance by property copy
-	 * @return void
-	 */
-	public function cloneSubject(){
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
-		}
-		
-		$clone = $this->service->cloneInstance($this->getCurrentSubject(), $this->getCurrentClass());
-		if(!is_null($clone)){
-			echo json_encode(array(
-				'label'	=> $clone->getLabel(),
-				'uri' 	=> tao_helpers_Uri::encode($clone->uriResource)
-			));
-		}
 	}
 	
 	
@@ -232,7 +186,7 @@ class Subjects extends TaoModule {
 				array_push($groups, tao_helpers_Uri::decode($value));
 			}
 		}
-		$subject = $this->getCurrentSubject();
+		$subject = $this->getCurrentInstance();
 		
 		if($this->service->setSubjectGroups($subject, $groups)){
 			$saved = true;

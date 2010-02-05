@@ -61,4 +61,14 @@ msgstr ""
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 
+msgid "EN"
+msgstr "English"
 
+msgid "FR"
+msgstr "French"
+
+msgid "DE"
+msgstr "German"
+
+msgid "LU"
+msgstr "Luxemburgish"

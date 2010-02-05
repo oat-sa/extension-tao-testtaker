@@ -52,5 +52,8 @@ define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']. '/taoSubjects');
 
 #BASE WWW the web resources path
 define('BASE_WWW', BASE_URL . '/' . DIR_VIEWS);
+
 define('TAOBASE_WWW', 'http://'.$_SERVER['HTTP_HOST']. '/tao/' . DIR_VIEWS);
+define('TAOVIEW_PATH', $_SERVER['DOCUMENT_ROOT'] . '/tao/' . DIR_VIEWS);
+define('TAO_TPL_PATH', $_SERVER['DOCUMENT_ROOT'] . '/tao/' . DIR_VIEWS . $GLOBALS['dir_theme']);
 ?>
