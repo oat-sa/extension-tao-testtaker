@@ -4,7 +4,7 @@
 		<section name="Manage testees" url="/taoSubjects/Subjects/index">
 			<trees>
 				<tree name="Testees library" 
-					dataUrl="/taoSubjects/Subjects/getSubjects" 
+					dataUrl="/taoSubjects/Subjects/getOntologyData" 
 					editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 					editInstanceUrl="/taoSubjects/Subjects/editSubject"
 					addInstanceUrl="/taoSubjects/Subjects/addInstance"
@@ -14,6 +14,7 @@
 				/>
 			</trees>
 			<actions>
+				<action name="search" url="/taoSubjects/Subjects/search" context="*" />
 				<action name="new class" js="GenerisAction.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
 				<action name="new subject" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
 				<action name="delete" js="GenerisAction.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
