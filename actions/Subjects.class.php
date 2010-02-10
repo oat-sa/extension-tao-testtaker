@@ -89,7 +89,7 @@ class Subjects extends TaoModule {
 		
 		$this->setData('formTitle', __('Edit subject'));
 		$this->setData('myForm', $myForm->render());
-		$this->setView('form_group.tpl');
+		$this->setView('form_subjects.tpl');
 	}
 	
 	/**

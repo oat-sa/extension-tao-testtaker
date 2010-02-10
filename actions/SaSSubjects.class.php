@@ -32,6 +32,14 @@ class SaSSubjects extends Subjects {
 		}
 		parent::setView('sas.tpl', true);
     }
-	
+
+	/**
+	 * Render the tree form to add a subject to groups
+	 * @return void 
+	 */
+	public function addToGroup(){
+		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($this->getCurrentInstance()))));
+		$this->setView('groups.tpl');
+	}	
 }
 ?>
