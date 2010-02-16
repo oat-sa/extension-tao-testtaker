@@ -45,10 +45,12 @@ $GLOBALS['default_lang']	= 'EN';
 $GLOBALS['available_langs']	= array('EN', 'FR', 'DE', 'LU');
 
 #BASE PATH: the root path in the file system (usually the document root)
-define('BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/taoSubjects');
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
+define('BASE_PATH', ROOT_PATH . '/taoSubjects');
 
 #BASE URL (usually the domain root)
-define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']. '/taoSubjects');
+define('ROOT_URL', 'http://'.$_SERVER['HTTP_HOST']);
+define('BASE_URL', ROOT_URL. '/taoSubjects');
 
 #BASE WWW the web resources path
 define('BASE_WWW', BASE_URL . '/' . DIR_VIEWS);
