@@ -22,7 +22,7 @@
 				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
 				<action name="new property" js="GenerisAction.addProperty" url="/taoSubjects/Subjects/addClassProperty" context="class" />
 				<action name="create table" js="GenerisAction.resultTable" url="/taoResults/Results/createTable"  context="class" />
-				<action name="import" url="/taoSubjects/Subjects/import" context="class" />
+				<!--<action name="import" url="/taoSubjects/Subjects/import" context="class" />-->
 				<action name="export" url="/taoSubjects/Subjects/export" context="class" reload="true" />
 			</actions>
 		</section>
