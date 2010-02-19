@@ -354,7 +354,7 @@ class taoSubjects_models_classes_SubjectsService
 					}
 				}
 				if($updateIt){
-					$instance->removePropertyValue($membersProperty);
+					$instance->removePropertyValues($membersProperty);
 					foreach($newMembers as $newMember){
 						$instance->setPropertyValue($membersProperty, $newMember);
 					}

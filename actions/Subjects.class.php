@@ -83,9 +83,7 @@ class Subjects extends TaoModule {
 			}
 		}
 		
-		$subjectGroups = $this->service->getSubjectGroups($subject);
-		$subjectGroups = array_map("tao_helpers_Uri::encode", $subjectGroups);
-		$this->setData('subjectGroups', json_encode($subjectGroups));
+		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
 		
 		$this->setData('formTitle', __('Edit subject'));
 		$this->setData('myForm', $myForm->render());

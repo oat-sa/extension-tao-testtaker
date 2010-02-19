@@ -39,6 +39,8 @@ class SaSSubjects extends Subjects {
 	 * @return void 
 	 */
 	public function addToGroup(){
+		$this->setData('uri', $this->getRequestParameter('uri'));
+		$this->setData('classUri', $this->getRequestParameter('classUri'));
 		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($this->getCurrentInstance()))));
 		$this->setView('groups.tpl');
 	}	
