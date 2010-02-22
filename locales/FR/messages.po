@@ -1,4 +1,4 @@
-msgid ""
+msgid "Subject saved"
 msgstr ""
 
 msgid "Edit subject"
@@ -19,6 +19,9 @@ msgstr "Gérer les sujets"
 msgid "Testees library"
 msgstr "Librairie de sujets"
 
+msgid "search"
+msgstr ""
+
 msgid "new class"
 msgstr "nouvelle classe"
 
@@ -37,11 +40,11 @@ msgstr "modifier un sujet"
 msgid "new property"
 msgstr "nouvelle propriété"
 
+msgid "meta data"
+msgstr ""
+
 msgid "create table"
 msgstr "créer un tableau"
-
-msgid "import"
-msgstr "importer "
 
 msgid "export"
 msgstr "exporter"
@@ -61,6 +64,9 @@ msgstr ""
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 
+msgid "import"
+msgstr "importer"
+
 msgid "EN"
 msgstr "English"
 
@@ -72,3 +78,4 @@ msgstr "German"
 
 msgid "LU"
 msgstr "Luxemburgish"
+
