@@ -35,6 +35,19 @@ class SaSSubjects extends Subjects {
     }
 
 	/**
+     * overrided to prevent exception: 
+     * if no class is selected, the root class is returned 
+     * @see TaoModule::getCurrentClass()
+     * @return core_kernel_class_Class
+     */
+    protected function getCurrentClass() {
+        if($this->hasRequestParameter('classUri')){
+        	return parent::getCurrentClass();
+        }
+		return $this->getRootClass();
+    }
+
+	/**
 	 * Render the tree form to add a subject to groups
 	 * @return void 
 	 */
