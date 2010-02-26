@@ -8,7 +8,7 @@
 $todefine = array(
 	'TAO_SUBJECT_CLASS' 	=> 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject',
 	'TAO_SUBJECT_NAMESPACE' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf',
-	'LOCAL_NAMESPACE' 		=> 'http://127.0.0.1/middleware/demo.rdf',
+//	'LOCAL_NAMESPACE' 		=> 'http://127.0.0.1/middleware/demo.rdf',
 	'TAO_GROUP_CLASS' 		=> 'http://www.tao.lu/Ontologies/TAOGroup.rdf#Group',
 	'TAO_GROUP_MEMBERS_PROP'=> 'http://www.tao.lu/Ontologies/TAOGroup.rdf#Members',
 	'TAO_OBJECT_CLASS' 		=> 'http://www.tao.lu/Ontologies/TAO.rdf#TAOObject',
