@@ -26,10 +26,6 @@ define("DIR_VIEWS"			, "views/");
 # helpers directory
 define("DIR_HELPERS"		, dirname(__FILE__) . "/../helpers/");
 
-
-# session namespace
-define('SESSION_NAMESPACE', 'ClearFw');
-
 # default module name
 define('DEFAULT_MODULE_NAME', 'Subjects');
 
@@ -40,22 +36,16 @@ define('DEFAULT_ACTION_NAME', 'index');
 # theme directory
 $GLOBALS['dir_theme']		= "templates/";
 
-# language
-$GLOBALS['default_lang']	= 'EN';
-$GLOBALS['available_langs']	= array('EN', 'FR', 'DE', 'LU');
-
 #BASE PATH: the root path in the file system (usually the document root)
-define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
 define('BASE_PATH', ROOT_PATH . '/taoSubjects');
 
 #BASE URL (usually the domain root)
-define('ROOT_URL', 'http://'.$_SERVER['HTTP_HOST']);
-define('BASE_URL', ROOT_URL. '/taoSubjects');
+define('BASE_URL', ROOT_URL. '/taoSubjects');#export resources path
+define('EXPORT_PATH', 	BASE_PATH . '/' . DIR_VIEWS . 'export');
+define('EXPORT_URL', 	BASE_URL  . '/' . DIR_VIEWS . 'export');
 
-#BASE WWW the web resources path
-define('BASE_WWW', BASE_URL . '/' . DIR_VIEWS);
-
-define('TAOBASE_WWW', 'http://'.$_SERVER['HTTP_HOST']. '/tao/' . DIR_VIEWS);
-define('TAOVIEW_PATH', $_SERVER['DOCUMENT_ROOT'] . '/tao/' . DIR_VIEWS);
-define('TAO_TPL_PATH', $_SERVER['DOCUMENT_ROOT'] . '/tao/' . DIR_VIEWS . $GLOBALS['dir_theme']);
+#TAO extension Paths
+define('TAOBASE_WWW',  ROOT_URL  . '/tao/' . DIR_VIEWS);
+define('TAOVIEW_PATH', ROOT_PATH . '/tao/' . DIR_VIEWS);
+define('TAO_TPL_PATH', ROOT_PATH . '/tao/' . DIR_VIEWS . $GLOBALS['dir_theme']);
 ?>
