@@ -29,7 +29,7 @@ msgid "new subject"
 msgstr "neue Testperson"
 
 msgid "delete"
-msgstr "löschen"
+msgstr "lÃ¶schen"
 
 msgid "duplicate"
 msgstr "duplizieren"
@@ -50,25 +50,25 @@ msgid "export"
 msgstr "Export"
 
 msgid "Add to group"
-msgstr "Zu Gruppe hinzufügen"
+msgstr "Zu Gruppe hinzufÃ¼gen"
 
 msgid "Save"
 msgstr "Sichern"
 
 msgid "The Testees module allows to record and manage  testees."
-msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen."
+msgstr "Das Testpersonen-Modul ermÃ¶glicht das Speichern und Verwalten von Testpersonen."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr "Die Flexibilität erlaubt das Entwerfen von individuellen Datensätzen (z.B. Name, Adresse, Geburtasdatum, Geschlecht usw.)."
+msgstr "Die FlexibilitÃ¤t erlaubt das Entwerfen von individuellen DatensÃ¤tzen (z.B. Name, Adresse, Geburtasdatum, Geschlecht usw.)."
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden."
+msgstr "Testpersonen kÃ¶nnen entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden."
 
 msgid "EN"
 msgstr "Englisch"
 
 msgid "FR"
-msgstr "Französisch"
+msgstr "FranzÃ¶sisch"
 
 msgid "DE"
 msgstr "Deutsch"
