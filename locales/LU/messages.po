@@ -1,68 +1,68 @@
 msgid "Subject saved"
-msgstr ""
+msgstr "Testpersoun gespaichert"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Testpersoun editéiren"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klass gespaichert"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Testpersounen Klass editéiren"
 
 msgid "Testees"
-msgstr ""
+msgstr "Testpersounen"
 
 msgid "Manage testees"
-msgstr ""
+msgstr "Testpersounen verwalten"
 
 msgid "Testees library"
-msgstr ""
+msgstr "Testpersounen Sammlung"
 
 msgid "search"
-msgstr ""
+msgstr "sichen"
 
 msgid "new class"
-msgstr ""
+msgstr "nei Klass"
 
 msgid "new subject"
-msgstr ""
+msgstr "nei Testpersoun"
 
 msgid "delete"
-msgstr ""
+msgstr "läschen"
 
 msgid "duplicate"
-msgstr ""
+msgstr "duplizéiren"
 
 msgid "edit subject"
-msgstr ""
+msgstr "Testpersoun editéiren"
 
 msgid "new property"
-msgstr ""
+msgstr "nei Proprietéit"
 
 msgid "meta data"
-msgstr ""
+msgstr "Meta Daten"
 
 msgid "create table"
-msgstr ""
+msgstr "Tabell erstellen"
 
 msgid "export"
-msgstr ""
+msgstr "exportéiren"
 
 msgid "Add to group"
-msgstr ""
+msgstr "Bei e Grupp derbeisetzen"
 
 msgid "Save"
-msgstr ""
+msgstr "Spaicheren"
 
 msgid "The Testees module allows to record and manage  testees."
-msgstr ""
+msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr ""
+msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adress, Gebuertsdatum, Geschlecht, etc.)."
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.)."
 
 msgid "EN"
 msgstr "English"
@@ -74,5 +74,5 @@ msgid "DE"
 msgstr "German"
 
 msgid "LU"
-msgstr "Luxemburgish"
+msgstr "Luxembourgish"
 

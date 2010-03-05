@@ -1,14 +1,14 @@
 msgid "Subject saved"
-msgstr ""
+msgstr "Testee saved"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Edit testee"
 
 msgid "Class saved"
 msgstr ""
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Edit testee class"
 
 msgid "Testees"
 msgstr ""
@@ -26,7 +26,7 @@ msgid "new class"
 msgstr ""
 
 msgid "new subject"
-msgstr ""
+msgstr "new testee"
 
 msgid "delete"
 msgstr ""
@@ -35,7 +35,7 @@ msgid "duplicate"
 msgstr ""
 
 msgid "edit subject"
-msgstr ""
+msgstr "edit testee"
 
 msgid "new property"
 msgstr ""

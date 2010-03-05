@@ -1,78 +1,78 @@
 msgid "Subject saved"
-msgstr ""
+msgstr "Testperson gespeichert"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Testperson bearbeiten"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klasse gespeichert"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Klasse \"Testperson\" bearbeiten"
 
 msgid "Testees"
-msgstr ""
+msgstr "Testpersonen"
 
 msgid "Manage testees"
-msgstr ""
+msgstr "Testpersonen verwalten"
 
 msgid "Testees library"
-msgstr ""
+msgstr "Testpersonen-Bibliothek"
 
 msgid "search"
-msgstr ""
+msgstr "suchen"
 
 msgid "new class"
-msgstr ""
+msgstr "neue Klasse"
 
 msgid "new subject"
-msgstr ""
+msgstr "neue Testperson"
 
 msgid "delete"
-msgstr ""
+msgstr "löschen"
 
 msgid "duplicate"
-msgstr ""
+msgstr "duplizieren"
 
 msgid "edit subject"
-msgstr ""
+msgstr "Testperson bearbeiten"
 
 msgid "new property"
-msgstr ""
+msgstr "neue Eigenschaft"
 
 msgid "meta data"
-msgstr ""
+msgstr "Meta-Daten"
 
 msgid "create table"
-msgstr ""
+msgstr "Tabelle erstellen"
 
 msgid "export"
-msgstr ""
+msgstr "Export"
 
 msgid "Add to group"
-msgstr ""
+msgstr "Zu Gruppe hinzufügen"
 
 msgid "Save"
-msgstr ""
+msgstr "Sichern"
 
 msgid "The Testees module allows to record and manage  testees."
-msgstr ""
+msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr ""
+msgstr "Die Flexibilität erlaubt das Entwerfen von individuellen Datensätzen (z.B. Name, Adresse, Geburtasdatum, Geschlecht usw.)."
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden."
 
 msgid "EN"
-msgstr "English"
+msgstr "Englisch"
 
 msgid "FR"
-msgstr "French"
+msgstr "Französisch"
 
 msgid "DE"
-msgstr "German"
+msgstr "Deutsch"
 
 msgid "LU"
-msgstr "Luxemburgish"
+msgstr "Luxemburgisch"
 
