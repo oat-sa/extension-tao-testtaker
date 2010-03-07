@@ -1,5 +1,5 @@
-msgid "Subject saved"
-msgstr "Sujet enregistrée"
+msgid ""
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Modifier le sujet"
@@ -62,7 +62,7 @@ msgid "Its flexibility allows the design of datasheets (e.g. name, address, date
 msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.). "
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation ( Gestion des ressources humaine, education, contrôle d'édumetrie, etc.) "
+msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation ( Gestion des ressources humaine, éducation, contrôle d'édumetrie, etc.) "
 
 msgid "import"
 msgstr "importer"
