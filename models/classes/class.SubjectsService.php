@@ -259,7 +259,7 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method isSubjectClass
+     * Check if the Class in parameter is a subclass of Subject
      *
      * @access protected
      * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
