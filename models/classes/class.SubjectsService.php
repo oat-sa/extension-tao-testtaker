@@ -261,12 +261,12 @@ class taoSubjects_models_classes_SubjectsService
     /**
      * Check if the Class in parameter is a subclass of Subject
      *
-     * @access protected
+     * @access public
      * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
      * @param  Class clazz
      * @return boolean
      */
-    protected function isSubjectClass( core_kernel_classes_Class $clazz)
+    public function isSubjectClass( core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
 
