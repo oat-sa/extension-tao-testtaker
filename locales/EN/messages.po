@@ -37,6 +37,9 @@ msgstr ""
 msgid "edit subject"
 msgstr "edit testee"
 
+msgid "move"
+msgstr ""
+
 msgid "new property"
 msgstr ""
 

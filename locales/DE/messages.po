@@ -8,7 +8,7 @@ msgid "Class saved"
 msgstr "Klasse gespeichert"
 
 msgid "Edit subject class"
-msgstr "Klasse \"Testperson\" bearbeiten"
+msgstr "Klasse "Testperson" bearbeiten"
 
 msgid "Testees"
 msgstr "Testpersonen"
@@ -36,6 +36,9 @@ msgstr "duplizieren"
 
 msgid "edit subject"
 msgstr "Testperson bearbeiten"
+
+msgid "move"
+msgstr ""
 
 msgid "new property"
 msgstr "neue Eigenschaft"

@@ -1,4 +1,4 @@
-msgid ""
+msgid "Subject saved"
 msgstr ""
 
 msgid "Edit subject"
@@ -37,6 +37,9 @@ msgstr "dupliquer"
 msgid "edit subject"
 msgstr "modifier un sujet"
 
+msgid "move"
+msgstr ""
+
 msgid "new property"
 msgstr "nouvelle propriété"
 
@@ -59,10 +62,10 @@ msgid "The Testees module allows to record and manage  testees."
 msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.). "
+msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation ( Gestion des ressources humaine, éducation, contrôle d'édumetrie, etc.) "
+msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation ( Gestion des ressources humaine, éducation, contrôle d'édumetrie, etc.)"
 
 msgid "import"
 msgstr "importer"

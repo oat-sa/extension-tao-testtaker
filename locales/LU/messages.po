@@ -1,4 +1,4 @@
-﻿msgid "Subject saved"
+msgid "Subject saved"
 msgstr "Testpersoun gespaichert"
 
 msgid "Edit subject"
@@ -36,6 +36,9 @@ msgstr "duplizéiren"
 
 msgid "edit subject"
 msgstr "Testpersoun editéiren"
+
+msgid "move"
+msgstr ""
 
 msgid "new property"
 msgstr "nei Proprietéit"
