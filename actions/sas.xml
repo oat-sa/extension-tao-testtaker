@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE services SYSTEM "../../tao/doc/sas.dtd">
+<services>
+	<service>
+		<name>Add a subject</name>
+		<description>	 - add a new instance  - redirected to the edit form	</description>
+		<location url="/taoSubjects/SaSSubjects/sasAddInstance">
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+		<return>
+			<param key="subjectUri" />
+		</return>
+	</service>
+	<service>
+		<name>Edit a subject</name>
+		<description>	 - subject instance form	</description>
+		<location url="/taoSubjects/SaSSubjects/sasEditInstance">
+			<param key="uri" value="^subjectUri" />
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+	</service>
+	<service>
+		<name>Full Edit</name>
+		<description>	 - Subject form  - Add subject to groups	</description>
+		<location url="/taoSubjects/SaSSubjects/editSubject">
+			<param key="uri" value="^subjectUri" />
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+	</service>
+	<service>
+		<name>Edit subject classes</name>
+		<description>	 - Class editor	</description>
+		<location url="/taoSubjects/SaSSubjects/editSubjectClass">
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+	</service>
+	<service>
+		<name>Translate</name>
+		<description>	 - Translate instance editor	</description>
+		<location url="/taoSubjects/SaSSubjects/translateInstance">
+			<param key="uri" value="^subjectUri" />
+			<param key="classUri" value="^subjectClassUri" />
+			<param key="target_lang" value="^subjectTargetLang" />
+		</location>	
+	</service>
+	<service>
+		<name>Add to groups</name>
+		<description>	 - tree form to add subject to group	</description>
+		<location url="/taoSubjects/SaSSubjects/addToGroup">
+			<param key="uri" value="^subjectUri" />
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+	</service>
+	<service>
+		<name>Search</name>
+		<description>	 - Search instance form 	</description>
+		<location url="/taoSubjects/SaSSubjects/search" />
+		<return>
+			<param key="subjectUris" />
+		</return>
+	</service>	
+	<service>
+		<name>Delete a subject</name>
+		<description>	 - Delete an instance	</description>
+		<location url="/taoSubjects/SaSSubjects/sasDeleteInstance">
+			<param key="uri" value="^subjectUri" />
+			<param key="classUri" value="^subjectClassUri" />
+		</location>
+	</service>
+</services>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension SYSTEM "../../tao/doc/structure.dtd">
 <extension name="Testees" url="/taoSubjects/Subjects/index" level="2">
 	<sections>
-		<section name="Manage testees" url="/taoSubjects/Subjects/index">
+		<section id="manage_testees" name="Manage testees" url="/taoSubjects/Subjects/index">
 			<trees>
 				<tree name="Testees library" 
 					dataUrl="/taoSubjects/Subjects/getOntologyData" 
