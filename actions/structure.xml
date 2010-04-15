@@ -21,7 +21,6 @@
 				<action name="new subject" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
 				<action name="delete" js="GenerisAction.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
 				<action name="duplicate" js="GenerisAction.duplicateNode" url="/taoSubjects/Subjects/cloneInstance" context="instance" />
-				<action name="edit subject" url="/taoSubjects/Subjects/editSubject" context="instance" />
 				<action name="move" js="GenerisAction.moveNode" url="" context="instance" />
 				<action name="new property" js="GenerisAction.addProperty" url="/taoSubjects/Subjects/addClassProperty" context="class" />
 				<action name="lists"  url="/tao/Lists/index"  context="*" />
