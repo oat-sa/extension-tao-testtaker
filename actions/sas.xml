@@ -2,6 +2,27 @@
 <!DOCTYPE services SYSTEM "../../tao/doc/sas.dtd">
 <services>
 	<service>
+		<name>Subject class selection</name>
+		<description>Select a subject (sub)class</description>
+		<location url="/taoSubjects/SaSSubjects/sasSelect">
+			<param key="selectInstance" value="false" />
+		</location>
+		<return>
+			<param key="subjectClassUri" />
+		</return>
+	</service>
+	<service>
+		<name>Subject selection</name>
+		<description>Select a subject</description>
+		<location url="/taoSubjects/SaSSubjects/sasSelect">
+			<param key="selectInstance" value="true" />
+		</location>
+		<return>
+			<param key="subjectClassUri" />
+			<param key="subjectUri" />
+		</return>
+	</service>
+	<service>
 		<name>Subject add</name>
 		<description>Add a new subject and redirect to the edit form</description>
 		<location url="/taoSubjects/SaSSubjects/sasAddInstance">

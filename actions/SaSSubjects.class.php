@@ -24,13 +24,16 @@ class SaSSubjects extends Subjects {
      * @see TaoModule::setView()
      */
     public function setView($identifier, $useMetaExtensionView = false) {
-		if($useMetaExtensionView){
+		if(tao_helpers_Request::isAjax()){
+			return parent::setView($identifier, $useMetaExtensionView);
+		}
+    	if($useMetaExtensionView){
 			$this->setData('includedView', $identifier);
 		}
 		else{
 			$this->setData('includedView', BASE_PATH . '/' . DIR_VIEWS . $GLOBALS['dir_theme'] . $identifier);
 		}
-		parent::setView('sas.tpl', true);
+		return parent::setView('sas.tpl', true);
     }
 
 	/**
