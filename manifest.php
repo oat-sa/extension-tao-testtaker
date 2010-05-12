@@ -17,7 +17,9 @@
 				'php' => dirname(__FILE__). '/install/install.php'
 			),
 
-
+			'model' => array('http://www.tao.lu/Ontologies/TAOSubject.rdf',
+			 		 'http://www.tao.lu/Ontologies/TAOGroup.rdf'
+			),
 			'classLoaderPackages' => array( 
 				dirname(__FILE__).'/actions/',
 				dirname(__FILE__).'/helpers/'
