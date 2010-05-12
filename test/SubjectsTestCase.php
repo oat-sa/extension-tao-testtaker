@@ -1,6 +1,5 @@
 <?php
 require_once dirname(__FILE__) . '/../../tao/test/TestRunner.php';
-require_once dirname(__FILE__) . '/../includes/common.php';
 
 /**
  *
@@ -79,9 +78,9 @@ class SubjectsTestCase extends UnitTestCase {
 		
 		//delete subclass and check if the instance is deleted
 		$subSubjectInstanceUri = $subSubjectInstance->uriResource;
-		$this->assertNotNull($this->subjectsService->getItem($subSubjectInstanceUri));
+		$this->assertNotNull($this->subjectsService->getSubject($subSubjectInstanceUri));
 		$this->assertTrue($subSubjectInstance->delete());
-		$this->assertNull($this->subjectsService->getItem($subSubjectInstanceUri));
+		$this->assertNull($this->subjectsService->getSubject($subSubjectInstanceUri));
 		
 		$this->assertTrue($subSubjectClass->delete());
 	}
