@@ -71,6 +71,8 @@ class Subjects extends TaoModule {
 	public function editSubject(){
 		$clazz = $this->getCurrentClass();
 		$subject = $this->getCurrentInstance();
+		
+		tao_helpers_form_GenerisFormFactory::$topLevelClass = CLASS_GENERIS_USER;
 		$myForm = tao_helpers_form_GenerisFormFactory::instanceEditor($clazz, $subject);
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
