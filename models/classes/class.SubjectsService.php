@@ -54,14 +54,6 @@ class taoSubjects_models_classes_SubjectsService
      */
     protected $subjectClass = null;
 
-    /**
-     * The ontologies to load
-     *
-     * @access protected
-     * @var array
-     */
-    protected $subjectsOntologies = array('http://www.tao.lu/Ontologies/TAOSubject.rdf', 'http://www.tao.lu/Ontologies/TAOGroup.rdf');
-
     // --- OPERATIONS ---
 
     /**
@@ -77,7 +69,6 @@ class taoSubjects_models_classes_SubjectsService
 		
 		parent::__construct();
 		$this->subjectClass 	= new core_kernel_classes_Class( TAO_SUBJECT_CLASS );
-		$this->loadOntologies($this->subjectsOntologies);
 
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
     }
