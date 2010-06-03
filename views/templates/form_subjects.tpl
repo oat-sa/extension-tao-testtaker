@@ -11,5 +11,12 @@
 	</div>
 </div>
 
+<?if(get_data('checkLogin')):?>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			checkLogin("<?=get_data('loginUri')?>", "<?=_url('checkLogin', 'Users', 'tao')?>");
+		});
+	</script>
+<?endif?>
 
 <?include(TAO_TPL_PATH . 'footer.tpl');?>

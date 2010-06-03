@@ -72,21 +72,61 @@ class Subjects extends TaoModule {
 		$clazz = $this->getCurrentClass();
 		$subject = $this->getCurrentInstance();
 		
-		tao_helpers_form_GenerisFormFactory::$topLevelClass = CLASS_GENERIS_USER;
-		$myForm = tao_helpers_form_GenerisFormFactory::instanceEditor($clazz, $subject);
+		$addMode = false;
+		$login = (string)$subject->getOnePropertyValue(new core_kernel_classes_Property(PROPERTY_USER_LOGIN));
+		if(empty($login)){
+			$addMode = true;
+			$this->setData('loginUri', tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
+		}
+		
+		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode);
+		$myForm = $myFormContainer->getForm();
+		
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
+				$values = $myForm->getValues();
+				
+				if($addMode){
+					$values[PROPERTY_USER_PASSWORD] = md5($values['password1']);
+					unset($values['password1']);
+					unset($values['password2']);
+				}
+				else{
+					if(!empty($values['password1']) && !empty($values['password2'])){
+						$values[PROPERTY_USER_PASSWORD] = md5($values['password2']);
+					}
+					
+					unset($values['password0']);
+					unset($values['password1']);
+					unset($values['password2']);
+					unset($values['password3']);
+				}
 				
 				$subject = $this->service->bindProperties($subject, $myForm->getValues());
 				
 				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
-				$this->setData('message', __('Subject saved'));
-				$this->setData('reload', true);
+				
+				$message = __('Testee saved');
+				
+				if($addMode){
+					$params =  array(
+						'uri' 		=> tao_helpers_Uri::encode($subject->uriResource),
+						'classUri' 	=> tao_helpers_Uri::encode($clazz->uriResource),
+						'message'	=> $message
+					);
+					$this->redirect(_url('editSubject', null, null, $params));
+				}
+				
+				$this->setData('message', $message);
+				$this->setData('reload',  true);
+				
 			}
 		}
 		
+		
 		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
 		
+		$this->setData('checkLogin', $addMode);
 		$this->setData('formTitle', __('Edit subject'));
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form_subjects.tpl');
