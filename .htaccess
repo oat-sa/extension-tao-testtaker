@@ -1,5 +1,4 @@
 Options +FollowSymLinks
-Options +Indexes
 RewriteEngine On
 
 #usual behavior for resources calls
