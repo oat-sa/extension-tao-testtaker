@@ -102,7 +102,7 @@ class Subjects extends TaoModule {
 					unset($values['password3']);
 				}
 				
-				$subject = $this->service->bindProperties($subject, $myForm->getValues());
+				$subject = $this->service->bindProperties($subject, $values);
 				
 				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
 				
