@@ -298,14 +298,33 @@ class taoSubjects_models_classes_SubjectsService
 			$groupClass 		= new core_kernel_classes_Class(TAO_GROUP_CLASS);
 			$membersProperty	= new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
 			
+			$groups = array();
+			
 			foreach($groupClass->getInstances(true) as $instance){
 				foreach($instance->getPropertyValues($membersProperty) as $member){
 					if($member == $subject->uriResource){
-						$returnValue[] = $instance->uriResource;
+						$groups[] = $instance->uriResource;
 						break;
 					}
 				}
 			}
+			
+			if(count($groups) > 0){
+				$groupSubClasses = array();
+				foreach($groupClass->getSubClasses(true) as $groupSubClass){
+					$groupSubClasses[] = $groupSubClass->uriResource;
+				}
+				foreach($groups as $groupUri){
+					$clazz = $this->getClass(new core_kernel_classes_Resource($groupUri));
+					if(!is_null($clazz)){
+						if(in_array($clazz->uriResource, $groupSubClasses)){
+							$returnValue[] = $clazz->uriResource;
+						}
+					}
+					$returnValue[] = $groupUri;
+				}
+			}
+			
 		}
 
         // section 127-0-1-1-3cab853e:12592221770:-8000:0000000000001D27 end
