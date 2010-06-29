@@ -162,6 +162,30 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
+     * Create a new subject instance and link it to the tao subject role
+     *
+     * @access public
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @param  Class clazz
+     * @param  string label
+     * @return core_kernel_classes_Resource
+     */
+    public function createInstance( core_kernel_classes_Class $clazz, $label = '')
+    {
+        $returnValue = null;
+
+        // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 begin
+
+        $returnValue = parent::createInstance($clazz, $label);
+        
+        $returnValue->setPropertyValue(new core_kernel_classes_Property(RDF_TYPE), CLASS_ROLE_SUBJECT);
+        
+        // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 end
+
+        return $returnValue;
+    }
+
+    /**
      * Short description of method createSubjectClass
      *
      * @access public
