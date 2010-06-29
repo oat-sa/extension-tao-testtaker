@@ -1,5 +1,5 @@
-msgid "Subject saved"
-msgstr "Testee saved"
+msgid "Testee saved"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Edit testee"
@@ -34,13 +34,10 @@ msgstr ""
 msgid "duplicate"
 msgstr ""
 
-msgid "edit subject"
-msgstr "edit testee"
-
 msgid "move"
 msgstr ""
 
-msgid "new property"
+msgid "lists"
 msgstr ""
 
 msgid "meta data"
@@ -49,7 +46,10 @@ msgstr ""
 msgid "create table"
 msgstr ""
 
-msgid "export"
+msgid "rdf"
+msgstr ""
+
+msgid "import"
 msgstr ""
 
 msgid "Add to group"
@@ -65,6 +65,18 @@ msgid "Its flexibility allows the design of datasheets (e.g. name, address, date
 msgstr ""
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr ""
+
+msgid "Subject saved"
+msgstr "Testee saved"
+
+msgid "edit subject"
+msgstr "edit testee"
+
+msgid "new property"
+msgstr ""
+
+msgid "export"
 msgstr ""
 
 msgid "EN"

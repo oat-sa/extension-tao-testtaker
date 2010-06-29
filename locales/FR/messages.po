@@ -34,14 +34,11 @@ msgstr "supprimer"
 msgid "duplicate"
 msgstr "dupliquer"
 
-msgid "edit subject"
-msgstr "modifier un sujet"
-
 msgid "move"
-msgstr ""
+msgstr "déplacer"
 
-msgid "new property"
-msgstr "nouvelle propriété"
+msgid "lists"
+msgstr "listes"
 
 msgid "meta data"
 msgstr "métadonnée"
@@ -49,8 +46,11 @@ msgstr "métadonnée"
 msgid "create table"
 msgstr "créer un tableau"
 
-msgid "export"
-msgstr "exporter"
+msgid "rdf"
+msgstr "rdf"
+
+msgid "import"
+msgstr "importer"
 
 msgid "Add to group"
 msgstr "Ajouter au groupe"
@@ -67,8 +67,17 @@ msgstr "Sa flexibilité permet la conception des structures de données (ex : no
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
 
-msgid "import"
-msgstr "importer"
+msgid ""
+msgstr ""
+
+msgid "edit subject"
+msgstr "modifier un sujet"
+
+msgid "new property"
+msgstr "nouvelle propriété"
+
+msgid "export"
+msgstr "exporter"
 
 msgid "EN"
 msgstr "English"

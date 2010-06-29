@@ -1,5 +1,5 @@
-msgid "Subject saved"
-msgstr "Testperson gespeichert"
+msgid "Testee saved"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Testperson bearbeiten"
@@ -8,7 +8,7 @@ msgid "Class saved"
 msgstr "Klasse gespeichert"
 
 msgid "Edit subject class"
-msgstr "Klasse \"Testperson\" bearbeiten"
+msgstr "Klasse "Testperson" bearbeiten"
 
 msgid "Testees"
 msgstr "Testpersonen"
@@ -34,14 +34,11 @@ msgstr "löschen"
 msgid "duplicate"
 msgstr "duplizieren"
 
-msgid "edit subject"
-msgstr "Testperson bearbeiten"
-
 msgid "move"
 msgstr ""
 
-msgid "new property"
-msgstr "neue Eigenschaft"
+msgid "lists"
+msgstr ""
 
 msgid "meta data"
 msgstr "Meta-Daten"
@@ -49,8 +46,11 @@ msgstr "Meta-Daten"
 msgid "create table"
 msgstr "Tabelle erstellen"
 
-msgid "export"
-msgstr "Export"
+msgid "rdf"
+msgstr ""
+
+msgid "import"
+msgstr ""
 
 msgid "Add to group"
 msgstr "Zu Gruppe hinzufügen"
@@ -66,6 +66,18 @@ msgstr "Die Flexibilität erlaubt das Entwerfen von individuellen Datensätzen (
 
 msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden."
+
+msgid "Subject saved"
+msgstr "Testperson gespeichert"
+
+msgid "edit subject"
+msgstr "Testperson bearbeiten"
+
+msgid "new property"
+msgstr "neue Eigenschaft"
+
+msgid "export"
+msgstr "Export"
 
 msgid "EN"
 msgstr "Englisch"
