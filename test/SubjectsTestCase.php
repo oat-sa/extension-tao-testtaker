@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../../tao/test/TestRunner.php';
+require_once dirname(__FILE__) . '/../includes/constants.php';
 
 /**
  *
