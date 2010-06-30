@@ -1,6 +1,6 @@
 <?php
 /**
- * SaSSubjects Controller provide process services
+ * SaSSubjects Controller provide process services on subjects
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
@@ -21,8 +21,11 @@ class SaSSubjects extends Subjects {
     }
     
 	/**
-     * @see TaoModule::setView()
-     */
+	 * @see TaoModule::setView()
+	 * @param string $identifier the view name
+	 * @param boolean $useMetaExtensionView use a view from the parent extention
+	 * @return mixed 
+	 */
     public function setView($identifier, $useMetaExtensionView = false) {
 		if(tao_helpers_Request::isAjax()){
 			return parent::setView($identifier, $useMetaExtensionView);
