@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE services SYSTEM "../../tao/doc/sas.dtd">
 <services>
+	<description>Subjects services</description>
 	<service>
 		<name>Subject class selection</name>
 		<description>Select a subject (sub)class</description>
