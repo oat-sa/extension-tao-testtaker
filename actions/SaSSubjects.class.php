@@ -16,7 +16,6 @@ class SaSSubjects extends Subjects {
      */
     public function __construct() {
         $this->setSessionAttribute('currentExtension', 'taoSubjects');
-		tao_helpers_form_GenerisFormFactory::setMode(tao_helpers_form_GenerisFormFactory::MODE_STANDALONE);
 		parent::__construct();
     }
     
