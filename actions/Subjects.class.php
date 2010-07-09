@@ -105,8 +105,6 @@ class Subjects extends TaoModule {
 				
 				$subject = $this->service->bindProperties($subject, $values);
 				
-				$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
-				
 				$message = __('Testee saved');
 				
 				if($addMode){
@@ -123,7 +121,7 @@ class Subjects extends TaoModule {
 				
 			}
 		}
-		
+		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
 		
 		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
 		
