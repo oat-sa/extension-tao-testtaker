@@ -92,7 +92,7 @@ class taoSubjects_models_classes_SubjectsService
 		if(is_null($clazz) && $mode == 'uri'){
 			try{
 				$resource = new core_kernel_classes_Resource($identifier);
-				$type = $resource->getUniquePropertyValue(new core_kernel_classes_Property( RDF_TYPE ));
+				$type = $resource->getOnePropertyValue(new core_kernel_classes_Property( RDFS_TYPE ));
 				$clazz = new core_kernel_classes_Class($type->uriResource);
 			}
 			catch(Exception $e){}
