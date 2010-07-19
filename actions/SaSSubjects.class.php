@@ -15,6 +15,7 @@ class SaSSubjects extends Subjects {
      * @see Subjects::__construct()
      */
     public function __construct() {
+    	tao_helpers_Context::load('STANDALONE_MODE');
         $this->setSessionAttribute('currentExtension', 'taoSubjects');
 		parent::__construct();
     }
