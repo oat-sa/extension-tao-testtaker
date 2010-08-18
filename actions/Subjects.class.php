@@ -195,7 +195,6 @@ class Subjects extends TaoModule {
 		echo json_encode(array('deleted'	=> $deleted));
 	}
 	
-	
 	/**
 	 * get the list of groups to populate the checkbox tree of groups to link with
 	 * @return void
@@ -211,6 +210,13 @@ class Subjects extends TaoModule {
 		}
 		else{
 			$clazz = new core_kernel_classes_Class(TAO_GROUP_CLASS);
+		}
+		if($this->hasRequestParameter('selected')){
+			$selected = $this->getRequestParameter('selected');
+			if(!is_array($selected)){
+				$selected = array($selected);
+			}
+			$options['browse'] = $selected;
 		}
 		echo json_encode($this->service->toTree($clazz, $options));
 	}
@@ -237,6 +243,8 @@ class Subjects extends TaoModule {
 		}
 		echo json_encode(array('saved'	=> $saved));
 	}
+	
+	
 	
 }
 ?>

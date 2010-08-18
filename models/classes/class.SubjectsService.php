@@ -409,6 +409,40 @@ class taoSubjects_models_classes_SubjectsService
         return (bool) $returnValue;
     }
 
+    /**
+     * Short description of method cloneInstance
+     *
+     * @access public
+     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @param  Resource instance
+     * @param  Class clazz
+     * @return core_kernel_classes_Resource
+     */
+    public function cloneInstance( core_kernel_classes_Resource $instance,  core_kernel_classes_Class $clazz = null)
+    {
+        $returnValue = null;
+
+        // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B begin
+        
+        $returnValue = parent::cloneInstance($instance, $clazz);
+        
+        $userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
+        $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
+        try{
+        	$login = $returnValue->getUniquePropertyValue($loginProperty);
+        	while($userService->loginExist($login)){
+        		$login .= (string)rand(0, 9); 
+        	}
+        	
+        	$returnValue->editPropertyValues($loginProperty, $login);
+        }
+        catch(common_Exception $ce){}
+        
+        // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B end
+
+        return $returnValue;
+    }
+
 } /* end of class taoSubjects_models_classes_SubjectsService */
 
 ?>
