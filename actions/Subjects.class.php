@@ -79,12 +79,17 @@ class Subjects extends TaoModule {
 			$addMode = true;
 			$this->setData('loginUri', tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
 		}
+		if($this->hasRequestParameter('reload')){
+			$this->setData('reload', true);
+		}
 		
 		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode);
 		$myForm = $myFormContainer->getForm();
 		
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
+				$this->setData('reload', false);
+				
 				$values = $myForm->getValues();
 				
 				if($addMode){
@@ -111,6 +116,7 @@ class Subjects extends TaoModule {
 					$params =  array(
 						'uri' 		=> tao_helpers_Uri::encode($subject->uriResource),
 						'classUri' 	=> tao_helpers_Uri::encode($clazz->uriResource),
+						'reload'	=> true,
 						'message'	=> $message
 					);
 					$this->redirect(_url('editSubject', null, null, $params));
@@ -122,6 +128,7 @@ class Subjects extends TaoModule {
 			}
 		}
 		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
+		
 		
 		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
 		
