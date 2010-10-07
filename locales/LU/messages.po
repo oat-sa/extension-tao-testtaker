@@ -1,4 +1,4 @@
-msgid "Testee saved"
+msgid "Test taker saved"
 msgstr ""
 
 msgid "Edit subject"
@@ -10,13 +10,13 @@ msgstr "Klass gespaichert"
 msgid "Edit subject class"
 msgstr "Testpersounen Klass editéiren"
 
-msgid "Testees"
+msgid "Test takers"
 msgstr "Testpersounen"
 
-msgid "Manage testees"
+msgid "Manage test takers"
 msgstr "Testpersounen verwalten"
 
-msgid "Testees library"
+msgid "Test takers library"
 msgstr "Testpersounen Sammlung"
 
 msgid "search"
@@ -58,13 +58,13 @@ msgstr "Bei e Grupp derbeisetzen"
 msgid "Save"
 msgstr "Spaicheren"
 
-msgid "The Testees module allows to record and manage  testees."
+msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adress, Gebuertsdatum, Geschlecht, etc.)."
 
-msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.)."
 
 msgid "Subject saved"

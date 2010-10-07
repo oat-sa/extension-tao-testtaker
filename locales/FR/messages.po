@@ -10,13 +10,13 @@ msgstr "Classe enregistrée"
 msgid "Edit subject class"
 msgstr "Modifier la classe sujet"
 
-msgid "Testees"
+msgid "Test takers"
 msgstr "Sujets"
 
-msgid "Manage testees"
+msgid "Manage test takers"
 msgstr "Gérer les sujets"
 
-msgid "Testees library"
+msgid "Test takers library"
 msgstr "Librairie de sujets"
 
 msgid "search"
@@ -58,13 +58,13 @@ msgstr "Ajouter au groupe"
 msgid "Save"
 msgstr "Enregistrer"
 
-msgid "The Testees module allows to record and manage  testees."
+msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
 
-msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
 
 msgid ""

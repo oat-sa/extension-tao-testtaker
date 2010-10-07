@@ -1,22 +1,22 @@
-msgid "Testee saved"
+msgid "Test taker saved"
 msgstr ""
 
 msgid "Edit subject"
-msgstr "Edit testee"
+msgstr "Edit test taker"
 
 msgid "Class saved"
 msgstr ""
 
 msgid "Edit subject class"
-msgstr "Edit testee class"
+msgstr "Edit test taker class"
 
-msgid "Testees"
+msgid "Test takers"
 msgstr ""
 
-msgid "Manage testees"
+msgid "Manage test takers"
 msgstr ""
 
-msgid "Testees library"
+msgid "Test takers library"
 msgstr ""
 
 msgid "search"
@@ -26,7 +26,7 @@ msgid "new class"
 msgstr ""
 
 msgid "new subject"
-msgstr "new testee"
+msgstr "new test taker"
 
 msgid "delete"
 msgstr ""
@@ -58,20 +58,20 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "The Testees module allows to record and manage  testees."
+msgid "The Test takers module allows to record and manage  test takers."
 msgstr ""
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr ""
 
-msgid "Testees may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 
 msgid "Subject saved"
-msgstr "Testee saved"
+msgstr "Test taker saved"
 
 msgid "edit subject"
-msgstr "edit testee"
+msgstr "edit test taker"
 
 msgid "new property"
 msgstr ""

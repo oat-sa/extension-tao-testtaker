@@ -110,7 +110,7 @@ class Subjects extends TaoModule {
 				
 				$subject = $this->service->bindProperties($subject, $values);
 				
-				$message = __('Testee saved');
+				$message = __('Test taker saved');
 				
 				if($addMode){
 					$params =  array(
