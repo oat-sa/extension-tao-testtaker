@@ -45,10 +45,6 @@ define('BASE_URL', ROOT_URL. '/taoSubjects');
 #BASE WWW the web resources path
 define('BASE_WWW', BASE_URL . '/' . DIR_VIEWS);
 
-#export resources path
-define('EXPORT_PATH', 	BASE_PATH . '/' . DIR_VIEWS . 'export');
-define('EXPORT_URL', 	BASE_URL  . '/' . DIR_VIEWS . 'export');
-
 #TAO extension Paths
 define('TAOBASE_WWW',  ROOT_URL  . '/tao/' . DIR_VIEWS);
 define('TAOVIEW_PATH', ROOT_PATH . '/tao/' . DIR_VIEWS);
