@@ -1,5 +1,7 @@
 <?include(TAO_TPL_PATH . 'header.tpl')?>
 
+<script type="text/javascript" src='<?=TAOBASE_WWW?>js/users.js'></script>
+
 <?include('groups.tpl')?>
 
 <div class="main-container">
