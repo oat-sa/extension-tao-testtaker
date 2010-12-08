@@ -85,9 +85,6 @@ msgstr "rdf"
 msgid "search"
 msgstr "Rechercher"
 
-msgid ""
-msgstr ""
-
 msgid "Test taker saved"
-msgstr ""
+msgstr "Sujet sauvegardé"
 
