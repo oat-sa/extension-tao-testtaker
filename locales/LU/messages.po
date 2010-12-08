@@ -1,32 +1,53 @@
-msgid "Test taker saved"
-msgstr ""
-
-msgid "Edit subject"
-msgstr "Testpersoun editéiren"
+msgid "Add to group"
+msgstr "Bei e Grupp derbeisetzen"
 
 msgid "Class saved"
 msgstr "Klass gespaichert"
 
+msgid "DE"
+msgstr "German"
+
+msgid "EN"
+msgstr "English"
+
+msgid "Edit subject"
+msgstr "Testpersoun editéiren"
+
 msgid "Edit subject class"
 msgstr "Testpersounen Klass editéiren"
 
-msgid "Test takers"
-msgstr "Testpersounen"
+msgid "FR"
+msgstr "French"
+
+msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adress, Gebuertsdatum, Geschlecht, etc.)."
+
+msgid "LU"
+msgstr "Luxembourgish"
 
 msgid "Manage test takers"
 msgstr "Testpersounen verwalten"
 
+msgid "Save"
+msgstr "Spaicheren"
+
+msgid "Subject saved"
+msgstr "Testpersoun gespaichert"
+
+msgid "Test takers"
+msgstr "Testpersounen"
+
 msgid "Test takers library"
 msgstr "Testpersounen Sammlung"
 
-msgid "search"
-msgstr "sichen"
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.)."
 
-msgid "new class"
-msgstr "nei Klass"
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
 
-msgid "new subject"
-msgstr "nei Testpersoun"
+msgid "create table"
+msgstr "Tabell erstellen"
 
 msgid "delete"
 msgstr "läschen"
@@ -34,60 +55,39 @@ msgstr "läschen"
 msgid "duplicate"
 msgstr "duplizéiren"
 
-msgid "move"
-msgstr ""
+msgid "edit subject"
+msgstr "Testpersoun editéiren"
 
-msgid "lists"
-msgstr ""
+msgid "export"
+msgstr "exportéiren"
 
 msgid "meta data"
 msgstr "Meta Daten"
 
-msgid "create table"
-msgstr "Tabell erstellen"
+msgid "new class"
+msgstr "nei Klass"
 
-msgid "rdf"
+msgid "new property"
+msgstr "nei Proprietéit"
+
+msgid "new subject"
+msgstr "nei Testpersoun"
+
+msgid "search"
+msgstr "sichen"
+
+msgid "Test taker saved"
 msgstr ""
 
 msgid "import"
 msgstr ""
 
-msgid "Add to group"
-msgstr "Bei e Grupp derbeisetzen"
+msgid "lists"
+msgstr ""
 
-msgid "Save"
-msgstr "Spaicheren"
+msgid "move"
+msgstr ""
 
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
-
-msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adress, Gebuertsdatum, Geschlecht, etc.)."
-
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.)."
-
-msgid "Subject saved"
-msgstr "Testpersoun gespaichert"
-
-msgid "edit subject"
-msgstr "Testpersoun editéiren"
-
-msgid "new property"
-msgstr "nei Proprietéit"
-
-msgid "export"
-msgstr "exportéiren"
-
-msgid "EN"
-msgstr "English"
-
-msgid "FR"
-msgstr "French"
-
-msgid "DE"
-msgstr "German"
-
-msgid "LU"
-msgstr "Luxembourgish"
+msgid "rdf"
+msgstr ""
 

@@ -1,32 +1,50 @@
-msgid ""
-msgstr ""
-
-msgid "Edit subject"
-msgstr "Modifier le sujet"
+msgid "Add to group"
+msgstr "Ajouter au groupe"
 
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
+msgid "DE"
+msgstr "German"
+
+msgid "EN"
+msgstr "English"
+
+msgid "Edit subject"
+msgstr "Modifier le sujet"
+
 msgid "Edit subject class"
 msgstr "Modifier la classe sujet"
 
-msgid "Test takers"
-msgstr "Sujets"
+msgid "FR"
+msgstr "French"
+
+msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
+
+msgid "LU"
+msgstr "Luxemburgish"
 
 msgid "Manage test takers"
 msgstr "Gérer les sujets"
 
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Test takers"
+msgstr "Sujets"
+
 msgid "Test takers library"
 msgstr "Librairie de sujets"
 
-msgid "search"
-msgstr "Rechercher"
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
 
-msgid "new class"
-msgstr "nouvelle classe"
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
 
-msgid "new subject"
-msgstr "nouveau sujet"
+msgid "create table"
+msgstr "créer un tableau"
 
 msgid "delete"
 msgstr "supprimer"
@@ -34,8 +52,14 @@ msgstr "supprimer"
 msgid "duplicate"
 msgstr "dupliquer"
 
-msgid "move"
-msgstr "déplacer"
+msgid "edit subject"
+msgstr "modifier un sujet"
+
+msgid "export"
+msgstr "exporter"
+
+msgid "import"
+msgstr "importer"
 
 msgid "lists"
 msgstr "listes"
@@ -43,51 +67,27 @@ msgstr "listes"
 msgid "meta data"
 msgstr "métadonnée"
 
-msgid "create table"
-msgstr "créer un tableau"
+msgid "move"
+msgstr "déplacer"
 
-msgid "rdf"
-msgstr "rdf"
-
-msgid "import"
-msgstr "importer"
-
-msgid "Add to group"
-msgstr "Ajouter au groupe"
-
-msgid "Save"
-msgstr "Enregistrer"
-
-msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
-
-msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
-msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
-
-msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
-
-msgid ""
-msgstr ""
-
-msgid "edit subject"
-msgstr "modifier un sujet"
+msgid "new class"
+msgstr "nouvelle classe"
 
 msgid "new property"
 msgstr "nouvelle propriété"
 
-msgid "export"
-msgstr "exporter"
+msgid "new subject"
+msgstr "nouveau sujet"
 
-msgid "EN"
-msgstr "English"
+msgid "rdf"
+msgstr "rdf"
 
-msgid "FR"
-msgstr "French"
+msgid "search"
+msgstr "Rechercher"
 
-msgid "DE"
-msgstr "German"
+msgid ""
+msgstr ""
 
-msgid "LU"
-msgstr "Luxemburgish"
+msgid "Test taker saved"
+msgstr ""
 
