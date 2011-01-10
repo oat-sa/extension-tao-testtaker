@@ -15,6 +15,5 @@ require_once dirname(__FILE__). '/constants.php';
 
 set_include_path(get_include_path() . PATH_SEPARATOR . GENERIS_BASE_PATH.'/..');
 
-require_once 'tao/helpers/class.Uri.php';
 include_once 'tao/includes/prepend.php';
 ?>
