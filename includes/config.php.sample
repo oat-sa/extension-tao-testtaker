@@ -17,9 +17,6 @@ define("DIR_ACTIONS"		, dirname(__FILE__). "/../actions/");
 # models directory
 define("DIR_MODELS"			, dirname(__FILE__). "/../models/");
 
-# plugin directory
-define('DIR_PLUGINS'		, dirname(__FILE__).'/../plugins/');
-
 # views directory
 define("DIR_VIEWS"			, "views/");
 

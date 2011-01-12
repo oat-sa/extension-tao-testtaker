@@ -92,8 +92,13 @@ class taoSubjects_models_classes_SubjectsService
 		if(is_null($clazz) && $mode == 'uri'){
 			try{
 				$resource = new core_kernel_classes_Resource($identifier);
-				$type = $resource->getOnePropertyValue(new core_kernel_classes_Property( RDFS_TYPE ));
-				$clazz = new core_kernel_classes_Class($type->uriResource);
+				$types = $resource->getPropertyValuesCollection(new core_kernel_classes_Property( RDFS_TYPE ));
+				foreach($types->getIterator() as $type){
+					if($type->uriResource != CLASS_ROLE_SUBJECT){
+						$clazz = new core_kernel_classes_Class($type->uriResource);
+						break;
+					}
+				}
 			}
 			catch(Exception $e){}
 		}
