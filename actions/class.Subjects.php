@@ -1,6 +1,4 @@
 <?php
-require_once('tao/actions/CommonModule.class.php');
-require_once('tao/actions/TaoModule.class.php');
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -12,7 +10,7 @@ require_once('tao/actions/TaoModule.class.php');
  * 
  */
 
-class Subjects extends TaoModule {
+class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 
 	/**
 	 * constructor: initialize the service and the default data

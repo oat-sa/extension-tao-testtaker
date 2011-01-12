@@ -1,5 +1,4 @@
 <?php
-require_once('tao/actions/Import.class.php');
 
 /**
  * Extends the common Import class to update the behavior
@@ -11,7 +10,7 @@ require_once('tao/actions/Import.class.php');
  * 
  */
 
-class SubjectsImport extends Import {
+class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
 
 	/**
 	 * Add static data to each imported subjects,
