@@ -88,6 +88,9 @@ msgstr ""
 msgid "move"
 msgstr ""
 
+msgid "new test taker"
+msgstr ""
+
 msgid "rdf"
 msgstr ""
 

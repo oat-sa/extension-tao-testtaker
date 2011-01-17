@@ -1,14 +1,14 @@
-msgid "Add to group"
-msgstr "Ajouter au groupe"
+msgid ""
+msgstr ""
 
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
 msgid "DE"
-msgstr "German"
+msgstr "Allemand"
 
 msgid "EN"
-msgstr "English"
+msgstr "Anglais"
 
 msgid "Edit subject"
 msgstr "Modifier le sujet"
@@ -17,19 +17,22 @@ msgid "Edit subject class"
 msgstr "Modifier la classe sujet"
 
 msgid "FR"
-msgstr "French"
+msgstr "Français"
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
 
 msgid "LU"
-msgstr "Luxemburgish"
+msgstr "Luxembourgeois"
 
 msgid "Manage test takers"
 msgstr "Gérer les sujets"
 
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid "Test taker saved"
+msgstr "Sujet sauvegardé"
 
 msgid "Test takers"
 msgstr "Sujets"
@@ -85,6 +88,6 @@ msgstr "rdf"
 msgid "search"
 msgstr "Rechercher"
 
-msgid "Test taker saved"
-msgstr "Sujet sauvegardé"
+msgid "new test taker"
+msgstr "nouvea sujet"
 
