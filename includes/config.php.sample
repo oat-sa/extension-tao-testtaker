@@ -6,11 +6,6 @@
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */
-
-
-# plugins directory
-define("DIR_PLUGIN"			, dirname(__FILE__). "/../plugins/");
-
 # actions directory
 define("DIR_ACTIONS"		, dirname(__FILE__). "/../actions/");
 
