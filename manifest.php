@@ -1,34 +1,30 @@
 <?php
-
 /*
  * @author CRP Henri Tudor - TAO Team - {@link http://www.tao.lu}
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */
-	return array(
-		'name' => 'TAO Subjects',
-		'description' => 'TAO Subjects extensions http://www.tao.lu',
-		'additional' => array(
-			'version' => '1.2',
-			'author' => 'CRP Henri Tudor',
-			'dependances' => array(),
-			'install' => array( 
-				'sql' => dirname(__FILE__). '/model/ontology/taosubjects.sql',
-				'php' => dirname(__FILE__). '/install/install.php'
-			),
+return array(
+	'name' => 'taoSubjects',
+	'description' => 'TAO Subjects extension',
+	'additional' => array(
+		'version' => '2.0',
+		'author' => 'CRP Henri Tudor',
+		'dependances' => array('tao'),
+		'models' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf',
+		'install' => array( 
+			'php' => dirname(__FILE__). '/install/install.php',
+			'rdf' => dirname(__FILE__). '/models/ontology/taosubject.rdf'
+		),
+		'classLoaderPackages' => array( 
+			dirname(__FILE__).'/actions/',
+			dirname(__FILE__).'/helpers/'
+		 )
 
-			'model' => array('http://www.tao.lu/Ontologies/TAOSubject.rdf',
-			 		 'http://www.tao.lu/Ontologies/TAOGroup.rdf'
-			),
-			'classLoaderPackages' => array( 
-				dirname(__FILE__).'/actions/',
-				dirname(__FILE__).'/helpers/'
-			 )
+		
 
 			
-
-				
-			
-		)
-	);
+		
+	)
+);
 ?>
