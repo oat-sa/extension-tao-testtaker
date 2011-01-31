@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.tao.lu/Ontologies/TAOSubject.rdf#" xmlns:ns12="http://www.tao.lu/Ontologies/TAOSubject.rdf#">
-  <rdf:Description rdf:about="Subject">
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xml:base="http://www.tao.lu/Ontologies/TAOSubject.rdf#"
+	xmlns:subject="http://www.tao.lu/Ontologies/TAOSubject.rdf#"
+>
+  <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject">
     <rdfs:label xml:lang="EN"><![CDATA[Test taker]]></rdfs:label>
     <rdfs:comment xml:lang="EN"><![CDATA[Specifies the form interface widget]]></rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TAOObject"/>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TaoSubjectRole"/>
   </rdf:Description>
-  <rdf:Description rdf:about="i125256679264748">
-    <rdf:type rdf:resource="i1251875577236"/>
+  <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#i125256679264748">
+    <rdf:type rdf:resource="http://www.tao.lu/Ontologies/TAOSubject.rdf#i1251875577236"/>
   </rdf:Description>
 </rdf:RDF>

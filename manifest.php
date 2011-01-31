@@ -13,7 +13,6 @@ return array(
 		'dependances' => array('tao'),
 		'models' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf',
 		'install' => array( 
-			'php' => dirname(__FILE__). '/install/install.php',
 			'rdf' => dirname(__FILE__). '/models/ontology/taosubject.rdf'
 		),
 		'classLoaderPackages' => array( 
