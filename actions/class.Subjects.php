@@ -106,6 +106,13 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					unset($values['password3']);
 				}
 				
+				if(!preg_match("/[A-Z]{2,4}$/", trim($values[PROPERTY_USER_UILG]))){
+					unset($values[PROPERTY_USER_UILG]);
+				}
+				if(!preg_match("/[A-Z]{2,4}$/", trim($values[PROPERTY_USER_DEFLG]))){
+					unset($values[PROPERTY_USER_DEFLG]);
+				}
+				
 				$subject = $this->service->bindProperties($subject, $values);
 				
 				$message = __('Test taker saved');
