@@ -171,7 +171,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			$this->setSessionAttribute('property_mode', $this->getRequestParameter('property_mode'));
 		}
 		
-		$myForm = $this->editClass($clazz, $this->service->getSubjectClass());
+		$myForm = $this->editClass($clazz, $this->service->getSubjectClass(), new core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				if($clazz instanceof core_kernel_classes_Resource){
