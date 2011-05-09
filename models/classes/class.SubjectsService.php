@@ -92,10 +92,9 @@ class taoSubjects_models_classes_SubjectsService
 		if(is_null($clazz) && $mode == 'uri'){
 			try{
 				$resource = new core_kernel_classes_Resource($identifier);
-				$types = $resource->getPropertyValuesCollection(new core_kernel_classes_Property( RDFS_TYPE ));
-				foreach($types->getIterator() as $type){
+				foreach($resource->getType() as $type){
 					if($type->uriResource != CLASS_ROLE_SUBJECT){
-						$clazz = new core_kernel_classes_Class($type->uriResource);
+						$clazz = $type;
 						break;
 					}
 				}
@@ -183,7 +182,7 @@ class taoSubjects_models_classes_SubjectsService
 
         $returnValue = parent::createInstance($clazz, $label);
         
-        $returnValue->setPropertyValue(new core_kernel_classes_Property(RDF_TYPE), CLASS_ROLE_SUBJECT);
+        $returnValue->setType(new core_kernel_classes_Class(CLASS_ROLE_SUBJECT));
         
         // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 end
 
