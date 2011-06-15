@@ -1,6 +1,3 @@
-msgid ""
-msgstr ""
-
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
@@ -82,12 +79,15 @@ msgstr "nouvelle propriété"
 msgid "new subject"
 msgstr "nouveau sujet"
 
+msgid "new test taker"
+msgstr "nouvea sujet"
+
 msgid "rdf"
 msgstr "rdf"
 
 msgid "search"
 msgstr "Rechercher"
 
-msgid "new test taker"
-msgstr "nouvea sujet"
+msgid ""
+msgstr ""
 
