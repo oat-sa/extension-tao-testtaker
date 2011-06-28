@@ -1,0 +1,69 @@
+msgid "Add to group"
+msgstr ""
+
+msgid "Class saved"
+msgstr ""
+
+msgid "Edit subject"
+msgstr ""
+
+msgid "Edit subject class"
+msgstr ""
+
+msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr ""
+
+msgid "Manage test takers"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Test taker saved"
+msgstr ""
+
+msgid "Test takers"
+msgstr ""
+
+msgid "Test takers library"
+msgstr ""
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr ""
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr ""
+
+msgid "create table"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "duplicate"
+msgstr ""
+
+msgid "export"
+msgstr ""
+
+msgid "import"
+msgstr ""
+
+msgid "lists"
+msgstr ""
+
+msgid "meta data"
+msgstr ""
+
+msgid "move"
+msgstr ""
+
+msgid "new class"
+msgstr ""
+
+msgid "new test taker"
+msgstr ""
+
+msgid "search"
+msgstr ""
+
