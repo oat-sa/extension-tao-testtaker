@@ -230,6 +230,15 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			}
 			$options['browse'] = $selected;
 		}
+		if($this->hasRequestParameter('offset')){
+			$options['offset'] = $this->getRequestParameter('offset');
+		}
+		if($this->hasRequestParameter('limit')){
+			$options['limit'] = $this->getRequestParameter('limit');
+		}
+		if($this->hasRequestParameter('subclasses')){
+			$options['subclasses'] = $this->getRequestParameter('subclasses');
+		}
 		echo json_encode($this->service->toTree($clazz, $options));
 	}
 	
