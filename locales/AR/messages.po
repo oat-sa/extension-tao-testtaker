@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+
+msgid "Class saved"
+msgstr "تم حفظ الصنف"
+
+msgid "DE"
+msgstr "الالمانية"
+
+msgid "EN"
+msgstr "الانجليزية"
+
+msgid "Edit subject"
+msgstr "تحرير الموضوع"
+
+msgid "Edit subject class"
+msgstr "تعديل الصنف موضوع"
+
+msgid "FR"
+msgstr "الفرنسية"
+
+msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr "(مرونته تسمح بتصميم بنية البيانات (مثل الاسم والعنوان وتاريخ الميلاد، الجنس وغيرها"
+
+msgid "LU"
+msgstr "اللكسمبورجية"
+
+msgid "Manage test takers"
+msgstr "إدارة المتقدمين للاختبار"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Test taker saved"
+msgstr "حفظ المترشح"
+
+msgid "Test takers"
+msgstr "المترشحون للااختبار"
+
+msgid "Test takers library"
+msgstr "مكتبة المترشحين"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مجموعات وفقا لسياق التقييم ذات الصلة (إدارة الموارد البشرية، والتعليم، ورصد، الخ"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"
+
+msgid "create table"
+msgstr "انشاء جدول"
+
+msgid "delete"
+msgstr "حذف"
+
+msgid "duplicate"
+msgstr "تكرار"
+
+msgid "edit subject"
+msgstr "تحرير الموضوع"
+
+msgid "export"
+msgstr "تصدير"
+
+msgid "import"
+msgstr "استيراد"
+
+msgid "lists"
+msgstr "القوائم"
+
+msgid "meta data"
+msgstr "بيانات التعريف"
+
+msgid "move"
+msgstr "حرك"
+
+msgid "new class"
+msgstr "صنف جديد"
+
+msgid "new property"
+msgstr "خاصية جديدة"
+
+msgid "new subject"
+msgstr "موضوع جديد"
+
+msgid "rdf"
+msgstr "rdf"
+
+msgid "search"
+msgstr "بحث"
+
+msgid "new test taker"
+msgstr "مترشح جديد"
+
