@@ -25,7 +25,7 @@ $(document).ready(function(){
 		actionId: 'group',
 		saveUrl : setUrl,
 		checkedNodes : <?=get_data('subjectGroups')?>,
-		paginate: 5
+		paginate: 10
 	});
 });
 </script>
