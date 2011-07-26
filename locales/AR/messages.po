@@ -1,6 +1,3 @@
-msgid ""
-msgstr ""
-
 msgid "Class saved"
 msgstr "تم حفظ الصنف"
 
@@ -82,12 +79,18 @@ msgstr "خاصية جديدة"
 msgid "new subject"
 msgstr "موضوع جديد"
 
+msgid "new test taker"
+msgstr "مترشح جديد"
+
 msgid "rdf"
 msgstr "rdf"
 
 msgid "search"
 msgstr "بحث"
 
-msgid "new test taker"
-msgstr "مترشح جديد"
+msgid ""
+msgstr ""
+
+msgid "Add to group"
+msgstr ""
 

@@ -91,3 +91,6 @@ msgstr "Rechercher"
 msgid ""
 msgstr ""
 
+msgid "Add to group"
+msgstr ""
+
