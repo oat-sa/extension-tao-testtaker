@@ -1,0 +1,4 @@
+/* auto generated content */
+/* extesion: taoSubjects, lang: _raw */
+var langCode = '_raw';
+var i18n_tr = {"Add to group":"","Class saved":"","Edit subject":"","Edit subject class":"","Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.).":"","Manage test takers":"","Save":"","Test taker saved":"","Test takers":"","Test takers library":"","Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.).":"","The Test takers module allows to record and manage  test takers.":"","create table":"","delete":"","duplicate":"","export":"","import":"","lists":"","meta data":"","move":"","new class":"","new test taker":"","search":""};
