@@ -83,7 +83,12 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		
 		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode);
 		$myForm = $myFormContainer->getForm();
-		
+		$myForm->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
+                if(!$addMode){
+                        $myForm->removeElement('password0');
+                        $myForm->removeElement('password1');
+                }
+                
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				$this->setData('reload', false);
@@ -96,12 +101,10 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					unset($values['password2']);
 				}
 				else{
-					if(!empty($values['password1']) && !empty($values['password2'])){
+					if(!empty($values['password2'])){
 						$values[PROPERTY_USER_PASSWORD] = md5($values['password2']);
 					}
-					
-					unset($values['password0']);
-					unset($values['password1']);
+                                        //password0 and password1 have already been removed
 					unset($values['password2']);
 					unset($values['password3']);
 				}
@@ -109,12 +112,16 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 				if(!preg_match("/[A-Z]{2,4}$/", trim($values[PROPERTY_USER_UILG]))){
 					unset($values[PROPERTY_USER_UILG]);
 				}
-				if(!preg_match("/[A-Z]{2,4}$/", trim($values[PROPERTY_USER_DEFLG]))){
-					unset($values[PROPERTY_USER_DEFLG]);
-				}
 				
 				$subject = $this->service->bindProperties($subject, $values);
 				
+                                if($addMode){
+                                        //force default subject lg to the default system's:
+                                        $userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
+                                        $lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+                                        $userService->saveUser($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
+                                }
+                                
 				$message = __('Test taker saved');
 				
 				if($addMode){
