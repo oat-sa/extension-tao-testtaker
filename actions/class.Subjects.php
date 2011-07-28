@@ -84,10 +84,10 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode);
 		$myForm = $myFormContainer->getForm();
 		$myForm->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
-                if(!$addMode){
-                        $myForm->removeElement('password0');
-                        $myForm->removeElement('password1');
-                }
+		if(!$addMode){
+			$myForm->removeElement('password0');
+			$myForm->removeElement('password1');
+		}
                 
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
@@ -115,12 +115,12 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 				
 				$subject = $this->service->bindProperties($subject, $values);
 				
-                                if($addMode){
-                                        //force default subject lg to the default system's:
-                                        $userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
-                                        $lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-                                        $userService->saveUser($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
-                                }
+				if($addMode){
+					//force default subject lg to the default system's:
+					$userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
+					$lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+					$userService->saveUser($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
+				}
                                 
 				$message = __('Test taker saved');
 				
@@ -140,7 +140,6 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			}
 		}
 		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
-		
 		
 		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
 		
