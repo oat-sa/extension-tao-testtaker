@@ -68,7 +68,7 @@ class taoSubjects_models_classes_SubjectsService
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 begin
 		
 		parent::__construct();
-		$this->subjectClass 	= new core_kernel_classes_Class( TAO_SUBJECT_CLASS );
+		$this->subjectClass = new core_kernel_classes_Class(TAO_SUBJECT_CLASS);
 
         // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
     }
@@ -99,13 +99,15 @@ class taoSubjects_models_classes_SubjectsService
 					}
 				}
 			}
-			catch(Exception $e){}
+			catch(Exception $e){
+				// empty
+			}
 		}
 		if(is_null($clazz)){
 			$clazz = $this->subjectClass;
 		}
 		if($this->isSubjectClass($clazz)){
-			$returnValue = $this->getOneInstanceBy( $clazz, $identifier, $mode);
+			$returnValue = $this->getOneInstanceBy($clazz, $identifier, $mode);
 		}
 		
 		
@@ -435,12 +437,14 @@ class taoSubjects_models_classes_SubjectsService
         try{
         	$login = $returnValue->getUniquePropertyValue($loginProperty);
         	while($userService->loginExist($login)){
-        		$login .= (string)rand(0, 9); 
+        		$login .= (string) rand(0, 9); 
         	}
         	
         	$returnValue->editPropertyValues($loginProperty, $login);
         }
-        catch(common_Exception $ce){}
+        catch(common_Exception $ce){
+        	//empty
+        }
         
         // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B end
 
