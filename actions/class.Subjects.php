@@ -30,10 +30,42 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
  */
 	
 	/**
+	 * get the class of the current subject regarding the 'classUri' request parameter
+	 * if the classUri is not defined try, to find the current 'classUri' functions of the 'uri' request parameter
+	 * @return core_kernel_classes_Class	 
+	 */
+	protected function getCurrentClass()
+	{
+		$clazz = null;
+		
+		try{
+			$clazz = parent::getCurrentClass();
+		}
+		catch(Exception $e){
+			$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
+			$resource = new core_kernel_classes_Resource($uri);
+			foreach($resource->getType() as $type){
+				if($type->uriResource != CLASS_ROLE_SUBJECT){
+					$clazz = $type;
+					break;
+				}
+			}
+		}
+		
+		if(is_null($clazz)){
+			throw new Exception("No valid class uri found");
+		}
+		
+		return $clazz;
+	}
+	
+	
+	/**
 	 * get the instancee of the current subject regarding the 'uri' and 'classUri' request parameters
 	 * @return core_kernel_classes_Resource the subject instance
 	 */
-	protected function getCurrentInstance(){
+	protected function getCurrentInstance()
+	{
 		
 		$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
 		if(is_null($uri) || empty($uri)){
@@ -41,7 +73,6 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		}
 		
 		$clazz = $this->getCurrentClass();
-		
 		$subject = $this->service->getSubject($uri, 'uri', $clazz);
 		if(is_null($subject)){
 			throw new Exception("No subject found for the uri {$uri}");
@@ -54,7 +85,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * get the main class
 	 * @return core_kernel_classes_Classes
 	 */
-	protected function getRootClass(){
+	protected function getRootClass()
+	{
 		return $this->service->getSubjectClass();
 	}
 	
@@ -67,12 +99,15 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * edit an subject instance
 	 * @return void
 	 */
-	public function editSubject(){
+	public function editSubject()
+	{
 		$clazz = $this->getCurrentClass();
-		$subject = $this->getCurrentInstance();
 		
+		//get the subject to edit
+		$subject = $this->getCurrentInstance();
+			
 		$addMode = false;
-		$login = (string)$subject->getOnePropertyValue(new core_kernel_classes_Property(PROPERTY_USER_LOGIN));
+		$login = (string) $subject->getOnePropertyValue(new core_kernel_classes_Property(PROPERTY_USER_LOGIN));
 		if(empty($login)){
 			$addMode = true;
 			$this->setData('loginUri', tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
@@ -135,7 +170,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 				}
 				
 				$this->setData('message', $message);
-				$this->setData('reload',  true);
+				$this->setData('reload', true);
 				
 			}
 		}
@@ -153,16 +188,19 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * add a subject model (subclass Subject)
 	 * @return void
 	 */
-	public function addSubjectClass(){
+	public function addSubjectClass()
+	{
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
 		$clazz = $this->service->createSubjectClass($this->getCurrentClass());
 		if(!is_null($clazz) && $clazz instanceof core_kernel_classes_Class){
-			echo json_encode(array(
-				'label'	=> $clazz->getLabel(),
-				'uri' 	=> tao_helpers_Uri::encode($clazz->uriResource)
-			));
+			echo json_encode(
+				array(
+					'label'	=> $clazz->getLabel(),
+					'uri' 	=> tao_helpers_Uri::encode($clazz->uriResource)
+				)
+			);
 		}
 	}
 	
@@ -170,7 +208,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * Edit a subject model (edit a class)
 	 * @return void
 	 */
-	public function editSubjectClass(){
+	public function editSubjectClass()
+	{
 		$clazz = $this->getCurrentClass();
 		
 		if($this->hasRequestParameter('property_mode')){
@@ -197,7 +236,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * called via ajax
 	 * @return void
 	 */
-	public function delete(){
+	public function delete()
+	{
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
@@ -217,7 +257,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * get the list of groups to populate the checkbox tree of groups to link with
 	 * @return void
 	 */
-	public function getGroups(){
+	public function getGroups()
+	{
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
@@ -252,7 +293,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * save from the checkbox tree the groups to link with 
 	 * @return void
 	 */
-	public function saveGroups(){
+	public function saveGroups()
+	{
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
@@ -270,8 +312,6 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		}
 		echo json_encode(array('saved'	=> $saved));
 	}
-	
-	
 	
 }
 ?>
