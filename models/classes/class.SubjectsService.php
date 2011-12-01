@@ -432,7 +432,7 @@ class taoSubjects_models_classes_SubjectsService
         
         $returnValue = parent::cloneInstance($instance, $clazz);
         
-        $userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
+        $userService = tao_models_classes_UserService::singleton();
         $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
         try{
         	$login = $returnValue->getUniquePropertyValue($loginProperty);

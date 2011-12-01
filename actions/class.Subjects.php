@@ -21,7 +21,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		parent::__construct();
 		
 		//the service is initialized by default
-		$this->service = tao_models_classes_ServiceFactory::get('Subjects');
+		$this->service = taoSubjects_models_classes_SubjectsService::singleton();
 		$this->defaultData();
 	}
 	
@@ -152,7 +152,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 				
 				if($addMode){
 					//force default subject lg to the default system's:
-					$userService = tao_models_classes_ServiceFactory::get('tao_models_classes_UserService');
+					$userService = tao_models_classes_UserService::singleton();
 					$lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 					$userService->saveUser($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
 				}
