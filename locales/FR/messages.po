@@ -1,11 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO v2.2-alpha\n"
+"PO-Revision-Date: 2012-01-18T15:51:42\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: FR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add to group"
+msgstr ""
+
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
-msgid "DE"
-msgstr "Allemand"
+msgid "create table"
+msgstr "créer un tableau"
 
-msgid "EN"
-msgstr "Anglais"
+msgid "delete"
+msgstr "supprimer"
+
+msgid "duplicate"
+msgstr "dupliquer"
 
 msgid "Edit subject"
 msgstr "Modifier le sujet"
@@ -13,20 +29,41 @@ msgstr "Modifier le sujet"
 msgid "Edit subject class"
 msgstr "Modifier la classe sujet"
 
-msgid "FR"
-msgstr "Français"
+msgid "export"
+msgstr "exporter"
+
+msgid "import"
+msgstr "importer"
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Sa flexibilité permet la conception des structures de données (ex : nom, adresse, date de naissance, genre… etc.)."
 
-msgid "LU"
-msgstr "Luxembourgeois"
+msgid "lists"
+msgstr "listes"
 
 msgid "Manage test takers"
 msgstr "Gérer les sujets"
 
+msgid "meta data"
+msgstr "métadonnée"
+
+msgid "move"
+msgstr "déplacer"
+
+msgid "new class"
+msgstr "nouvelle classe"
+
+msgid "new test taker"
+msgstr "nouvea sujet"
+
+msgid "Record and manage test takers."
+msgstr ""
+
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid "search"
+msgstr "Rechercher"
 
 msgid "Test taker saved"
 msgstr "Sujet sauvegardé"
@@ -42,55 +79,4 @@ msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d�
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
-
-msgid "create table"
-msgstr "créer un tableau"
-
-msgid "delete"
-msgstr "supprimer"
-
-msgid "duplicate"
-msgstr "dupliquer"
-
-msgid "edit subject"
-msgstr "modifier un sujet"
-
-msgid "export"
-msgstr "exporter"
-
-msgid "import"
-msgstr "importer"
-
-msgid "lists"
-msgstr "listes"
-
-msgid "meta data"
-msgstr "métadonnée"
-
-msgid "move"
-msgstr "déplacer"
-
-msgid "new class"
-msgstr "nouvelle classe"
-
-msgid "new property"
-msgstr "nouvelle propriété"
-
-msgid "new subject"
-msgstr "nouveau sujet"
-
-msgid "new test taker"
-msgstr "nouvea sujet"
-
-msgid "rdf"
-msgstr "rdf"
-
-msgid "search"
-msgstr "Rechercher"
-
-msgid ""
-msgstr ""
-
-msgid "Add to group"
-msgstr ""
 

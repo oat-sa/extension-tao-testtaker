@@ -1,14 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO v2.2-alpha\n"
+"PO-Revision-Date: 2012-01-18T15:51:42\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: LU\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Add to group"
 msgstr "Bei e Grupp derbeisetzen"
 
 msgid "Class saved"
 msgstr "Klass gespaichert"
 
-msgid "DE"
-msgstr "German"
+msgid "create table"
+msgstr "Tabell erstellen"
 
-msgid "EN"
-msgstr "English"
+msgid "delete"
+msgstr "läschen"
+
+msgid "duplicate"
+msgstr "duplizéiren"
 
 msgid "Edit subject"
 msgstr "Testpersoun editéiren"
@@ -16,23 +29,44 @@ msgstr "Testpersoun editéiren"
 msgid "Edit subject class"
 msgstr "Testpersounen Klass editéiren"
 
-msgid "FR"
-msgstr "French"
+msgid "export"
+msgstr "exportéiren"
+
+msgid "import"
+msgstr ""
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adress, Gebuertsdatum, Geschlecht, etc.)."
 
-msgid "LU"
-msgstr "Luxembourgish"
+msgid "lists"
+msgstr ""
 
 msgid "Manage test takers"
 msgstr "Testpersounen verwalten"
 
+msgid "meta data"
+msgstr "Meta Daten"
+
+msgid "move"
+msgstr ""
+
+msgid "new class"
+msgstr "nei Klass"
+
+msgid "new test taker"
+msgstr ""
+
+msgid "Record and manage test takers."
+msgstr ""
+
 msgid "Save"
 msgstr "Spaicheren"
 
-msgid "Subject saved"
-msgstr "Testpersoun gespaichert"
+msgid "search"
+msgstr "sichen"
+
+msgid "Test taker saved"
+msgstr ""
 
 msgid "Test takers"
 msgstr "Testpersounen"
@@ -45,52 +79,4 @@ msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechend
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
-
-msgid "create table"
-msgstr "Tabell erstellen"
-
-msgid "delete"
-msgstr "läschen"
-
-msgid "duplicate"
-msgstr "duplizéiren"
-
-msgid "edit subject"
-msgstr "Testpersoun editéiren"
-
-msgid "export"
-msgstr "exportéiren"
-
-msgid "meta data"
-msgstr "Meta Daten"
-
-msgid "new class"
-msgstr "nei Klass"
-
-msgid "new property"
-msgstr "nei Proprietéit"
-
-msgid "new subject"
-msgstr "nei Testpersoun"
-
-msgid "search"
-msgstr "sichen"
-
-msgid "Test taker saved"
-msgstr ""
-
-msgid "import"
-msgstr ""
-
-msgid "lists"
-msgstr ""
-
-msgid "move"
-msgstr ""
-
-msgid "new test taker"
-msgstr ""
-
-msgid "rdf"
-msgstr ""
 

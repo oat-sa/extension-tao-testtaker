@@ -1,14 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO v2.2-alpha\n"
+"PO-Revision-Date: 2012-01-18T15:51:42\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: DE\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Add to group"
 msgstr "Zu Gruppe hinzufügen"
 
 msgid "Class saved"
 msgstr "Klasse gespeichert"
 
-msgid "DE"
-msgstr "Deutsch"
+msgid "create table"
+msgstr "Tabelle erstellen"
 
-msgid "EN"
-msgstr "Englisch"
+msgid "delete"
+msgstr "löschen"
+
+msgid "duplicate"
+msgstr "duplizieren"
 
 msgid "Edit subject"
 msgstr "Testperson bearbeiten"
@@ -16,23 +29,44 @@ msgstr "Testperson bearbeiten"
 msgid "Edit subject class"
 msgstr "Klasse"
 
-msgid "FR"
-msgstr "Französisch"
+msgid "export"
+msgstr "Export"
+
+msgid "import"
+msgstr ""
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Die Flexibilität erlaubt das Entwerfen von individuellen Datensätzen (z.B. Name, Adresse, Geburtasdatum, Geschlecht usw.)."
 
-msgid "LU"
-msgstr "Luxemburgisch"
+msgid "lists"
+msgstr ""
 
 msgid "Manage test takers"
 msgstr "Testpersonen verwalten"
 
+msgid "meta data"
+msgstr "Meta-Daten"
+
+msgid "move"
+msgstr ""
+
+msgid "new class"
+msgstr "neue Klasse"
+
+msgid "new test taker"
+msgstr ""
+
+msgid "Record and manage test takers."
+msgstr ""
+
 msgid "Save"
 msgstr "Sichern"
 
-msgid "Subject saved"
-msgstr "Testperson gespeichert"
+msgid "search"
+msgstr "suchen"
+
+msgid "Test taker saved"
+msgstr ""
 
 msgid "Test takers"
 msgstr "Testpersonen"
@@ -45,52 +79,4 @@ msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Per
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen."
-
-msgid "create table"
-msgstr "Tabelle erstellen"
-
-msgid "delete"
-msgstr "löschen"
-
-msgid "duplicate"
-msgstr "duplizieren"
-
-msgid "edit subject"
-msgstr "Testperson bearbeiten"
-
-msgid "export"
-msgstr "Export"
-
-msgid "meta data"
-msgstr "Meta-Daten"
-
-msgid "new class"
-msgstr "neue Klasse"
-
-msgid "new property"
-msgstr "neue Eigenschaft"
-
-msgid "new subject"
-msgstr "neue Testperson"
-
-msgid "search"
-msgstr "suchen"
-
-msgid "Test taker saved"
-msgstr ""
-
-msgid "import"
-msgstr ""
-
-msgid "lists"
-msgstr ""
-
-msgid "move"
-msgstr ""
-
-msgid "new test taker"
-msgstr ""
-
-msgid "rdf"
-msgstr ""
 

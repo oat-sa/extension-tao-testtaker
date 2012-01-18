@@ -1,29 +1,12 @@
-msgid "DE"
-msgstr "German"
-
-msgid "EN"
-msgstr "English"
-
-msgid "Edit subject"
-msgstr "Edit test taker"
-
-msgid "Edit subject class"
-msgstr "Edit test taker class"
-
-msgid "FR"
-msgstr "French"
-
-msgid "LU"
-msgstr "Luxemburgish"
-
-msgid "Subject saved"
-msgstr "Test taker saved"
-
-msgid "edit subject"
-msgstr "edit test taker"
-
-msgid "new subject"
-msgstr "new test taker"
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO v2.2-alpha\n"
+"PO-Revision-Date: 2012-01-18T15:51:42\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: EN\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add to group"
 msgstr ""
@@ -31,13 +14,55 @@ msgstr ""
 msgid "Class saved"
 msgstr ""
 
+msgid "create table"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "duplicate"
+msgstr ""
+
+msgid "Edit subject"
+msgstr "Edit test taker"
+
+msgid "Edit subject class"
+msgstr "Edit test taker class"
+
+msgid "export"
+msgstr ""
+
+msgid "import"
+msgstr ""
+
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
+msgstr ""
+
+msgid "lists"
 msgstr ""
 
 msgid "Manage test takers"
 msgstr ""
 
+msgid "meta data"
+msgstr ""
+
+msgid "move"
+msgstr ""
+
+msgid "new class"
+msgstr ""
+
+msgid "new test taker"
+msgstr ""
+
+msgid "Record and manage test takers."
+msgstr ""
+
 msgid "Save"
+msgstr ""
+
+msgid "search"
 msgstr ""
 
 msgid "Test taker saved"
@@ -53,44 +78,5 @@ msgid "Test takers may be assigned to sets according to the relevant assessment 
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
-
-msgid "create table"
-msgstr ""
-
-msgid "delete"
-msgstr ""
-
-msgid "duplicate"
-msgstr ""
-
-msgid "export"
-msgstr ""
-
-msgid "import"
-msgstr ""
-
-msgid "lists"
-msgstr ""
-
-msgid "meta data"
-msgstr ""
-
-msgid "move"
-msgstr ""
-
-msgid "new class"
-msgstr ""
-
-msgid "new property"
-msgstr ""
-
-msgid "new test taker"
-msgstr ""
-
-msgid "rdf"
-msgstr ""
-
-msgid "search"
 msgstr ""
 
