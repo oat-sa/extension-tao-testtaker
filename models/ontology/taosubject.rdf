@@ -7,11 +7,8 @@
 >
   <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject">
     <rdfs:label xml:lang="EN"><![CDATA[Test taker]]></rdfs:label>
-    <rdfs:comment xml:lang="EN"><![CDATA[Specifies the form interface widget]]></rdfs:comment>
+    <rdfs:comment xml:lang="EN"><![CDATA[The Test Taker class]]></rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TAOObject"/>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TaoSubjectRole"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#i125256679264748">
-    <rdf:type rdf:resource="http://www.tao.lu/Ontologies/TAOSubject.rdf#i1251875577236"/>
   </rdf:Description>
 </rdf:RDF>
