@@ -34,7 +34,7 @@ class taoSubjects_actions_SaSSubjects extends taoSubjects_actions_Subjects {
 			$this->setData('includedView', $identifier);
 		}
 		else{
-			$this->setData('includedView', BASE_PATH . '/' . DIR_VIEWS . $GLOBALS['dir_theme'] . $identifier);
+			$this->setData('includedView', DIR_VIEWS . $GLOBALS['dir_theme'] . $identifier);
 		}
 		return parent::setView('sas.tpl', true);
     }
