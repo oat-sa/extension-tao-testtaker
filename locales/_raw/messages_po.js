@@ -1,4 +1,4 @@
 /* auto generated content */
-/* lang: _raw */
-var langCode = '_raw';
+/* lang: EN */
+var langCode = 'EN';
 var i18n_tr = {"Add to group":"","Class saved":"","create table":"","delete":"","duplicate":"","Edit subject":"","Edit subject class":"","export":"","import":"","Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.).":"","lists":"","Manage test takers":"","meta data":"","move":"","new class":"","new test taker":"","Record and manage test takers.":"","Save":"","search":"","Test taker saved":"","Test takers":"","Test takers library":"","Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.).":"","The Test takers module allows to record and manage  test takers.":""};
