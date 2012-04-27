@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO v2.2-alpha\n"
-"PO-Revision-Date: 2012-04-26T16:13:36\n"
+"PO-Revision-Date: 2012-04-27T16:50:08\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: EN\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add to group"
-msgstr ""
+msgstr "Ajouter au groupe"
 
 msgid "Class saved"
 msgstr "Classe enregistrée"
@@ -57,7 +57,7 @@ msgid "new test taker"
 msgstr "nouvea sujet"
 
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Enregistrer et gérer les sujets."
 
 msgid "Save"
 msgstr "Enregistrer"
