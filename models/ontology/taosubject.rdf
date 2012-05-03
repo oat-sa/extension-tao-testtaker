@@ -6,7 +6,7 @@
 	xmlns:subject="http://www.tao.lu/Ontologies/TAOSubject.rdf#"
 >
   <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject">
-    <rdfs:label xml:lang="EN"><![CDATA[Test taker]]></rdfs:label>
+    <rdfs:label xml:lang="EN"><![CDATA[Test Taker]]></rdfs:label>
     <rdfs:comment xml:lang="EN"><![CDATA[The Test Taker class]]></rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TAOObject"/>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TaoSubjectRole"/>
