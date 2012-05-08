@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO v2.2-beta\n"
-"PO-Revision-Date: 2012-05-08T17:58:36\n"
+"PO-Revision-Date: 2012-05-08T23:27:03\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: FR\n"
@@ -24,10 +24,10 @@ msgid "duplicate"
 msgstr "dupliquer"
 
 msgid "Edit subject"
-msgstr "Modifier le sujet"
+msgstr "Modifier le participant"
 
 msgid "Edit subject class"
-msgstr "Modifier la classe sujet"
+msgstr "Modifier la classe participant"
 
 msgid "export"
 msgstr "exporter"
@@ -42,7 +42,7 @@ msgid "lists"
 msgstr "listes"
 
 msgid "Manage test takers"
-msgstr "Gérer les sujets"
+msgstr "Gérer les participants"
 
 msgid "meta data"
 msgstr "métadonnée"
@@ -54,10 +54,10 @@ msgid "new class"
 msgstr "nouvelle classe"
 
 msgid "new test taker"
-msgstr "nouvea sujet"
+msgstr "nouveau participant"
 
 msgid "Record and manage test takers."
-msgstr "Enregistrer et gérer les sujets."
+msgstr "Enregistrer et gérer les participants."
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -66,17 +66,17 @@ msgid "search"
 msgstr "Rechercher"
 
 msgid "Test taker saved"
-msgstr "Sujet sauvegardé"
+msgstr "Participant sauvegardé"
 
 msgid "Test takers"
-msgstr "Sujets"
+msgstr "Participants"
 
 msgid "Test takers library"
-msgstr "Librairie de sujets"
+msgstr "Librairie de participants"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les sujets peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
+msgstr "Les participants peuvent être assignés à des ensembles selon le contexte d’évaluation (Gestion des ressources humaine, éducation, contrôle d'édumétrie, etc.)"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Le module des sujets vous permet d'ajouter et de gérer les sujets des tests."
+msgstr "Le module des participants vous permet d'ajouter et de gérer les sujets des tests."
 
