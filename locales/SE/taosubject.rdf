@@ -8,7 +8,7 @@
     <!--
     @sourceLanguage EN
     @targetLanguage SE
-    @source Test taker
+    @source Test Taker
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#label
     -->
