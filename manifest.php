@@ -11,6 +11,7 @@ return array(
 		'version' => '2.0',
 		'author' => 'CRP Henri Tudor',
 		'dependances' => array('tao'),
+		'extends' => 'tao',
 		'models' => array('http://www.tao.lu/Ontologies/TAOSubject.rdf',
 			'http://www.tao.lu/Ontologies/taoFuncACL.rdf'),
 		'install' => array(
