@@ -116,14 +116,10 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			$this->setData('reload', true);
 		}
 		
-		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode);
+		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode, false);
 		$myForm = $myFormContainer->getForm();
 		$myForm->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
-		if(!$addMode){
-			$myForm->removeElement('password0');
-			$myForm->removeElement('password1');
-		}
-                
+
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				$this->setData('reload', false);
@@ -139,7 +135,6 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					if(!empty($values['password2'])){
 						$values[PROPERTY_USER_PASSWORD] = md5($values['password2']);
 					}
-                                        //password0 and password1 have already been removed
 					unset($values['password2']);
 					unset($values['password3']);
 				}
