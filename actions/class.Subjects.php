@@ -149,7 +149,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					//force default subject lg to the default system's:
 					$userService = tao_models_classes_UserService::singleton();
 					$lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-					$userService->saveUser($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
+					$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
 				}
                                 
 				$message = __('Test taker saved');
