@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.2-beta\n"
-"PO-Revision-Date: 2012-05-24T16:16:18\n"
+"Project-Id-Version: TAO v2.2-beta2\n"
+"PO-Revision-Date: 2012-06-08T13:42:09\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: LU\n"
@@ -41,6 +41,7 @@ msgstr "Seng Flexibilitéit erlaabt d'Erstellen vun Datensätz (z.b. Numm, Adres
 msgid "lists"
 msgstr ""
 
+#, tao-public
 msgid "Manage test takers"
 msgstr "Testpersounen verwalten"
 
@@ -56,6 +57,7 @@ msgstr "nei Klass"
 msgid "new test taker"
 msgstr ""
 
+#, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
@@ -68,6 +70,7 @@ msgstr "sichen"
 msgid "Test taker saved"
 msgstr ""
 
+#, tao-public
 msgid "Test takers"
 msgstr "Testpersounen"
 

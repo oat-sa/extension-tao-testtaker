@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.2-beta\n"
-"PO-Revision-Date: 2012-05-24T16:16:14\n"
+"Project-Id-Version: TAO v2.2-beta2\n"
+"PO-Revision-Date: 2012-06-08T13:42:08\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: AR\n"
@@ -41,6 +41,7 @@ msgstr "(مرونته تسمح بتصميم بنية البيانات (مثل ا
 msgid "lists"
 msgstr "القوائم"
 
+#, tao-public
 msgid "Manage test takers"
 msgstr "إدارة المتقدمين للاختبار"
 
@@ -56,6 +57,7 @@ msgstr "صنف جديد"
 msgid "new test taker"
 msgstr "مترشح جديد"
 
+#, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
@@ -68,6 +70,7 @@ msgstr "بحث"
 msgid "Test taker saved"
 msgstr "حفظ المترشح"
 
+#, tao-public
 msgid "Test takers"
 msgstr "المترشحون للااختبار"
 
