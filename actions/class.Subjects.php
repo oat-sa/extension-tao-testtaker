@@ -75,7 +75,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		$clazz = $this->getCurrentClass();
 		$subject = $this->service->getSubject($uri, 'uri', $clazz);
 		if(is_null($subject)){
-			throw new Exception("No subject found for the uri {$uri}");
+			throw new common_Exception("No subject found for the uri {$uri}");
 		}
 		
 		return $subject;
