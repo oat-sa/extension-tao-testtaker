@@ -8,7 +8,7 @@ return array(
 	'name' => 'taoSubjects',
 	'description' => 'TAO Subjects extension',
 	'additional' => array(
-		'version' => '2.0',
+		'version' => '2.3',
 		'author' => 'CRP Henri Tudor',
 		'dependances' => array('tao'),
 		'extends' => 'tao',
