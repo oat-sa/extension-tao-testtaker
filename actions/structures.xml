@@ -6,7 +6,8 @@
 		<sections>
 			<section id="manage_test_takers" name="Manage test takers" url="/taoSubjects/Subjects/index">
 				<trees>
-					<tree name="Test takers library" 
+					<tree name="Test takers library"
+						className="Test Taker"
 						dataUrl="/taoSubjects/Subjects/getOntologyData" 
 						editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 						editInstanceUrl="/taoSubjects/Subjects/editSubject"
