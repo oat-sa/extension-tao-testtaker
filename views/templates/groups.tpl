@@ -16,16 +16,17 @@
 <?endif?>
 <script type="text/javascript">
 $(document).ready(function(){
-	if(ctx_extension){
+	if (ctx_extension) {
 		url = root_url + '/' + ctx_extension + '/' + ctx_module + '/';
 	}
-	getUrl = url + 'getGroups';
-	setUrl = url + 'saveGroups';
-	new GenerisTreeFormClass('#group-tree', getUrl, {
-		actionId: 'group',
-		saveUrl : setUrl,
-		checkedNodes : <?=get_data('subjectGroups')?>,
-		paginate: 10
+
+	require(['require', 'jquery', 'generis.tree.select'], function(req, $, GenerisTreeSelectClass) {
+		new GenerisTreeSelectClass('#group-tree', url + 'getGroups', {
+			actionId: 'group',
+			saveUrl : url + 'saveGroups',
+			checkedNodes : <?=get_data('subjectGroups')?>,
+			paginate: 10
+		});
 	});
 });
 </script>

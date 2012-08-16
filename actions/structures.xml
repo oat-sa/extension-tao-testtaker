@@ -8,7 +8,7 @@
 				<trees>
 					<tree name="Test takers library"
 						className="Test Taker"
-						dataUrl="/taoSubjects/Subjects/getOntologyData" 
+						dataUrl="/taoSubjects/Subjects/getOntologyData"
 						editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 						editInstanceUrl="/taoSubjects/Subjects/editSubject"
 						addInstanceUrl="/taoSubjects/Subjects/addInstance"
@@ -20,16 +20,16 @@
 				</trees>
 				<actions>
 					<action name="search" url="/taoSubjects/Subjects/search" context="*" />
-					<action name="new class" js="GenerisAction.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
-					<action name="new test taker" js="GenerisAction.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
-					<action name="delete" js="GenerisAction.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
-					<action name="duplicate" js="GenerisAction.duplicateNode" url="/taoSubjects/Subjects/cloneInstance" context="instance" />
-					<action name="move" js="GenerisAction.moveNode" url="" context="instance" />
+					<action name="new class" js="generisActions.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
+					<action name="new test taker" js="generisActions.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
+					<action name="delete" js="generisActions.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
+					<action name="duplicate" js="generisActions.duplicateNode" url="/taoSubjects/Subjects/cloneInstance" context="instance" />
+					<action name="move" js="generisActions.moveNode" url="" context="instance" />
 					<action name="lists"  url="/tao/Lists/index"  context="*" />
-					<action name="meta data" js="GenerisAction.loadMetaData" url="/taoSubjects/Subjects/getMetaData"  context="instance" />
+					<action name="meta data" js="generisActions.loadMetaData" url="/taoSubjects/Subjects/getMetaData"  context="instance" />
 					<action name="create table" url="/taoResults/Results/createTable"  context="class" />
-					<action name="export" url="/tao/Export/index"  context="*" /> 
-					<action name="import" url="/taoSubjects/SubjectsImport/index"  context="class" /> 
+					<action name="export" url="/tao/Export/index"  context="*" />
+					<action name="import" url="/taoSubjects/SubjectsImport/index"  context="class" />
 				</actions>
 			</section>
 		</sections>
