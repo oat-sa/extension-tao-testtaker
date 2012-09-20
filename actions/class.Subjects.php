@@ -59,28 +59,6 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		return $clazz;
 	}
 	
-	
-	/**
-	 * get the instancee of the current subject regarding the 'uri' and 'classUri' request parameters
-	 * @return core_kernel_classes_Resource the subject instance
-	 */
-	protected function getCurrentInstance()
-	{
-		
-		$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
-		if(is_null($uri) || empty($uri)){
-			throw new Exception("No valid uri found");
-		}
-		
-		$clazz = $this->getCurrentClass();
-		$subject = $this->service->getSubject($uri, 'uri', $clazz);
-		if(is_null($subject)){
-			throw new common_Exception("No subject found for the uri {$uri}");
-		}
-		
-		return $subject;
-	}
-	
 	/**
 	 * get the main class
 	 * @return core_kernel_classes_Classes

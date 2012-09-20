@@ -75,12 +75,7 @@ class SubjectsTestCase extends UnitTestCase {
 		$this->assertEqual($subSubjectInstanceLabel2, $subSubjectInstance->getLabel());
 		
 		
-		//delete subclass and check if the instance is deleted
-		$subSubjectInstanceUri = $subSubjectInstance->uriResource;
-		$this->assertNotNull($this->subjectsService->getSubject($subSubjectInstanceUri));
 		$this->assertTrue($subSubjectInstance->delete());
-		$this->assertNull($this->subjectsService->getSubject($subSubjectInstanceUri));
-		
 		$this->assertTrue($subSubjectClass->delete());
 	}
 }

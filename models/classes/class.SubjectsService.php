@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 /**
  * Service methods to manage the Subjects business models using the RDF API.
  *
- * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+ * @author Joel Bout, <joel.bout@tudor.lu>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -18,7 +18,7 @@ if (0 > version_compare(PHP_VERSION, '5')) {
  * The Service class is an abstraction of each service instance. 
  * Used to centralize the behavior related to every servcie instances.
  *
- * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+ * @author Joel Bout, <joel.bout@tudor.lu>
  */
 require_once('tao/models/classes/class.GenerisService.php');
 
@@ -34,7 +34,7 @@ require_once('tao/models/classes/class.GenerisService.php');
  * Service methods to manage the Subjects business models using the RDF API.
  *
  * @access public
- * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+ * @author Joel Bout, <joel.bout@tudor.lu>
  * @package taoSubjects
  * @subpackage models_classes
  */
@@ -60,7 +60,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method __construct
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @return mixed
      */
     public function __construct()
@@ -74,53 +74,10 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method getSubject
-     *
-     * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
-     * @param  string identifier
-     * @param  string mode
-     * @param  Class clazz
-     * @return core_kernel_classes_Resource
-     */
-    public function getSubject($identifier, $mode = 'uri',  core_kernel_classes_Class $clazz = null)
-    {
-        $returnValue = null;
-
-        // section 10-13-1-45-792423e0:12398d13f24:-8000:0000000000001818 begin
-		
-		if(is_null($clazz) && $mode == 'uri'){
-			try{
-				$resource = new core_kernel_classes_Resource($identifier);
-				foreach($resource->getType() as $type){
-					if($type->uriResource != CLASS_ROLE_SUBJECT){
-						$clazz = $type;
-						break;
-					}
-				}
-			}
-			catch(Exception $e){
-				// empty
-			}
-		}
-		if(is_null($clazz)){
-			$clazz = $this->subjectClass;
-		}
-		if($this->isSubjectClass($clazz)){
-			$returnValue = $this->getOneInstanceBy($clazz, $identifier, $mode);
-		}
-		
-		
-        // section 10-13-1-45-792423e0:12398d13f24:-8000:0000000000001818 end
-
-        return $returnValue;
-    }
-
-    /**
      * Short description of method getSubjectClasses
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @return core_kernel_classes_ContainerCollection
      */
     public function getSubjectClasses()
@@ -142,7 +99,7 @@ class taoSubjects_models_classes_SubjectsService
      * If the uri don't reference a subject subclass, it returns null
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  string uri
      * @return core_kernel_classes_Class
      */
@@ -171,7 +128,7 @@ class taoSubjects_models_classes_SubjectsService
      * Create a new subject instance and link it to the tao subject role
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Class clazz
      * @param  string label
      * @return core_kernel_classes_Resource
@@ -195,7 +152,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method createSubjectClass
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Class clazz
      * @param  string label
      * @param  array properties
@@ -235,7 +192,7 @@ class taoSubjects_models_classes_SubjectsService
      * delete a subject instance
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Resource subject
      * @return boolean
      */
@@ -258,7 +215,7 @@ class taoSubjects_models_classes_SubjectsService
      * delete a subject class or sublcass
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Class clazz
      * @return boolean
      */
@@ -283,7 +240,7 @@ class taoSubjects_models_classes_SubjectsService
      * Check if the Class in parameter is a subclass of Subject
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Class clazz
      * @return boolean
      */
@@ -314,7 +271,7 @@ class taoSubjects_models_classes_SubjectsService
      * retrieve the list of groups where the subject has been set
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Resource subject
      * @return array
      */
@@ -366,7 +323,7 @@ class taoSubjects_models_classes_SubjectsService
      * set the list of groups where the subject is
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Resource subject
      * @param  array groups
      * @return boolean
@@ -419,7 +376,7 @@ class taoSubjects_models_classes_SubjectsService
      * Short description of method cloneInstance
      *
      * @access public
-     * @author Bertrand Chevrier, <bertrand.chevrier@tudor.lu>
+     * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  Resource instance
      * @param  Class clazz
      * @return core_kernel_classes_Resource
