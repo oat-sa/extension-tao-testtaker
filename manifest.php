@@ -48,13 +48,13 @@ return array(
 		'BASE_PATH'				=> $extpath,
 	
 		#BASE URL (usually the domain root)
-		'BASE_URL'				=> ROOT_URL . '/taoSubjects',
+		'BASE_URL'				=> ROOT_URL	.'taoSubjects',
 	
 		#BASE WWW the web resources path
-		'BASE_WWW'				=> ROOT_URL . '/taoSubjects/views/',
+		'BASE_WWW'				=> ROOT_URL	.'taoSubjects/views/',
 	 
 	 	#TAO extension Paths
-		'TAOBASE_WWW'			=> ROOT_URL  . '/tao/views/',
+		'TAOBASE_WWW'			=> ROOT_URL	.'tao/views/',
 		'TAOVIEW_PATH'			=> $taopath.'views'.DIRECTORY_SEPARATOR,
 		'TAO_TPL_PATH'			=> $taopath.'views'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR,
 	 
