@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE extension SYSTEM "../../tao/doc/structures.dtd">
 <structures>
-	<structure id="subjects" name="Test takers" url="/taoSubjects/Subjects/index" level="2" visible="true">
+	<structure id="subjects" name="Test takers" level="2" visible="true">
 		<description>Record and manage test takers.</description>
 		<sections>
 			<section id="manage_test_takers" name="Manage test takers" url="/taoSubjects/Subjects/index">
