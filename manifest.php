@@ -10,7 +10,7 @@ $taopath = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'tao'.DIRECTORY_SEPARA
 return array(
 	'name' => 'taoSubjects',
 	'description' => 'TAO Subjects extension',
-	'version' => '2.3',
+	'version' => '2.4',
 	'author' => 'CRP Henri Tudor',
 	'dependencies' => array('tao'),
 	'models' => array('http://www.tao.lu/Ontologies/TAOSubject.rdf',
