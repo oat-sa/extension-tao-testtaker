@@ -94,9 +94,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			$this->setData('reload', true);
 		}
 		
-		$myFormContainer = new tao_actions_form_Users($clazz, $subject, $addMode, false);
+		$myFormContainer = new taoSubjects_actions_form_Subject($clazz, $subject, $addMode, false);
 		$myForm = $myFormContainer->getForm();
-		$myForm->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
 
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
