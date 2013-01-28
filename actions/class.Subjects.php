@@ -45,10 +45,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
 			$resource = new core_kernel_classes_Resource($uri);
 			foreach($resource->getType() as $type){
-				if($type->uriResource != CLASS_ROLE_SUBJECT){
 					$clazz = $type;
 					break;
-				}
 			}
 		}
 		
@@ -127,6 +125,11 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					$userService = tao_models_classes_UserService::singleton();
 					$lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 					$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
+					
+					//force default subject roles to be the Delivery Role:
+					$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
+					$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
+					$subject->setPropertyValue($roleProperty, $subjectRole);
 				}
                                 
 				$message = __('Test taker saved');

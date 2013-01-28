@@ -141,8 +141,6 @@ class taoSubjects_models_classes_SubjectsService
 
         $returnValue = parent::createInstance($clazz, $label);
         
-        $returnValue->setType(new core_kernel_classes_Class(CLASS_ROLE_SUBJECT));
-        
         // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 end
 
         return $returnValue;

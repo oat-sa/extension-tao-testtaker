@@ -9,6 +9,6 @@
     <rdfs:label xml:lang="EN"><![CDATA[Test Taker]]></rdfs:label>
     <rdfs:comment xml:lang="EN"><![CDATA[The Test Taker class]]></rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TAOObject"/>
-    <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/TAO.rdf#TaoSubjectRole"/>
+    <rdfs:subClassOf rdf:resource="http://www.tao.lu/Ontologies/generis.rdf#User"/>
   </rdf:Description>
 </rdf:RDF>

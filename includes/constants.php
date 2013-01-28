@@ -7,6 +7,7 @@
  */
 $todefine = array(
 	'TAO_SUBJECT_NAMESPACE' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf',
-	'TAO_GROUP_MEMBERS_PROP'=> 'http://www.tao.lu/Ontologies/TAOGroup.rdf#Members'
+	'TAO_GROUP_MEMBERS_PROP'=> 'http://www.tao.lu/Ontologies/TAOGroup.rdf#Members',
+	'TAO_CLASS_SUBJECT'		=> 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject'
 );
 ?>

@@ -30,8 +30,8 @@ class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
 		}
 		
 		$this->staticData = array(
-			RDF_TYPE	=> CLASS_ROLE_SUBJECT,
-			PROPERTY_USER_DEFLG => $lang
+			PROPERTY_USER_DEFLG => $lang,
+			PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
 		);
 		
 		$this->additionalAdapterOptions = array(
