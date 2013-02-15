@@ -1,5 +1,3 @@
-<?include(TAO_TPL_PATH . 'messages.tpl')?>
-
 <script type="text/javascript" src='<?=TAOBASE_WWW?>js/users.js'></script>
 
 <?include('groups.tpl')?>
