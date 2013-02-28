@@ -203,7 +203,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		}
 		$this->setData('formTitle', __('Edit subject class'));
 		$this->setData('myForm', $myForm->render());
-		$this->setView('form.tpl', true);
+		$this->setView('form.tpl', 'tao');
 	}
 	
 	/**
