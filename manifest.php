@@ -11,7 +11,7 @@ return array(
 	'name' => 'taoSubjects',
 	'description' => 'TAO Subjects extension',
 	'version' => '2.4',
-	'author' => 'CRP Henri Tudor',
+	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'dependencies' => array('tao'),
 	'models' => array('http://www.tao.lu/Ontologies/TAOSubject.rdf',
 		'http://www.tao.lu/Ontologies/taoFuncACL.rdf'),
