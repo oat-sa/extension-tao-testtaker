@@ -118,7 +118,8 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 					unset($values[PROPERTY_USER_UILG]);
 				}
 				
-				$subject = $this->service->bindProperties($subject, $values);
+				$binder = new tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
+				$subject = $binder->bind($values);
 				
 				if($addMode){
 					//force default subject lg to the default system's:
