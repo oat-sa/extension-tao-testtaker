@@ -22,22 +22,4 @@
     -->
     <rdfs:comment xml:lang="DA"><![CDATA[The Test Taker class]]></rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole">
-    <!--
-    @sourceLanguage EN
-    @targetLanguage DA
-    @source Test Takers Manager
-    @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
-    @predicate http://www.w3.org/2000/01/rdf-schema#label
-    -->
-    <rdfs:label xml:lang="DA"><![CDATA[Test Takers Manager]]></rdfs:label>
-    <!--
-    @sourceLanguage EN
-    @targetLanguage DA
-    @source The Test Takers Manager Role
-    @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
-    @predicate http://www.w3.org/2000/01/rdf-schema#comment
-    -->
-    <rdfs:comment xml:lang="DA"><![CDATA[The Test Takers Manager Role]]></rdfs:comment>
-  </rdf:Description>
 </rdf:RDF>
