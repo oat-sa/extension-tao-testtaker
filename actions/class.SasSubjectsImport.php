@@ -38,7 +38,6 @@ class taoSubjects_actions_SasSubjectsImport extends taoSubjects_actions_Subjects
      */
     public function __construct() {
     	tao_helpers_Context::load('STANDALONE_MODE');
-        $this->setSessionAttribute('currentExtension', 'taoSubjects');
 		parent::__construct();
     }
 	
