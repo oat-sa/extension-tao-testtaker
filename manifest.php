@@ -48,8 +48,11 @@ return array(
 	'classLoaderPackages' => array(
 		dirname(__FILE__).'/actions/',
 		dirname(__FILE__).'/helpers/'
-	 ),
-	 'constants' => array(
+	),
+	'optimizableClasses' => array(
+		'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject'		
+	),	
+	'constants' => array(
 		# actions directory
 		"DIR_ACTIONS"			=> $extpath."actions".DIRECTORY_SEPARATOR,
 	
