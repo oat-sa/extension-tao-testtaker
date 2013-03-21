@@ -45,10 +45,7 @@ return array(
 			array('type' => 'CheckFileSystemComponent', 'value' => array('id' => 'fs_taoSubjects_includes', 'location' => 'taoSubjects/includes', 'rights' => 'r'))
 		)
 	),
-	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
-	'optimizableClasses' => array(
-		'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject'		
-	),	
+	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',	
 	'constants' => array(
 		# actions directory
 		"DIR_ACTIONS"			=> $extpath."actions".DIRECTORY_SEPARATOR,
