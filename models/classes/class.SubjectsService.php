@@ -413,7 +413,7 @@ class taoSubjects_models_classes_SubjectsService
         $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
         try{
         	$login = $returnValue->getUniquePropertyValue($loginProperty);
-        	while($userService->loginExist($login)){
+        	while($userService->loginExists($login)){
         		$login .= (string) rand(0, 9); 
         	}
         	
