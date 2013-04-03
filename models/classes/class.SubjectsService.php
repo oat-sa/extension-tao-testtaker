@@ -178,34 +178,13 @@ class taoSubjects_models_classes_SubjectsService
      * @param  array properties
      * @return core_kernel_classes_Class
      */
-    public function createSubjectClass( core_kernel_classes_Class $clazz = null, $label = '', $properties = array())
+    public function createSubjectClass( core_kernel_classes_Class $clazz, $label = '')
     {
-        $returnValue = null;
-
-        // section 10-13-1-45--23b8408f:123a2bfe34c:-8000:0000000000001880 begin
-		
-		if(is_null($clazz)){
-			$clazz = $this->subjectClass;
+		if(!$this->isSubjectClass($clazz)){
+			throw new common_Exception("Non subject class in '" . __CLASS__ . "'.");	
 		}
-		
-		if($this->isSubjectClass($clazz)){
-		
-			$subjectClass = $this->createSubClass($clazz, $label);
-			
-			foreach($properties as $propertyName => $propertyValue){
-				$myProperty = $subjectClass->createProperty(
-					$propertyName,
-					$propertyName . ' ' . $label .' subject property created from ' . get_class($this) . ' the '. date('Y-m-d h:i:s') 
-				);
-				
-				//@todo implement check if there is a widget key and/or a range key
-			}
-			$returnValue = $subjectClass;
-		}
-		
-        // section 10-13-1-45--23b8408f:123a2bfe34c:-8000:0000000000001880 end
 
-        return $returnValue;
+        return $this->createSubClass($clazz, $label);
     }
 
     /**

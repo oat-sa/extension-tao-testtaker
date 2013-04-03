@@ -191,15 +191,14 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		if(!tao_helpers_Request::isAjax()){
 			throw new Exception("wrong request mode");
 		}
+		
 		$clazz = $this->service->createSubjectClass($this->getCurrentClass());
-		if(!is_null($clazz) && $clazz instanceof core_kernel_classes_Class){
-			echo json_encode(
-				array(
-					'label'	=> $clazz->getLabel(),
-					'uri' 	=> tao_helpers_Uri::encode($clazz->uriResource)
-				)
-			);
-		}
+		echo json_encode(
+			array(
+				'label'	=> $clazz->getLabel(),
+				'uri' 	=> tao_helpers_Uri::encode($clazz->uriResource)
+			)
+		);
 	}
 	
 	/**
