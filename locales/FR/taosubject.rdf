@@ -12,7 +12,7 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#label
     -->
-    <rdfs:label xml:lang="FR"><![CDATA[Participant]]></rdfs:label>
+    <rdfs:label xml:lang="FR"><![CDATA[Test Taker]]></rdfs:label>
     <!--
     @sourceLanguage EN
     @targetLanguage FR
@@ -20,7 +20,7 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#comment
     -->
-    <rdfs:comment xml:lang="FR"><![CDATA[La classe Participant]]></rdfs:comment>
+    <rdfs:comment xml:lang="FR"><![CDATA[The Test Taker class]]></rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole">
     <!--
