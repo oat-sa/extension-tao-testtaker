@@ -1,85 +1,89 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO v2.4-alpha1\n"
-"PO-Revision-Date: 2013-02-15T19:18:22\n"
-"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"PO-Revision-Date: 2013-03-28 19:56+0200\n"
+"Last-Translator: Anders <aos@vucnordjylland.dk>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
-"Language: DA\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.1.6\n"
 
 msgid "Add to group"
-msgstr ""
+msgstr "Tilføj til gruppen"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klassen gemt"
 
 msgid "create table"
-msgstr ""
+msgstr "opret tabel"
 
 msgid "delete"
-msgstr ""
+msgstr "slet"
 
 msgid "duplicate"
-msgstr ""
+msgstr "kopiere"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Rediger test tagere"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Rediger test tager klasse"
 
 msgid "export"
-msgstr ""
+msgstr "eksportere"
 
 msgid "import"
-msgstr ""
+msgstr "importere"
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr ""
+"Data (ex. navn, adresse, fødselsdato, køn etc.) kan designes fleksibelt."
 
 msgid "lists"
-msgstr ""
+msgstr "lister"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Administrer test tagere"
 
 msgid "meta data"
-msgstr ""
+msgstr "metadata"
 
 msgid "move"
-msgstr ""
+msgstr "flyt"
 
 msgid "new class"
-msgstr ""
+msgstr "ny klasse"
 
 msgid "new test taker"
-msgstr ""
+msgstr "ny test tager"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Optag og administrer test tagere."
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "search"
-msgstr ""
+msgstr "søg"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Test tager gemt"
 
 #, tao-public
 msgid "Test takers"
-msgstr ""
+msgstr "Test tagere"
 
 msgid "Test takers library"
-msgstr ""
+msgstr "Test tager arkiv"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
+"Test tagere kan knyttes til placeringen på baggrund af relevant test "
+"kontekst (human resource management, uddannelse etc.)."
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
-
+msgstr "Test tager modulet lader dig registrer og administrere  testtagere."
