@@ -174,7 +174,10 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		}
 		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
 		
-		$this->setData('subjectGroups', json_encode(array_map("tao_helpers_Uri::encode", $this->service->getSubjectGroups($subject))));
+		$memberProperty = new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
+		$groupForm = tao_helpers_form_GenerisTreeForm::buildReverseTree($subject, $memberProperty);
+		$groupForm->setData('title',	__('Add to group '));
+		$this->setData('groupForm', $groupForm->render());
 		
 		$this->setData('checkLogin', $addMode);
 		$this->setData('formTitle', __('Edit subject'));
