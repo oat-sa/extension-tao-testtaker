@@ -14,7 +14,6 @@
 						addInstanceUrl="/taoSubjects/Subjects/addInstance"
 						addSubClassUrl="/taoSubjects/Subjects/addSubjectClass"
 						deleteUrl="/taoSubjects/Subjects/delete"
-						duplicateUrl="/taoSubjects/Subjects/cloneInstance"
 						moveInstanceUrl="/taoSubjects/Subjects/moveInstance"
 					/>
 				</trees>
@@ -23,7 +22,6 @@
 					<action name="new class" js="generisActions.subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
 					<action name="new test taker" js="generisActions.instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
 					<action name="delete" js="generisActions.removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
-					<action name="duplicate" js="generisActions.duplicateNode" url="/taoSubjects/Subjects/cloneInstance" context="instance" />
 					<action name="move" js="generisActions.moveNode" url="" context="instance" />
 					<action name="lists"  url="/tao/Lists/index"  context="*" />
 					<action name="meta data" js="generisActions.loadMetaData" url="/taoSubjects/Subjects/getMetaData"  context="instance" />
