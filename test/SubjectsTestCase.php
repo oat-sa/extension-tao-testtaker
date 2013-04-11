@@ -65,7 +65,7 @@ class SubjectsTestCase extends UnitTestCase {
 		
 		//check parent class
 		$this->assertTrue(defined('TAO_SUBJECT_CLASS'));
-		$subjectClass = $this->subjectsService->getSubjectClass();
+		$subjectClass = $this->subjectsService->getRootClass();
 		$this->assertIsA($subjectClass, 'core_kernel_classes_Class');
 		$this->assertEqual(TAO_SUBJECT_CLASS, $subjectClass->uriResource);
 		

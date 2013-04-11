@@ -19,38 +19,6 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
-
-error_reporting(E_ALL);
-
-/**
- * Service methods to manage the Subjects business models using the RDF API.
- *
- * @author Joel Bout, <joel.bout@tudor.lu>
- * @package taoSubjects
- * @subpackage models_classes
- */
-
-if (0 > version_compare(PHP_VERSION, '5')) {
-    die('This file was generated for PHP 5');
-}
-
-/**
- * The Service class is an abstraction of each service instance. 
- * Used to centralize the behavior related to every servcie instances.
- *
- * @author Joel Bout, <joel.bout@tudor.lu>
- */
-require_once('tao/models/classes/class.GenerisService.php');
-
-/* user defined includes */
-// section 10-13-1-45-792423e0:12398d13f24:-8000:00000000000017A5-includes begin
-// section 10-13-1-45-792423e0:12398d13f24:-8000:00000000000017A5-includes end
-
-/* user defined constants */
-// section 10-13-1-45-792423e0:12398d13f24:-8000:00000000000017A5-constants begin
-// section 10-13-1-45-792423e0:12398d13f24:-8000:00000000000017A5-constants end
 
 /**
  * Service methods to manage the Subjects business models using the RDF API.
@@ -61,7 +29,7 @@ require_once('tao/models/classes/class.GenerisService.php');
  * @subpackage models_classes
  */
 class taoSubjects_models_classes_SubjectsService
-    extends tao_models_classes_GenerisService
+    extends tao_models_classes_ClassService
 {
     // --- ASSOCIATIONS ---
 
@@ -114,6 +82,10 @@ class taoSubjects_models_classes_SubjectsService
 
         return $returnValue;
     }
+    
+	public function getRootClass() {
+		return $this->subjectClass;
+	}
 
     /**
      * get a subject subclass by uri. 
@@ -124,6 +96,7 @@ class taoSubjects_models_classes_SubjectsService
      * @author Joel Bout, <joel.bout@tudor.lu>
      * @param  string uri
      * @return core_kernel_classes_Class
+     * @deprecated
      */
     public function getSubjectClass($uri = '')
     {

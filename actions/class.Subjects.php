@@ -32,7 +32,7 @@
  * 
  */
 
-class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
+class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 
 	/**
 	 * constructor: initialize the service and the default data
@@ -66,7 +66,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 		catch(Exception $e){
 			$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
 			$resource = new core_kernel_classes_Resource($uri);
-			foreach($resource->getType() as $type){
+			foreach($resource->getTypes() as $type){
 					$clazz = $type;
 					break;
 			}
@@ -83,9 +83,9 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 	 * get the main class
 	 * @return core_kernel_classes_Classes
 	 */
-	protected function getRootClass()
+	protected function getClassService()
 	{
-		return $this->service->getSubjectClass();
+		return taoSubjects_models_classes_SubjectsService::singleton();
 	}
 	
 /*
@@ -216,7 +216,7 @@ class taoSubjects_actions_Subjects extends tao_actions_TaoModule {
 			$this->setSessionAttribute('property_mode', $this->getRequestParameter('property_mode'));
 		}
 		
-		$myForm = $this->editClass($clazz, $this->service->getSubjectClass(), new core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
+		$myForm = $this->editClass($clazz, $this->service->getRootClass(), new core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				if($clazz instanceof core_kernel_classes_Resource){
