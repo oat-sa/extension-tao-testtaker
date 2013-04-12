@@ -1,92 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE services SYSTEM "../../tao/doc/sas.dtd">
 <services>
-	<description>Subjects services</description>
+	<description>Test takers services</description>
 	<service>
-		<name>Subject class selection</name>
-		<description>Select a subject (sub)class</description>
+		<name>Test takers class selection</name>
+		<description>Select a test taker (sub)class</description>
 		<location url="/taoSubjects/SaSSubjects/sasSelect">
 			<param key="selectInstance" value="false" />
 		</location>
 		<return>
-			<param key="subjectClassUri" />
+			<param key="testTakerClassUri" />
 		</return>
 	</service>
 	<service>
-		<name>Subject selection</name>
-		<description>Select a subject</description>
+		<name>Test takers selection</name>
+		<description>Select a test taker</description>
 		<location url="/taoSubjects/SaSSubjects/sasSelect">
 			<param key="selectInstance" value="true" />
 		</location>
 		<return>
-			<param key="subjectClassUri" />
-			<param key="subjectUri" />
+			<param key="testTakerClassUri" />
+			<param key="testTakerUri" />
 		</return>
 	</service>
 	<service>
-		<name>Subject add</name>
-		<description>Add a new subject and redirect to the edit form</description>
+		<name>Test takers add</name>
+		<description>Add a new test taker and redirect to the edit form</description>
 		<location url="/taoSubjects/SaSSubjects/sasAddInstance">
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 		</location>
 		<return>
-			<param key="subjectUri" />
+			<param key="testTakerUri" />
 		</return>
 	</service>
 	<service>
-		<name>Subject editor</name>
-		<description>Edit subject properties</description>
+		<name>Test takers editor</name>
+		<description>Edit test taker properties</description>
 		<location url="/taoSubjects/SaSSubjects/sasEditInstance">
-			<param key="uri" value="^subjectUri" />
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="uri" value="^testTakerUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 		</location>
 	</service>
 	<service>
-		<name>Subject full editor</name>
-		<description>Full edit form: edit subject properties, select subject's group</description>
+		<name>Test takers full editor</name>
+		<description>Full edit form: edit test taker properties</description>
 		<location url="/taoSubjects/SaSSubjects/editSubject">
-			<param key="uri" value="^subjectUri" />
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="uri" value="^testTakerUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 		</location>
 	</service>
 	<service>
-		<name>Subject class editor</name>
-		<description>Edit a Subject (sub)class: add/edit/delete class properties</description>
+		<name>Test taker class editor</name>
+		<description>Edit a test taker (sub)class: add/edit/delete class properties</description>
 		<location url="/taoSubjects/SaSSubjects/editSubjectClass">
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 		</location>
 	</service>
 	<service>
-		<name>Subject translation</name>
-		<description>Translate the value of the subject properties</description>
+		<name>Test taker translation</name>
+		<description>Translate the value of the test taker properties</description>
 		<location url="/taoSubjects/SaSSubjects/translateInstance">
-			<param key="uri" value="^subjectUri" />
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="uri" value="^testTakerUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 			<param key="target_lang" value="^subjectTargetLang" />
 		</location>	
 	</service>
 	<service>
-		<name>Subject's group selection</name>
-		<description>Select the subject's group</description>
-		<location url="/taoSubjects/SaSSubjects/addToGroup">
-			<param key="uri" value="^subjectUri" />
-			<param key="classUri" value="^subjectClassUri" />
-		</location>
-	</service>
-	<service>
-		<name>Subjects searching</name>
-		<description>Search subject instances</description>
+		<name>Test takers searching</name>
+		<description>Search test taker instances</description>
 		<location url="/taoSubjects/SaSSubjects/search" />
 		<return>
-			<param key="subjectUris" />
+			<param key="testTakerUris" />
 		</return>
 	</service>	
 	<service>
-		<name>Subject removing</name>
-		<description>Delete a subject</description>
+		<name>Test taker removing</name>
+		<description>Delete a test taker</description>
 		<location url="/taoSubjects/SaSSubjects/sasDeleteInstance">
-			<param key="uri" value="^subjectUri" />
-			<param key="classUri" value="^subjectClassUri" />
+			<param key="uri" value="^testTakerUri" />
+			<param key="classUri" value="^testTakerClassUri" />
 		</location>
 	</service>
 </services>
