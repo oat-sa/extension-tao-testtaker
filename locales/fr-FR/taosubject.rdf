@@ -12,7 +12,7 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#label
     -->
-    <rdfs:label xml:lang="fr-FR"><![CDATA[Test Taker]]></rdfs:label>
+    <rdfs:label xml:lang="fr-FR"><![CDATA[Participant]]></rdfs:label>
     <!--
     @sourceLanguage en-US
     @targetLanguage fr-FR
@@ -20,7 +20,7 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#comment
     -->
-    <rdfs:comment xml:lang="fr-FR"><![CDATA[The Test Taker class]]></rdfs:comment>
+    <rdfs:comment xml:lang="fr-FR"><![CDATA[La classe des participants]]></rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole">
     <!--
@@ -30,7 +30,7 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
     @predicate http://www.w3.org/2000/01/rdf-schema#label
     -->
-    <rdfs:label xml:lang="fr-FR"><![CDATA[Test Takers Manager]]></rdfs:label>
+    <rdfs:label xml:lang="fr-FR"><![CDATA[Gestionnaire Participants]]></rdfs:label>
     <!--
     @sourceLanguage en-US
     @targetLanguage fr-FR
@@ -38,6 +38,6 @@
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
     @predicate http://www.w3.org/2000/01/rdf-schema#comment
     -->
-    <rdfs:comment xml:lang="fr-FR"><![CDATA[The Test Takers Manager Role]]></rdfs:comment>
+    <rdfs:comment xml:lang="fr-FR"><![CDATA[Le rôle Gestionnaire Participants]]></rdfs:comment>
   </rdf:Description>
 </rdf:RDF>
