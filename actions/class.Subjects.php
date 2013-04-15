@@ -136,24 +136,20 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 					unset($values['password3']);
 				}
 				
-				if(!preg_match("/[A-Z]{2,4}$/", trim($values[PROPERTY_USER_UILG]))){
-					unset($values[PROPERTY_USER_UILG]);
-				}
-				
 				$binder = new tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
 				$subject = $binder->bind($values);
 				
 				if($addMode){
-					//force default subject lg to the default system's:
-					$userService = tao_models_classes_UserService::singleton();
-					$lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-					$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
-					
 					//force default subject roles to be the Delivery Role:
 					$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
 					$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
 					$subject->setPropertyValue($roleProperty, $subjectRole);
 				}
+				
+				//force the data language to be the same as the gui language
+				$userService = tao_models_classes_UserService::singleton();
+				$lang = new core_kernel_classes_Resource($values[PROPERTY_USER_UILG]);
+				$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
                                 
 				$message = __('Test taker saved');
 				
