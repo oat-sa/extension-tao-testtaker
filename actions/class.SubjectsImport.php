@@ -19,8 +19,6 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
 
 /**
  * Extends the common Import class to update the behavior
@@ -28,21 +26,16 @@
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
  * @subpackage actions
- * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */
-
 class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
-
-	
-	protected $excludedProperties = array(PROPERTY_USER_DEFLG);
-	protected $additionalAdapterOptions = array();
 	
 	public function __construct(){
 		
 		parent::__construct();
 		
-		//Add static data to each imported subjects, here we add the subject role as 2nd Type plus the mendatory system default language
+		$this->excludedProperties = array_merge($this->excludedProperties, array(PROPERTY_USER_DEFLG, PROPERTY_USER_ROLES));
+		
 		$lang = '';
 		$langResource = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 		if($langResource instanceof core_kernel_classes_Resource){
@@ -62,7 +55,14 @@ class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
 				PROPERTY_USER_PASSWORD => array('md5')
 			)
 		);
+
+		// Anonymous function to be applied after resource import.
+		$applyRole = function(core_kernel_classes_Resource $resource) {
+			$rolesProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
+			$resource->setPropertyValue($rolesProperty, INSTANCE_ROLE_DELIVERY);
+		};
 		
+		$this->additionalAdapterOptions['onResourceImported'] = array($applyRole);
 	}
 	
 }
