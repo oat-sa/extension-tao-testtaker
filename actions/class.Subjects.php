@@ -149,14 +149,14 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 				//force the data language to be the same as the gui language
 				$userService = tao_models_classes_UserService::singleton();
 				$lang = new core_kernel_classes_Resource($values[PROPERTY_USER_UILG]);
-				$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->uriResource));
+				$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->getUri()));
                                 
 				$message = __('Test taker saved');
 				
 				if($addMode){
 					$params =  array(
-						'uri' 		=> tao_helpers_Uri::encode($subject->uriResource),
-						'classUri' 	=> tao_helpers_Uri::encode($clazz->uriResource),
+						'uri' 		=> tao_helpers_Uri::encode($subject->getUri()),
+						'classUri' 	=> tao_helpers_Uri::encode($clazz->getUri()),
 						'reload'	=> true,
 						'message'	=> $message
 					);
@@ -168,7 +168,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 				
 			}
 		}
-		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->uriResource));
+		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->getUri()));
 		
 		$memberProperty = new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
 		$groupForm = tao_helpers_form_GenerisTreeForm::buildReverseTree($subject, $memberProperty);
@@ -195,7 +195,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		echo json_encode(
 			array(
 				'label'	=> $clazz->getLabel(),
-				'uri' 	=> tao_helpers_Uri::encode($clazz->uriResource)
+				'uri' 	=> tao_helpers_Uri::encode($clazz->getUri())
 			)
 		);
 	}
@@ -216,7 +216,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				if($clazz instanceof core_kernel_classes_Resource){
-					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->uriResource));
+					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->getUri()));
 				}
 				$this->setData('message', __('Class saved'));
 				$this->setData('reload', true);

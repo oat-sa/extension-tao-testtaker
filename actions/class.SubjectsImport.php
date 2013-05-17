@@ -39,7 +39,7 @@ class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
 		$lang = '';
 		$langResource = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 		if($langResource instanceof core_kernel_classes_Resource){
-			$lang = $langResource->uriResource;
+			$lang = $langResource->getUri();
 		}else{
 			throw new Exception('cannot find the default system language during subjects import');
 		}

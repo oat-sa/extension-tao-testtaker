@@ -198,7 +198,7 @@ class taoSubjects_models_classes_SubjectsService
         // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 begin
 		
 		if(!is_null($clazz)){
-			if($this->isSubjectClass($clazz) && $clazz->uriResource != $this->subjectClass->uriResource){
+			if($this->isSubjectClass($clazz) && $clazz->getUri() != $this->subjectClass->getUri()){
 				$returnValue = $clazz->delete();
 			}
 		}
@@ -222,12 +222,12 @@ class taoSubjects_models_classes_SubjectsService
 
         // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 begin
 		
-		if($clazz->uriResource == $this->subjectClass->uriResource){
+		if($clazz->getUri() == $this->subjectClass->getUri()){
 			$returnValue = true;	
 		}
 		else{
 			foreach( $this->subjectClass->getSubClasses(true) as $subclass){
-				if($clazz->uriResource == $subclass->uriResource){
+				if($clazz->getUri() == $subclass->getUri()){
 					$returnValue = true;
 					break;	
 				}
@@ -261,8 +261,8 @@ class taoSubjects_models_classes_SubjectsService
 			
 			foreach($groupClass->getInstances(true) as $instance){
 				foreach($instance->getPropertyValues($membersProperty) as $member){
-					if($member == $subject->uriResource){
-						$groups[] = $instance->uriResource;
+					if($member == $subject->getUri()){
+						$groups[] = $instance->getUri();
 						break;
 					}
 				}
@@ -271,13 +271,13 @@ class taoSubjects_models_classes_SubjectsService
 			if(count($groups) > 0){
 				$groupSubClasses = array();
 				foreach($groupClass->getSubClasses(true) as $groupSubClass){
-					$groupSubClasses[] = $groupSubClass->uriResource;
+					$groupSubClasses[] = $groupSubClass->getUri();
 				}
 				foreach($groups as $groupUri){
 					$clazz = $this->getClass(new core_kernel_classes_Resource($groupUri));
 					if(!is_null($clazz)){
-						if(in_array($clazz->uriResource, $groupSubClasses)){
-							$returnValue[] = $clazz->uriResource;
+						if(in_array($clazz->getUri(), $groupSubClasses)){
+							$returnValue[] = $clazz->getUri();
 						}
 					}
 					$returnValue[] = $groupUri;
@@ -315,7 +315,7 @@ class taoSubjects_models_classes_SubjectsService
 				$newMembers = array();
 				$updateIt = false;
 				foreach($instance->getPropertyValues($membersProperty) as $member){
-					if($member == $subject->uriResource){
+					if($member == $subject->getUri()){
 						$updateIt = true;
 					}
 					else{
@@ -328,8 +328,8 @@ class taoSubjects_models_classes_SubjectsService
 						$instance->setPropertyValue($membersProperty, $newMember);
 					}
 				}
-				if(in_array($instance->uriResource, $groups)){
-					if($instance->setPropertyValue($membersProperty, $subject->uriResource)){
+				if(in_array($instance->getUri(), $groups)){
+					if($instance->setPropertyValue($membersProperty, $subject->getUri())){
 						$done++;
 					}
 				}
