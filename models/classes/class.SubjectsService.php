@@ -379,6 +379,16 @@ class taoSubjects_models_classes_SubjectsService
 
         return $returnValue;
     }
+    /**
+     * Returns a specified test taker or all test takers,
+     * basically uses higher elvel services but may be customized here
+     * @param type $uri	if null all test takers are returned (slow)
+     * @return array
+     */
+
+    public function getTestTaker($uri = null){
+		return parent::get($uri);
+    }
 
 } /* end of class taoSubjects_models_classes_SubjectsService */
 
