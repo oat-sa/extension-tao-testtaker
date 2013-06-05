@@ -356,11 +356,8 @@ class taoSubjects_models_classes_SubjectsService
     public function cloneInstance( core_kernel_classes_Resource $instance,  core_kernel_classes_Class $clazz = null)
     {
         $returnValue = null;
-
         // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B begin
-        
         $returnValue = parent::cloneInstance($instance, $clazz);
-        
         $userService = tao_models_classes_UserService::singleton();
         $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
         try{
@@ -374,22 +371,54 @@ class taoSubjects_models_classes_SubjectsService
         catch(common_Exception $ce){
         	//empty
         }
-        
         // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B end
-
         return $returnValue;
     }
     /**
+     * Optionnaly rest services may be overriden ...
      * Returns a specified test taker or all test takers,
-     * basically uses higher elvel services but may be customized here
      * @param type $uri	if null all test takers are returned (slow)
      * @return array
      */
 
-    public function getTestTaker($uri = null){
-		return parent::get($uri);
+    public function getTestTaker( $uri = null){
+	return parent::get($uri);
+    }
+    public function deleteTestTaker( $uri = null){
+	return parent::delete($uri);
+    }
+    /**
+     * @param array parameters
+     */
+    public function createTestTaker(array $parameters){
+	
+	//check if mandatory parameters are set
+	$this->checkTestTakerParameters($parameters);
+	
+	//check if login already exists
+	$userService = tao_models_classes_UserService::singleton();
+	if ($userService->loginExists($parameters[PROPERTY_USER_LOGIN])) throw new Exception("login already exists");
+	$type = isset($parameters[RDF_TYPE]) ? $parameters[RDF_TYPE] : null;
+	$resource =  parent::create($parameters[RDFS_LABEL], $type);
+	//hmmm
+	unset($parameters[RDFS_LABEL]);
+	unset($parameters[RDF_TYPE]);
+
+	$resource->setPropertiesValues($parameters);
+
+	//force default subject roles to be the Delivery Role:
+	$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
+	$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
+	$resource->setPropertyValue($roleProperty, $subjectRole);
+
     }
 
+    
+    private function checkTestTakerParameters(array $parameters){
+	if (!(isset($parameters[PROPERTY_USER_LOGIN]))) throw new Exception("login parameter missing");
+	if (!(isset($parameters[PROPERTY_USER_PASSWORD]))) throw new Exception("password parameter missing");
+    }
+    
 } /* end of class taoSubjects_models_classes_SubjectsService */
 
 ?>
