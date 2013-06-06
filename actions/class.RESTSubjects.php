@@ -20,7 +20,7 @@ class taoSubjects_actions_RESTSubjects extends tao_actions_CommonRESTModule {
 		try {
 		$data = $this->service->getTestTaker($uri);
 		} catch (Exception $e) {
-		    return $this->returnFailure($e->getCode(),$e->getMessage());
+		    return $this->returnFailure($e);
 		}
 		return $this->returnSuccess($data);
 	}
@@ -28,7 +28,7 @@ class taoSubjects_actions_RESTSubjects extends tao_actions_CommonRESTModule {
 		try {
 		$data = $this->service->deleteTestTaker($uri);
 		} catch (Exception $e) {
-		    return $this->returnFailure($e->getCode(),$e->getMessage());
+		    return $this->returnFailure($e);
 		}
 		return $this->returnSuccess($data);
 	}
@@ -38,12 +38,11 @@ class taoSubjects_actions_RESTSubjects extends tao_actions_CommonRESTModule {
 		$parameters = $this->getTestTakerParameters();
 		$data = $this->service->createTestTaker($parameters);
 		} catch (Exception $e) {
-		    return $this->returnFailure($e->getCode(),$e->getMessage());
+		    return $this->returnFailure($e);
 		}
 		return $this->returnSuccess($data);
 	}
 	public function put($uri = null){
-
 	}
 	
 	/**
