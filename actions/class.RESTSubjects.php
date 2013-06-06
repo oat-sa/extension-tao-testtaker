@@ -43,6 +43,13 @@ class taoSubjects_actions_RESTSubjects extends tao_actions_CommonRESTModule {
 		return $this->returnSuccess($data);
 	}
 	public function put($uri = null){
+		try {
+		$parameters = $this->getTestTakerParameters();
+		$data = $this->service->updateTestTaker($uri, $parameters);
+		} catch (Exception $e) {
+		    return $this->returnFailure($e);
+		}
+		return $this->returnSuccess($data);
 	}
 	
 	/**
