@@ -43,7 +43,7 @@ return array(
 				dirname(__FILE__). '/models/ontology/taosubject.rdf'
 		),
 		'checks' => array(
-			array('type' => 'CheckFileSystemComponent', 'value' => array('id' => 'fs_taoSubjects_includes', 'location' => 'taoSubjects/includes', 'rights' => 'r'))
+			array('type' => 'CheckFileSystemComponent', 'value' => array('id' => 'fs_taoSubjects_includes', 'location' => 'taoSubjects/includes', 'rights' => 'rw'))
 		)
 	),
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',	
