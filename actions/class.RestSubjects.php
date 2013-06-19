@@ -9,7 +9,7 @@
  *
  * @author plichart
  */
-class taoSubjects_actions_RESTSubjects extends tao_actions_CommonRESTModule {
+class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 
 	public function __construct(){
 		parent::__construct();
