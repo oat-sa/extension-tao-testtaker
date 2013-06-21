@@ -388,44 +388,57 @@ class taoSubjects_models_classes_SubjectsService
 	return parent::delete($uri);
     }
     /**
-     * @param array parameters
+     * @param array parameters an array of property uri and values
      */
     public function createTestTaker(array $parameters){
 	
-		//check if mandatory parameters are set
+		//mandatory parameters
 		if (!isset($parameters[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_MissingParameter("login");
 		}
 		if (!isset($parameters[PROPERTY_USER_PASSWORD])) {
 			throw new common_exception_MissingParameter("password");
 		}
-		
+		//default values
+		if (!isset($parameters[PROPERTY_USER_UILG])) {
+			$parameters[PROPERTY_USER_UILG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+		}
+		if (!isset($parameters[PROPERTY_USER_DEFLG])) {
+			$parameters[PROPERTY_USER_DEFLG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+		}
+		if (!isset($parameters[RDFS_LABEL])) {
+			$parameters[RDFS_LABEL] = "";
+		}
 		//check if login already exists
 		$userService = tao_models_classes_UserService::singleton();
 		if ($userService->loginExists($parameters[PROPERTY_USER_LOGIN])) {
-			throw new Exception("login already exists");
+			throw new common_exception_PreConditionFailure("login already exists");
 		}
-		$type = isset($parameters[RDF_TYPE]) ? $parameters[RDF_TYPE] : null;
-		$resource =  parent::create($parameters[RDFS_LABEL], $type);
+		$parameters[PROPERTY_USER_PASSWORD] = md5($parameters[PROPERTY_USER_PASSWORD]);
+		$type = isset($parameters[RDF_TYPE]) ? $parameters[RDF_TYPE] : $this->getRootClass();
+		$label = $parameters[RDFS_LABEL];
 		//hmmm
 		unset($parameters[RDFS_LABEL]);
 		unset($parameters[RDF_TYPE]);
-	
-		$resource->setPropertiesValues($parameters);
-	
-		//force default subject roles to be the Delivery Role:
+		$resource =  parent::create($label, $type, $parameters);
 		$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
 		$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
 		$resource->setPropertyValue($roleProperty, $subjectRole);
+		return $resource;
     }
 
 	public function updateTestTaker($uri = null,array $parameters){
-
+		if (is_null($uri)){
+		    throw new common_exception_MissingParameter("uri");
+		}
 		if (isset($parameters[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_PreConditionFailure("login update not allowed");
 		}
-
-		throw new common_exception_NotImplemented();
+		if (isset($parameters[PROPERTY_USER_PASSWORD])) {
+			$parameters[PROPERTY_USER_PASSWORD] = md5($parameters[PROPERTY_USER_PASSWORD]);
+		}
+		parent::update($uri, $parameters);
+		//throw new common_exception_NotImplemented();
 	}
     
 } /* end of class taoSubjects_models_classes_SubjectsService */

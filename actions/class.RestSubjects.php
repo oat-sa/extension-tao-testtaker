@@ -33,9 +33,9 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 		return $this->returnSuccess($data);
 	}
 
-	public function post() {
+	public function post() { 
 		try {
-		$parameters = $this->getTestTakerParameters();
+		$parameters = $this->getParameters();
 		$data = $this->service->createTestTaker($parameters);
 		} catch (Exception $e) {
 		    return $this->returnFailure($e);
@@ -44,19 +44,17 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	}
 	public function put($uri = null){
 		try {
-		$parameters = $this->getTestTakerParameters();
+		$parameters = $this->getParameters(false);
 		$data = $this->service->updateTestTaker($uri, $parameters);
 		} catch (Exception $e) {
 		    return $this->returnFailure($e);
 		}
 		return $this->returnSuccess($data);
 	}
-	
-	/**
-	 * Retrieve HTTP parameters specifically for test takers (beyon user defined properties) and raise exception if there are missing parameters
+	/**Return all parameters default, custom and specific
 	 */
-	private function getTestTakerParameters() {
-		$defaultParameters = parent::getDefaultParameters();
+	protected function getExpectedParameters() {
+		$defaultParameters = parent::getExpectedParameters();
 		$testTakerParameters = array(
 		    //mandatory or optionnal
 		    "login"=> array(PROPERTY_USER_LOGIN,true),
@@ -65,10 +63,9 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 		    "dataLg" => array(PROPERTY_USER_DEFLG, false),
 		    "firstName"=>array(PROPERTY_USER_LASTNAME,false),
 		    "mail"=>array(PROPERTY_USER_MAIL,false),
-		    "type"=>array(RDF_TYPE,false)   //a default type would be set
+		    "type"=>array(RDF_TYPE,false)   //a contextual type would be set
 		);
-		return array_merge($defaultParameters, $this->getAvailableParameters($testTakerParameters));
-
+		return array_merge($defaultParameters, $testTakerParameters);
 	}
 }
 ?>
