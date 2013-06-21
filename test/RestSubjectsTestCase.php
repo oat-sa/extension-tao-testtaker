@@ -75,6 +75,18 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    $this->assertEqual($http_status, "401");
 	    curl_close($process);
 
+	    //should return a 401
+	     $process = curl_init($url);
+	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
+		 "Accept: application/json"
+		 ));
+	    curl_setopt($process, CURLOPT_USERPWD, $this->login.":dummy");
+	    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+	    $data = curl_exec($process);
+	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
+	    $this->assertEqual($http_status, "401");
+	    curl_close($process);
+
 	    //should return a 200
 	    $process = curl_init($url);
 	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
@@ -84,10 +96,42 @@ class RestSubjectsTestCase extends UnitTestCase {
 	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
 	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
-	    
+
+	      //should return a 406
+	     $process = curl_init($url);
+	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
+		 "Accept: dummy/dummy"
+		 ));
+	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
+	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+	    $data = curl_exec($process);
+	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
+	    $this->assertEqual($http_status, "406");
+
+	     //should return a 200
+	    $process = curl_init($url);
+	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
+		 "Accept: application/xml"
+		 ));
+	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
+	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
 	    $this->assertEqual($http_status, "200");
-
+	     curl_close($process);
+	    
+	    //should return a 200, should return content encoding application/xml
+	     $process = curl_init($url);
+	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
+		 "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+		 ));
+	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
+	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+	    $data = curl_exec($process);
+	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
+	    $this->assertEqual($http_status, "200");
+	     $contentType = curl_getinfo($process, CURLINFO_CONTENT_TYPE);
+	     $this->assertEqual( $contentType, "application/xml");
 	    curl_close($process);
 	}
 
