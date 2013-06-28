@@ -63,7 +63,12 @@ class RestSubjectsTestCase extends UnitTestCase {
 	 */
 	private function curl($url, $method = CURLOPT_HTTPGET, $returnType = "data", $curlopt_httpheaders = array()){
 	     $process = curl_init($url);
-	     curl_setopt($process, $method, 1);
+	     if ($method != "DELETE") {
+		 curl_setopt($process, $method, 1);
+	     } else {
+		 curl_setopt($process, CURLOPT_CUSTOMREQUEST, "DELETE");
+	     }
+	     
 	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
 	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	     
@@ -215,16 +220,32 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LOGIN, "literal", $genLogin);
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_PASSWORD, "literal", md5('blabla'));
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LASTNAME, "literal", 'patrick');
-	    
-	      //get this test taker
-	     
 
-	    //remove this test taker
+	     $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: 2_'.$genLogin, 'password: dummy'));
+	    $data = json_decode($returnedData, true);
+	    $this->assertEqual( $data["success"], true);
+	    $uri2Subject = $data["data"]["uriResource"];
 
 	    //get all test takers
 
-	    //
+	    $returnedData = $this->curl($url);
+	    $data = json_decode($returnedData, true);
+	    $this->assertEqual( $data["success"], true);
+	     $this->assertTrue(sizeOf($data["data"])>=2);
+	     $totalSize = sizeOf($data["data"]);
+	    // remove all test takers
+	      $returnedData = $this->curl($url, "DELETE", CURLINFO_HTTP_CODE, array('uri: '.$uriSubject));
+	      $this->assertEqual( $returnedData, 200);
+	       $returnedData = $this->curl($url, "DELETE", "data", array('uri: '.$uri2Subject));
+	      $data = json_decode($returnedData, true);
+	      $this->assertEqual( $data["success"], true);
 
+	      $returnedData = $this->curl($url);
+	    $data = json_decode($returnedData, true);
+	    $this->assertEqual( $data["success"], true);
+	     $this->assertTrue((sizeOf($data["data"])+2 == $totalSize));
+	     
+	     //check the removal
 
 	    
 	}
