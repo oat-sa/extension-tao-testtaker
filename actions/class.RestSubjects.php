@@ -18,7 +18,11 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	}
 	public function get($uri = null){
 		try {
-		$data = $this->service->getTestTaker($uri);
+		    if (!is_null($uri)){
+			$data = $this->service->getTestTaker($uri);
+		    } else {
+			$data = $this->service->getAllTestTakers();
+		    }
 		} catch (Exception $e) {
 		    return $this->returnFailure($e);
 		}
