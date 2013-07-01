@@ -19,6 +19,12 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	public function get($uri = null){
 		try {
 		    if (!is_null($uri)){
+			if (!common_Utils::isUri($uri)){
+			    throw new common_exception_InvalidArgumentType();
+			}
+			if (!($this->service->isInScope($uri))){
+			    throw new common_exception_PreConditionFailure("The URI must be a valid resource under the root Class");
+			}
 			$data = $this->service->getTestTaker($uri);
 		    } else {
 			$data = $this->service->getAllTestTakers();
@@ -30,7 +36,17 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	}
 	public function delete($uri = null){
 		try {
-		$data = $this->service->deleteTestTaker($uri);
+		    if (!is_null($uri)){
+			if (!common_Utils::isUri($uri)){
+			    throw new common_exception_InvalidArgumentType();
+			}
+			if (!($this->service->isInScope($uri))){
+			    throw new common_exception_PreConditionFailure("The URI must be a valid resource under the root Class");
+			}
+			$data = $this->service->deleteTestTaker($uri);
+		    } else {
+			$data = $this->service->deleteAllTestTakers();
+		    }
 		} catch (Exception $e) {
 		    return $this->returnFailure($e);
 		}
@@ -47,10 +63,17 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	}
 	public function put($uri = null){
 		try {
-		$parameters = $this->getParameters(false);
-		$data = $this->service->updateTestTaker($uri, $parameters);
+			if (!common_Utils::isUri($uri)){
+			    throw new common_exception_InvalidArgumentType();
+			}
+			if (!($this->service->isInScope($uri))){
+			    throw new common_exception_PreConditionFailure("The URI must be a valid resource under the root Class");
+			}
+
+			$parameters = $this->getParameters(false);
+			$data = $this->service->updateTestTaker($uri, $parameters);
 		} catch (Exception $e) {
-		    return $this->returnFailure($e);
+			return $this->returnFailure($e);
 		}
 		return $this->returnSuccess($data);
 	}
