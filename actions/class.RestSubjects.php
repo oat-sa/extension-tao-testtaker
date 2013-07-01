@@ -32,7 +32,6 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 		}
 		return $this->returnSuccess($data);
 	}
-
 	public function post() { 
 		try {
 		$parameters = $this->getParameters();

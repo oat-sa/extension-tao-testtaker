@@ -381,9 +381,16 @@ class taoSubjects_models_classes_SubjectsService
      * @return array
      */
 
+    /**
+     * Nhose services reflects a slightly different semantics
+     * than $this->deleteSubject($uri) depending on the paramters
+     * and in terms of errors returned as per REST
+     */
+
     public function getTestTaker( $uri = null){
 	return parent::get($uri);
     }
+    
     public function deleteTestTaker( $uri = null){
 	return parent::delete($uri);
     }
