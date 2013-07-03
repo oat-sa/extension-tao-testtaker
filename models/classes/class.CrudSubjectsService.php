@@ -25,22 +25,28 @@
  * 
  */
 class taoSubjects_models_classes_CrudSubjectsService
-    extends taoSubjects_models_classes_RootSubjectsService
+    extends tao_models_classes_CrudService
 {
-    public function __construct()
-    {
-	parent::__construct();
+   protected $subjectClass = null;
+
+    public function __construct(){
+		parent::__construct();
+		$this->subjectClass = new core_kernel_classes_Class(TAO_SUBJECT_CLASS);
     }
-    public function getTestTaker($uri){
+
+    public function getRootClass(){
+		return $this->subjectClass;
+	}
+    public function get($uri){
 	//should hide the password field
 
 	return parent::get($uri);
     }
-    public function getAllTestTakers(){
+    public function getAll(){
 	return parent::getAll();
     }
     
-    public function deleteTestTaker( $resource){
+    public function delete( $resource){
 	return parent::delete($resource);
     }
      public function deleteAll(){
@@ -49,38 +55,38 @@ class taoSubjects_models_classes_CrudSubjectsService
     /**
      * @param array parameters an array of property uri and values
      */
-    public function createTestTaker(array $parameters){
+    public function create(array $propertiesValues){
 	
 		//mandatory parameters
-		if (!isset($parameters[PROPERTY_USER_LOGIN])) {
+		if (!isset($propertiesValues[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_MissingParameter("login");
 		}
-		if (!isset($parameters[PROPERTY_USER_PASSWORD])) {
+		if (!isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
 			throw new common_exception_MissingParameter("password");
 		}
 		//default values
-		if (!isset($parameters[PROPERTY_USER_UILG])) {
-			$parameters[PROPERTY_USER_UILG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+		if (!isset($propertiesValues[PROPERTY_USER_UILG])) {
+			$propertiesValues[PROPERTY_USER_UILG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 		}
-		if (!isset($parameters[PROPERTY_USER_DEFLG])) {
-			$parameters[PROPERTY_USER_DEFLG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+		if (!isset($propertiesValues[PROPERTY_USER_DEFLG])) {
+			$propertiesValues[PROPERTY_USER_DEFLG] = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
 		}
-		if (!isset($parameters[RDFS_LABEL])) {
-			$parameters[RDFS_LABEL] = "";
+		if (!isset($propertiesValues[RDFS_LABEL])) {
+			$propertiesValues[RDFS_LABEL] = "";
 		}
 		//check if login already exists
 		$userService = tao_models_classes_UserService::singleton();
-		if ($userService->loginExists($parameters[PROPERTY_USER_LOGIN])) {
+		if ($userService->loginExists($propertiesValues[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_PreConditionFailure("login already exists");
 		}
-		$parameters[PROPERTY_USER_PASSWORD] = md5($parameters[PROPERTY_USER_PASSWORD]);
-		$type = isset($parameters[RDF_TYPE]) ? $parameters[RDF_TYPE] : $this->getRootClass();
-		$label = $parameters[RDFS_LABEL];
+		$propertiesValues[PROPERTY_USER_PASSWORD] = md5($propertiesValues[PROPERTY_USER_PASSWORD]);
+		$type = isset($propertiesValues[RDF_TYPE]) ? $propertiesValues[RDF_TYPE] : $this->getRootClass();
+		$label = $propertiesValues[RDFS_LABEL];
 		//hmmm
-		unset($parameters[RDFS_LABEL]);
-		unset($parameters[RDF_TYPE]);
+		unset($propertiesValues[RDFS_LABEL]);
+		unset($propertiesValues[RDF_TYPE]);
 
-		$resource =  parent::create($label, $type, $parameters);
+		$resource =  parent::create($label, $type, $propertiesValues);
 		
 		$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
 		$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
@@ -88,17 +94,17 @@ class taoSubjects_models_classes_CrudSubjectsService
 		return $resource;
     }
 
-	public function updateTestTaker($uri = null,array $parameters){
+	public function update($uri = null,array $propertiesValues){
 		if (is_null($uri)){
 		    throw new common_exception_MissingParameter("uri");
 		}
-		if (isset($parameters[PROPERTY_USER_LOGIN])) {
+		if (isset($propertiesValues[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_PreConditionFailure("login update not allowed");
 		}
-		if (isset($parameters[PROPERTY_USER_PASSWORD])) {
-			$parameters[PROPERTY_USER_PASSWORD] = md5($parameters[PROPERTY_USER_PASSWORD]);
+		if (isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
+			$propertiesValues[PROPERTY_USER_PASSWORD] = md5($propertiesValues[PROPERTY_USER_PASSWORD]);
 		}
-		parent::update($uri, $parameters);
+		parent::update($uri, $propertiesValues);
 		//throw new common_exception_NotImplemented();
 	}
     

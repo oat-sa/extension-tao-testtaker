@@ -29,10 +29,19 @@
  * @subpackage models_classes
  */
 class taoSubjects_models_classes_SubjectsService
-    extends taoSubjects_models_classes_CrudSubjectsService
+    extends tao_models_classes_ClassService
 {
     
-    
+    protected $subjectClass = null;
+
+    public function __construct(){
+		parent::__construct();
+		$this->subjectClass = new core_kernel_classes_Class(TAO_SUBJECT_CLASS);
+    }
+
+    public function getRootClass(){
+		return $this->subjectClass;
+    }
     /**
      * Short description of method getSubjectClasses
      *
