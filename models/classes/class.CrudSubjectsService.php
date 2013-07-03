@@ -22,17 +22,18 @@
  *  Consequently the signatures and behaviors is closer to REST and throwing HTTP like exceptions
  *  
  *
- *
+ * 
  */
 class taoSubjects_models_classes_CrudSubjectsService
-    extends taoSubjects_models_classes_SubjectsService
+    extends taoSubjects_models_classes_RootSubjectsService
 {
     public function __construct()
     {
-        
-		parent::__construct();
+	parent::__construct();
     }
     public function getTestTaker($uri){
+	//should hide the password field
+
 	return parent::get($uri);
     }
     public function getAllTestTakers(){

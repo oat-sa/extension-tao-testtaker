@@ -29,40 +29,10 @@
  * @subpackage models_classes
  */
 class taoSubjects_models_classes_SubjectsService
-    extends tao_models_classes_ClassService
+    extends taoSubjects_models_classes_CrudSubjectsService
 {
-    // --- ASSOCIATIONS ---
-
-
-    // --- ATTRIBUTES ---
-
-    /**
-     * The RDFS top level subject class
-     *
-     * @access protected
-     * @var Class
-     */
-    protected $subjectClass = null;
-
-    // --- OPERATIONS ---
-
-    /**
-     * Short description of method __construct
-     *
-     * @access public
-     * @author Joel Bout, <joel.bout@tudor.lu>
-     * @return mixed
-     */
-    public function __construct()
-    {
-        // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 begin
-		
-		parent::__construct();
-		$this->subjectClass = new core_kernel_classes_Class(TAO_SUBJECT_CLASS);
-
-        // section 10-13-1-45-69571c33:1239d9f7146:-8000:0000000000001896 end
-    }
-
+    
+    
     /**
      * Short description of method getSubjectClasses
      *
@@ -83,9 +53,7 @@ class taoSubjects_models_classes_SubjectsService
         return $returnValue;
     }
     
-	public function getRootClass() {
-		return $this->subjectClass;
-	}
+	
 
     /**
      * get a subject subclass by uri. 
@@ -374,8 +342,7 @@ class taoSubjects_models_classes_SubjectsService
         // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B end
         return $returnValue;
     }
-
-    
+   
 } /* end of class taoSubjects_models_classes_SubjectsService */
 
 ?>
