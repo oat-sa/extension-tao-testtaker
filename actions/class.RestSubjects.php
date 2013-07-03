@@ -13,7 +13,7 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 
 	public function __construct(){
 		parent::__construct();
-		$this->service = taoSubjects_models_classes_SubjectsService::singleton();
+		$this->service = taoSubjects_models_classes_CrudSubjectsService::singleton();
 		$this->defaultData();
 	}
 	public function get($uri = null){
@@ -54,8 +54,8 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 	}
 	public function post() { 
 		try {
-		$parameters = $this->getParameters();
-		$data = $this->service->createTestTaker($parameters);
+		    $parameters = $this->getParameters();
+		    $data = $this->service->createTestTaker($parameters);
 		} catch (Exception $e) {
 		    return $this->returnFailure($e);
 		}
@@ -69,7 +69,6 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 			if (!($this->service->isInScope($uri))){
 			    throw new common_exception_PreConditionFailure("The URI must be a valid resource under the root Class");
 			}
-
 			$parameters = $this->getParameters(false);
 			$data = $this->service->updateTestTaker($uri, $parameters);
 		} catch (Exception $e) {
