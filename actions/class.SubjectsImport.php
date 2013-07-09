@@ -29,41 +29,18 @@
  * 
  */
 class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
-	
-	public function __construct(){
-		
-		parent::__construct();
-		
-		$this->excludedProperties = array_merge($this->excludedProperties, array(PROPERTY_USER_DEFLG, PROPERTY_USER_ROLES));
-		
-		$lang = '';
-		$langResource = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-		if($langResource instanceof core_kernel_classes_Resource){
-			$lang = $langResource->getUri();
-		}else{
-			throw new Exception('cannot find the default system language during subjects import');
+    
+	public function getAvailableImportHandlers() {
+		$returnValue = parent::getAvailableImportHandlers();
+		foreach ($returnValue as $key => $impl) {
+		    if ($impl instanceof tao_models_classes_import_CsvImporter) {
+		        unset($returnValue[$key]);
+		    }
 		}
-		
-		$this->staticData = array(
-			PROPERTY_USER_DEFLG => $lang,
-			PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
-		);
-		
-		$this->additionalAdapterOptions = array(
-			'callbacks' => array(
-				'*' => array('trim'),
-				PROPERTY_USER_PASSWORD => array('md5')
-			)
-		);
-
-		// Anonymous function to be applied after resource import.
-		$applyRole = function(core_kernel_classes_Resource $resource) {
-			$rolesProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
-			$resource->setPropertyValue($rolesProperty, INSTANCE_ROLE_DELIVERY);
-		};
-		
-		$this->additionalAdapterOptions['onResourceImported'] = array($applyRole);
+        $returnValue[] = new taoSubjects_models_classes_SubjectCsvImporter();
+        		
+		return $returnValue;
 	}
-	
+
 }
 ?>
