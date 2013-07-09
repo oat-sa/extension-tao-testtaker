@@ -20,19 +20,27 @@
  */
 
 /**
- * Short description of class taoQTI_models_classes_ItemModel
+ * A custom subject CSV importer
  *
  * @access public
  * @author Joel Bout, <joel@taotesting.com>
- * @package tao
- * @subpackage models_classes_Export
+ * @package taoSubjects
+ * @subpackage models_classes
  */
 class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_import_CsvImporter
 {
+    /**
+     * (non-PHPdoc)
+     * @see tao_models_classes_import_CsvImporter::getExludedProperties()
+     */
     protected function getExludedProperties() {
        return array_merge(parent::getExludedProperties(), array(PROPERTY_USER_DEFLG, PROPERTY_USER_ROLES));
     }
     
+    /**
+     * (non-PHPdoc)
+     * @see tao_models_classes_import_CsvImporter::getStaticData()
+     */
     protected function getStaticData() {
         $lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
 		return array(
@@ -41,18 +49,16 @@ class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_i
 		);
     }
     
+    /**
+     * (non-PHPdoc)
+     * @see tao_models_classes_import_CsvImporter::getAdditionAdapterOptions()
+     */
     protected function getAdditionAdapterOptions() {
 		$returnValue = array(
 			'callbacks' => array(
 				'*' => array('trim'),
 				PROPERTY_USER_PASSWORD => array('md5')
-			),
-			'onResourceImported' => array(
-    		    function(core_kernel_classes_Resource $resource) {
-        			$rolesProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
-        			$resource->setPropertyValue($rolesProperty, INSTANCE_ROLE_DELIVERY);
-    		    }
-    		)
+			)
 	    );
         return $returnValue;
     }

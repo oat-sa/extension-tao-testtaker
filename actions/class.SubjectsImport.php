@@ -21,7 +21,8 @@
  */
 
 /**
- * Extends the common Import class to update the behavior
+ * Extends the common Import class to exchange the generic
+ * CsvImporter with a subject specific one
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
@@ -30,6 +31,10 @@
  */
 class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
     
+    /**
+     * (non-PHPdoc)
+     * @see tao_actions_Import::getAvailableImportHandlers()
+     */
 	public function getAvailableImportHandlers() {
 		$returnValue = parent::getAvailableImportHandlers();
 		foreach ($returnValue as $key => $impl) {
