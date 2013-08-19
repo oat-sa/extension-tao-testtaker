@@ -170,10 +170,10 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		}
 		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->getUri()));
 		
-		$memberProperty = new core_kernel_classes_Property(TAO_GROUP_MEMBERS_PROP);
-		$groupForm = tao_helpers_form_GenerisTreeForm::buildReverseTree($subject, $memberProperty);
-		$groupForm->setData('title',	__('Add to group '));
-		$this->setData('groupForm', $groupForm->render());
+		$groupsExt = common_ext_ExtensionsManager::singleton()->getExtensionById('taoGroups');
+		if (!is_null($groupsExt) && $groupsExt->isEnabled()) {
+		    $this->setData('groupForm', taoGroups_helpers_SubjectForm::renderGroupTreeForm($subject));
+		}
 		
 		$this->setData('checkLogin', $addMode);
 		$this->setData('formTitle', __('Edit subject'));
@@ -248,66 +248,4 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		
 		echo json_encode(array('deleted'	=> $deleted));
 	}
-	
-	/**
-	 * get the list of groups to populate the checkbox tree of groups to link with
-	 * @return void
-	 */
-	public function getGroups()
-	{
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
-		}
-		$options = array('chunk' => false);
-		if($this->hasRequestParameter('classUri')) {
-			$clazz = $this->getCurrentClass();
-			$options['chunk'] = true;
-		}
-		else{
-			$clazz = new core_kernel_classes_Class(TAO_GROUP_CLASS);
-		}
-		if($this->hasRequestParameter('selected')){
-			$selected = $this->getRequestParameter('selected');
-			if(!is_array($selected)){
-				$selected = array($selected);
-			}
-			$options['browse'] = $selected;
-		}
-		if($this->hasRequestParameter('offset')){
-			$options['offset'] = $this->getRequestParameter('offset');
-		}
-		if($this->hasRequestParameter('limit')){
-			$options['limit'] = $this->getRequestParameter('limit');
-		}
-		if($this->hasRequestParameter('subclasses')){
-			$options['subclasses'] = $this->getRequestParameter('subclasses');
-		}
-		echo json_encode($this->service->toTree($clazz, $options));
-	}
-	
-	/**
-	 * save from the checkbox tree the groups to link with 
-	 * @return void
-	 */
-	public function saveGroups()
-	{
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
-		}
-		$saved = false;
-		$groups = array();
-		foreach($this->getRequestParameters() as $key => $value){
-			if(preg_match("/^instance_/", $key)){
-				array_push($groups, tao_helpers_Uri::decode($value));
-			}
-		}
-		$subject = $this->getCurrentInstance();
-		
-		if($this->service->setSubjectGroups($subject, $groups)){
-			$saved = true;
-		}
-		echo json_encode(array('saved'	=> $saved));
-	}
-	
 }
-?>
