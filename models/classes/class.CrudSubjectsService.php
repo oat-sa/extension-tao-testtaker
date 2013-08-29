@@ -47,7 +47,9 @@ class taoSubjects_models_classes_CrudSubjectsService
     }
     
     public function delete( $resource){
-	return parent::delete($resource);
+        taoSubjects_models_classes_SubjectsService::singleton()->deleteSubject(new core_kernel_classes_Resource($resource));
+        //parent::delete($resource)
+        return true;
     }
      public function deleteAll(){
 	return parent::deleteAll();
