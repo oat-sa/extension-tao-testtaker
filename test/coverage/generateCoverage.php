@@ -33,7 +33,7 @@ foreach($tests as $testCase){
 
 //add the reporter regarding the context
 if(PHP_SAPI == 'cli'){
-	$reporter = new XmlTimeReporter();
+	$reporter = new TextReporter();
 }
 else{
 	$reporter = new HtmlReporter();
