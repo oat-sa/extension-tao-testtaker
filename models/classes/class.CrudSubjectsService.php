@@ -96,7 +96,7 @@ class taoSubjects_models_classes_CrudSubjectsService
 		return $resource;
     }
 
-	public function update($uri = null,array $propertiesValues){
+	public function update($uri = null,$propertiesValues = array()){
 		if (is_null($uri)){
 		    throw new common_exception_MissingParameter("uri");
 		}
