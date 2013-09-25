@@ -57,7 +57,7 @@ class taoSubjects_models_classes_CrudSubjectsService
     /**
      * @param array parameters an array of property uri and values
      */
-    public function create(array $propertiesValues){
+    public function createFromArray($propertiesValues =array()){
 	
 		//mandatory parameters
 		if (!isset($propertiesValues[PROPERTY_USER_LOGIN])) {
