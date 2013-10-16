@@ -8,17 +8,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Add to group"
-msgstr "Ajouter au groupe"
+msgid "Add to group "
+msgstr "Ajouter au groupe "
 
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
 msgid "delete"
-msgstr "supprimer"
+msgstr "Supprimer"
 
 msgid "duplicate"
-msgstr "dupliquer"
+msgstr "Dupliquer"
 
 msgid "Edit subject"
 msgstr "Modifier le participant"
@@ -27,32 +27,32 @@ msgid "Edit subject class"
 msgstr "Modifier la classe participant"
 
 msgid "export"
-msgstr "exporter"
+msgstr "Exporter"
 
 msgid "import"
-msgstr "importer"
+msgstr "Importer"
 
 msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr "Sa flexibilité permet la conception de structures de données (ex : nom, adresse, date de naissance, genre, etc.)."
 
 msgid "lists"
-msgstr "listes"
+msgstr "Listes"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "Gérer les participants"
+msgstr "Gestion des participants"
 
 msgid "meta data"
-msgstr "métadonnée"
+msgstr "Méta-\ndonnées"
 
 msgid "move"
-msgstr "déplacer"
+msgstr "Déplacer"
 
 msgid "new class"
-msgstr "nouvelle classe"
+msgstr "Créer classe"
 
 msgid "new test taker"
-msgstr "nouveau participant"
+msgstr "Créer participant"
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -62,7 +62,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 msgid "search"
-msgstr "rechercher"
+msgstr "Rechercher"
 
 msgid "Test taker saved"
 msgstr "Participant enregistré"
@@ -72,11 +72,19 @@ msgid "Test takers"
 msgstr "Participants"
 
 msgid "Test takers library"
-msgstr "Bibliothèque de participants"
+msgstr "Participants"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les participants peuvent être assignés à des ensembles selon le contexte d’évaluation (gestion des ressources humaines, éducation, contrôle d'édumétrie, etc.)"
+msgstr "Les participants peuvent être assignés à des ensembles selon le contexte d’évaluation (gestion des ressources humaines, éducation, contrôle d'édumétrie, etc.)."
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Le module Participants vous permet d'ajouter et de gérer les sujets des tests."
+msgstr "Le module <i>Participants</i> vous permet d'ajouter et de gérer les sujets des tests."
 
+msgid "Logged in as:"
+msgstr "Connecté en tant que : "
+
+msgid "Settings"
+msgstr "Réglages"
+
+msgid "User Management"
+msgstr "Gestion des utilisateurs"
