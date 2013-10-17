@@ -88,3 +88,7 @@ msgstr "Réglages"
 
 msgid "User Management"
 msgstr "Gestion des utilisateurs"
+
+msgid "Delivery"
+msgstr "Passations"
+
