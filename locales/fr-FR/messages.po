@@ -92,3 +92,5 @@ msgstr "Gestion des utilisateurs"
 msgid "Delivery"
 msgstr "Passations"
 
+msgid "Beta version"
+msgstr "Version bêta"
