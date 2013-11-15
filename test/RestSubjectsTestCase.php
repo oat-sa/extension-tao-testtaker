@@ -90,12 +90,17 @@ class RestSubjectsTestCase extends UnitTestCase {
 	}
 
 	private function checkPropertyValues($propertyValues, $property, $valueType="literal", $value){
-	     foreach ($propertyValues as $propertyValue) {
-		if ($propertyValue["predicateUri"] == $property){
-		    
-		    $this->assertEqual($propertyValue["values"][0]["valueType"], $valueType);
-		    $this->assertEqual($propertyValue["values"][0]["value"],  $value);
-		}
+	    if(is_array($propertyValues)){
+    	    foreach ($propertyValues as $propertyValue) {
+        		if ($propertyValue["predicateUri"] == $property){
+        		    
+        		    $this->assertEqual($propertyValue["values"][0]["valueType"], $valueType);
+        		    $this->assertEqual($propertyValue["values"][0]["value"],  $value);
+    		}
+	    }
+	    }
+	    else {
+	        $this->fail('$propertyValues should be an array');
 	    }
 	}
 	public function testHttp(){
