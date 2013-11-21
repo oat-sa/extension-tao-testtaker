@@ -1,24 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.4-beta3\n"
-"PO-Revision-Date: 2013-04-05T18:40:40\n"
+"Project-Id-Version: TAO v2.6-alpha\n"
+"PO-Revision-Date: 2013-11-20T14:57:17\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sv-SE\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Add to group"
-msgstr "Lägg till till grupp"
-
 msgid "Class saved"
 msgstr "Klass sparad"
 
 msgid "delete"
 msgstr "ta bort"
-
-msgid "duplicate"
-msgstr "dublett"
 
 msgid "Edit subject"
 msgstr "Redigera testtagare"
@@ -57,9 +51,6 @@ msgstr "ny testtagare"
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
-
-msgid "Save"
-msgstr "Spara"
 
 msgid "search"
 msgstr "sök"
