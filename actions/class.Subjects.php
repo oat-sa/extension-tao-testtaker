@@ -124,13 +124,13 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 				$values = $myForm->getValues();
 				
 				if($addMode){
-					$values[PROPERTY_USER_PASSWORD] = md5($values['password1']);
+					$values[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password1']);
 					unset($values['password1']);
 					unset($values['password2']);
 				}
 				else{
 					if(!empty($values['password2'])){
-						$values[PROPERTY_USER_PASSWORD] = md5($values['password2']);
+						$values[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password2']);
 					}
 					unset($values['password2']);
 					unset($values['password3']);

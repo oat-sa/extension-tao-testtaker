@@ -81,7 +81,7 @@ class taoSubjects_models_classes_CrudSubjectsService
 		if ($userService->loginExists($propertiesValues[PROPERTY_USER_LOGIN])) {
 			throw new common_exception_PreConditionFailure("login already exists");
 		}
-		$propertiesValues[PROPERTY_USER_PASSWORD] = md5($propertiesValues[PROPERTY_USER_PASSWORD]);
+		$propertiesValues[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
 		$type = isset($propertiesValues[RDF_TYPE]) ? $propertiesValues[RDF_TYPE] : $this->getRootClass();
 		$label = $propertiesValues[RDFS_LABEL];
 		//hmmm
@@ -104,7 +104,7 @@ class taoSubjects_models_classes_CrudSubjectsService
 			throw new common_exception_PreConditionFailure("login update not allowed");
 		}
 		if (isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
-			$propertiesValues[PROPERTY_USER_PASSWORD] = md5($propertiesValues[PROPERTY_USER_PASSWORD]);
+			$propertiesValues[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
 		}
 		parent::update($uri, $propertiesValues);
 		//throw new common_exception_NotImplemented();

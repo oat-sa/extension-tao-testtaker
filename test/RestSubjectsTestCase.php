@@ -206,7 +206,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    $this->assertEqual( $data["data"]["uri"], $uriSubject);
 
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LOGIN, "literal", $genLogin);
-	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_PASSWORD, "literal", md5('dummy'));
+	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_PASSWORD, "literal", core_kernel_users_AuthAdapter::getPasswordHash()->encrypt('dummy'));
 
 	    //modifying the login of a subject is not allowed : 412
 	     $returnedData = $this->curl($url, CURLOPT_PUT, CURLINFO_HTTP_CODE, array('uri: '.$uriSubject, 'login: blabla'));
@@ -223,7 +223,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    $this->assertEqual( $data["success"], true);
 	    $this->assertEqual( $data["data"]["uri"], $uriSubject);
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LOGIN, "literal", $genLogin);
-	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_PASSWORD, "literal", md5('blabla'));
+	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_PASSWORD, "literal", core_kernel_users_AuthAdapter::getPasswordHash()->encrypt('blabla'));
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LASTNAME, "literal", 'patrick');
 
 	     $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: 2_'.$genLogin, 'password: dummy'));

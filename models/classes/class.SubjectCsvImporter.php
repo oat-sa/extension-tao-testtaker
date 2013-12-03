@@ -57,11 +57,19 @@ class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_i
 		$returnValue = array(
 			'callbacks' => array(
 				'*' => array('trim'),
-				PROPERTY_USER_PASSWORD => array('md5')
+				PROPERTY_USER_PASSWORD => array('_taoSubjectsPasswordEncode')
 			)
 	    );
         return $returnValue;
     }
 }
 
-?>
+/**
+ * Wrapper for password hash
+ * 
+ * @param string $value
+ * @return string
+ */
+function _taoSubjectsPasswordEncode($value) {
+    return core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($value);
+}
