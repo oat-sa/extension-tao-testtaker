@@ -17,7 +17,7 @@
  */
 ?>
 <?php
-require_once dirname(__FILE__) . '/../../tao/test/TaoTestRunner.php';
+require_once dirname(__FILE__) . '/../../tao/test/TaoPhpUnitTestRunner.php';
 include_once dirname(__FILE__) . '/../includes/raw_start.php';
 
 /**
@@ -26,7 +26,7 @@ include_once dirname(__FILE__) . '/../includes/raw_start.php';
  * @package taoSubjects
  * @subpackage test
  */
-class RestSubjectsTestCase extends UnitTestCase {
+class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 	
 
 	
@@ -38,7 +38,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	 * tests initialization
 	 */
 	public function setUp(){		
-		    TaoTestRunner::initTest();
+		    TaoPhpUnitTestRunner::initTest();
 		    //creates a user using remote script from joel
 		    $process = curl_init($this->host.'/tao/test/connector/setUp.php');
 		    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
@@ -94,8 +94,8 @@ class RestSubjectsTestCase extends UnitTestCase {
     	    foreach ($propertyValues as $propertyValue) {
         		if ($propertyValue["predicateUri"] == $property){
         		    
-        		    $this->assertEqual($propertyValue["values"][0]["valueType"], $valueType);
-        		    $this->assertEqual($propertyValue["values"][0]["value"],  $value);
+        		    $this->assertEquals($propertyValue["values"][0]["valueType"], $valueType);
+        		    $this->assertEquals($propertyValue["values"][0]["value"],  $value);
     		}
 	    }
 	    }
@@ -117,7 +117,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "401");
+	    $this->assertEquals($http_status, "401");
 	    curl_close($process);
 
 	    //should return a 401
@@ -129,7 +129,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "401");
+	    $this->assertEquals($http_status, "401");
 	    curl_close($process);
 
 	    //should return a 406
@@ -141,7 +141,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "406");
+	    $this->assertEquals($http_status, "406");
 	    curl_close($process);
 
 	         //should return a 200
@@ -153,7 +153,7 @@ class RestSubjectsTestCase extends UnitTestCase {
 	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "200");
+	    $this->assertEquals($http_status, "200");
 
 
 
@@ -166,14 +166,14 @@ class RestSubjectsTestCase extends UnitTestCase {
 	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
 	    $data = curl_exec($process);
 	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "200");
+	    $this->assertEquals($http_status, "200");
 	     $contentType = curl_getinfo($process, CURLINFO_CONTENT_TYPE);
-	     $this->assertEqual( $contentType, "application/xml");
+	     $this->assertEquals( $contentType, "application/xml");
 	    curl_close($process);
 
 	    //should return a 200
 	    $http_status = $this->curl($url, CURLOPT_HTTPGET, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "200");
+	    $this->assertEquals($http_status, "200");
 
 	}
 
@@ -183,27 +183,27 @@ class RestSubjectsTestCase extends UnitTestCase {
 	    $url = $this->host.'taoSubjects/RestSubjects';
 	    $returnedData = $this->curl($url);
 	    $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
+	    $this->assertEquals( $data["success"], true);
 
 	    //create a new test taker without aprameters, should return a 400
 	    $http_status = $this->curl($url, CURLOPT_POST, CURLINFO_HTTP_CODE);
-	    $this->assertEqual($http_status, "400");
+	    $this->assertEquals($http_status, "400");
 
 	    //login but no password, should return a 400
 	    $http_status = $this->curl($url, CURLOPT_POST, CURLINFO_HTTP_CODE, array('login: dummy'));
-	    $this->assertEqual($http_status, "400");
+	    $this->assertEquals($http_status, "400");
 
 	    //should be 200
 	    $genLogin = 'dummy'.rand(0,65535);
 	   $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: '.$genLogin, 'password: dummy'));
 	   $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
+	    $this->assertEquals( $data["success"], true);
 	   $uriSubject = $data["data"]["uriResource"];
 	    //get this test taker
 	     $returnedData = $this->curl($url, CURLOPT_HTTPGET, "data", array('uri: '.$uriSubject));
 	    $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
-	    $this->assertEqual( $data["data"]["uri"], $uriSubject);
+	    $this->assertEquals( $data["success"], true);
+	    $this->assertEquals( $data["data"]["uri"], $uriSubject);
 
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LOGIN, "literal", $genLogin);
            
@@ -217,18 +217,18 @@ class RestSubjectsTestCase extends UnitTestCase {
             
 	    //modifying the login of a subject is not allowed : 412
 	     $returnedData = $this->curl($url, CURLOPT_PUT, CURLINFO_HTTP_CODE, array('uri: '.$uriSubject, 'login: blabla'));
-	     $this->assertEqual( $returnedData, 412);
+	     $this->assertEquals( $returnedData, 412);
 	    //get all test takers
 	     //modifying the login of a subject is not allowed : 412
 	     $returnedData = $this->curl($url, CURLOPT_PUT, CURLINFO_HTTP_CODE, array('uri: '.$uriSubject, 'password: blabla'));
-	     $this->assertEqual( $returnedData, 200);
+	     $this->assertEquals( $returnedData, 200);
 	    //edit this test taker
 	     $returnedData = $this->curl($url, CURLOPT_PUT, "data", array('uri: '.$uriSubject, 'firstName: patrick','password: blabla'));
 	     $returnedData = $this->curl($url, CURLOPT_HTTPGET, "data", array('uri: '.$uriSubject));
 	    $data = json_decode($returnedData, true);
 	   
-	    $this->assertEqual( $data["success"], true);
-	    $this->assertEqual( $data["data"]["uri"], $uriSubject);
+	    $this->assertEquals( $data["success"], true);
+	    $this->assertEquals( $data["data"]["uri"], $uriSubject);
 	    $this->checkPropertyValues($data["data"]["properties"], PROPERTY_USER_LOGIN, "literal", $genLogin);
 	              
 	    foreach ($data["data"]["properties"] as $propertyValue) {
@@ -241,26 +241,26 @@ class RestSubjectsTestCase extends UnitTestCase {
 
 	     $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: 2_'.$genLogin, 'password: dummy'));
 	    $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
+	    $this->assertEquals( $data["success"], true);
 	    $uri2Subject = $data["data"]["uriResource"];
 
 	    //get all test takers
 
 	    $returnedData = $this->curl($url);
 	    $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
+	    $this->assertEquals( $data["success"], true);
 	     $this->assertTrue(sizeOf($data["data"])>=2);
 	     $totalSize = sizeOf($data["data"]);
 	    // remove all test takers
 	      $returnedData = $this->curl($url, "DELETE", CURLINFO_HTTP_CODE, array('uri: '.$uriSubject));
-	      $this->assertEqual( $returnedData, 200);
+	      $this->assertEquals( $returnedData, 200);
 	       $returnedData = $this->curl($url, "DELETE", "data", array('uri: '.$uri2Subject));
 	      $data = json_decode($returnedData, true);
-	      $this->assertEqual( $data["success"], true);
+	      $this->assertEquals( $data["success"], true);
 
 	      $returnedData = $this->curl($url);
 	    $data = json_decode($returnedData, true);
-	    $this->assertEqual( $data["success"], true);
+	    $this->assertEquals( $data["success"], true);
 	     $this->assertTrue((sizeOf($data["data"])+2 == $totalSize));
 	     
 	     //check the removal
