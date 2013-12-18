@@ -1,5 +1,4 @@
 <? include(TAO_TPL_PATH . 'form_context.tpl') ?>
-<script type="text/javascript" src='<?=TAOBASE_WWW?>js/users.js'></script>
 
 <?=get_data('groupForm')?>
 
@@ -14,9 +13,9 @@
 
 <?if(get_data('checkLogin')):?>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			checkLogin("<?=get_data('loginUri')?>", "<?=_url('checkLogin', 'Users', 'tao')?>");
-		});
+	 require(['users'], function(user){
+            user.checkLogin("<?=get_data('loginUri')?>", "<?=_url('checkLogin', 'Users', 'tao')?>");
+	});
 	</script>
 <?endif?>
 
