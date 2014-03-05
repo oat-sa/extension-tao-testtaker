@@ -170,8 +170,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		}
 		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->getUri()));
 		
-		$groupsExt = common_ext_ExtensionsManager::singleton()->getExtensionById('taoGroups');
-		if (!is_null($groupsExt) && $groupsExt->isEnabled()) {
+		if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
 		    $this->setData('groupForm', taoGroups_helpers_SubjectForm::renderGroupTreeForm($subject));
 		}
 		
