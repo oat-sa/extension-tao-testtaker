@@ -12,14 +12,14 @@
 						editClassUrl="/taoSubjects/Subjects/editSubjectClass"
 						editInstanceUrl="/taoSubjects/Subjects/editSubject"
 						addInstanceUrl="/taoSubjects/Subjects/addInstance"
-						addSubClassUrl="/taoSubjects/Subjects/addSubjectClass"
+						addSubClassUrl="/taoSubjects/Subjects/addSubClass"
 						deleteUrl="/taoSubjects/Subjects/delete"
 						moveInstanceUrl="/taoSubjects/Subjects/moveInstance"
 					/>
 				</trees>
 				<actions>
 					<action name="search" url="/taoSubjects/Subjects/search" context="*" />
-					<action name="new class" js="subClass" url="/taoSubjects/Subjects/addSubjectClass" context="class" />
+					<action name="new class" js="subClass" url="/taoSubjects/Subjects/addSubClass" context="class" />
 					<action name="new test taker" js="instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
 					<action name="delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
 					<action name="move" js="moveNode" url="" context="instance" />

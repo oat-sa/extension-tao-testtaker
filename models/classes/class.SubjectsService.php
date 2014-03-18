@@ -119,25 +119,6 @@ class taoSubjects_models_classes_SubjectsService
     }
 
     /**
-     * Short description of method createSubjectClass
-     *
-     * @access public
-     * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Class clazz
-     * @param  string label
-     * @param  array properties
-     * @return core_kernel_classes_Class
-     */
-    public function createSubjectClass( core_kernel_classes_Class $clazz, $label = '')
-    {
-		if(!$this->isSubjectClass($clazz)){
-			throw new common_Exception("Non subject class in '" . __CLASS__ . "'.");	
-		}
-
-        return $this->createSubClass($clazz, $label);
-    }
-
-    /**
      * delete a subject instance
      *
      * @access public

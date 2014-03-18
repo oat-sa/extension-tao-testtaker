@@ -179,26 +179,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		$this->setData('myForm', $myForm->render());
 		$this->setView('form_subjects.tpl');
 	}
-	
-	/**
-	 * add a subject model (subclass Subject)
-	 * @return void
-	 */
-	public function addSubjectClass()
-	{
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
-		}
-		
-		$clazz = $this->service->createSubjectClass($this->getCurrentClass());
-		echo json_encode(
-			array(
-				'label'	=> $clazz->getLabel(),
-				'uri' 	=> tao_helpers_Uri::encode($clazz->getUri())
-			)
-		);
-	}
-	
+
 	/**
 	 * Edit a subject model (edit a class)
 	 * @return void
