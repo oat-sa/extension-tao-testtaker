@@ -25,7 +25,7 @@
 					<action name="move" js="moveNode" url="" context="instance" />
 					<action name="lists"  url="/tao/Lists/index"  context="*" />
 					<action name="meta data" js="loadMetaData" url="/tao/MetaData/getMetaData"  context="resource" />
-					<action name="export" url="/tao/Export/index"  context="*" />
+					<action name="export" url="/tao/Export/index"  context="resource" />
 					<action name="import" url="/taoSubjects/SubjectsImport/index"  context="class" />
 				</actions>
 			</section>
