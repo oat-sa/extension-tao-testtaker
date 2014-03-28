@@ -19,8 +19,7 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+
 /**
  *
  * @author CRP Henri Tudor - TAO Team - {@link http://www.tao.lu}
@@ -28,7 +27,5 @@
  *
  */
 $todefine = array(
-	'TAO_SUBJECT_NAMESPACE' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf',
 	'TAO_CLASS_SUBJECT'		=> 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject'
 );
-?>
