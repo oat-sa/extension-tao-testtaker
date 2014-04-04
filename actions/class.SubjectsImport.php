@@ -26,7 +26,7 @@
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
- * @subpackage actions
+ 
  * 
  */
 class taoSubjects_actions_SubjectsImport extends tao_actions_Import {

@@ -24,7 +24,7 @@ include_once dirname(__FILE__) . '/../includes/raw_start.php';
  * connects as a client agent on the rest controller
  * @author patrick
  * @package taoSubjects
- * @subpackage test
+ 
  */
 class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 	

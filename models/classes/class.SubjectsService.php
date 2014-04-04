@@ -26,7 +26,7 @@
  * @access public
  * @author Joel Bout, <joel.bout@tudor.lu>
  * @package taoSubjects
- * @subpackage models_classes
+ 
  */
 class taoSubjects_models_classes_SubjectsService
     extends tao_models_classes_ClassService
