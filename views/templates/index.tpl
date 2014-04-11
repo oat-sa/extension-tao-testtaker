@@ -1,3 +1,6 @@
+<?php
+use oat\tao\helpers\Template;
+?>
 <div class="main-container">
 	<div class="ext-home-container ui-state-highlight">
 		<h1><img src="<?=BASE_WWW?>img/taoSubjects.png" /> <?=__('Test takers')?></h1>
@@ -6,5 +9,6 @@
 		<?=__('Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.).')?></p>
 	</div>
 </div>
-
-<?include(TAO_TPL_PATH . 'footer.tpl')?>
+<?php
+Template::inc('footer.tpl', 'tao');
+?>
