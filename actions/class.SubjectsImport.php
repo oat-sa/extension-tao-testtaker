@@ -37,12 +37,7 @@ class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
      */
 	public function getAvailableImportHandlers() {
 		$returnValue = parent::getAvailableImportHandlers();
-		foreach ($returnValue as $key => $impl) {
-		    if ($impl instanceof tao_models_classes_import_CsvImporter) {
-		        unset($returnValue[$key]);
-		    }
-		}
-        $returnValue[] = new taoSubjects_models_classes_SubjectCsvImporter();
+		$returnValue[] = new taoSubjects_models_classes_SubjectCsvImporter();
         		
 		return $returnValue;
 	}
