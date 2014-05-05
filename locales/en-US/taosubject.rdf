@@ -8,15 +8,15 @@
     <!--
     @sourceLanguage EN
     @targetLanguage en-US
-    @source Test Taker
+    @source Test-taker
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#label
     -->
-    <rdfs:label xml:lang="en-US"><![CDATA[Test Taker]]></rdfs:label>
+    <rdfs:label xml:lang="en-US"><![CDATA[Test-taker]]></rdfs:label>
     <!--
     @sourceLanguage EN
     @targetLanguage en-US
-    @source The Test Taker class
+    @source The Test-taker class
     @subject http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
     @predicate http://www.w3.org/2000/01/rdf-schema#comment
     -->
