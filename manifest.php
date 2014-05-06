@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -19,8 +19,7 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+
 /*
  * @author CRP Henri Tudor - TAO Team - {@link http://www.tao.lu}
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
@@ -31,11 +30,14 @@ $taopath = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'tao'.DIRECTORY_SEPARA
 
 return array(
 	'name' => 'taoSubjects',
+    'label' => 'Test-taker core extension',
 	'description' => 'TAO Subjects extension',
     'license' => 'GPL-2.0',
-    'version' => '2.4',
+    'version' => '2.6',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
-	'dependencies' => array('tao'),
+	'requires' => array(
+	    'tao' => '2.6'
+    ),
 	'models' => array(
 		'http://www.tao.lu/Ontologies/TAOSubject.rdf'
 	),
