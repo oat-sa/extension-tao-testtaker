@@ -75,6 +75,7 @@ class SubjectsTestCase extends TaoPhpUnitTestRunner {
 		$subSubjectClass = $this->subjectsService->createSubClass($subjectClass, $subSubjectClassLabel);
 		$this->assertIsA($subSubjectClass, 'core_kernel_classes_Class');
 		$this->assertEquals($subSubjectClassLabel, $subSubjectClass->getLabel());
+		$this->assertTrue($this->subjectsService->isSubjectClass($subjectClass));
 		$this->assertTrue($this->subjectsService->isSubjectClass($subSubjectClass));
 		
 		//create an instance of the Item class
@@ -96,9 +97,11 @@ class SubjectsTestCase extends TaoPhpUnitTestRunner {
 		$subSubjectInstance->setLabel($subSubjectInstanceLabel2);
 		$this->assertEquals($subSubjectInstanceLabel2, $subSubjectInstance->getLabel());
 		
-		
-		$this->assertTrue($subSubjectInstance->delete());
-		$this->assertTrue($subSubjectClass->delete());
+		$this->assertTrue($this->subjectsService->deleteSubject($subSubjectInstance));
+		$this->assertTrue($this->subjectsService->deleteSubjectClass($subSubjectClass));
+
 	}
+	
+	
 }
 ?>
