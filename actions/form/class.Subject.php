@@ -47,11 +47,11 @@ class taoSubjects_actions_form_Subject
      */
     public function initElements()
     {
-        // section 10-13-1-85-30abb332:13b711a69fc:-8000:0000000000003C77 begin
+        
         parent::initElements();
 		$this->form->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
 		$this->form->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_ROLES));
-        // section 10-13-1-85-30abb332:13b711a69fc:-8000:0000000000003C77 end
+        
     }
 
 } /* end of class taoSubjects_actions_form_Subject */

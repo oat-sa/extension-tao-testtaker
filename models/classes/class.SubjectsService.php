@@ -53,11 +53,11 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = null;
 
-        // section 10-13-1-45--7118a60:123a410cfcb:-8000:0000000000001895 begin
+        
 		
 		$returnValue = $this->subjectClass->getSubClasses(true);
 		
-        // section 10-13-1-45--7118a60:123a410cfcb:-8000:0000000000001895 end
+        
 
         return $returnValue;
     }
@@ -79,7 +79,7 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = null;
 
-        // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001891 begin
+        
 		
 		if(empty($uri) && !is_null($this->subjectClass)){
 			$returnValue = $this->subjectClass;
@@ -91,7 +91,7 @@ class taoSubjects_models_classes_SubjectsService
 			}
 		}
 		
-        // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001891 end
+        
 
         return $returnValue;
     }
@@ -109,11 +109,11 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = null;
 
-        // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 begin
+        
 
         $returnValue = parent::createInstance($clazz, $label);
         
-        // section 127-0-1-1-56f8794f:129833f491d:-8000:0000000000002021 end
+        
 
         return $returnValue;
     }
@@ -130,13 +130,13 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = (bool) false;
 
-        // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:000000000000179D begin
+        
 		
 		if(!is_null($subject)){
 				$returnValue = $subject->delete();
 		}
 		
-        // section 10-13-1-45--2fb16c8f:12398b55d4e:-8000:000000000000179D end
+        
 
         return (bool) $returnValue;
     }
@@ -153,7 +153,7 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = (bool) false;
 
-        // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 begin
+        
 		
 		if(!is_null($clazz)){
 			if($this->isSubjectClass($clazz) && $clazz->getUri() != $this->subjectClass->getUri()){
@@ -161,7 +161,7 @@ class taoSubjects_models_classes_SubjectsService
 			}
 		}
 
-        // section 127-0-1-1-6bd382c2:12495fe5af9:-8000:0000000000001AC2 end
+        
 
         return (bool) $returnValue;
     }
@@ -178,7 +178,7 @@ class taoSubjects_models_classes_SubjectsService
     {
         $returnValue = (bool) false;
 
-        // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 begin
+        
 		
 		if($clazz->getUri() == $this->subjectClass->getUri()){
 			$returnValue = true;	
@@ -192,7 +192,7 @@ class taoSubjects_models_classes_SubjectsService
 			}
 		}
 		
-        // section 10-13-1-45--4deb5f8d:123cd7d5aaa:-8000:0000000000001895 end
+        
 
         return (bool) $returnValue;
     }
@@ -209,7 +209,7 @@ class taoSubjects_models_classes_SubjectsService
     public function cloneInstance( core_kernel_classes_Resource $instance,  core_kernel_classes_Class $clazz = null)
     {
         $returnValue = null;
-        // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B begin
+        
         $returnValue = parent::cloneInstance($instance, $clazz);
         $userService = tao_models_classes_UserService::singleton();
         $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
@@ -224,7 +224,7 @@ class taoSubjects_models_classes_SubjectsService
         catch(common_Exception $ce){
         	//empty
         }
-        // section 127-0-1-1-52f845f:12a853ab37b:-8000:000000000000249B end
+        
         return $returnValue;
     }
    
