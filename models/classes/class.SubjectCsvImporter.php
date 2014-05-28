@@ -34,7 +34,13 @@ class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_i
      * @see tao_models_classes_import_CsvImporter::getExludedProperties()
      */
     protected function getExludedProperties() {
-       return array_merge(parent::getExludedProperties(), array(PROPERTY_USER_DEFLG, PROPERTY_USER_ROLES));
+       return array_merge(parent::getExludedProperties(), array(
+           PROPERTY_USER_DEFLG,
+           PROPERTY_USER_ROLES,
+           PROPERTY_USER_LASTEXTENSION,
+           PROPERTY_USER_FIRSTTIME,
+           PROPERTY_USER_TIMEZONE
+       ));
     }
     
     /**
@@ -45,6 +51,7 @@ class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_i
         $lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
 		return array(
 			PROPERTY_USER_DEFLG => $lang,
+		    PROPERTY_USER_TIMEZONE => TIME_ZONE,
 			PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
 		);
     }
@@ -57,19 +64,20 @@ class taoSubjects_models_classes_SubjectCsvImporter extends tao_models_classes_i
 		$returnValue = array(
 			'callbacks' => array(
 				'*' => array('trim'),
-				PROPERTY_USER_PASSWORD => array('_taoSubjectsPasswordEncode')
+				PROPERTY_USER_PASSWORD => array('taoSubjects_models_classes_SubjectCsvImporter::taoSubjectsPasswordEncode')
 			)
 	    );
         return $returnValue;
     }
-}
-
-/**
- * Wrapper for password hash
- * 
- * @param string $value
- * @return string
- */
-function _taoSubjectsPasswordEncode($value) {
-    return core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($value);
+    
+    /**
+     * Wrapper for password hash
+     *
+     * @param string $value
+     * @return string
+     */
+    public static function taoSubjectsPasswordEncode($value) {
+        return core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($value);
+    }
+    
 }
