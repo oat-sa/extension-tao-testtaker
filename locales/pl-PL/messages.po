@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-alpha\n"
-"PO-Revision-Date: 2013-11-20T14:57:17\n"
+"Project-Id-Version: TAO v2.6-beta2\n"
+"PO-Revision-Date: 2014-05-30T15:54:17\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: pl-PL\n"
@@ -24,9 +24,6 @@ msgid "export"
 msgstr ""
 
 msgid "import"
-msgstr ""
-
-msgid "Its flexibility allows the design of datasheets (e.g. name, address, date of birth, gender etc.)."
 msgstr ""
 
 msgid "lists"
@@ -58,7 +55,6 @@ msgstr ""
 msgid "Test taker saved"
 msgstr ""
 
-#, tao-public
 msgid "Test takers"
 msgstr ""
 
@@ -66,6 +62,10 @@ msgid "Test takers library"
 msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr ""
+
+#, tao-public
+msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
