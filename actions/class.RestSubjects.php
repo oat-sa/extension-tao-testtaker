@@ -38,7 +38,8 @@ class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
 		    "password" => PROPERTY_USER_PASSWORD,
 		    "guiLg" => PROPERTY_USER_UILG,
 		    "dataLg" => PROPERTY_USER_DEFLG,
-		    "firstName"=> PROPERTY_USER_LASTNAME,
+		    "firstName"=> PROPERTY_USER_FIRSTNAME,
+            "lastName" => PROPERTY_USER_LASTNAME,
 		    "mail"=> PROPERTY_USER_MAIL,
 		    "type"=> RDF_TYPE
 	    ));
