@@ -88,10 +88,18 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		return taoSubjects_models_classes_SubjectsService::singleton();
 	}
 	
-/*
- * controller actions
- */
-
+    /*
+     * controller actions
+     */
+	/**
+	 *
+	 * @author Lionel Lecaque, lionel@taotesting.com
+	 * @param core_kernel_classes_Class $clazz
+	 * @return tao_actions_form_Search
+	 */
+	protected function getSearchForm($clazz){
+	    return new taoSubjects_actions_form_Search($clazz, null, array('recursive' => true));
+	}
 	
 	/**
 	 * edit an subject instance
