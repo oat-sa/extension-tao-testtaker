@@ -6,10 +6,10 @@
 		}
      ],
 
-    "name": "oat-sa/tao-core",
+    "name": "oat-sa/extension-tao-testtaker",
     "type" : "tao-extension",
     "extra" : {
-    	"tao-extension-name" : "tao"
+    	"tao-extension-name" : "taoSubject"
     },
     "require": {
         "oatbox/extension-installer": "dev-master"
