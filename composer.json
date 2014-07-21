@@ -1,18 +1,17 @@
 {
-     "repositories": [
-      {
-		"type": "vcs",
-		"url": "git@github.com:oat-sa/oatbox-extension-installer.git"
-		}
-     ],
+	"repositories": [
+	{
+		"type": "composer",
+			"url": "http://packages.taocloud.org/"		
+	}
+	],
 
-    "name": "oat-sa/extension-tao-testtaker",
-    "type" : "tao-extension",
-    "extra" : {
-    	"tao-extension-name" : "taoSubjects"
-    },
-    "require": {
-        "oat-sa/oatbox/extension-installer": "dev-master"
-
-    }
+	"name": "oat-sa/extension-tao-testtaker",
+	"type" : "tao-extension",
+	"extra" : {
+		"tao-extension-name" : "taoSubjects"
+	},
+	"require": {
+		"oat-sa/oatbox/extension-installer": "dev-master"
+	}
 }
