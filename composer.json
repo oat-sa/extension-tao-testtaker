@@ -19,7 +19,7 @@
 		"computer-based-assessment"
 	],
 	"name": "oat-sa/extension-tao-testtaker",
-	"description" : "TAO's extension to manage testtaker ",
+	"description" : "extension to manage testtakers ",
 	"type" : "tao-extension",
 	"authors" : [
 		{
