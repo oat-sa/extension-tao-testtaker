@@ -29,7 +29,7 @@
                         <icon id="icon-test-taker"/>
                     </action>
                     <action name="Delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" group="tree">
-                        <icon id="icon-eraser"/>
+                        <icon id="icon-bin"/>
                     </action>
                     <action name="Move" js="moveNode" url="" context="instance" group="tree">
                         <icon id="icon-move-item"/>
