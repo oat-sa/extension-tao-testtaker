@@ -51,7 +51,7 @@
 		"psr-4" : {
 			"oat\\taoTestTaker\\" : ""
 		}
-	}
+	},
 	"require" : {
 		"oat-sa/oatbox-extension-installer" : "dev-master"
 	}
