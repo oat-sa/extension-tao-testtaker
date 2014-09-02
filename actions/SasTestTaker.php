@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -20,32 +20,18 @@
  * 
  */
 
+namespace oat\taoTestTaker\actions;
+
+
 /**
- * Extends the common Import class to exchange the generic
- * CsvImporter with a subject specific one
+ * SaSSubjects Controller provide process services on subjects
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
  
- * 
+ * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  */
-class taoSubjects_actions_SubjectsImport extends tao_actions_Import {
-    
-    /**
-     * (non-PHPdoc)
-     * @see tao_actions_Import::getAvailableImportHandlers()
-     */
-	public function getAvailableImportHandlers() {
-		$returnValue = parent::getAvailableImportHandlers();
-		
-		foreach (array_keys($returnValue) as $key) {
-		    if ($returnValue[$key] instanceof tao_models_classes_import_CsvImporter) {
-		        $returnValue[$key] = new taoSubjects_models_classes_SubjectCsvImporter();
-		    }
-		}
-        		
-		return $returnValue;
-	}
+class SasTestTaker extends TestTaker {
 
 }
 ?>

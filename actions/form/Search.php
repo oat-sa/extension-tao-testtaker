@@ -17,8 +17,10 @@
  * Copyright (c) 2014 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
+namespace oat\taoTestTaker\actions\form;
 
-class taoSubjects_actions_form_Search extends tao_actions_form_Search
+
+class Search extends \tao_actions_form_Search
 {
     
     /**
@@ -26,8 +28,8 @@ class taoSubjects_actions_form_Search extends tao_actions_form_Search
      * @see tao_actions_form_Search::getClassProperties()
      */
     protected function getClassProperties(){
-        $testTakerProps = tao_helpers_form_GenerisFormFactory::getClassProperties($this->clazz, $this->getTopClazz());
-        $userProps = tao_helpers_form_GenerisFormFactory::getClassProperties(new core_kernel_classes_Class(CLASS_GENERIS_USER), $this->getTopClazz());
+        $testTakerProps = \tao_helpers_form_GenerisFormFactory::getClassProperties($this->clazz, $this->getTopClazz());
+        $userProps = \tao_helpers_form_GenerisFormFactory::getClassProperties(new \core_kernel_classes_Class(CLASS_GENERIS_USER), $this->getTopClazz());
         return array_merge($testTakerProps,$userProps);
     }
     

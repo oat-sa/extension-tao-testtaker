@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -19,17 +19,41 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+namespace oat\taoTestTaker\actions\form;
 /**
- * @author Bertrand Chevrier, <taosupport@tudor.lu>
+ * Short description of class taoSubjects_actions_form_Subject
+ *
+ * @access public
+ * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
  * @package taoSubjects
  
- * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
- * 
  */
+class TestTaker
+    extends \tao_actions_form_Users
+{
+    // --- ASSOCIATIONS ---
 
-class taoSubjects_actions_Main extends tao_actions_Main {
-	
-}
+
+    // --- ATTRIBUTES ---
+
+    // --- OPERATIONS ---
+
+    /**
+     * Short description of method initElements
+     *
+     * @access public
+     * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
+     * @return void
+     */
+    public function initElements()
+    {
+        
+        parent::initElements();
+		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
+		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_ROLES));
+        
+    }
+
+} /* end of class taoSubjects_actions_form_Subject */
+
 ?>

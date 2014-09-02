@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -19,9 +19,7 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
-
+namespace oat\taoTestTaker\actions;
 /**
  * Extends the common Import class to update the behavior
  * 
@@ -32,13 +30,13 @@
  * 
  */
 
-class taoSubjects_actions_SasSubjectsImport extends taoSubjects_actions_SubjectsImport {
+class SasImport extends Import {
 
  	/**
      * @see Subjects::__construct()
      */
     public function __construct() {
-    	tao_helpers_Context::load('STANDALONE_MODE');
+    	\tao_helpers_Context::load('STANDALONE_MODE');
 		parent::__construct();
     }
 

@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -20,6 +20,8 @@
  * 
  */
 
+namespace oat\taoTestTaker\models;
+
 /**
  * Service methods to manage the Subjects business models using the RDF API.
  *
@@ -28,15 +30,15 @@
  * @package taoSubjects
  
  */
-class taoSubjects_models_classes_SubjectsService
-    extends tao_models_classes_ClassService
+class TestTakerService
+    extends \tao_models_classes_ClassService
 {
     
     protected $subjectClass = null;
 
     public function __construct(){
 		parent::__construct();
-		$this->subjectClass = new core_kernel_classes_Class(TAO_SUBJECT_CLASS);
+		$this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
     }
 
     public function getRootClass(){
@@ -85,7 +87,7 @@ class taoSubjects_models_classes_SubjectsService
 			$returnValue = $this->subjectClass;
 		}
 		else{
-			$clazz = new core_kernel_classes_Class($uri);
+			$clazz = new \core_kernel_classes_Class($uri);
 			if($this->isSubjectClass($clazz)){
 				$returnValue = $clazz;
 			}
@@ -105,7 +107,7 @@ class taoSubjects_models_classes_SubjectsService
      * @param  string label
      * @return core_kernel_classes_Resource
      */
-    public function createInstance( core_kernel_classes_Class $clazz, $label = '')
+    public function createInstance( \core_kernel_classes_Class $clazz, $label = '')
     {
         $returnValue = null;
 
@@ -126,7 +128,7 @@ class taoSubjects_models_classes_SubjectsService
      * @param  Resource subject
      * @return boolean
      */
-    public function deleteSubject( core_kernel_classes_Resource $subject)
+    public function deleteSubject( \core_kernel_classes_Resource $subject)
     {
         $returnValue = (bool) false;
 
@@ -149,7 +151,7 @@ class taoSubjects_models_classes_SubjectsService
      * @param  Class clazz
      * @return boolean
      */
-    public function deleteSubjectClass( core_kernel_classes_Class $clazz)
+    public function deleteSubjectClass( \core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
 
@@ -174,7 +176,7 @@ class taoSubjects_models_classes_SubjectsService
      * @param  Class clazz
      * @return boolean
      */
-    public function isSubjectClass( core_kernel_classes_Class $clazz)
+    public function isSubjectClass( \core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
 
@@ -206,13 +208,13 @@ class taoSubjects_models_classes_SubjectsService
      * @param  Class clazz
      * @return core_kernel_classes_Resource
      */
-    public function cloneInstance( core_kernel_classes_Resource $instance,  core_kernel_classes_Class $clazz = null)
+    public function cloneInstance( \core_kernel_classes_Resource $instance,  \core_kernel_classes_Class $clazz = null)
     {
         $returnValue = null;
         
         $returnValue = parent::cloneInstance($instance, $clazz);
-        $userService = tao_models_classes_UserService::singleton();
-        $loginProperty = new core_kernel_classes_Property(PROPERTY_USER_LOGIN);
+        $userService = \tao_models_classes_UserService::singleton();
+        $loginProperty = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
         try{
         	$login = $returnValue->getUniquePropertyValue($loginProperty);
         	while($userService->loginExists($login)){
@@ -228,6 +230,6 @@ class taoSubjects_models_classes_SubjectsService
         return $returnValue;
     }
    
-} /* end of class taoSubjects_models_classes_SubjectsService */
+} 
 
 ?>

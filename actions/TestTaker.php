@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -19,20 +19,21 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+namespace oat\taoTestTaker\actions;
 
+use oat\taoTestTaker\models\TestTakerService;
+use oat\taoTestTaker\actions\form\Search;
+use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 /**
  * Subjects Controller provide actions performed from url resolution
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
- * @package taoSubjects
- 
+ * @package taoTestTaker
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */
 
-class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
+class TestTaker extends \tao_actions_SaSModule {
 
 	/**
 	 * constructor: initialize the service and the default data
@@ -43,7 +44,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		parent::__construct();
 		
 		//the service is initialized by default
-		$this->service = taoSubjects_models_classes_SubjectsService::singleton();
+		$this->service = TestTakerService::singleton();
 		$this->defaultData();
 	}
 	
@@ -64,8 +65,8 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 			$clazz = parent::getCurrentClass();
 		}
 		catch(Exception $e){
-			$uri = tao_helpers_Uri::decode($this->getRequestParameter('uri'));
-			$resource = new core_kernel_classes_Resource($uri);
+			$uri = \tao_helpers_Uri::decode($this->getRequestParameter('uri'));
+			$resource = new \core_kernel_classes_Resource($uri);
 			foreach($resource->getTypes() as $type){
 					$clazz = $type;
 					break;
@@ -73,7 +74,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		}
 		
 		if(is_null($clazz)){
-			throw new Exception("No valid class uri found");
+			throw new \common_exception_InconsistentData("No valid class uri found");
 		}
 		
 		return $clazz;
@@ -85,7 +86,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 	 */
 	protected function getClassService()
 	{
-		return taoSubjects_models_classes_SubjectsService::singleton();
+		return TestTakerService::singleton();
 	}
 	
     /*
@@ -98,7 +99,7 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 	 * @return tao_actions_form_Search
 	 */
 	protected function getSearchForm($clazz){
-	    return new taoSubjects_actions_form_Search($clazz, null, array('recursive' => true));
+	    return new Search($clazz, null, array('recursive' => true));
 	}
 	
 	/**
@@ -113,16 +114,16 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 		$subject = $this->getCurrentInstance();
 			
 		$addMode = false;
-		$login = (string) $subject->getOnePropertyValue(new core_kernel_classes_Property(PROPERTY_USER_LOGIN));
+		$login = (string) $subject->getOnePropertyValue(new \core_kernel_classes_Property(PROPERTY_USER_LOGIN));
 		if(empty($login)){
 			$addMode = true;
-			$this->setData('loginUri', tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
+			$this->setData('loginUri', \tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
 		}
 		if($this->hasRequestParameter('reload')){
 			$this->setData('reload', true);
 		}
 		
-		$myFormContainer = new taoSubjects_actions_form_Subject($clazz, $subject, $addMode, false);
+		$myFormContainer = new TestTakerForm($clazz, $subject, $addMode, false);
 		$myForm = $myFormContainer->getForm();
 
 		if($myForm->isSubmited()){
@@ -132,39 +133,39 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 				$values = $myForm->getValues();
 				
 				if($addMode){
-					$values[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password1']);
+					$values[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password1']);
 					unset($values['password1']);
 					unset($values['password2']);
 				}
 				else{
 					if(!empty($values['password2'])){
-						$values[PROPERTY_USER_PASSWORD] = core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password2']);
+						$values[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($values['password2']);
 					}
 					unset($values['password2']);
 					unset($values['password3']);
 				}
 				
-				$binder = new tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
+				$binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
 				$subject = $binder->bind($values);
 				
 				if($addMode){
 					//force default subject roles to be the Delivery Role:
-					$roleProperty = new core_kernel_classes_Property(PROPERTY_USER_ROLES);
-					$subjectRole = new core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
+					$roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
+					$subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
 					$subject->setPropertyValue($roleProperty, $subjectRole);
 				}
 				
 				//force the data language to be the same as the gui language
-				$userService = tao_models_classes_UserService::singleton();
-				$lang = new core_kernel_classes_Resource($values[PROPERTY_USER_UILG]);
+				$userService = \tao_models_classes_UserService::singleton();
+				$lang = new \core_kernel_classes_Resource($values[PROPERTY_USER_UILG]);
 				$userService->bindProperties($subject, array(PROPERTY_USER_DEFLG => $lang->getUri()));
                                 
 				$message = __('Test taker saved');
 				
 				if($addMode){
 					$params =  array(
-						'uri' 		=> tao_helpers_Uri::encode($subject->getUri()),
-						'classUri' 	=> tao_helpers_Uri::encode($clazz->getUri()),
+						'uri' 		=> \tao_helpers_Uri::encode($subject->getUri()),
+						'classUri' 	=> \tao_helpers_Uri::encode($clazz->getUri()),
 						'reload'	=> true,
 						'message'	=> $message
 					);
@@ -176,10 +177,10 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 				
 			}
 		}
-		$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($subject->getUri()));
+		$this->setSessionAttribute("showNodeUri", \tao_helpers_Uri::encode($subject->getUri()));
 		
-		if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
-		    $this->setData('groupForm', taoGroups_helpers_SubjectForm::renderGroupTreeForm($subject));
+		if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
+		    $this->setData('groupForm', \taoGroups_helpers_SubjectForm::renderGroupTreeForm($subject));
 		}
 		
 		$this->setData('checkLogin', $addMode);
@@ -200,11 +201,11 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 			$this->setSessionAttribute('property_mode', $this->getRequestParameter('property_mode'));
 		}
 		
-		$myForm = $this->editClass($clazz, $this->service->getRootClass(), new core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
+		$myForm = $this->editClass($clazz, $this->service->getRootClass(), new \core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
 		if($myForm->isSubmited()){
 			if($myForm->isValid()){
 				if($clazz instanceof core_kernel_classes_Resource){
-					$this->setSessionAttribute("showNodeUri", tao_helpers_Uri::encode($clazz->getUri()));
+					$this->setSessionAttribute("showNodeUri", \tao_helpers_Uri::encode($clazz->getUri()));
 				}
 				$this->setData('message', __('Class saved'));
 				$this->setData('reload', true);
@@ -222,8 +223,8 @@ class taoSubjects_actions_Subjects extends tao_actions_SaSModule {
 	 */
 	public function delete()
 	{
-		if(!tao_helpers_Request::isAjax()){
-			throw new Exception("wrong request mode");
+		if(!\tao_helpers_Request::isAjax()){
+			throw new \common_exception_BadRequest("wrong request mode");
 		}
 		
 		$deleted = false;

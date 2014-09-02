@@ -1,5 +1,6 @@
 <?php
-/*  
+
+/** 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -18,10 +19,13 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+
 require_once dirname(__FILE__) . '/../../tao/test/TaoPhpUnitTestRunner.php';
 include_once dirname(__FILE__) . '/../includes/raw_start.php';
+
+
+use oat\taoTestTaker\models\TestTakerService;
+
 
 /**
  *
@@ -33,7 +37,7 @@ class SubjectsTestCase extends TaoPhpUnitTestRunner {
 	
 	/**
 	 * 
-	 * @var taoSubjects_models_classes_SubjectsService
+	 * @var 
 	 */
 	protected $subjectsService = null;
 	
@@ -42,19 +46,19 @@ class SubjectsTestCase extends TaoPhpUnitTestRunner {
 	 */
 	public function setUp(){		
 		TaoPhpUnitTestRunner::initTest();
-		$this->subjectsService = taoSubjects_models_classes_SubjectsService::singleton();
+		$this->subjectsService = TestTakerService::singleton();
 	}
 	
 	/**
 	 * Test the user service implementation
 	 * @see tao_models_classes_ServiceFactory::get
-	 * @see taoSubjects_models_classes_SubjectsService::__construct
+	 * @see TestTakerService::__construct
 	 */
 	public function testService(){
 		
 
 		$this->assertIsA($this->subjectsService, 'tao_models_classes_Service');
-		$this->assertIsA($this->subjectsService, 'taoSubjects_models_classes_SubjectsService');
+		$this->assertIsA($this->subjectsService, 'oat\taoTestTaker\models\TestTakerService');
 		
 		
 	}

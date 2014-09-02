@@ -23,7 +23,7 @@ include_once dirname(__FILE__) . '/../includes/raw_start.php';
 /**
  * connects as a client agent on the rest controller
  * @author patrick
- * @package taoSubjects
+ * @package taoTestTaker
  
  */
 class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
@@ -105,7 +105,7 @@ class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 	}
 	public function testHttp(){
 	    
-	    $url = $this->host.'taoSubjects/RestSubjects';
+	    $url = $this->host.'taoTestTaker/api';
 	    //HTTP Basic
 	    $process = curl_init($url);
 	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
@@ -180,7 +180,7 @@ class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 	public function testCrud(){
 
 	    //get the complete list (should be empty)
-	    $url = $this->host.'taoSubjects/RestSubjects';
+	    $url = $this->host.'taoTestTaker/api';
 	    $returnedData = $this->curl($url);
 	    $data = json_decode($returnedData, true);
 	    $this->assertEquals( $data["success"], true);

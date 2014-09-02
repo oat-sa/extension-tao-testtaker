@@ -1,5 +1,5 @@
 <?php
-/*  
+/**  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -19,17 +19,14 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-?>
-<?php
+namespace oat\taoTestTaker\actions;
 /**
- * SaSSubjects Controller provide process services on subjects
- * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
- 
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
+ * 
  */
-class taoSubjects_actions_SaSSubjects extends taoSubjects_actions_Subjects {
-
+class Main extends \tao_actions_Main {
+	
 }
 ?>
