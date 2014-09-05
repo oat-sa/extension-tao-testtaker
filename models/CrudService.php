@@ -17,99 +17,113 @@
  * 
  */
 namespace oat\taoTestTaker\models;
+
 /**
- * .Crud services implements basic CRUD services, orginally intended for REST controllers/ HTTP exception handlers
- *  Consequently the signatures and behaviors is closer to REST and throwing HTTP like exceptions
- *  
- *
+ * 
+ * Crud services implements basic CRUD services, orginally intended for 
+ * REST controllers/ HTTP exception handlers. 
+ * Consequently the signatures and behaviors is closer to REST and throwing 
+ * HTTP like exceptions.
+ * 
+ * @author Patrick Plichart, patrick@taotesting.com
  * 
  */
-class CrudService
-    extends \tao_models_classes_CrudService
+class CrudService extends \tao_models_classes_CrudService
 {
-   protected $subjectClass = null;
 
-    public function __construct(){
-		parent::__construct();
-		$this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
-    }
+    protected $subjectClass = null;
 
-    public function getRootClass(){
-		return $this->subjectClass;
-	}
-    public function get($uri){
-	//should hide the password field
-
-	return parent::get($uri);
-    }
-    public function getAll(){
-	return parent::getAll();
-    }
-    
-    public function delete( $resource){
-        TestTakerService::singleton()->deleteSubject(new \core_kernel_classes_Resource($resource));
-        //parent::delete($resource)
-        return true;
-    }
-     public function deleteAll(){
-	return parent::deleteAll();
+    public function __construct()
+    {
+        parent::__construct();
+        $this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
     }
     /**
-     * @param array parameters an array of property uri and values
+     * 
+     * @author Patrick Plichart, patrick@taotesting.com
+     * @return \core_kernel_classes_Class
      */
-    public function createFromArray($propertiesValues =array()){
-	
-		//mandatory parameters
-		if (!isset($propertiesValues[PROPERTY_USER_LOGIN])) {
-			throw new \common_exception_MissingParameter("login");
-		}
-		if (!isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
-			throw new \common_exception_MissingParameter("password");
-		}
-		//default values
-		if (!isset($propertiesValues[PROPERTY_USER_UILG])) {
-			$propertiesValues[PROPERTY_USER_UILG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-		}
-		if (!isset($propertiesValues[PROPERTY_USER_DEFLG])) {
-			$propertiesValues[PROPERTY_USER_DEFLG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-		}
-		if (!isset($propertiesValues[RDFS_LABEL])) {
-			$propertiesValues[RDFS_LABEL] = "";
-		}
-		//check if login already exists
-		$userService = \tao_models_classes_UserService::singleton();
-		if ($userService->loginExists($propertiesValues[PROPERTY_USER_LOGIN])) {
-			throw new \common_exception_PreConditionFailure("login already exists");
-		}
-		$propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
-		$type = isset($propertiesValues[RDF_TYPE]) ? $propertiesValues[RDF_TYPE] : $this->getRootClass();
-		$label = $propertiesValues[RDFS_LABEL];
-		//hmmm
-		unset($propertiesValues[RDFS_LABEL]);
-		unset($propertiesValues[RDF_TYPE]);
-
-		$resource =  parent::create($label, $type, $propertiesValues);
-		
-		$roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
-		$subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
-		$resource->setPropertyValue($roleProperty, $subjectRole);
-		return $resource;
+    public function getRootClass()
+    {
+        return $this->subjectClass;
     }
 
-	public function update($uri = null,$propertiesValues = array()){
-		if (is_null($uri)){
-		    throw new \common_exception_MissingParameter("uri");
-		}
-		if (isset($propertiesValues[PROPERTY_USER_LOGIN])) {
-			throw new \common_exception_PreConditionFailure("login update not allowed");
-		}
-		if (isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
-			$propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
-		}
-		parent::update($uri, $propertiesValues);
-		//throw new common_exception_NotImplemented();
-	}
-    
-} 
+    /**
+     * (non-PHPdoc)
+     * @see tao_models_classes_CrudService::delete()
+     */
+    public function delete($resource)
+    {
+        TestTakerService::singleton()->deleteSubject(new \core_kernel_classes_Resource($resource));
+        // parent::delete($resource)
+        return true;
+    }
+
+    /**
+     * 
+     * @author Patrick Plichart, patrick@taotesting.com
+     * @param unknown $propertiesValues
+     * @throws \common_exception_MissingParameter
+     * @throws \common_exception_PreConditionFailure
+     * @return core_kernel_classes_Resource
+     */
+    public function createFromArray($propertiesValues = array())
+    {
+        
+        // mandatory parameters
+        if (! isset($propertiesValues[PROPERTY_USER_LOGIN])) {
+            throw new \common_exception_MissingParameter("login");
+        }
+        if (! isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
+            throw new \common_exception_MissingParameter("password");
+        }
+        // default values
+        if (! isset($propertiesValues[PROPERTY_USER_UILG])) {
+            $propertiesValues[PROPERTY_USER_UILG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+        }
+        if (! isset($propertiesValues[PROPERTY_USER_DEFLG])) {
+            $propertiesValues[PROPERTY_USER_DEFLG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+        }
+        if (! isset($propertiesValues[RDFS_LABEL])) {
+            $propertiesValues[RDFS_LABEL] = "";
+        }
+        // check if login already exists
+        $userService = \tao_models_classes_UserService::singleton();
+        if ($userService->loginExists($propertiesValues[PROPERTY_USER_LOGIN])) {
+            throw new \common_exception_PreConditionFailure("login already exists");
+        }
+        $propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
+        $type = isset($propertiesValues[RDF_TYPE]) ? $propertiesValues[RDF_TYPE] : $this->getRootClass();
+        $label = $propertiesValues[RDFS_LABEL];
+        // hmmm
+        unset($propertiesValues[RDFS_LABEL]);
+        unset($propertiesValues[RDF_TYPE]);
+        
+        $resource = parent::create($label, $type, $propertiesValues);
+        
+        $roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
+        $subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
+        $resource->setPropertyValue($roleProperty, $subjectRole);
+        return $resource;
+    }
+    /**
+     * (non-PHPdoc)
+     * @see tao_models_classes_CrudService::update()
+     */
+    public function update($uri = null, $propertiesValues = array())
+    {
+        if (is_null($uri)) {
+            throw new \common_exception_MissingParameter("uri");
+        }
+        if (isset($propertiesValues[PROPERTY_USER_LOGIN])) {
+            throw new \common_exception_PreConditionFailure("login update not allowed");
+        }
+        if (isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
+            $propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
+        }
+        parent::update($uri, $propertiesValues);
+        // throw new common_exception_NotImplemented();
+    }
+}
 
 ?>

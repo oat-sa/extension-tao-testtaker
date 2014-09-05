@@ -19,7 +19,6 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-
 namespace oat\taoTestTaker\models;
 
 /**
@@ -28,22 +27,26 @@ namespace oat\taoTestTaker\models;
  * @access public
  * @author Joel Bout, <joel.bout@tudor.lu>
  * @package taoSubjects
- 
+ * 
+ *         
  */
-class TestTakerService
-    extends \tao_models_classes_ClassService
+class TestTakerService extends \tao_models_classes_ClassService
 {
+
     
     protected $subjectClass = null;
 
-    public function __construct(){
-		parent::__construct();
-		$this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
+    public function __construct()
+    {
+        parent::__construct();
+        $this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
     }
 
-    public function getRootClass(){
-		return $this->subjectClass;
+    public function getRootClass()
+    {
+        return $this->subjectClass;
     }
+
     /**
      * Short description of method getSubjectClasses
      *
@@ -54,47 +57,38 @@ class TestTakerService
     public function getSubjectClasses()
     {
         $returnValue = null;
-
         
-		
-		$returnValue = $this->subjectClass->getSubClasses(true);
-		
+        $returnValue = $this->subjectClass->getSubClasses(true);
         
-
         return $returnValue;
     }
-    
-	
 
     /**
-     * get a subject subclass by uri. 
+     * get a subject subclass by uri.
+     *
      * If the uri is not set, it returns the subject class (the top level class.
      * If the uri don't reference a subject subclass, it returns null
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  string uri
+     * @param string uri
      * @return core_kernel_classes_Class
      * @deprecated
+     *
      */
     public function getSubjectClass($uri = '')
     {
         $returnValue = null;
-
         
-		
-		if(empty($uri) && !is_null($this->subjectClass)){
-			$returnValue = $this->subjectClass;
-		}
-		else{
-			$clazz = new \core_kernel_classes_Class($uri);
-			if($this->isSubjectClass($clazz)){
-				$returnValue = $clazz;
-			}
-		}
-		
+        if (empty($uri) && ! is_null($this->subjectClass)) {
+            $returnValue = $this->subjectClass;
+        } else {
+            $clazz = new \core_kernel_classes_Class($uri);
+            if ($this->isSubjectClass($clazz)) {
+                $returnValue = $clazz;
+            }
+        }
         
-
         return $returnValue;
     }
 
@@ -103,20 +97,16 @@ class TestTakerService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Class clazz
-     * @param  string label
+     * @param Class clazz
+     * @param string label
      * @return core_kernel_classes_Resource
      */
-    public function createInstance( \core_kernel_classes_Class $clazz, $label = '')
+    public function createInstance(\core_kernel_classes_Class $clazz, $label = '')
     {
         $returnValue = null;
-
         
-
         $returnValue = parent::createInstance($clazz, $label);
         
-        
-
         return $returnValue;
     }
 
@@ -125,22 +115,30 @@ class TestTakerService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Resource subject
+     * @param Resource subject
      * @return boolean
      */
-    public function deleteSubject( \core_kernel_classes_Resource $subject)
+    public function deleteSubject(\core_kernel_classes_Resource $subject)
     {
         $returnValue = (bool) false;
-
         
-		
-		if(!is_null($subject)){
-				$returnValue = $subject->delete();
-		}
-		
+        if (! is_null($subject)) {
+            $returnValue = $subject->delete();
+        }
         
-
         return (bool) $returnValue;
+    }
+    
+    /**
+     *
+     * @author Lionel Lecaque, lionel@taotesting.com
+     */
+    public function deleteAll()
+    {
+        $resources = array();
+        foreach ($this->getRootClass()->getInstances(true) as $resource) {
+            $resource->delete();
+        }
     }
 
     /**
@@ -148,23 +146,19 @@ class TestTakerService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Class clazz
+     * @param Class clazz
      * @return boolean
      */
-    public function deleteSubjectClass( \core_kernel_classes_Class $clazz)
+    public function deleteSubjectClass(\core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
-
         
-		
-		if(!is_null($clazz)){
-			if($this->isSubjectClass($clazz) && $clazz->getUri() != $this->subjectClass->getUri()){
-				$returnValue = $clazz->delete();
-			}
-		}
-
+        if (! is_null($clazz)) {
+            if ($this->isSubjectClass($clazz) && $clazz->getUri() != $this->subjectClass->getUri()) {
+                $returnValue = $clazz->delete();
+            }
+        }
         
-
         return (bool) $returnValue;
     }
 
@@ -173,29 +167,24 @@ class TestTakerService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Class clazz
+     * @param Class clazz
      * @return boolean
      */
-    public function isSubjectClass( \core_kernel_classes_Class $clazz)
+    public function isSubjectClass(\core_kernel_classes_Class $clazz)
     {
         $returnValue = (bool) false;
-
         
-		
-		if($clazz->getUri() == $this->subjectClass->getUri()){
-			$returnValue = true;	
-		}
-		else{
-			foreach( $this->subjectClass->getSubClasses(true) as $subclass){
-				if($clazz->getUri() == $subclass->getUri()){
-					$returnValue = true;
-					break;	
-				}
-			}
-		}
-		
+        if ($clazz->getUri() == $this->subjectClass->getUri()) {
+            $returnValue = true;
+        } else {
+            foreach ($this->subjectClass->getSubClasses(true) as $subclass) {
+                if ($clazz->getUri() == $subclass->getUri()) {
+                    $returnValue = true;
+                    break;
+                }
+            }
+        }
         
-
         return (bool) $returnValue;
     }
 
@@ -204,32 +193,30 @@ class TestTakerService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param  Resource instance
-     * @param  Class clazz
+     * @param Resource instance
+     * @param Class clazz
      * @return core_kernel_classes_Resource
      */
-    public function cloneInstance( \core_kernel_classes_Resource $instance,  \core_kernel_classes_Class $clazz = null)
+    public function cloneInstance(\core_kernel_classes_Resource $instance, \core_kernel_classes_Class $clazz = null)
     {
         $returnValue = null;
         
         $returnValue = parent::cloneInstance($instance, $clazz);
         $userService = \tao_models_classes_UserService::singleton();
         $loginProperty = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
-        try{
-        	$login = $returnValue->getUniquePropertyValue($loginProperty);
-        	while($userService->loginExists($login)){
-        		$login .= (string) rand(0, 9); 
-        	}
-        	
-        	$returnValue->editPropertyValues($loginProperty, $login);
-        }
-        catch(common_Exception $ce){
-        	//empty
+        try {
+            $login = $returnValue->getUniquePropertyValue($loginProperty);
+            while ($userService->loginExists($login)) {
+                $login .= (string) rand(0, 9);
+            }
+            
+            $returnValue->editPropertyValues($loginProperty, $login);
+        } catch (common_Exception $ce) {
+            // empty
         }
         
         return $returnValue;
     }
-   
-} 
+}
 
 ?>

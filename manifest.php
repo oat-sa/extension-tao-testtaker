@@ -61,7 +61,7 @@ return array(
 		"DIR_VIEWS"				=> $extpath."views".DIRECTORY_SEPARATOR,
 	
 		# default module name
-		'DEFAULT_MODULE_NAME'	=> 'Subjects',
+		'DEFAULT_MODULE_NAME'	=> 'TestTaker',
 	
 		#default action name
 		'DEFAULT_ACTION_NAME'	=> 'index',
