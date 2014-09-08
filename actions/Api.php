@@ -17,7 +17,7 @@
  * Copyright (c) 2013 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  * @author "Patrick Plichart, <patrick@taotesting.com>"
- * @package taoResultServer
+ *  
  */
 namespace oat\taoTestTaker\actions;
 
