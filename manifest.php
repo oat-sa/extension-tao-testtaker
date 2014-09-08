@@ -49,6 +49,8 @@ return array(
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
     'acl' => array(
         array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoTestTaker')),
+        array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#AnonymousRole',array('ext'=>'taoTestTaker','mod' => 'Api'))
+        
     ),
     'routes' => array(
         '/taoTestTaker' => 'oat\\taoTestTaker\\actions'

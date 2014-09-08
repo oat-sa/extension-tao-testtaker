@@ -1,51 +1,43 @@
 <?php
-/**  
+/**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
  * of the License (non-upgradable).
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- * 
- * 
+ *
+ * Copyright (c) 2013-2014 (original work) Open Assessment Technologies SA
+ *
  */
 namespace oat\taoTestTaker\models;
 
 /**
- * 
- * Crud services implements basic CRUD services, orginally intended for 
- * REST controllers/ HTTP exception handlers. 
- * Consequently the signatures and behaviors is closer to REST and throwing 
+ *
+ * Crud services implements basic CRUD services, orginally intended for
+ * REST controllers/ HTTP exception handlers.
+ * Consequently the signatures and behaviors is closer to REST and throwing
  * HTTP like exceptions.
- * 
+ *
  * @author Patrick Plichart, patrick@taotesting.com
- * 
+ *
  */
 class CrudService extends \tao_models_classes_CrudService
 {
 
-    protected $subjectClass = null;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
-    }
     /**
-     * 
-     * @author Patrick Plichart, patrick@taotesting.com
-     * @return \core_kernel_classes_Class
+     * (non-PHPdoc)
+     * @see tao_models_classes_CrudService::getClassService()
      */
-    public function getRootClass()
-    {
-        return $this->subjectClass;
+    protected function getClassService(){
+        return TestTakerService::singleton();
     }
 
     /**
@@ -54,22 +46,21 @@ class CrudService extends \tao_models_classes_CrudService
      */
     public function delete($resource)
     {
-        TestTakerService::singleton()->deleteSubject(new \core_kernel_classes_Resource($resource));
-        // parent::delete($resource)
+        $this->getClassService()->deleteSubject(new \core_kernel_classes_Resource($resource));
         return true;
     }
 
     /**
-     * 
+     *
      * @author Patrick Plichart, patrick@taotesting.com
-     * @param unknown $propertiesValues
+     * @param  array $propertiesValues
      * @throws \common_exception_MissingParameter
      * @throws \common_exception_PreConditionFailure
-     * @return core_kernel_classes_Resource
+     * @return \core_kernel_classes_Resource
      */
     public function createFromArray($propertiesValues = array())
     {
-        
+
         // mandatory parameters
         if (! isset($propertiesValues[PROPERTY_USER_LOGIN])) {
             throw new \common_exception_MissingParameter("login");
@@ -98,12 +89,11 @@ class CrudService extends \tao_models_classes_CrudService
         // hmmm
         unset($propertiesValues[RDFS_LABEL]);
         unset($propertiesValues[RDF_TYPE]);
-        
+
         $resource = parent::create($label, $type, $propertiesValues);
         
-        $roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
-        $subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
-        $resource->setPropertyValue($roleProperty, $subjectRole);
+        $this->getClassService()->setTestTakerRole($resource);
+        
         return $resource;
     }
     /**
@@ -125,5 +115,3 @@ class CrudService extends \tao_models_classes_CrudService
         // throw new common_exception_NotImplemented();
     }
 }
-
-?>

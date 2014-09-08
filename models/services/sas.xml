@@ -63,7 +63,7 @@
 			<param key="uri" value="^testTakerUri" />
 			<param key="classUri" value="^testTakerClassUri" />
 			<param key="target_lang" value="^subjectTargetLang" />
-		</location>	
+		</location>
 	</service>
 	<service>
 		<name>Test takers searching</name>
@@ -72,7 +72,7 @@
 		<return>
 			<param key="testTakerUris" />
 		</return>
-	</service>	
+	</service>
 	<service>
 		<name>Test taker removing</name>
 		<description>Delete a test taker</description>

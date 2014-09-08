@@ -86,12 +86,9 @@ class TestTaker extends \tao_actions_SaSModule {
 	 */
 	protected function getClassService()
 	{
-		return TestTakerService::singleton();
+		return $this->service;
 	}
 	
-    /*
-     * controller actions
-     */
 	/**
 	 *
 	 * @author Lionel Lecaque, lionel@taotesting.com
@@ -150,9 +147,7 @@ class TestTaker extends \tao_actions_SaSModule {
 				
 				if($addMode){
 					//force default subject roles to be the Delivery Role:
-					$roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
-					$subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
-					$subject->setPropertyValue($roleProperty, $subjectRole);
+					$this->service->setTestTakerRole($subject);
 				}
 				
 				//force the data language to be the same as the gui language
