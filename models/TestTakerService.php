@@ -166,7 +166,7 @@ class TestTakerService extends \tao_models_classes_ClassService
     }
 
     /**
-     * Set the proper ole to the testTaker
+     * Set the proper role to the testTaker
      * 
      * @author Lionel Lecaque, lionel@taotesting.com
      * @param \core_kernel_classes_Resource $instance
