@@ -29,9 +29,9 @@ $extpath = dirname(__FILE__).DIRECTORY_SEPARATOR;
 $taopath = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'tao'.DIRECTORY_SEPARATOR;
 
 return array(
-	'name' => 'taoSubjects',
+	'name' => 'taoTestTaker',
     'label' => 'Test-taker core extension',
-	'description' => 'TAO Subjects extension',
+	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
     'version' => '2.6',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
@@ -48,7 +48,12 @@ return array(
 	),
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
     'acl' => array(
-        array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoSubjects')),
+        array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoTestTaker')),
+        array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#AnonymousRole',array('ext'=>'taoTestTaker','mod' => 'Api'))
+        
+    ),
+    'routes' => array(
+        '/taoTestTaker' => 'oat\\taoTestTaker\\actions'
     ),
 	'constants' => array(
 		# actions directory
@@ -58,7 +63,7 @@ return array(
 		"DIR_VIEWS"				=> $extpath."views".DIRECTORY_SEPARATOR,
 	
 		# default module name
-		'DEFAULT_MODULE_NAME'	=> 'Subjects',
+		'DEFAULT_MODULE_NAME'	=> 'TestTaker',
 	
 		#default action name
 		'DEFAULT_ACTION_NAME'	=> 'index',
@@ -67,10 +72,10 @@ return array(
 		'BASE_PATH'				=> $extpath,
 	
 		#BASE URL (usually the domain root)
-		'BASE_URL'				=> ROOT_URL	.'taoSubjects/',
+		'BASE_URL'				=> ROOT_URL	.'taoTestTaker/',
 	
 		#BASE WWW the web resources path
-		'BASE_WWW'				=> ROOT_URL	.'taoSubjects/views/',
+		'BASE_WWW'				=> ROOT_URL	.'taoTestTaker/views/',
 	 
 	 	#TAO extension Paths
 		'TAOBASE_WWW'			=> ROOT_URL	.'tao/views/',

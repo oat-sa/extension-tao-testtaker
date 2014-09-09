@@ -17,15 +17,17 @@
  * Copyright (c) 2013 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  * @author "Patrick Plichart, <patrick@taotesting.com>"
- * @package taoResultServer
+ *  
  */
+namespace oat\taoTestTaker\actions;
 
+use oat\taoTestTaker\models\CrudService;
 
-class taoSubjects_actions_RestSubjects extends tao_actions_CommonRestModule {
+class Api extends \tao_actions_CommonRestModule {
 
 	public function __construct(){
 		parent::__construct();
-		$this->service = taoSubjects_models_classes_CrudSubjectsService::singleton();
+		$this->service = CrudService::singleton();
 	}
 	
 	/**

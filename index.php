@@ -33,7 +33,7 @@ if (substr(Context::getInstance()->getModuleName(),0,3) == 'SaS') {
 		'constants' => array('wfEngine')
 	);
 }
-$bootStrap = new BootStrap('taoSubjects', $options);
+$bootStrap = new BootStrap('taoTestTaker', $options);
 $bootStrap->start();
 $bootStrap->dispatch();
 ?>

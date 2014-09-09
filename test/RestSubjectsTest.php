@@ -15,79 +15,19 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  * 
  */
-?>
-<?php
-require_once dirname(__FILE__) . '/../../tao/test/TaoPhpUnitTestRunner.php';
-include_once dirname(__FILE__) . '/../includes/raw_start.php';
+require_once dirname(__FILE__) . '/../../tao/test/RestTestCase.php';
 
 /**
  * connects as a client agent on the rest controller
  * @author patrick
- * @package taoSubjects
+ * @package taoTestTaker
  
  */
-class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
+class RestSubjectsTestCase extends RestTestCase {
 	
 
-	
-	private $host = ROOT_URL;
-	private $userUri = "";
-	private $login = "";
-	private $password = "";
-	/**
-	 * tests initialization
-	 */
-	public function setUp(){		
-		    TaoPhpUnitTestRunner::initTest();
-		    //creates a user using remote script from joel
-		    $process = curl_init($this->host.'/tao/test/connector/setUp.php');
-		    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-		    $returnedData = curl_exec($process);
-		    $data = json_decode($returnedData, true);
-		    $this->assertNotNull($data);
-		    $this->login = $data['userData'][PROPERTY_USER_LOGIN];
-		    $this->password = $data['userData'][PROPERTY_USER_PASSWORD];
-		    $this->userUri			= $data['userUri'];
-	}
-	public function tearDown(){
-	    //removes the created user
-		    $process = curl_init(ROOT_URL.'tao/test/connector/tearDown.php');
-		    curl_setopt($process, CURLOPT_POSTFIELDS, array('uri' => $this->userUri));
-		    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-		     $data = curl_exec($process);
-	}
-	/**
-	 * shall be used beyond high level http connections unit tests (default parameters)
-	 * @param returnType CURLINFO_HTTP_CODE, etc... (default returns rhe http response data
-	 *
-	 */
-	private function curl($url, $method = CURLOPT_HTTPGET, $returnType = "data", $curlopt_httpheaders = array()){
-	     $process = curl_init($url);
-	     if ($method != "DELETE") {
-		 curl_setopt($process, $method, 1);
-	     } else {
-		 curl_setopt($process, CURLOPT_CUSTOMREQUEST, "DELETE");
-	     }
-	     
-	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
-	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	     
-	     $headers = array_merge(array (
-		 "Accept: application/json"
-		 ), $curlopt_httpheaders);
-	     curl_setopt($process,CURLOPT_HTTPHEADER, $headers);
-	    if ($method==CURLOPT_POST) {
-		curl_setopt($process, CURLOPT_POSTFIELDS, "");
 		
-	    }
-	     //curl_setopt($process,CURLOPT_HTTPHEADER,$curlopt_httpheaders);
-	     $data = curl_exec($process);
-	     if ($returnType != "data"){
-		 $data = curl_getinfo($process, $returnType);
-	     }
-	     curl_close($process);
-	     return $data;
-	}
+
 
 	private function checkPropertyValues($propertyValues, $property, $valueType="literal", $value){
 	    if(is_array($propertyValues)){
@@ -103,84 +43,17 @@ class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 	        $this->fail('$propertyValues should be an array');
 	    }
 	}
-	public function testHttp(){
-	    
-	    $url = $this->host.'taoSubjects/RestSubjects';
-	    //HTTP Basic
-	    $process = curl_init($url);
-	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
-		 "Accept: application/json"
-		 ));
 
-	    //should return a 401
-	    curl_setopt($process, CURLOPT_USERPWD, "dummy:dummy");
-	    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	    $data = curl_exec($process);
-	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "401");
-	    curl_close($process);
-
-	    //should return a 401
-	     $process = curl_init($url);
-	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
-		 "Accept: application/json"
-		 ));
-	    curl_setopt($process, CURLOPT_USERPWD, $this->login.":dummy");
-	    curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	    $data = curl_exec($process);
-	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "401");
-	    curl_close($process);
-
-	    //should return a 406
-	     $process = curl_init($url);
-	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
-		 "Accept: dummy/dummy"
-		 ));
-	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
-	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	    $data = curl_exec($process);
-	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "406");
-	    curl_close($process);
-
-	         //should return a 200
-	    $process = curl_init($url);
-	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
-		 "Accept: application/xml"
-		 ));
-	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
-	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	    $data = curl_exec($process);
-	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "200");
-
-
-
-	      //should return a 200, should return content encoding application/xml
-	     $process = curl_init($url);
-	     curl_setopt($process,CURLOPT_HTTPHEADER,array (
-		 "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-		 ));
-	     curl_setopt($process, CURLOPT_USERPWD, $this->login.":".$this->password);
-	     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-	    $data = curl_exec($process);
-	    $http_status = curl_getinfo($process, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "200");
-	     $contentType = curl_getinfo($process, CURLINFO_CONTENT_TYPE);
-	     $this->assertEquals( $contentType, "application/xml");
-	    curl_close($process);
-
-	    //should return a 200
-	    $http_status = $this->curl($url, CURLOPT_HTTPGET, CURLINFO_HTTP_CODE);
-	    $this->assertEquals($http_status, "200");
-
+	public function serviceProvider(){
+	    return array(
+	        array('taoTestTaker/Api')
+	    );
 	}
 
 	public function testCrud(){
 
 	    //get the complete list (should be empty)
-	    $url = $this->host.'taoSubjects/RestSubjects';
+	    $url = $this->host.'taoTestTaker/Api';
 	    $returnedData = $this->curl($url);
 	    $data = json_decode($returnedData, true);
 	    $this->assertEquals( $data["success"], true);

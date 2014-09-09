@@ -19,41 +19,35 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
+namespace oat\taoTestTaker\actions;
 
+use oat\taoTestTaker\models\CsvImporter;
 /**
- * Short description of class taoSubjects_actions_form_Subject
- *
- * @access public
- * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
+ * Extends the common Import class to exchange the generic
+ * CsvImporter with a subject specific one
+ * 
+ * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoSubjects
  
+ * 
  */
-class taoSubjects_actions_form_Subject
-    extends tao_actions_form_Users
-{
-    // --- ASSOCIATIONS ---
-
-
-    // --- ATTRIBUTES ---
-
-    // --- OPERATIONS ---
-
+class Import extends \tao_actions_Import {
+    
     /**
-     * Short description of method initElements
-     *
-     * @access public
-     * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
-     * @return void
+     * (non-PHPdoc)
+     * @see tao_actions_Import::getAvailableImportHandlers()
      */
-    public function initElements()
-    {
-        
-        parent::initElements();
-		$this->form->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
-		$this->form->removeElement(tao_helpers_Uri::encode(PROPERTY_USER_ROLES));
-        
-    }
+	public function getAvailableImportHandlers() {
+		$returnValue = parent::getAvailableImportHandlers();
+		
+		foreach (array_keys($returnValue) as $key) {
+		    if ($returnValue[$key] instanceof \tao_models_classes_import_CsvImporter) {
+		        $returnValue[$key] = new CsvImporter();
+		    }
+		}
+        		
+		return $returnValue;
+	}
 
-} /* end of class taoSubjects_actions_form_Subject */
-
+}
 ?>

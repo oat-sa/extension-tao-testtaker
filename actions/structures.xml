@@ -4,29 +4,29 @@
 	<structure id="subjects" name="Test-takers" level="2" visible="true">
 		<description>Record and manage test takers.</description>
 		<sections>
-			<section id="manage_test_takers" name="Manage test takers" url="/taoSubjects/Subjects/index">
+			<section id="manage_test_takers" name="Manage test takers" url="/taoTestTaker/TestTaker/index">
 				<trees>
 					<tree name="Test takers library"
 						className="Test Taker"
-						dataUrl="/taoSubjects/Subjects/getOntologyData"
-						editClassUrl="/taoSubjects/Subjects/editSubjectClass"
-						editInstanceUrl="/taoSubjects/Subjects/editSubject"
-						addInstanceUrl="/taoSubjects/Subjects/addInstance"
-						addSubClassUrl="/taoSubjects/Subjects/addSubClass"
-						deleteUrl="/taoSubjects/Subjects/delete"
-						moveInstanceUrl="/taoSubjects/Subjects/moveInstance"
+						dataUrl="/taoTestTaker/TestTaker/getOntologyData"
+						editClassUrl="/taoTestTaker/TestTaker/editSubjectClass"
+						editInstanceUrl="/taoTestTaker/TestTaker/editSubject"
+						addInstanceUrl="/taoTestTaker/TestTaker/addInstance"
+						addSubClassUrl="/taoTestTaker/TestTaker/addSubClass"
+						deleteUrl="/taoTestTaker/TestTaker/delete"
+						moveInstanceUrl="/taoTestTaker/TestTaker/moveInstance"
 					/>
 				</trees>
 				<actions>
-					<action name="search" url="/taoSubjects/Subjects/search" context="*" />
-					<action name="new class" js="subClass" url="/taoSubjects/Subjects/addSubClass" context="class" />
-					<action name="new test taker" js="instanciate" url="/taoSubjects/Subjects/addInstance" context="class" />
-					<action name="delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" />
+					<action name="search" url="/taoTestTaker/TestTaker/search" context="*" />
+					<action name="new class" js="subClass" url="/taoTestTaker/TestTaker/addSubClass" context="class" />
+					<action name="new test taker" js="instanciate" url="/taoTestTaker/TestTaker/addInstance" context="class" />
+					<action name="delete" js="removeNode" url="/taoTestTaker/TestTaker/delete" context="resource" />
 					<action name="move" js="moveNode" url="" context="instance" />
 					<action name="lists"  url="/tao/Lists/index"  context="*" />
 					<action name="meta data" js="loadMetaData" url="/tao/MetaData/getMetaData"  context="resource" />
 					<action name="export" url="/tao/Export/index"  context="resource" />
-					<action name="import" url="/taoSubjects/SubjectsImport/index"  context="class" />
+					<action name="import" url="/taoTestTaker/Import/index"  context="class" />
 				</actions>
 			</section>
 		</sections>
