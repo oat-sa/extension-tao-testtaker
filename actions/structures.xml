@@ -19,25 +19,26 @@
                             />
                 </trees>
                 <actions>
-                    <action name="Search" url="/taoSubjects/Subjects/search" context="*" group="filter">
-                        <icon id="icon-find" src=""/>
+                
+                    <action name="Find" url="/taoSubjects/Subjects/search" context="*" group="search" binding="launchFinder">
+                        <icon id="icon-find"/>
                     </action>
-                    <action name="New class" js="subClass" url="/taoSubjects/Subjects/addSubClass" context="class" group="content">
+                    <action name="New class" url="/taoSubjects/Subjects/addSubClass" context="class" group="content" binding="subClass">
                         <icon id="icon-folder-open"/>
                     </action>
-                    <action name="New test-taker" js="instanciate" url="/taoSubjects/Subjects/addInstance" context="class" group="content">
+                    <action name="New test-taker" url="/taoSubjects/Subjects/addInstance" context="class" group="content" binding="instanciate">
                         <icon id="icon-test-taker"/>
                     </action>
-                    <action name="Delete" js="removeNode" url="/taoSubjects/Subjects/delete" context="resource" group="tree">
+                    <action name="Delete" url="/taoSubjects/Subjects/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
-                    <action name="Move" js="moveNode" url="" context="instance" group="tree">
+                    <action name="Move" url="" context="instance" group="tree" binding="moveNode">
                         <icon id="icon-move-item"/>
                     </action>
                     <action name="Lists" url="/tao/Lists/index" context="*" group="tree">
                         <icon id="icon-ul"/>
                     </action>
-                    <action name="Metadata" js="loadMetaData" url="/tao/MetaData/getMetaData" context="resource" group="tree">
+                    <action name="Metadata" url="/tao/MetaData/getMetaData" context="resource" group="tree" binding="loadMetaData">
                         <icon id="icon-meta-data"/>
                     </action>
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
