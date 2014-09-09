@@ -21,9 +21,11 @@
  */
 namespace oat\taoTestTaker\actions;
 
-use oat\taoTestTaker\models\TestTakerService;
+use oat\taoGroups\helpers\SubjectForm;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
+use oat\taoTestTaker\models\TestTakerService;
+
 /**
  * Subjects Controller provide actions performed from url resolution
  * 
@@ -175,7 +177,7 @@ class TestTaker extends \tao_actions_SaSModule {
 		$this->setSessionAttribute("showNodeUri", \tao_helpers_Uri::encode($subject->getUri()));
 		
 		if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
-		    $this->setData('groupForm', \taoGroups_helpers_SubjectForm::renderGroupTreeForm($subject));
+		    $this->setData('groupForm', \SubjectForm::renderGroupTreeForm($subject));
 		}
 		
 		$this->setData('checkLogin', $addMode);
