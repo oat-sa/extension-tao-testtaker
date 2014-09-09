@@ -78,7 +78,6 @@ class RestSubjectsTestCase extends TaoPhpUnitTestRunner {
 		        'userData'	=> $testUserData,
 		        'lang'		=> $lookup
 		    );
-		    var_dump($data);
 
 		    $this->login = $data['userData'][PROPERTY_USER_LOGIN];
 		    $this->password = $data['userData'][PROPERTY_USER_PASSWORD];
