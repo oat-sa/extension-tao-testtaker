@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE extension SYSTEM "../../tao/doc/structures.dtd">
 <structures>
-    <structure id="subjects" name="Test-takers" level="2" visible="true">
+    <structure id="TestTaker" name="Test-takers" level="2" visible="true">
         <icon id="icon-test-taker" src=""/>
         <description>Record and manage test takers.</description>
         <sections>
-            <section id="manage_test_takers" name="Manage test takers" url="/taoTestTaker/Subjects/index">
+            <section id="manage_test_takers" name="Manage test takers" url="/taoTestTaker/TestTaker/index">
                 <trees>
                     <tree name="Test takers library"
                           className="Test Taker"
-                          dataUrl="/taoTestTaker/Subjects/getOntologyData"
-                          editClassUrl="/taoTestTaker/Subjects/editSubjectClass"
-                          editInstanceUrl="/taoTestTaker/Subjects/editSubject"
-                          addInstanceUrl="/taoTestTaker/Subjects/addInstance"
-                          addSubClassUrl="/taoTestTaker/Subjects/addSubClass"
-                          deleteUrl="/taoTestTaker/Subjects/delete"
-                          moveInstanceUrl="/taoTestTaker/Subjects/moveInstance"
+                          dataUrl="/taoTestTaker/TestTaker/getOntologyData"
+                          editClassUrl="/taoTestTaker/TestTaker/editSubjectClass"
+                          editInstanceUrl="/taoTestTaker/TestTaker/editSubject"
+                          addInstanceUrl="/taoTestTaker/TestTaker/addInstance"
+                          addSubClassUrl="/taoTestTaker/TestTaker/addSubClass"
+                          deleteUrl="/taoTestTaker/TestTaker/delete"
+                          moveInstanceUrl="/taoTestTaker/TestTaker/moveInstance"
                             />
                 </trees>
                 <actions>
                 
-                    <action name="Find" url="/taoTestTaker/Subjects/search" context="*" group="search" binding="launchFinder">
+                    <action name="Find" url="/taoTestTaker/TestTaker/search" context="*" group="search" binding="launchFinder">
                         <icon id="icon-find"/>
                     </action>
-                    <action name="New class" url="/taoTestTaker/Subjects/addSubClass" context="class" group="content" binding="subClass">
+                    <action name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="class" group="content" binding="subClass">
                         <icon id="icon-folder-open"/>
                     </action>
-                    <action name="New test-taker" url="/taoTestTaker/Subjects/addInstance" context="class" group="content" binding="instanciate">
+                    <action name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="class" group="content" binding="instanciate">
                         <icon id="icon-test-taker"/>
                     </action>
-                    <action name="Delete" url="/taoTestTaker/Subjects/delete" context="resource" group="tree" binding="removeNode">
+                    <action name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
                     <action name="Move" url="" context="instance" group="tree" binding="moveNode">
@@ -44,7 +44,7 @@
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
-                    <action name="Import" url="/taoTestTaker/SubjectsImport/index" context="class" group="content">
+                    <action name="Import" url="/taoTestTaker/TestTakerImport/index" context="class" group="content">
                         <icon id="icon-import"/>
                     </action>
                 </actions>
