@@ -5,31 +5,31 @@
         <icon id="icon-test-taker" src=""/>
         <description>Record and manage test takers.</description>
         <sections>
-            <section id="manage_test_takers" name="Manage test takers" url="/taoSubjects/Subjects/index">
+            <section id="manage_test_takers" name="Manage test takers" url="/taoTestTaker/Subjects/index">
                 <trees>
                     <tree name="Test takers library"
                           className="Test Taker"
-                          dataUrl="/taoSubjects/Subjects/getOntologyData"
-                          editClassUrl="/taoSubjects/Subjects/editSubjectClass"
-                          editInstanceUrl="/taoSubjects/Subjects/editSubject"
-                          addInstanceUrl="/taoSubjects/Subjects/addInstance"
-                          addSubClassUrl="/taoSubjects/Subjects/addSubClass"
-                          deleteUrl="/taoSubjects/Subjects/delete"
-                          moveInstanceUrl="/taoSubjects/Subjects/moveInstance"
+                          dataUrl="/taoTestTaker/Subjects/getOntologyData"
+                          editClassUrl="/taoTestTaker/Subjects/editSubjectClass"
+                          editInstanceUrl="/taoTestTaker/Subjects/editSubject"
+                          addInstanceUrl="/taoTestTaker/Subjects/addInstance"
+                          addSubClassUrl="/taoTestTaker/Subjects/addSubClass"
+                          deleteUrl="/taoTestTaker/Subjects/delete"
+                          moveInstanceUrl="/taoTestTaker/Subjects/moveInstance"
                             />
                 </trees>
                 <actions>
                 
-                    <action name="Find" url="/taoSubjects/Subjects/search" context="*" group="search" binding="launchFinder">
+                    <action name="Find" url="/taoTestTaker/Subjects/search" context="*" group="search" binding="launchFinder">
                         <icon id="icon-find"/>
                     </action>
-                    <action name="New class" url="/taoSubjects/Subjects/addSubClass" context="class" group="content" binding="subClass">
+                    <action name="New class" url="/taoTestTaker/Subjects/addSubClass" context="class" group="content" binding="subClass">
                         <icon id="icon-folder-open"/>
                     </action>
-                    <action name="New test-taker" url="/taoSubjects/Subjects/addInstance" context="class" group="content" binding="instanciate">
+                    <action name="New test-taker" url="/taoTestTaker/Subjects/addInstance" context="class" group="content" binding="instanciate">
                         <icon id="icon-test-taker"/>
                     </action>
-                    <action name="Delete" url="/taoSubjects/Subjects/delete" context="resource" group="tree" binding="removeNode">
+                    <action name="Delete" url="/taoTestTaker/Subjects/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
                     <action name="Move" url="" context="instance" group="tree" binding="moveNode">
@@ -44,7 +44,7 @@
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
-                    <action name="Import" url="/taoSubjects/SubjectsImport/index" context="class" group="content">
+                    <action name="Import" url="/taoTestTaker/SubjectsImport/index" context="class" group="content">
                         <icon id="icon-import"/>
                     </action>
                 </actions>
