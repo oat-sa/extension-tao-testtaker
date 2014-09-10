@@ -23,7 +23,7 @@ require_once dirname(__FILE__) . '/../../tao/test/RestTestCase.php';
  * @package taoTestTaker
  
  */
-class RestSubjectsTestCase extends RestTestCase {
+class RestTestTakerTest extends RestTestCase {
 	
 
 		

@@ -31,12 +31,6 @@ namespace oat\taoTestTaker\actions\form;
 class TestTaker
     extends \tao_actions_form_Users
 {
-    // --- ASSOCIATIONS ---
-
-
-    // --- ATTRIBUTES ---
-
-    // --- OPERATIONS ---
 
     /**
      * Short description of method initElements
@@ -54,6 +48,6 @@ class TestTaker
         
     }
 
-} /* end of class taoSubjects_actions_form_Subject */
+} 
 
 ?>

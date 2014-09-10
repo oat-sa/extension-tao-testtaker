@@ -30,10 +30,10 @@ use oat\taoTestTaker\models\TestTakerService;
 /**
  *
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
- * @package taoSubjects
+ * @package taoTestTaker
  
  */
-class SubjectsTestCase extends TaoPhpUnitTestRunner {
+class TestTakerTest extends TaoPhpUnitTestRunner {
 	
 	/**
 	 * 

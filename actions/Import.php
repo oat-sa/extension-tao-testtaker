@@ -27,17 +27,18 @@ use oat\taoTestTaker\models\CsvImporter;
  * CsvImporter with a subject specific one
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
- * @package taoSubjects
- 
+ * @package c
  * 
  */
-class Import extends \tao_actions_Import {
+class Import extends \tao_actions_Import 
+{
     
     /**
      * (non-PHPdoc)
      * @see tao_actions_Import::getAvailableImportHandlers()
      */
-	public function getAvailableImportHandlers() {
+	public function getAvailableImportHandlers() 
+	{
 		$returnValue = parent::getAvailableImportHandlers();
 		
 		foreach (array_keys($returnValue) as $key) {

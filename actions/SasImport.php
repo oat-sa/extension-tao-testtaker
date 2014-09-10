@@ -24,8 +24,7 @@ namespace oat\taoTestTaker\actions;
  * Extends the common Import class to update the behavior
  * 
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
- * @package taoSubjects
- 
+ * @package taoTestTaker
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */

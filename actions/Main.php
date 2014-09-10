@@ -22,11 +22,12 @@
 namespace oat\taoTestTaker\actions;
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
- * @package taoSubjects
+ * @package taoTestTaker
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  * 
  */
-class Main extends \tao_actions_Main {
+class Main extends \tao_actions_Main 
+{
 	
 }
 ?>
