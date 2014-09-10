@@ -44,7 +44,7 @@
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
-                    <action name="Import" url="/taoTestTaker/TestTakerImport/index" context="class" group="content">
+                    <action name="Import" url="/taoTestTaker/Import/index" context="class" group="content">
                         <icon id="icon-import"/>
                     </action>
                 </actions>
