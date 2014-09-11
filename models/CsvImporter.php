@@ -84,7 +84,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
      */
     public static function taoSubjectsPasswordEncode($value)
     {
-        return \core_kernel_users_AuthAdapter::getPasswordHash()->encrypt($value);
+        return \core_kernel_users_Service::getPasswordHash()->encrypt($value);
     }
 
 }
