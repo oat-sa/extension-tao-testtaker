@@ -38,9 +38,6 @@
                     <action name="Lists" url="/tao/Lists/index" context="*" group="tree">
                         <icon id="icon-ul"/>
                     </action>
-                    <action name="Metadata" url="/tao/MetaData/getMetaData" context="resource" group="tree" binding="loadMetaData">
-                        <icon id="icon-meta-data"/>
-                    </action>
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
