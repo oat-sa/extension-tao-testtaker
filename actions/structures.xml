@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE extension SYSTEM "../../tao/doc/structures.dtd">
 <structures>
-    <structure id="subjects" name="Test-takers" level="2" visible="true">
+    <structure id="TestTaker" name="Test-takers" level="2" visible="true">
         <icon id="icon-test-taker" src=""/>
         <description>Record and manage test takers.</description>
         <sections>
@@ -20,7 +20,16 @@
                 </trees>
                 <actions>
                 
-                    <action name="Find" url="/taoTestTaker/TestTaker/search" context="*" group="search" binding="launchFinder">
+                	  <action name="Edit class" url="/taoTestTaker/TestTaker/editSubjectClass" group="content" context="class">
+                        <icon id="icon-edit"/>
+                    </action>
+                    <action name="Edit test-taker"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance">
+                        <icon id="icon-edit"/>
+                    </action>
+                    <action name="Filter" context="*" group="search" binding="launchFinder">
+                        <icon id="icon-filter"/>
+                    </action>
+                    <action name="Search" url="/taoTestTaker/TestTaker/search" context="*" group="search" binding="launchFinder">
                         <icon id="icon-find"/>
                     </action>
                     <action name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="class" group="content" binding="subClass">
@@ -41,7 +50,7 @@
                     <action name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
-                    <action name="Import" url="/taoTestTaker/TestTakerImport/index" context="class" group="content">
+                    <action name="Import" url="/taoTestTaker/Import/index" context="class" group="content">
                         <icon id="icon-import"/>
                     </action>
                 </actions>
