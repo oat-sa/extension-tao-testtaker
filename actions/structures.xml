@@ -10,12 +10,10 @@
                     <tree name="Test takers library"
                           className="Test Taker"
                           dataUrl="/taoTestTaker/TestTaker/getOntologyData"
-                          editClassUrl="/taoTestTaker/TestTaker/editSubjectClass"
-                          editInstanceUrl="/taoTestTaker/TestTaker/editSubject"
-                          addInstanceUrl="/taoTestTaker/TestTaker/addInstance"
-                          addSubClassUrl="/taoTestTaker/TestTaker/addSubClass"
-                          deleteUrl="/taoTestTaker/TestTaker/delete"
-                          moveInstanceUrl="/taoTestTaker/TestTaker/moveInstance"
+                            selectClass="Edit class"
+                            selectInstance="Edit test-taker"
+                            moveInstance="Move"
+                            delete="Delete" 
                             />
                 </trees>
                 <actions>
