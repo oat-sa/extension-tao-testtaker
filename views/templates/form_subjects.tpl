@@ -14,10 +14,10 @@ Template::inc('form_context.tpl', 'tao');
     </div>
     <div class="data-container-wrapper"></div>
 
-<?if(get_data('checkLogin')):?>
+<?php if(get_data('checkLogin')):?>
 	<script>
 	 require(['users'], function(user){
             user.checkLogin("<?=get_data('loginUri')?>", "<?=_url('checkLogin', 'Users', 'tao')?>");
 	});
 	</script>
-<?endif?>
+<?php endif?>
