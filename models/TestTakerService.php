@@ -112,7 +112,6 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function deleteAll()
     {
-        $resources = array();
         foreach ($this->getRootClass()->getInstances(true) as $resource) {
             $resource->delete();
         }
