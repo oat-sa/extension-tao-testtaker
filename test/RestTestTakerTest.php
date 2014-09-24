@@ -1,5 +1,5 @@
 <?php
-/*  
+/*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
@@ -15,7 +15,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  * 
  */
-require_once dirname(__FILE__) . '/../../tao/test/RestTestCase.php';
+namespace oat\taoTestTaker\test;
+
+use oat\tao\test\RestTestCase;
 
 /**
  * connects as a client agent on the rest controller
@@ -25,10 +27,6 @@ require_once dirname(__FILE__) . '/../../tao/test/RestTestCase.php';
  */
 class RestTestTakerTest extends RestTestCase {
 	
-
-		
-
-
 	private function checkPropertyValues($propertyValues, $property, $valueType="literal", $value){
 	    if(is_array($propertyValues)){
     	    foreach ($propertyValues as $propertyValue) {
@@ -137,9 +135,5 @@ class RestTestTakerTest extends RestTestCase {
 	     $this->assertTrue((sizeOf($data["data"])+2 == $totalSize));
 	     
 	     //check the removal
-
-	    
 	}
-
 }
-?>
