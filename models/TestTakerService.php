@@ -92,7 +92,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param Resource subject
+     * @param \core_kernel_classes_Resource $subject
      * @return boolean
      */
     public function deleteSubject(\core_kernel_classes_Resource $subject)
@@ -122,7 +122,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param Class clazz
+     * @param \core_kernel_classes_Class $clazz
      * @return boolean
      */
     public function deleteSubjectClass(\core_kernel_classes_Class $clazz)
@@ -143,7 +143,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param Class clazz
+     * @param \core_kernel_classes_Class $clazz
      * @return boolean
      */
     public function isSubjectClass(\core_kernel_classes_Class $clazz)
@@ -175,14 +175,16 @@ class TestTakerService extends \tao_models_classes_ClassService
         $subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
         $instance->setPropertyValue($roleProperty, $subjectRole);
     }
-    
+
     /**
      * Short description of method cloneInstance
      *
      * @access public
      * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param Resource instance
-     * @param Class clazz
+     * @param \core_kernel_classes_Resource $instance
+     * @param \core_kernel_classes_Class $clazz
+     * @throws \common_Exception
+     * @throws \core_kernel_classes_EmptyProperty
      * @return core_kernel_classes_Resource
      */
     public function cloneInstance(\core_kernel_classes_Resource $instance, \core_kernel_classes_Class $clazz = null)
