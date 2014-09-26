@@ -185,6 +185,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertNotEquals($instance->getPropertyValues($propertyLogin)[0], $clone->getPropertyValues($propertyLogin)[0]);
 
         $this->assertNotEquals($instance, $clone);
+        $this->assertTrue($this->subjectsService->deleteSubject($clone));
 
     }
 
