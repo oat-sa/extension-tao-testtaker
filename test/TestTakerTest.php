@@ -58,7 +58,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      */
     public function testService()
     {
-        $this->assertIsA($this->subjectsService, 'tao_models_classes_Service');
+        $this->assertIsA($this->subjectsService, '\tao_models_classes_Service');
         $this->assertIsA($this->subjectsService, 'oat\taoTestTaker\models\TestTakerService');
     }
 
