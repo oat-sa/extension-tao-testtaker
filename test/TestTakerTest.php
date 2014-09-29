@@ -25,7 +25,6 @@ namespace oat\taoTestTaker\test;
 use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 
-//include_once dirname(__FILE__) . '/../includes/raw_start.php';
 
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
