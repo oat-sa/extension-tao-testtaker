@@ -18,6 +18,7 @@
 namespace oat\taoTestTaker\test;
 
 use oat\tao\test\RestTestCase;
+use \core_kernel_users_Service;
 
 /**
  * connects as a client agent on the rest controller
