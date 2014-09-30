@@ -25,8 +25,6 @@ namespace oat\taoTestTaker\test;
 use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 
-//include_once dirname(__FILE__) . '/../includes/raw_start.php';
-
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoTestTaker
@@ -138,7 +136,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     * 
+     *
      * @author Lionel Lecaque, lionel@taotesting.com
      */
     public function testGetSubjectClass()
@@ -150,7 +148,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
     /**
      * @depends testInstantiateClass
-     * @param $instance
+     * @param \core_kernel_classes_Resource $instance
      */
     public function testSetTestTakerRole($instance)
     {
@@ -172,7 +170,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
     /**
      * @depends testInstantiateClass
-     * @param $instance
+     * @param \core_kernel_classes_Resource $instance
      */
     public function testClone($instance)
     {
@@ -200,16 +198,17 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     public function testDeleteClass($class)
     {
         $this->assertTrue($this->subjectsService->deleteSubjectClass($class));
+        $this->assertFalse($class->exists());
     }
 
     /**
      * @depends testInstantiateClass
-     * @param $instance
+     * @param \core_kernel_classes_Resource $instance
      */
     public function testDeleteInstance($instance)
     {
         $this->assertTrue($this->subjectsService->deleteSubject($instance));
+        $this->assertFalse($instance->exists());
     }
-
 
 }
