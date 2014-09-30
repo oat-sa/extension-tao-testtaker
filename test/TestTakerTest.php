@@ -25,6 +25,8 @@ namespace oat\taoTestTaker\test;
 use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 
+
+
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoTestTaker
@@ -136,7 +138,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     *
+     * 
      * @author Lionel Lecaque, lionel@taotesting.com
      */
     public function testGetSubjectClass()
@@ -210,5 +212,6 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertTrue($this->subjectsService->deleteSubject($instance));
         $this->assertFalse($instance->exists());
     }
+
 
 }

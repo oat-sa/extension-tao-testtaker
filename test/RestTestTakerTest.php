@@ -82,7 +82,7 @@ class RestTestTakerTest extends RestTestCase {
                        
             foreach ($data["data"]["properties"] as $propertyValue) {
         		if ($propertyValue["predicateUri"] == PROPERTY_USER_PASSWORD){   
-        		 $this->assertTrue(core_kernel_users_Service::getPasswordHash()->verify('dummy', $propertyValue["values"][0]["value"]));
+        		 $this->assertTrue(\core_kernel_users_Service::getPasswordHash()->verify('dummy', $propertyValue["values"][0]["value"]));
     		}
             }   
             //core_kernel_users_Service::getPasswordHash()->encrypt('dummy')
@@ -105,7 +105,7 @@ class RestTestTakerTest extends RestTestCase {
 	              
 	    foreach ($data["data"]["properties"] as $propertyValue) {
         		if ($propertyValue["predicateUri"] == PROPERTY_USER_PASSWORD){   
-        		 $this->assertTrue(core_kernel_users_Service::getPasswordHash()->verify('blabla', $propertyValue["values"][0]["value"]));
+        		 $this->assertTrue(\core_kernel_users_Service::getPasswordHash()->verify('blabla', $propertyValue["values"][0]["value"]));
     		}
             }   
             
