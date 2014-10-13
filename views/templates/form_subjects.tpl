@@ -4,15 +4,17 @@ use oat\tao\helpers\Template;
 Template::inc('form_context.tpl', 'tao');
 ?>
 
-<?=get_data('groupForm')?>
 
-    <div class="main-container">
-        <h2><?=get_data('formTitle')?></h2>
-        <div class="form-content">
-            <?=get_data('myForm')?>
-        </div>
+<div class="main-container flex-container-main-form">
+    <h2><?=get_data('formTitle')?></h2>
+    <div class="form-content">
+        <?=get_data('myForm')?>
     </div>
-    <div class="data-container-wrapper"></div>
+</div>
+  
+<div class="data-container-wrapper flex-container-remainder">
+    <?=get_data('groupForm')?>
+</div>
 
 <?php if(get_data('checkLogin')):?>
 	<script>
@@ -21,3 +23,7 @@ Template::inc('form_context.tpl', 'tao');
 	});
 	</script>
 <?php endif?>
+<?php
+Template::inc('footer.tpl', 'tao');
+?>
+
