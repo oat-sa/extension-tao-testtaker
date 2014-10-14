@@ -1,73 +1,84 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO v2.7\n"
+"PO-Revision-Date: 2014-10-14T10:43:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: ar-arb\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr "تم حفظ الصنف"
+msgstr ""
 
-msgid "delete"
-msgstr "حذف"
+msgid "Delete"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
-msgstr "تحرير الموضوع"
+msgstr ""
 
 msgid "Edit subject class"
-msgstr "تعديل الصنف موضوع"
+msgstr ""
 
-msgid "export"
-msgstr "تصدير"
+msgid "Export"
+msgstr ""
 
-msgid "import"
-msgstr "استيراد"
+msgid "Filter"
+msgstr ""
 
-msgid "lists"
-msgstr "القوائم"
+msgid "Import"
+msgstr ""
+
+msgid "Lists"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "إدارة المتقدمين للاختبار"
+msgstr ""
 
-msgid "meta data"
-msgstr "بيانات التعريف"
+msgid "Move"
+msgstr ""
 
-msgid "move"
-msgstr "حرك"
+msgid "New class"
+msgstr ""
 
-msgid "new class"
-msgstr "صنف جديد"
+msgid "New test-taker"
+msgstr ""
 
-msgid "new test taker"
-msgstr "مترشح جديد"
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
-msgid "search"
-msgstr "بحث"
+msgid "Search"
+msgstr ""
 
 msgid "Test taker saved"
-msgstr "حفظ المترشح"
+msgstr ""
 
 msgid "Test takers"
-msgstr "المترشحون للااختبار"
+msgstr ""
 
 msgid "Test takers library"
-msgstr "مكتبة المترشحين"
+msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مجموعات وفقا لسياق التقييم ذات الصلة (إدارة الموارد البشرية، والتعليم، ورصد، الخ"
+msgstr ""
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"
+msgstr ""
 

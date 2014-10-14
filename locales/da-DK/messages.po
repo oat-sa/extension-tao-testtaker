@@ -1,73 +1,84 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO v2.7\n"
+"PO-Revision-Date: 2014-10-14T10:43:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: da-DK\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: da-DK\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr "Klassen gemt"
+msgstr ""
 
-msgid "delete"
-msgstr "slet"
+msgid "Delete"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
-msgstr "Rediger test tagere"
+msgstr ""
 
 msgid "Edit subject class"
-msgstr "Rediger test tager klasse"
+msgstr ""
 
-msgid "export"
-msgstr "eksportere"
+msgid "Export"
+msgstr ""
 
-msgid "import"
-msgstr "importere"
+msgid "Filter"
+msgstr ""
 
-msgid "lists"
-msgstr "lister"
+msgid "Import"
+msgstr ""
+
+msgid "Lists"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "Administrer test tagere"
+msgstr ""
 
-msgid "meta data"
-msgstr "metadata"
+msgid "Move"
+msgstr ""
 
-msgid "move"
-msgstr "flyt"
+msgid "New class"
+msgstr ""
 
-msgid "new class"
-msgstr "ny klasse"
+msgid "New test-taker"
+msgstr ""
 
-msgid "new test taker"
-msgstr "ny test tager"
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "Optag og administrer test tagere."
+msgstr ""
 
-msgid "search"
-msgstr "søg"
+msgid "Search"
+msgstr ""
 
 msgid "Test taker saved"
-msgstr "Test tager gemt"
+msgstr ""
 
 msgid "Test takers"
-msgstr "Test tagere"
+msgstr ""
 
 msgid "Test takers library"
-msgstr "Test tager arkiv"
+msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Test tagere kan knyttes til placeringen på baggrund af relevant test kontekst (human resource management, uddannelse etc.)."
+msgstr ""
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Test tager modulet lader dig registrer og administrere  testtagere."
+msgstr ""
 

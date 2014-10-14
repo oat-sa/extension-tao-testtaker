@@ -1,73 +1,84 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO v2.7\n"
+"PO-Revision-Date: 2014-10-14T10:43:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: pt-PT\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: pt-PT\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr "Disciplina guardada"
+msgstr ""
 
-msgid "delete"
-msgstr "eliminar"
+msgid "Delete"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
-msgstr "Editar assunto"
+msgstr ""
 
 msgid "Edit subject class"
-msgstr "Editar assunto da disciplina"
+msgstr ""
 
-msgid "export"
-msgstr "exportar"
+msgid "Export"
+msgstr ""
 
-msgid "import"
-msgstr "importar"
+msgid "Filter"
+msgstr ""
 
-msgid "lists"
-msgstr "listas"
+msgid "Import"
+msgstr ""
+
+msgid "Lists"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "Gerir examinados"
+msgstr ""
 
-msgid "meta data"
-msgstr "meta dados"
+msgid "Move"
+msgstr ""
 
-msgid "move"
-msgstr "mover"
+msgid "New class"
+msgstr ""
 
-msgid "new class"
-msgstr "nova disciplina"
+msgid "New test-taker"
+msgstr ""
 
-msgid "new test taker"
-msgstr "novo examinado"
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "Grava e gere examinados"
+msgstr ""
 
-msgid "search"
-msgstr "procurar"
+msgid "Search"
+msgstr ""
 
 msgid "Test taker saved"
-msgstr "Examinado guardado"
+msgstr ""
 
 msgid "Test takers"
-msgstr "Examinado"
+msgstr ""
 
 msgid "Test takers library"
-msgstr "Biblioteca de examinados"
+msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Examinados podem ser atribuídos a grupos de acordo com o contexto de avaliação relevante (gestão de recursos humanos, educação, monitorização edumetric, etc.)"
+msgstr ""
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "O modulo de examinados permite gerir e gravar os examinados."
+msgstr ""
 

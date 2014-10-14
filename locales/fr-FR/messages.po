@@ -1,74 +1,84 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO v2.7\n"
+"PO-Revision-Date: 2014-10-14T10:43:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr-FR\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: fr-FR\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr "Classe enregistrée"
+msgstr ""
 
-msgid "delete"
-msgstr "Supprimer"
+msgid "Delete"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
-msgstr "Modifier le participant"
+msgstr ""
 
 msgid "Edit subject class"
-msgstr "Modifier la classe participant"
+msgstr ""
 
-msgid "export"
-msgstr "Exporter"
+msgid "Export"
+msgstr ""
 
-msgid "import"
-msgstr "Importer"
+msgid "Filter"
+msgstr ""
 
-msgid "lists"
-msgstr "Listes"
+msgid "Import"
+msgstr ""
+
+msgid "Lists"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "Gestion des participants"
+msgstr ""
 
-msgid "meta data"
-msgstr "Méta-\n"
-"données"
+msgid "Move"
+msgstr ""
 
-msgid "move"
-msgstr "Déplacer"
+msgid "New class"
+msgstr ""
 
-msgid "new class"
-msgstr "Créer classe"
+msgid "New test-taker"
+msgstr ""
 
-msgid "new test taker"
-msgstr "Créer participant"
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "Enregistrer et gérer les participants."
+msgstr ""
 
-msgid "search"
-msgstr "Rechercher"
+msgid "Search"
+msgstr ""
 
 msgid "Test taker saved"
-msgstr "Participant enregistré"
+msgstr ""
 
 msgid "Test takers"
-msgstr "Participants"
+msgstr ""
 
 msgid "Test takers library"
-msgstr "Participants"
+msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "Les participants peuvent être assignés à des ensembles selon le contexte d’évaluation (gestion des ressources humaines, éducation, contrôle d'édumétrie, etc.)."
+msgstr ""
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Le module <i>Participants</i> vous permet d'ajouter et de gérer les sujets des tests."
+msgstr ""
 
