@@ -175,11 +175,11 @@ class TestTaker extends \tao_actions_SaSModule
                     $this->redirect(_url('editSubject', null, null, $params));
                 }
                 
+                $this->setData("selectNode", \tao_helpers_Uri::encode($subject->getUri()));
                 $this->setData('message', $message);
                 $this->setData('reload', true);
             }
         }
-        $this->setSessionAttribute("showNodeUri", \tao_helpers_Uri::encode($subject->getUri()));
         
         if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
             $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
@@ -207,7 +207,7 @@ class TestTaker extends \tao_actions_SaSModule
         if ($myForm->isSubmited()) {
             if ($myForm->isValid()) {
                 if ($clazz instanceof core_kernel_classes_Resource) {
-                    $this->setSessionAttribute("showNodeUri", \tao_helpers_Uri::encode($clazz->getUri()));
+                    $this->setData("selectNode", \tao_helpers_Uri::encode($clazz->getUri()));
                 }
                 $this->setData('message', __('Class saved'));
                 $this->setData('reload', true);
