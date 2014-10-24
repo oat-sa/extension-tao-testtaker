@@ -41,7 +41,7 @@
                     <action id="testtaker-duplicate" name="Duplicate" url="/taoTestTaker/TestTaker/cloneInstance" context="instance" group="tree" binding="duplicateNode">
                         <icon id="icon-copy"/>
                     </action>
-                    <action id="testtaker-move" name="Move" url="" context="instance" group="none" binding="moveNode">
+                    <action id="testtaker-move" name="Move" url="/taooTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
                         <icon id="icon-move-item"/>
                     </action>
                     <action id="testtaker-lists" name="Lists" url="/tao/Lists/index" context="*" group="tree">
