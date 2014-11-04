@@ -21,6 +21,7 @@
  */
 namespace oat\taoTestTaker\actions;
 
+use common_exception_BadRequest;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -39,7 +40,7 @@ class TestTaker extends \tao_actions_SaSModule
 
     /**
      * constructor: initialize the service and the default data
-     * 
+     *
      * @return Subjects
      */
     public function __construct()
@@ -54,11 +55,12 @@ class TestTaker extends \tao_actions_SaSModule
     /*
      * conveniance methods
      */
-    
+
     /**
      * get the class of the current subject regarding the 'classUri' request parameter
      * if the classUri is not defined try, to find the current 'classUri' functions of the 'uri' request parameter
-     * 
+     *
+     * @throws \common_exception_InconsistentData
      * @return core_kernel_classes_Class
      */
     protected function getCurrentClass()
@@ -220,15 +222,13 @@ class TestTaker extends \tao_actions_SaSModule
 
     /**
      * delete a subject or a subject model called via ajax
-     * 
      */
     public function delete()
     {
         if (! \tao_helpers_Request::isAjax()) {
-            throw new \common_exception_BadRequest("wrong request mode");
+            throw new common_exception_BadRequest("wrong request mode");
         }
         
-        $deleted = false;
         if ($this->getRequestParameter('uri')) {
             $deleted = $this->service->deleteSubject($this->getCurrentInstance());
         } else {
