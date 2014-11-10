@@ -22,6 +22,8 @@
 namespace oat\taoTestTaker\actions;
 
 use oat\taoTestTaker\models\CsvImporter;
+use tao_helpers_form_FormFactory;
+
 /**
  * Extends the common Import class to exchange the generic
  * CsvImporter with a subject specific one
@@ -43,12 +45,18 @@ class Import extends \tao_actions_Import
 		
 		foreach (array_keys($returnValue) as $key) {
 		    if ($returnValue[$key] instanceof \tao_models_classes_import_CsvImporter) {
-		        $returnValue[$key] = new CsvImporter();
+		        $importer =  new CsvImporter();
+				$importer->setValidators($this->getValidators());
+				$returnValue[$key] = $importer;
 		    }
 		}
         		
 		return $returnValue;
 	}
 
+	protected function getValidators(){
+		return array(
+			PROPERTY_USER_LOGIN => array(tao_helpers_form_FormFactory::getValidator('Unique')),
+		);
+	}
 }
-?>
