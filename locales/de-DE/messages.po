@@ -1,84 +1,73 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.7\n"
-"PO-Revision-Date: 2014-10-14T10:43:16\n"
+"Project-Id-Version: TAO v2.6-RC03\n"
+"PO-Revision-Date: 2014-06-20T16:26:44\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: de-DE\n"
-"sourceLanguage: en-US\n"
-"targetLanguage: de-DE\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Basepath: ../../\n"
-"X-Poedit-KeywordsList: __\n"
-"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klasse gespeichert"
 
-msgid "Delete"
-msgstr ""
-
-msgid "Duplicate"
-msgstr ""
+msgid "delete"
+msgstr "löschen"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Testperson bearbeiten"
 
 msgid "Edit subject class"
+msgstr "Klasse"
+
+msgid "export"
+msgstr "Export"
+
+msgid "import"
 msgstr ""
 
-msgid "Export"
-msgstr ""
-
-msgid "Filter"
-msgstr ""
-
-msgid "Import"
-msgstr ""
-
-msgid "Lists"
+msgid "lists"
 msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
+msgstr "Testpersonen verwalten"
+
+msgid "meta data"
+msgstr "Meta-Daten"
+
+msgid "move"
 msgstr ""
 
-msgid "Move"
-msgstr ""
+msgid "new class"
+msgstr "neue Klasse"
 
-msgid "New class"
-msgstr ""
-
-msgid "New test-taker"
-msgstr ""
-
-msgid "Properties"
+msgid "new test taker"
 msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
-msgid "Search"
-msgstr ""
+msgid "search"
+msgstr "suchen"
 
 msgid "Test taker saved"
 msgstr ""
 
 msgid "Test takers"
-msgstr ""
+msgstr "Testpersonen"
 
 msgid "Test takers library"
-msgstr ""
+msgstr "Testpersonen-Bibliothek"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden."
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen."
 
