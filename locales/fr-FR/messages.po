@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.7\n"
-"PO-Revision-Date: 2014-10-14T10:43:16\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr-FR\n"
@@ -14,71 +14,71 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Classe enregistrée"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Dupliquer"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Modifier le participant"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Modifier la classe participant"
 
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 msgid "Filter"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Lists"
-msgstr ""
+msgstr "Listes"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Gestion des participants"
 
 msgid "Move"
-msgstr ""
+msgstr "Déplacer"
 
 msgid "New class"
-msgstr ""
+msgstr "Créer classe"
 
 msgid "New test-taker"
-msgstr ""
+msgstr "Créer participant"
 
 msgid "Properties"
 msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Enregistrer et gérer les participants."
 
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Participant enregistré"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Participants"
 
 msgid "Test takers library"
-msgstr ""
+msgstr "Participants"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Les participants peuvent être assignés à des ensembles selon le contexte d’évaluation (gestion des ressources humaines, éducation, contrôle d'édumétrie, etc.)."
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Le module <i>Participants</i> vous permet d'ajouter et de gérer les sujets des tests."
 

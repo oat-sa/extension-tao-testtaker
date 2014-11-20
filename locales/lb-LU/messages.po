@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.7\n"
-"PO-Revision-Date: 2014-10-14T10:43:16\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: lb-LU\n"
@@ -14,22 +14,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klass gespaichert"
 
 msgid "Delete"
-msgstr ""
+msgstr "Läschen"
 
 msgid "Duplicate"
 msgstr ""
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Testpersoun editéiren"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Testpersounen Klass editéiren"
 
 msgid "Export"
-msgstr ""
+msgstr "Rechercher"
 
 msgid "Filter"
 msgstr ""
@@ -42,16 +42,16 @@ msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Testpersounen verwalten"
 
 msgid "Move"
 msgstr ""
 
 msgid "New class"
-msgstr ""
+msgstr "Nei Klass"
 
 msgid "New test-taker"
-msgstr ""
+msgstr "New test taker"
 
 msgid "Properties"
 msgstr ""
@@ -61,24 +61,24 @@ msgid "Record and manage test takers."
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Sichen"
 
 msgid "Test taker saved"
 msgstr ""
 
 msgid "Test takers"
-msgstr ""
+msgstr "Testpersounen"
 
 msgid "Test takers library"
-msgstr ""
+msgstr "Testpersounen Sammlung"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.)."
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten."
 

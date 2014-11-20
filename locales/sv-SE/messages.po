@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.7\n"
-"PO-Revision-Date: 2014-10-14T10:43:16\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sv-SE\n"
@@ -14,44 +14,44 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
-msgstr ""
+msgstr "Klass sparad"
 
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 msgid "Duplicate"
 msgstr ""
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Redigera testtagare"
 
 msgid "Edit subject class"
-msgstr ""
+msgstr "Redigera testtagarklass"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportera"
 
 msgid "Filter"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importera"
 
 msgid "Lists"
-msgstr ""
+msgstr "Listor"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Hantera testtagare"
 
 msgid "Move"
-msgstr ""
+msgstr "Flytta"
 
 msgid "New class"
-msgstr ""
+msgstr "Ny klass"
 
 msgid "New test-taker"
-msgstr ""
+msgstr "Ny testtagare"
 
 msgid "Properties"
 msgstr ""
@@ -61,24 +61,24 @@ msgid "Record and manage test takers."
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Testtagare sparad"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Testtagare"
 
 msgid "Test takers library"
-msgstr ""
+msgstr "Testtagararkiv"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "TEsttagare kan knytas till placeringar enligt det relevanta utvärderingssammanhanget (human resource management, utbildning etc.)."
 
 #, tao-public
 msgid "Test-takers"
 msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Testtagarmodulen låter dig registrera och hantera testtagare"
 
