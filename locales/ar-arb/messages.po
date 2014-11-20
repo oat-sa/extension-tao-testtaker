@@ -1,18 +1,26 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: ar-arb\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
 msgstr "تم حفظ الصنف"
 
-msgid "delete"
+msgid "Delete"
 msgstr "حذف"
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "تحرير الموضوع"
@@ -20,36 +28,39 @@ msgstr "تحرير الموضوع"
 msgid "Edit subject class"
 msgstr "تعديل الصنف موضوع"
 
-msgid "export"
+msgid "Export"
 msgstr "تصدير"
 
-msgid "import"
+msgid "Filter"
+msgstr ""
+
+msgid "Import"
 msgstr "استيراد"
 
-msgid "lists"
+msgid "Lists"
 msgstr "القوائم"
 
 #, tao-public
 msgid "Manage test takers"
 msgstr "إدارة المتقدمين للاختبار"
 
-msgid "meta data"
-msgstr "بيانات التعريف"
-
-msgid "move"
+msgid "Move"
 msgstr "حرك"
 
-msgid "new class"
+msgid "New class"
 msgstr "صنف جديد"
 
-msgid "new test taker"
+msgid "New test-taker"
 msgstr "مترشح جديد"
+
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
-msgid "search"
+msgid "Search"
 msgstr "بحث"
 
 msgid "Test taker saved"

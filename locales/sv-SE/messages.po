@@ -1,18 +1,26 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sv-SE\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: sv-SE\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
 msgstr "Klass sparad"
 
-msgid "delete"
-msgstr "ta bort"
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Duplicate"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Redigera testtagare"
@@ -20,37 +28,40 @@ msgstr "Redigera testtagare"
 msgid "Edit subject class"
 msgstr "Redigera testtagarklass"
 
-msgid "export"
-msgstr "exportera"
+msgid "Export"
+msgstr "Exportera"
 
-msgid "import"
-msgstr "importera"
+msgid "Filter"
+msgstr ""
 
-msgid "lists"
-msgstr "listor"
+msgid "Import"
+msgstr "Importera"
+
+msgid "Lists"
+msgstr "Listor"
 
 #, tao-public
 msgid "Manage test takers"
 msgstr "Hantera testtagare"
 
-msgid "meta data"
-msgstr "metadata"
+msgid "Move"
+msgstr "Flytta"
 
-msgid "move"
-msgstr "flytta"
+msgid "New class"
+msgstr "Ny klass"
 
-msgid "new class"
-msgstr "ny klass"
+msgid "New test-taker"
+msgstr "Ny testtagare"
 
-msgid "new test taker"
-msgstr "ny testtagare"
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
 
-msgid "search"
-msgstr "sök"
+msgid "Search"
+msgstr "Sök"
 
 msgid "Test taker saved"
 msgstr "Testtagare sparad"

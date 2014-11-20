@@ -1,18 +1,26 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v2.6-RC03\n"
-"PO-Revision-Date: 2014-06-20T16:26:44\n"
+"Project-Id-Version: TAO 3.0\n"
+"PO-Revision-Date: 2014-11-20T15:00:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr-FR\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: fr-FR\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
 
 msgid "Class saved"
 msgstr "Classe enregistrée"
 
-msgid "delete"
+msgid "Delete"
 msgstr "Supprimer"
+
+msgid "Duplicate"
+msgstr "Dupliquer"
 
 msgid "Edit subject"
 msgstr "Modifier le participant"
@@ -20,37 +28,39 @@ msgstr "Modifier le participant"
 msgid "Edit subject class"
 msgstr "Modifier la classe participant"
 
-msgid "export"
+msgid "Export"
 msgstr "Exporter"
 
-msgid "import"
+msgid "Filter"
+msgstr ""
+
+msgid "Import"
 msgstr "Importer"
 
-msgid "lists"
+msgid "Lists"
 msgstr "Listes"
 
 #, tao-public
 msgid "Manage test takers"
 msgstr "Gestion des participants"
 
-msgid "meta data"
-msgstr "Méta-\n"
-"données"
-
-msgid "move"
+msgid "Move"
 msgstr "Déplacer"
 
-msgid "new class"
+msgid "New class"
 msgstr "Créer classe"
 
-msgid "new test taker"
+msgid "New test-taker"
 msgstr "Créer participant"
+
+msgid "Properties"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr "Enregistrer et gérer les participants."
 
-msgid "search"
+msgid "Search"
 msgstr "Rechercher"
 
 msgid "Test taker saved"
