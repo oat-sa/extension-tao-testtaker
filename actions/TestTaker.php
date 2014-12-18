@@ -196,8 +196,9 @@ class TestTaker extends \tao_actions_SaSModule
     /**
      * Edit a subject model (edit a class)
      * 
+     * Override because of topclass
      */
-    public function editSubjectClass()
+    public function editClass()
     {
         $clazz = $this->getCurrentClass();
         
@@ -205,7 +206,7 @@ class TestTaker extends \tao_actions_SaSModule
             $this->setSessionAttribute('property_mode', $this->getRequestParameter('property_mode'));
         }
         
-        $myForm = $this->editClass($clazz, $this->service->getRootClass(), new \core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
+        $myForm = $this->getClassForm($clazz, $this->service->getRootClass(), new \core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
         if ($myForm->isSubmited()) {
             if ($myForm->isValid()) {
                 if ($clazz instanceof core_kernel_classes_Resource) {
