@@ -10,6 +10,7 @@
                     <tree name="Test takers library"
                           className="Test Taker"
                           dataUrl="/taoTestTaker/TestTaker/getOntologyData"
+                          rootNode="http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject"
                           selectClass="testtaker-class-properties"
                           selectInstance="testtaker-properties"
                           moveInstance="testtaker-move"
