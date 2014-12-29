@@ -198,7 +198,7 @@ class TestTaker extends \tao_actions_SaSModule
      * 
      * Override because of topclass
      */
-    public function editClass()
+    public function editClassProperties()
     {
         $clazz = $this->getCurrentClass();
         
