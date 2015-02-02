@@ -7,11 +7,12 @@ module.exports = function(grunt) {
     var root        = grunt.option('root');
     var libs        = grunt.option('mainlibs');
     var ext         = require(root + '/tao/views/build/tasks/helpers/extensions')(grunt, root);
+    var out         = 'output/taoTestTaker';
 
     /**
      * Remove bundled and bundling files
      */
-    clean.taotesttakerbundle = ['output',  root + '/taoTestTaker/views/js/controllers.min.js'];
+    clean.taotesttakerbundle = [out,  root + '/taoTestTaker/views/js/controllers.min.js'];
     
     /**
      * Compile tao files into a bundle 
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
     requirejs.taotesttakerbundle = {
         options: {
             baseUrl : '../js',
-            dir : 'output',
+            dir : out,
             mainConfigFile : './config/requirejs.build.js',
             paths : { 'taoTestTaker' : root + '/taoTestTaker/views/js' },
             modules : [{
@@ -35,8 +36,8 @@ module.exports = function(grunt) {
      */
     copy.taotesttakerbundle = {
         files: [
-            { src: ['output/taoTestTaker/controller/routes.js'],  dest: root + '/taoTestTaker/views/js/controllers.min.js' },
-            { src: ['output/taoTestTaker/controller/routes.js.map'],  dest: root + '/taoTestTaker/views/js/controllers.min.js.map' }
+            { src: [out + '/taoTestTaker/controller/routes.js'],  dest: root + '/taoTestTaker/views/js/controllers.min.js' },
+            { src: [out + '/taoTestTaker/controller/routes.js.map'],  dest: root + '/taoTestTaker/views/js/controllers.min.js.map' }
         ]
     };
 
