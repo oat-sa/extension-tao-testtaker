@@ -45,10 +45,12 @@ class RestTestTakerTest extends RestTestCase {
 
 	public function serviceProvider(){
 	    return array(
-	        array('taoTestTaker/Api')
+	        array('taoTestTaker/Api',TAO_SUBJECT_CLASS)
 	    );
 	}
 
+	
+	
 	public function testCrud(){
 
 	    //get the complete list (should be empty)
