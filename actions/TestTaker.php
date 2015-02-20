@@ -246,7 +246,7 @@ class TestTaker extends \tao_actions_SaSModule
      * Requires $_REQUEST['uri'] (taoTaker uri).
      * 
      * @throws Exception
-     * @see self::isTestTakerValid()
+     * @see TestTakerService::isValid()
      */
     public function isValid()
     {
