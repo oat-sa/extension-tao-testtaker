@@ -240,4 +240,21 @@ class TestTaker extends \tao_actions_SaSModule
             'deleted' => $deleted
         ));
     }
+    
+    /**
+     * Action checks whether the existing user is valid (all fields are filled correctly).
+     * Requires $_REQUEST['uri'] (taoTaker uri).
+     * 
+     * @throws Exception
+     * @see TestTakerService::isValid()
+     */
+    public function isValid()
+    {
+        $clazz = $this->getCurrentClass();
+        $subject = $this->getCurrentInstance();
+        
+        $valid = $this->service->isValid($subject, $clazz);
+        
+        echo json_encode($valid);
+    }
 }
