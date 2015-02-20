@@ -1,4 +1,4 @@
-/*global define,$*/
+/*global define*/
 define([
     'layout/actions/binder',
     'ui/feedback',
@@ -17,7 +17,7 @@ define([
             url: uri,
             dataType: 'json',
             success: function (response) {
-                if (response === true) {
+                if (response === true) { //source test-taker is valid
                     binder.exec(duplicateAction, actionContext);
                 } else {
                     feedback().error(__('The source Test takers data is not filled in correctly.'));

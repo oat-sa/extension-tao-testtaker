@@ -163,25 +163,42 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @depends testInstantiateClass
      * @param $instance
-     * @expectedException \core_kernel_classes_EmptyProperty
+     * @expectedException \common_exception_Error
      */
     public function testFailClone($instance)
     {
         $this->subjectsService->cloneInstance($instance);
     }
-
+    
+    /**
+     * @depends testInstantiateClass
+     * @param $instance
+     * @author Aleh Hutnikau, hutnikau@1pt.com
+     */
+    public function testIsValid($instance) 
+    {
+        $propertyLogin = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
+        $propertyName = new \core_kernel_classes_Property(PROPERTY_USER_FIRSTNAME);
+        $propertyLang = new \core_kernel_classes_Property(PROPERTY_USER_UILG);
+        $lang = \tao_helpers_I18n::getLangResourceByCode('en-US');
+        
+        $this->assertFalse($this->subjectsService->isValid($instance));
+        
+        $instance->setPropertyValue($propertyLogin, 'testUser_'.time(true));
+        $instance->setPropertyValue($propertyName, 'testName_'.time(true));
+        $instance->setPropertyValue($propertyLang, $lang->uriResource);
+        
+        $this->assertTrue($this->subjectsService->isValid($instance));
+    }
+    
     /**
      * @depends testInstantiateClass
      * @param \core_kernel_classes_Resource $instance
      */
     public function testClone($instance)
     {
-
-        $propertyLogin = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
-        $instance->setPropertyValue($propertyLogin, 'testUser');
-
         $propertyName = new \core_kernel_classes_Property(PROPERTY_USER_FIRSTNAME);
-        $instance->setPropertyValue($propertyName, 'Cool Name');
+        $propertyLogin = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
 
         $clone = $this->subjectsService->cloneInstance($instance);
         $this->assertEquals($instance->getPropertyValues($propertyName)[0], $clone->getPropertyValues($propertyName)[0]);
@@ -189,9 +206,8 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
         $this->assertNotEquals($instance, $clone);
         $this->assertTrue($this->subjectsService->deleteSubject($clone));
-
     }
-
+    
 
     /**
      * @depends testSubClassCreate
