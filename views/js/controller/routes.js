@@ -22,5 +22,11 @@
 define(function(){
     'use strict';
 
-    return { };
+    return { 
+        'TestTaker' : {
+            'actions' : {
+                'editSubject' : 'controller/editSubject'
+            }
+        }
+    };
 });

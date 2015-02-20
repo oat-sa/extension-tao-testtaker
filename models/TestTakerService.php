@@ -21,6 +21,8 @@
  */
 namespace oat\taoTestTaker\models;
 
+use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
+
 /**
  * Service methods to manage the Subjects business models using the RDF API.
  *
@@ -189,6 +191,10 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function cloneInstance(\core_kernel_classes_Resource $instance, \core_kernel_classes_Class $clazz = null)
     {
+        if (!$this->isValid($instance, $clazz)) {
+            throw new \common_exception_Error(__('The source Test takers data is not filled in correctly.'));
+        }
+        
         $returnValue = null;
 
         $returnValue = parent::cloneInstance($instance, $clazz);
@@ -207,4 +213,36 @@ class TestTakerService extends \tao_models_classes_ClassService
 
         return $returnValue;
     }
+    
+    /**
+     * Function checks whether the existing user is valid (all fields are filled correctly).
+     * Validation based on rules discribed in the {@link tao_actions_form_Users} class
+     * 
+     * @param \core_kernel_classes_Resource $subject
+     * @param \core_kernel_classes_Class $clazz
+     * @return boolean whether the user data is valid.
+     */
+    public function isValid(\core_kernel_classes_Resource $subject, \core_kernel_classes_Class $clazz = null)
+    {
+        $valid = true;
+        
+        if ($clazz === null) {
+            $clazz = $this->getSubjectClass();
+        }
+        
+        $myFormContainer = new TestTakerForm($clazz, $subject, false);
+        $myForm = $myFormContainer->getForm();
+        
+        $elemets = $myForm->getElements();
+        
+        foreach($elemets as $element){
+            if(!$element->validate()){
+                $valid = false;
+                break;
+            }
+        }
+        
+        return $valid;
+    }
+    
 }
