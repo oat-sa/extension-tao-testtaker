@@ -240,4 +240,68 @@ class TestTaker extends \tao_actions_SaSModule
             'deleted' => $deleted
         ));
     }
+    
+    /**
+     * Duplicate the current instance
+     * render a JSON response
+     * @return void
+     */
+    public function cloneInstance()
+    {
+        if (! \tao_helpers_Request::isAjax()) {
+            throw new common_exception_BadRequest("wrong request mode");
+        }
+        
+        if (!$this->isTestTakerValid()) {
+            throw new \common_exception_Error(__('The source Test takers data is not filled in correctly.'));
+        }
+        
+        parent::cloneInstance();
+    }
+    
+    /**
+     * Action checks whether the existing user is valid (all fields are filled correctly).
+     * Requires $_REQUEST['uri'] (taoTaker uri).
+     * 
+     * @throws Exception
+     * @see self::isTestTakerValid()
+     */
+    public function isValid()
+    {
+        if (! \tao_helpers_Request::isAjax()) {
+            throw new common_exception_BadRequest("wrong request mode");
+        }
+        echo json_encode($this->isTestTakerValid());
+    }
+    
+    /**
+     * Function checks whether the existing user is valid (all fields are filled correctly).
+     * Validation based on rules discribed in the {@link tao_actions_form_Users} class
+     * @see tao_actions_form_Users::initElements()
+     * Requires $_REQUEST['uri'] (taoTaker uri).
+     * 
+     * @return boolean whether the user data is valid.
+     */
+    protected function isTestTakerValid()
+    {
+        $valid = true;
+        $clazz = $this->getCurrentClass();
+        
+        // get the subject to validate
+        $subject = $this->getCurrentInstance();
+        
+        $myFormContainer = new TestTakerForm($clazz, $subject, false);
+        $myForm = $myFormContainer->getForm();
+        
+        $elemets = $myForm->getElements();
+        
+        foreach($elemets as $element){
+            if(!$element->validate()){
+                $valid = false;
+                break;
+            }
+        }
+        
+        return $valid;
+    }
 }

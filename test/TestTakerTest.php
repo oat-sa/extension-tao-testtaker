@@ -212,6 +212,4 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertTrue($this->subjectsService->deleteSubject($instance));
         $this->assertFalse($instance->exists());
     }
-
-
 }
