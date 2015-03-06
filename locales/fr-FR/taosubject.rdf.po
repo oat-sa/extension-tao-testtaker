@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.0\n"
-"PO-Revision-Date: 2014-11-20T15:00:51\n"
+"Project-Id-Version: TAO 3.0-RC04\n"
+"PO-Revision-Date: 2015-03-06T15:43:17\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr-FR\n"
@@ -13,12 +13,12 @@ msgstr ""
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test-taker"
-msgstr ""
+msgstr "Les Participants"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test-taker class"
-msgstr ""
+msgstr "le groupe de participants"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
