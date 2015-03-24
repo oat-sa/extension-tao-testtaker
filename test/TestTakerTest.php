@@ -156,8 +156,8 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     {
         $this->subjectsService->setTestTakerRole($instance);
         $propertyRoles = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
-
-        $this->assertEquals($instance->getPropertyValues($propertyRoles)[0], INSTANCE_ROLE_DELIVERY);
+        $values = $instance->getPropertyValues($propertyRoles);
+        $this->assertEquals($values[0], INSTANCE_ROLE_DELIVERY);
     }
 
     /**
@@ -184,8 +184,13 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $instance->setPropertyValue($propertyName, 'Cool Name');
 
         $clone = $this->subjectsService->cloneInstance($instance);
-        $this->assertEquals($instance->getPropertyValues($propertyName)[0], $clone->getPropertyValues($propertyName)[0]);
-        $this->assertNotEquals($instance->getPropertyValues($propertyLogin)[0], $clone->getPropertyValues($propertyLogin)[0]);
+        $instanceValues = $instance->getPropertyValues($propertyName);
+        $cloneValues = $clone->getPropertyValues($propertyName);
+        $this->assertEquals($instanceValues[0], $cloneValues[0]);
+        
+        $instanceValues = $instance->getPropertyValues($propertyLogin);
+        $cloneValues = $clone->getPropertyValues($propertyLogin);
+        $this->assertNotEquals($instanceValues[0], $cloneValues[0]);
 
         $this->assertNotEquals($instance, $clone);
         $this->assertTrue($this->subjectsService->deleteSubject($clone));
