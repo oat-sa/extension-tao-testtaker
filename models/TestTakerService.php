@@ -46,48 +46,6 @@ class TestTakerService extends \tao_models_classes_ClassService
     }
 
     /**
-     * Short description of method getSubjectClasses
-     *
-     * @access public
-     * @author Joel Bout, <joel.bout@tudor.lu>
-     * @return core_kernel_classes_ContainerCollection
-     */
-    public function getSubjectClasses()
-    {
-        return $this->subjectClass->getSubClasses(true);
-    }
-
-    /**
-     * get a subject subclass by uri.
-     *
-     * If the uri is not set, it returns the subject class (the top level class.
-     * If the uri don't reference a subject subclass, it returns null
-     *
-     * @access public
-     * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param string uri
-     * @return core_kernel_classes_Class
-     * @deprecated
-     *
-     */
-    public function getSubjectClass($uri = '')
-    {
-        $returnValue = null;
-
-        if (empty($uri) && ! is_null($this->subjectClass)) {
-            $returnValue = $this->subjectClass;
-        } else {
-            $clazz = new \core_kernel_classes_Class($uri);
-            if ($this->isSubjectClass($clazz)) {
-                $returnValue = $clazz;
-            }
-        }
-
-        return $returnValue;
-    }
-
-
-    /**
      * delete a subject instance
      *
      * @access public
@@ -101,38 +59,6 @@ class TestTakerService extends \tao_models_classes_ClassService
 
         if (! is_null($subject)) {
             $returnValue = $subject->delete();
-        }
-
-        return (bool) $returnValue;
-    }
-
-    /**
-     *
-     * @author Lionel Lecaque, lionel@taotesting.com
-     */
-    public function deleteAll()
-    {
-        foreach ($this->getRootClass()->getInstances(true) as $resource) {
-            $resource->delete();
-        }
-    }
-
-    /**
-     * delete a subject class or sublcass
-     *
-     * @access public
-     * @author Joel Bout, <joel.bout@tudor.lu>
-     * @param \core_kernel_classes_Class $clazz
-     * @return boolean
-     */
-    public function deleteSubjectClass(\core_kernel_classes_Class $clazz)
-    {
-        $returnValue = (bool) false;
-
-        if (! is_null($clazz)) {
-            if ($this->isSubjectClass($clazz) && $clazz->getUri() != $this->subjectClass->getUri()) {
-                $returnValue = $clazz->delete();
-            }
         }
 
         return (bool) $returnValue;
