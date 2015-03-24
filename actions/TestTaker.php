@@ -233,7 +233,7 @@ class TestTaker extends \tao_actions_SaSModule
         if ($this->getRequestParameter('uri')) {
             $deleted = $this->service->deleteSubject($this->getCurrentInstance());
         } else {
-            $deleted = $this->service->deleteSubjectClass($this->getCurrentClass());
+            return $this->forward('deleteClass', null, null, (array('id' => $this->getRequestParameter('id'))));
         }
         
         echo json_encode(array(

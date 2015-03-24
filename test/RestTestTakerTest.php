@@ -69,12 +69,16 @@ class RestTestTakerTest extends RestTestCase {
 
 	    //should be 200
 	    $genLogin = 'dummy'.rand(0,65535);
-	   $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: '.$genLogin, 'password: dummy'));
-	   $data = json_decode($returnedData, true);
-	    $this->assertEquals( $data["success"], true);
-	   $uriSubject = $data["data"]["uriResource"];
+        $returnedData = $this->curl($url, CURLOPT_POST, "data", array('login: '.$genLogin, 'password: dummy'));
+        $data = json_decode($returnedData, true);
+        $this>assertNotEquals(false, $returnedData);
+        $this->assertEquals(true, $data["success"]);
+        $this>assertArrayHasKey("data", $data);
+        $this>assertArrayHasKey("uriResource", $data["data"]);
+        $uriSubject = $data["data"]["uriResource"];
+        
 	    //get this test taker
-	     $returnedData = $this->curl($url, CURLOPT_HTTPGET, "data", array('uri: '.$uriSubject));
+	    $returnedData = $this->curl($url, CURLOPT_HTTPGET, "data", array('uri: '.$uriSubject));
 	    $data = json_decode($returnedData, true);
 	    $this->assertEquals( $data["success"], true);
 	    $this->assertEquals( $data["data"]["uri"], $uriSubject);
