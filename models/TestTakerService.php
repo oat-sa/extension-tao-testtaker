@@ -115,13 +115,12 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function cloneInstance(\core_kernel_classes_Resource $instance, \core_kernel_classes_Class $clazz = null)
     {
-        $returnValue = null;
-
+        $loginProperty = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
+        $login = $instance->getUniquePropertyValue($loginProperty);
+        
         $returnValue = parent::cloneInstance($instance, $clazz);
         $userService = \tao_models_classes_UserService::singleton();
-        $loginProperty = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
         try {
-            $login = $returnValue->getUniquePropertyValue($loginProperty);
             while ($userService->loginExists($login)) {
                 $login .= (string) rand(0, 9);
             }
