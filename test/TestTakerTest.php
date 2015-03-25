@@ -47,6 +47,8 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     public function setUp()
     {
         TaoPhpUnitTestRunner::initTest();
+        // load constants
+        \common_ext_ExtensionsManager::singleton()->getExtensionById('taoTestTaker');
         $this->subjectsService = TestTakerService::singleton();
     }
 
@@ -65,7 +67,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @return \core_kernel_classes_Class|null
      */
-    public function testClassCreate()
+    public function testGetRootClass()
     {
         $this->assertTrue(defined('TAO_SUBJECT_CLASS'));
         $subjectClass = $this->subjectsService->getRootClass();
@@ -78,7 +80,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     * @depends testClassCreate
+     * @depends testGetRootClass
      * @param $subjectClass
      * @return \core_kernel_classes_Class
      */
@@ -95,7 +97,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     * @depends testClassCreate
+     * @depends testGetRootClass
      * @param $class
      * @return \core_kernel_classes_Resource
      */
@@ -183,6 +185,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
         $this->assertNotEquals($instance, $clone);
         $this->assertTrue($this->subjectsService->deleteSubject($clone));
+        $this->assertFalse($clone->exists());
 
     }
 
@@ -199,12 +202,17 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
     /**
      * @depends testInstantiateClass
+     * @depends testInstantiateSubClass
      * @param \core_kernel_classes_Resource $instance
      */
-    public function testDeleteInstance($instance)
+    public function testDeleteInstance($instance1, $instance2)
     {
-        $this->assertTrue($this->subjectsService->deleteSubject($instance));
-        $this->assertFalse($instance->exists());
+        $this->assertTrue($this->subjectsService->deleteSubject($instance1));
+        $this->assertFalse($instance1->exists());
+        
+        $this->assertTrue($this->subjectsService->deleteSubject($instance2));
+        $this->assertFalse($instance2->exists());
+        
     }
 
 
