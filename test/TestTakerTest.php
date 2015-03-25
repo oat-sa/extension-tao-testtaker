@@ -138,17 +138,6 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     * 
-     * @author Lionel Lecaque, lionel@taotesting.com
-     */
-    public function testGetSubjectClass()
-    {
-        $classes = $this->subjectsService->getSubjectClasses();
-        $this->assertGreaterThanOrEqual(1, count($classes));
-        $this->assertIsA(array_pop($classes), get_class($this->subjectsService->getRootClass()));
-    }
-
-    /**
      * @depends testInstantiateClass
      * @param \core_kernel_classes_Resource $instance
      */
@@ -204,7 +193,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      */
     public function testDeleteClass($class)
     {
-        $this->assertTrue($this->subjectsService->deleteSubjectClass($class));
+        $this->assertTrue($this->subjectsService->deleteClass($class));
         $this->assertFalse($class->exists());
     }
 
