@@ -39,9 +39,11 @@
                     <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
+                    <!-- 
                     <action id="testtaker-duplicate" name="Duplicate" url="/taoTestTaker/TestTaker/cloneInstance" context="instance" group="tree" binding="duplicateNode">
                         <icon id="icon-copy"/>
                     </action>
+                     -->
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
                         <icon id="icon-move-item"/>
                     </action>

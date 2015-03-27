@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.0\n"
-"PO-Revision-Date: 2014-11-20T15:00:51\n"
+"Project-Id-Version: TAO 3.0-RC04\n"
+"PO-Revision-Date: 2015-03-06T15:43:17\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sv-SE\n"
@@ -18,9 +18,6 @@ msgstr "Klass sparad"
 
 msgid "Delete"
 msgstr "Ta bort"
-
-msgid "Duplicate"
-msgstr ""
 
 msgid "Edit subject"
 msgstr "Redigera testtagare"
