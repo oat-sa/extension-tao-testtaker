@@ -22,10 +22,17 @@
 namespace oat\taoTestTaker\actions;
 
 use common_exception_BadRequest;
+use common_exception_InconsistentData;
+use core_kernel_classes_Class;
+use core_kernel_classes_Resource;
+use Exception;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
 use oat\taoTestTaker\models\TestTakerService;
+use tao_actions_form_Search;
+use tao_models_classes_MissingRequestParameterException;
+use tao_models_classes_Service;
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -41,7 +48,6 @@ class TestTaker extends \tao_actions_SaSModule
     /**
      * constructor: initialize the service and the default data
      *
-     * @return Subjects
      */
     public function __construct()
     {
@@ -53,14 +59,14 @@ class TestTaker extends \tao_actions_SaSModule
     }
     
     /*
-     * conveniance methods
+     * convenience methods
      */
 
     /**
      * get the class of the current subject regarding the 'classUri' request parameter
      * if the classUri is not defined try, to find the current 'classUri' functions of the 'uri' request parameter
      *
-     * @throws \common_exception_InconsistentData
+     * @throws common_exception_InconsistentData
      * @return core_kernel_classes_Class
      */
     protected function getCurrentClass()
@@ -79,7 +85,7 @@ class TestTaker extends \tao_actions_SaSModule
         }
         
         if (is_null($clazz)) {
-            throw new \common_exception_InconsistentData("No valid class uri found");
+            throw new common_exception_InconsistentData("No valid class uri found");
         }
         
         return $clazz;
@@ -88,7 +94,7 @@ class TestTaker extends \tao_actions_SaSModule
     /**
      * get the main class
      * 
-     * @return core_kernel_classes_Classes
+     * @return tao_models_classes_Service
      */
     protected function getClassService()
     {
@@ -99,7 +105,7 @@ class TestTaker extends \tao_actions_SaSModule
      *
      * @author Lionel Lecaque, lionel@taotesting.com
      * @param core_kernel_classes_Class $clazz            
-     * @return tao_actions_form_Search
+     * @return Search
      */
     protected function getSearchForm($clazz)
     {
@@ -223,21 +229,24 @@ class TestTaker extends \tao_actions_SaSModule
 
     /**
      * delete a subject or a subject model called via ajax
+     * @throws tao_models_classes_MissingRequestParameterException
+     * @throws common_exception_BadRequest
      */
     public function delete()
     {
         if (! \tao_helpers_Request::isAjax()) {
             throw new common_exception_BadRequest("wrong request mode");
         }
-        
-        if ($this->getRequestParameter('uri')) {
-            $deleted = $this->service->deleteSubject($this->getCurrentInstance());
+
+        if ($this->getRequestParameter( 'uri' )) {
+            $deleted = $this->service->deleteSubject( $this->getCurrentInstance() );
+            echo json_encode( array( 'deleted' => $deleted ) );
         } else {
-            return $this->forward('deleteClass', null, null, (array('id' => $this->getRequestParameter('id'))));
+            $this->forward( 'deleteClass', null, null, array( 'id' => $this->getRequestParameter( 'id' ) ) );
         }
-        
-        echo json_encode(array(
-            'deleted' => $deleted
-        ));
+    }
+
+    public function inform(){
+        echo 123;
     }
 }
