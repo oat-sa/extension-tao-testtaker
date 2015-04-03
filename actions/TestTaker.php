@@ -246,7 +246,4 @@ class TestTaker extends \tao_actions_SaSModule
         }
     }
 
-    public function inform(){
-        echo 123;
-    }
 }

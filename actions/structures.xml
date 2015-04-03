@@ -39,7 +39,7 @@
                     <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
-                    <!-- 
+                    <!--
                     <action id="testtaker-duplicate" name="Duplicate" url="/taoTestTaker/TestTaker/cloneInstance" context="instance" group="tree" binding="duplicateNode">
                         <icon id="icon-copy"/>
                     </action>
@@ -53,9 +53,14 @@
                     <action id="testtaker-export" name="Export" url="/tao/Export/index" context="resource" group="content">
                         <icon id="icon-export"/>
                     </action>
-                    <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="class" group="content">
-                        <icon id="icon-import"/>
+                    <action id="testtaker-export" name="Export" url="/tao/Export/index" context="resource" group="content">
+                        <icon id="icon-export"/>
                     </action>
+
+                    <action id="testtaker-inform" name="Inform" url="/taoTestTaker/Notify/inform" context="resource" group="content">
+                        <icon id="icon-email"/>
+                    </action>
+
                 </actions>
             </section>
         </sections>

@@ -21,6 +21,8 @@
  */
 namespace oat\taoTestTaker\models;
 
+use common_Exception;
+
 /**
  * Service methods to manage the Subjects business models using the RDF API.
  *
@@ -109,7 +111,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      * @author Joel Bout, <joel.bout@tudor.lu>
      * @param \core_kernel_classes_Resource $instance
      * @param \core_kernel_classes_Class $clazz
-     * @throws \common_Exception
+     * @throws common_Exception
      * @throws \core_kernel_classes_EmptyProperty
      * @return core_kernel_classes_Resource
      */
@@ -127,10 +129,32 @@ class TestTakerService extends \tao_models_classes_ClassService
             }
 
             $returnValue->editPropertyValues($loginProperty, $login);
-        } catch (common_Exception $ce) {
+        } catch ( common_Exception $ce) {
             // empty
         }
 
         return $returnValue;
+    }
+
+    /**
+     * Trying to retrieve testakers ( from base class if applicable )
+     * @param \core_kernel_classes_Resource $resource
+     *
+     * @return array
+     */
+    public function getTestTakers( \core_kernel_classes_Resource $resource )
+    {
+        if ($resource instanceof \core_kernel_classes_Class && (
+                $resource->equals( $this->getRootClass() ) || $resource->isSubClassOf( $this->getRootClass() )
+            )
+        ) {
+            return $resource->searchInstances( array(), array( 'recursive' => true ) );
+        }
+
+        if ($resource->isInstanceOf( $this->getRootClass() )) {
+            return array( $resource );
+        }
+
+        return array();
     }
 }
