@@ -7,7 +7,7 @@ Template::inc('form_context.tpl', 'tao');
     <h3><?=__('Beware, all passwords will be reset if you proceed')?></h3>
 </header>
 
-<div class="main-container flex-container-main-form" data-hash-result="<?=get_data('resultUrl')?>">
+<div class="main-container flex-container-main-form" data-hash-result="<?=get_data('resultUrl')?>" data-messages='<?=json_encode(get_data("messages"))?>'>
     <?=get_data('form')?>
 </div>
 

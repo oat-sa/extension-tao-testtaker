@@ -17,6 +17,7 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  * @author "Mikhail Kamarouski"
+ *
  **/
 
 namespace oat\taoTestTaker\actions;
@@ -38,7 +39,7 @@ class Notify extends \tao_actions_SaSModule
 
     public function inform()
     {
-
+        $messages = $result = array();
         $clazz    = $this->getCurrentClass();
         $instance = null;
         if ($this->getRequestParameter( 'uri' )) {
@@ -59,18 +60,28 @@ class Notify extends \tao_actions_SaSModule
                     $instance ? $instance : $clazz,
                     $values
                 );
-                $hashResult = spl_object_hash( $result );
-                if ( ! \common_cache_FileCache::singleton()->has( $hashResult )) {
-                    \common_cache_FileCache::singleton()->put( $result, $hashResult );
+
+                if (array_intersect(
+                    $form->getValue( InformForm::ACTION_CONTROL ),
+                    array( InformationService::PRINT_SEPARATE_PAGES, InformationService::PRINT_SINGLE_TABLE )
+                )) {
+                    $hashResult = spl_object_hash( $result );
+                    if ( ! \common_cache_FileCache::singleton()->has( $hashResult )) {
+                        \common_cache_FileCache::singleton()->put( $result, $hashResult );
+                    }
+                    $this->setData(
+                        'resultUrl',
+                        \tao_helpers_Uri::url( 'result', 'Notify', 'taoTestTaker', array( 'hash' => $hashResult ) )
+                    );
                 }
-                $this->setData(
-                    'resultUrl',
-                    \tao_helpers_Uri::url( 'result', 'Notify', 'taoTestTaker', array( 'hash' => $hashResult ) )
-                );
+
             }
         }
 
         $this->setData( 'form', $form->render() );
+        $this->setData( 'messages', array_merge( $messages, array_filter((array)$result,function($e){
+            return $e['messages'] ? $e['messages'] : array();
+        }) ) );
         $this->setView( 'inform.tpl' );
     }
 

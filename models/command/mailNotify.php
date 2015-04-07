@@ -21,7 +21,7 @@ namespace oat\taoTestTaker\models\command;
 
 use oat\tao\helpers\Template;
 use oat\tao\model\messaging\Message;
-use oat\tao\model\messaging\transportStrategy\MailAdapter;
+use oat\tao\model\messaging\MessagingService;
 use oat\taoTestTaker\actions\form\InformForm;
 
 class MailNotify implements CommandInterface
@@ -31,18 +31,23 @@ class MailNotify implements CommandInterface
      * @param array $options
      *
      * @return mixed|void
-     * @throws \Exception
+     * @throws \common_exception_Error
      */
     public function invoke( array $testTakers, array $options = array() )
     {
-        $template = $options[InformForm::TEMPLATE];
-
+        $result           = array();
+        $count            = 0;
+        $template         = $options[InformForm::TEMPLATE];
+        $messagingService = MessagingService::singleton();
+        if ( ! $messagingService->isAvailable()) {
+            throw new \common_exception_Error( 'Messaging service is not available.' );
+        }
         /** @var \core_kernel_users_GenerisUser $testTaker */
         foreach ($testTakers as $testTaker) {
             $userMail = (string) current( $testTaker->getPropertyValues( PROPERTY_USER_MAIL ) );
 
             if ( ! filter_var( $userMail, FILTER_VALIDATE_EMAIL )) {
-                throw new \Exception( 'User email is not valid.' );
+                throw new \common_exception_Error( 'User email is not valid.' );
             }
 
             $message = new Message();
@@ -52,16 +57,25 @@ class MailNotify implements CommandInterface
                     $template,
                     array(
                         '%name%'     => (string) current( $testTaker->getPropertyValues( PROPERTY_USER_FIRSTNAME ) ),
-                        '%password%' => (string) $testTaker->password ,
+                        '%password%' => (string) $testTaker->password,
                     )
                 )
             );
             $message->setTitle( __( "Notification about your TAO Password" ) );
-            $mailAdapter = new MailAdapter();
-            $mailAdapter->send();
-            \common_Logger::i( 'notification mail was send to ' . $testTaker->getIdentifier() );
 
+            $sendResult = $messagingService->getTransport()->send( $message );
+
+            \common_Logger::i( 'notification mail was send to ' . $testTaker->getIdentifier() );
+            if ( ! $sendResult) {
+                $result['messages']['error'][] = $messagingService->getErrors();
+                \common_Logger::i( 'sending error occured ' . $messagingService->getErrors() );
+            } else {
+                $count ++;
+            }
+            $result['messages']['success'][] = __( 'Notification send to %d testakers', $count );
         }
+
+        return $result;
     }
 
     /**

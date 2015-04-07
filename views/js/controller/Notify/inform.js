@@ -58,10 +58,21 @@ define(['jquery', 'i18n', 'ui/feedback'
             }).trigger('change');
 
 
-            var hash = $('.main-container').data('hashResult');
-            if (hash) {
-                feedback().success(__('Printable version successfully prepared'));
-                window.open(hash, 'results');
+            var data = $('.main-container').data(), feedbackType, plugin, response = data.messages;
+            if (data.hashResult) {
+                window.open(data.hashResult, 'results', 'menubar=no,location=no');
+            }
+            if (response) {
+                for ( plugin in response) {
+                    for (feedbackType in response[plugin].messages) {
+                        if (response[plugin]['messages'][feedbackType]) {
+                            feedback()[feedbackType](response[plugin]['messages'][feedbackType]);
+                        }
+                    }
+                }
+                feedback().error('asd2');
+                feedback().success('asd');
+
             }
 
         }

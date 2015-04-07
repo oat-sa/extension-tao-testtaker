@@ -27,11 +27,19 @@ abstract class AbstractPrint implements CommandInterface
 
     public function invoke( array $testTakers, array $options = array() )
     {
-        $renderer = new \Renderer();
-        $renderer->setTemplate( $this->getTemplate() );
-        $renderer->setData( 'testTakers', $testTakers );
+        $result = array();
+        try {
+            $renderer = new \Renderer();
+            $renderer->setTemplate( $this->getTemplate() );
+            $renderer->setData( 'testTakers', $testTakers );
+            $html = $renderer->render();
+            $result['messages']['success'][]=__('Printable version was prepared');
+        } catch ( \Exception $e ) {
+            $result['messages']['error'] = $e->getMessage();
+        }
+        $result['html'] = $html;
 
-        return $renderer->render();
+        return $result;
     }
 
     abstract protected function getTemplate();
