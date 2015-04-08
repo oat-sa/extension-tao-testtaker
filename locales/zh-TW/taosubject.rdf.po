@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.0-RC04\n"
-"PO-Revision-Date: 2015-03-12T08:31:31\n"
+"Project-Id-Version: TAO 3.0-RC05\n"
+"PO-Revision-Date: 2015-04-08T14:43:36\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: zh-TW\n"
@@ -13,20 +13,20 @@ msgstr ""
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test-taker"
-msgstr ""
+msgstr "考生"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test-taker class"
-msgstr ""
+msgstr "考生類別"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test Takers Manager"
-msgstr ""
+msgstr "考生主管"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test Takers Manager Role"
-msgstr ""
+msgstr "考生主管角色"
 

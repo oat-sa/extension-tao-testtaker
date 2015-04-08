@@ -43,6 +43,7 @@ $GLOBALS['__l10n']["Exclusive (OR)"]="Exclusif (OU)";
 $GLOBALS['__l10n']["Export"]="تصدير";
 $GLOBALS['__l10n']["File"]="ملف";
 $GLOBALS['__l10n']["File name"]="اسم الملف";
+$GLOBALS['__l10n']["Filter"]="تصفية";
 $GLOBALS['__l10n']["Filtering mode"]="طريقة التصفية";
 $GLOBALS['__l10n']["Groups"]="مجموعات";
 $GLOBALS['__l10n']["Import"]="استيراد";
@@ -106,8 +107,10 @@ $GLOBALS['__l10n']["Select the element destination"]="حدد العنصر الم
 $GLOBALS['__l10n']["selected"]="محدد";
 $GLOBALS['__l10n']["Selected file:"]=":الملف المحدد";
 $GLOBALS['__l10n']["Selection saved successfully"]="تم حفظ التحديد بنجاح";
+$GLOBALS['__l10n']["Settings"]="الإعدادات";
 $GLOBALS['__l10n']["Simple Mode"]="الطريقة البسيطة";
 $GLOBALS['__l10n']["Supported export formats"]="صيغ الاستيراد المعتمدة";
+$GLOBALS['__l10n']["TAO Back Office"]="TAO: Outils d'administration";
 $GLOBALS['__l10n']["Test taker saved"]="حفظ المترشح";
 $GLOBALS['__l10n']["Test takers"]="المترشحون للااختبار";
 $GLOBALS['__l10n']["Test takers library"]="مكتبة المترشحين";
@@ -129,5 +132,6 @@ $GLOBALS['__l10n']["Upload File"]="تحميل الملف";
 $GLOBALS['__l10n']["User added"]="مستخدم مضاف";
 $GLOBALS['__l10n']["User deleted successfully"]="تم حذف المستخدم بنجاح";
 $GLOBALS['__l10n']["User saved"]="تم حفظ المستخدم";
+$GLOBALS['__l10n']["Users"]="المستخدمون";
 
 ?>
