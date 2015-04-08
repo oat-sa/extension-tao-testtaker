@@ -36,6 +36,7 @@ $GLOBALS['__l10n']["Exclusive (OR)"]="Exklusive (ELLER)";
 $GLOBALS['__l10n']["Export"]="Exportera";
 $GLOBALS['__l10n']["File"]="Fil";
 $GLOBALS['__l10n']["File name"]="Filnamn";
+$GLOBALS['__l10n']["Filter"]="Filter";
 $GLOBALS['__l10n']["Filtering mode"]="Filtreringsmetod";
 $GLOBALS['__l10n']["Groups"]="Grupper";
 $GLOBALS['__l10n']["Import"]="Importera";
@@ -97,8 +98,10 @@ $GLOBALS['__l10n']["Select the element destination"]="Välj destination för ele
 $GLOBALS['__l10n']["selected"]="vald";
 $GLOBALS['__l10n']["Selected file:"]="Vald fil";
 $GLOBALS['__l10n']["Selection saved successfully"]="Urval framgångsrikt sparat";
+$GLOBALS['__l10n']["Settings"]="Inställningar";
 $GLOBALS['__l10n']["Simple Mode"]="Enkel metod";
 $GLOBALS['__l10n']["Supported export formats"]="Stödda exportformat";
+$GLOBALS['__l10n']["TAO Back Office"]="TAO Styrning";
 $GLOBALS['__l10n']["Test taker saved"]="Testtagare sparad";
 $GLOBALS['__l10n']["Test takers"]="Testtagare";
 $GLOBALS['__l10n']["Test takers library"]="Testtagararkiv";
@@ -120,5 +123,6 @@ $GLOBALS['__l10n']["Upload File"]="Ladda upp fil";
 $GLOBALS['__l10n']["User added"]="Användare tillagd";
 $GLOBALS['__l10n']["User deleted successfully"]="Användare framgångsrikt borttagen";
 $GLOBALS['__l10n']["User saved"]="Användare sparad";
+$GLOBALS['__l10n']["Users"]="Användare";
 
 ?>
