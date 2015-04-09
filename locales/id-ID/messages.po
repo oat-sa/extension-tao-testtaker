@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.0-RC05\n"
-"PO-Revision-Date: 2015-04-08T14:43:36\n"
+"PO-Revision-Date: 2015-04-09T09:14:47\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: id-ID\n"
@@ -16,6 +16,7 @@ msgstr ""
 msgid "Class saved"
 msgstr ""
 
+#, tao-public
 msgid "Delete"
 msgstr ""
 
@@ -25,15 +26,19 @@ msgstr ""
 msgid "Edit subject class"
 msgstr ""
 
+#, tao-public
 msgid "Export"
 msgstr ""
 
+#, tao-public
 msgid "Filter"
 msgstr ""
 
+#, tao-public
 msgid "Import"
 msgstr ""
 
+#, tao-public
 msgid "Lists"
 msgstr ""
 
@@ -41,15 +46,19 @@ msgstr ""
 msgid "Manage test takers"
 msgstr ""
 
+#, tao-public
 msgid "Move"
 msgstr ""
 
+#, tao-public
 msgid "New class"
 msgstr ""
 
+#, tao-public
 msgid "New test-taker"
 msgstr ""
 
+#, tao-public
 msgid "Properties"
 msgstr ""
 
@@ -57,6 +66,7 @@ msgstr ""
 msgid "Record and manage test takers."
 msgstr ""
 
+#, tao-public
 msgid "Search"
 msgstr ""
 
@@ -66,6 +76,7 @@ msgstr ""
 msgid "Test takers"
 msgstr ""
 
+#, tao-public
 msgid "Test takers library"
 msgstr ""
 
