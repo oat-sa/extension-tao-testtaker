@@ -96,7 +96,10 @@ class Notify extends \tao_actions_SaSModule
             throw new ActionNotFoundException;
         }
         $result = \common_cache_FileCache::singleton()->get( $hash );
-        $this->setData( 'result', implode( (array) $result ) );
+        $html = array_map( function($e){
+            return $e['html'] ? $e['html'] : '';
+        },(array) $result) ;
+        $this->setData( 'result', implode( '', $html) );
         $this->setView( 'layout.tpl', 'tao' );
         $this->setData( 'content-template', array( 'print.tpl', 'taoTestTaker' ) );
     }

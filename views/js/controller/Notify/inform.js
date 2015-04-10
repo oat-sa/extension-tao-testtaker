@@ -44,19 +44,9 @@ define(['jquery', 'i18n', 'ui/feedback'
                 $editor.closest('div').toggle($('#actionType_0').is(':checked'));
             }).trigger('change');
 
-            $editor.attr('data-html-editable-container', true);
-
-
-            var $radio = $('[name="pwdControl"]');
-
-            if (!$radio.is(':checked')) {
-                $radio.filter(':last').attr('checked', true);
-            }
-
-            $radio.on('change', function (e) {
-                $('#pwdLength').closest('div').toggle($(this).val() !== 'type_human');
+            $('input[value="type_human"]').on('change', function (e) {
+                $('#pwdLength').closest('div').toggle(!$(e.target).is(':checked'));
             }).trigger('change');
-
 
             var data = $('.main-container').data(), feedbackType, plugin, response = data.messages;
             if (data.hashResult) {

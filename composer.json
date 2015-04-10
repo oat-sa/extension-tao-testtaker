@@ -53,7 +53,6 @@
 		}
 	},
 	"require" : {
-		"oat-sa/oatbox-extension-installer" : "dev-master",
-	  	"hackzilla/password-generator": "~1.0"
+		"oat-sa/oatbox-extension-installer" : "dev-master"
 	}
 }

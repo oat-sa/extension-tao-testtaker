@@ -74,9 +74,14 @@ class InformForm extends tao_actions_form_Generis
         $this->form->addElement( $templateElt );
 
 
-        $pwdOptionsElt = \tao_helpers_form_FormFactory::getElement( self::PWD_CONTROL, 'RadioBox' );
+        $pwdOptionsElt = \tao_helpers_form_FormFactory::getElement( self::PWD_CONTROL, 'Checkbox' );
         $pwdOptionsElt->setDescription( __( 'Type' ) );
         $pwdOptionsElt->setOptions( GeneratorService::singleton()->getAvailableTypes() );
+
+        $pwdOptionsElt->setReadOnly(GeneratorService::singleton()->getSettings());
+        $pwdOptionsElt->setValues(array_merge((array)$pwdOptionsElt->getRawValue(),GeneratorService::singleton()->getSettings()));
+
+        $pwdOptionsElt->addValidator( tao_helpers_form_FormFactory::getValidator( 'NotEmpty' ) );
         $this->form->addElement( $pwdOptionsElt );
 
         $pwdOptionsElt = \tao_helpers_form_FormFactory::getElement( self::PWD_LENGTH, 'Textbox' );
