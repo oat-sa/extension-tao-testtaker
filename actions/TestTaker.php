@@ -57,35 +57,6 @@ class TestTaker extends \tao_actions_SaSModule
      */
 
     /**
-     * get the class of the current subject regarding the 'classUri' request parameter
-     * if the classUri is not defined try, to find the current 'classUri' functions of the 'uri' request parameter
-     *
-     * @throws \common_exception_InconsistentData
-     * @return core_kernel_classes_Class
-     */
-    protected function getCurrentClass()
-    {
-        $clazz = null;
-        
-        try {
-            $clazz = parent::getCurrentClass();
-        } catch (Exception $e) {
-            $uri = \tao_helpers_Uri::decode($this->getRequestParameter('uri'));
-            $resource = new \core_kernel_classes_Resource($uri);
-            foreach ($resource->getTypes() as $type) {
-                $clazz = $type;
-                break;
-            }
-        }
-        
-        if (is_null($clazz)) {
-            throw new \common_exception_InconsistentData("No valid class uri found");
-        }
-        
-        return $clazz;
-    }
-
-    /**
      * get the main class
      * 
      * @return core_kernel_classes_Classes
@@ -191,53 +162,5 @@ class TestTaker extends \tao_actions_SaSModule
         $this->setData('formTitle', __('Edit subject'));
         $this->setData('myForm', $myForm->render());
         $this->setView('form_subjects.tpl');
-    }
-
-    /**
-     * Edit a subject model (edit a class)
-     * 
-     * Override because of topclass
-     */
-    public function editClassProperties()
-    {
-        $clazz = $this->getCurrentClass();
-        
-        if ($this->hasRequestParameter('property_mode')) {
-            $this->setSessionAttribute('property_mode', $this->getRequestParameter('property_mode'));
-        }
-        
-        $myForm = $this->getClassForm($clazz, $this->service->getRootClass(), new \core_kernel_classes_Class('http://www.tao.lu/Ontologies/generis.rdf#User'));
-        if ($myForm->isSubmited()) {
-            if ($myForm->isValid()) {
-                if ($clazz instanceof core_kernel_classes_Resource) {
-                    $this->setData("selectNode", \tao_helpers_Uri::encode($clazz->getUri()));
-                }
-                $this->setData('message', __('Class saved'));
-                $this->setData('reload', true);
-            }
-        }
-        $this->setData('formTitle', __('Edit subject class'));
-        $this->setData('myForm', $myForm->render());
-        $this->setView('form.tpl', 'tao');
-    }
-
-    /**
-     * delete a subject or a subject model called via ajax
-     */
-    public function delete()
-    {
-        if (! \tao_helpers_Request::isAjax()) {
-            throw new common_exception_BadRequest("wrong request mode");
-        }
-        
-        if ($this->getRequestParameter('uri')) {
-            $deleted = $this->service->deleteSubject($this->getCurrentInstance());
-        } else {
-            return $this->forward('deleteClass', null, null, (array('id' => $this->getRequestParameter('id'))));
-        }
-        
-        echo json_encode(array(
-            'deleted' => $deleted
-        ));
     }
 }
