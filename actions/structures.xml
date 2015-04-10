@@ -33,23 +33,23 @@
                     <action id="testtaker-class-new" name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="resource" group="tree" binding="subClass">
                         <icon id="icon-folder-open"/>
                     </action>
-                    <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">
-                        <icon id="icon-test-taker"/>
-                    </action>
                     <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
                         <icon id="icon-bin"/>
                     </action>
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
                         <icon id="icon-move-item"/>
                     </action>
-                    <action id="testtaker-lists" name="Lists" url="/tao/Lists/index" context="*" group="tree">
-                        <icon id="icon-ul"/>
+                    <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="resource" group="tree">
+                        <icon id="icon-import"/>
                     </action>
                     <action id="testtaker-export" name="Export" url="/tao/Export/index" context="resource" group="tree">
                         <icon id="icon-export"/>
                     </action>
-                    <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="class" group="tree">
-                        <icon id="icon-import"/>
+                    <action id="testtaker-lists" name="Lists" url="/tao/Lists/index" context="*" group="tree">
+                        <icon id="icon-ul"/>
+                    </action>
+                    <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">
+                        <icon id="icon-test-taker"/>
                     </action>
                 </actions>
             </section>
