@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.0-RC04\n"
-"PO-Revision-Date: 2015-03-06T15:43:17\n"
+"Project-Id-Version: TAO 3.0-RC05\n"
+"PO-Revision-Date: 2015-04-10T08:59:36\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: da-DK\n"
@@ -12,6 +12,9 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+
+msgid "Beware, all passwords will be reset if you proceed"
+msgstr ""
 
 msgid "Class saved"
 msgstr "Klassen gemt"
@@ -25,17 +28,29 @@ msgstr "Rediger test tagere"
 msgid "Edit subject class"
 msgstr "Rediger test tager klasse"
 
+msgid "Email"
+msgstr ""
+
 msgid "Export"
 msgstr "Eksportere"
 
 msgid "Filter"
 msgstr ""
 
-msgid "Import"
-msgstr "Importere"
+msgid "First Name"
+msgstr ""
+
+msgid "Inform"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
 
 msgid "Lists"
 msgstr "Lister"
+
+msgid "Login"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
@@ -49,6 +64,12 @@ msgstr "Ny klasse"
 
 msgid "New test-taker"
 msgstr "Ny test tager"
+
+msgid "Password"
+msgstr ""
+
+msgid "Printable version was prepared"
+msgstr ""
 
 msgid "Properties"
 msgstr ""
