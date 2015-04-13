@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.0-RC04\n"
-"PO-Revision-Date: 2015-03-06T15:43:17\n"
+"Project-Id-Version: TAO 3.0-RC05\n"
+"PO-Revision-Date: 2015-04-13T09:51:41\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: de-DE\n"
@@ -13,27 +13,26 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-msgid "Class saved"
-msgstr "Klasse gespeichert"
-
+#, tao-public
 msgid "Delete"
 msgstr "Löschen"
 
 msgid "Edit subject"
 msgstr "Testperson bearbeiten"
 
-msgid "Edit subject class"
-msgstr "Klasse"
-
+#, tao-public
 msgid "Export"
 msgstr "Export"
 
+#, tao-public
 msgid "Filter"
 msgstr ""
 
+#, tao-public
 msgid "Import"
 msgstr ""
 
+#, tao-public
 msgid "Lists"
 msgstr ""
 
@@ -41,15 +40,19 @@ msgstr ""
 msgid "Manage test takers"
 msgstr "Testpersonen verwalten"
 
+#, tao-public
 msgid "Move"
 msgstr ""
 
+#, tao-public
 msgid "New class"
 msgstr "Neue Klasse"
 
+#, tao-public
 msgid "New test-taker"
 msgstr "New test taker"
 
+#, tao-public
 msgid "Properties"
 msgstr ""
 
@@ -57,6 +60,7 @@ msgstr ""
 msgid "Record and manage test takers."
 msgstr ""
 
+#, tao-public
 msgid "Search"
 msgstr "Suchen"
 
@@ -66,6 +70,7 @@ msgstr ""
 msgid "Test takers"
 msgstr "Testpersonen"
 
+#, tao-public
 msgid "Test takers library"
 msgstr "Testpersonen-Bibliothek"
 

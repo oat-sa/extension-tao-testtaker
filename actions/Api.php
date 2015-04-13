@@ -62,4 +62,3 @@ class Api extends \tao_actions_CommonRestModule {
 	}
 	
 }
-?>
