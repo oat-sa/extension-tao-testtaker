@@ -189,9 +189,10 @@ class GeneratorService extends tao_models_classes_Service
      */
     protected function getConfig()
     {
-        $ext = common_ext_ExtensionsManager::singleton()->getExtensionById( 'generis' );
+        $ext    = common_ext_ExtensionsManager::singleton()->getExtensionById( 'generis' );
+        $config = $ext->getConfig( 'passwords' );
 
-        return $ext->getConfig( 'passwords' );
+        return $config['generator'];
     }
 
     /**
