@@ -57,7 +57,6 @@ $GLOBALS['__l10n']["Test takers library"]="Testpersounen Sammlung";
 $GLOBALS['__l10n']["Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."]="Testpersounen kënnen zesummengefaasst gin opgrond vun dem entspriechenden Assessment Kontext (Personalverwaltung, Educatioun, Schoulmonitoring, etc.).";
 $GLOBALS['__l10n']["Tests"]="Tester";
 $GLOBALS['__l10n']["Tests library"]="Test Sammlung";
-$GLOBALS['__l10n']["The format of this field is not valid."]="Den Format vun desem Datenfeld as nit valid.";
 $GLOBALS['__l10n']["The Test takers module allows to record and manage  test takers."]="Den Testpersounen Modul erlaabt et fier Testpersounen opzehuelen an ze verwalten.";
 $GLOBALS['__l10n']["The uploaded file is too large"]="De ropgeluedene Fichier as ze grouss";
 $GLOBALS['__l10n']["This field is too long"]="Dëst Datenfeld as ze laang";
