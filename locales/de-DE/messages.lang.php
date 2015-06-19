@@ -59,7 +59,6 @@ $GLOBALS['__l10n']["Test takers library"]="Testpersonen-Bibliothek";
 $GLOBALS['__l10n']["Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."]="Testpersonen können entsprechend dem relevanten Assessment-Kontext (Personalverwaltung, Bildung, Edumetrisches Monitoring usw,) zusammengefasst werden.";
 $GLOBALS['__l10n']["Tests"]="Tests";
 $GLOBALS['__l10n']["Tests library"]="Tests-Bibliothek";
-$GLOBALS['__l10n']["The format of this field is not valid."]="Das Format dieses Feldes ist ungültig";
 $GLOBALS['__l10n']["The Test takers module allows to record and manage  test takers."]="Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen.";
 $GLOBALS['__l10n']["The uploaded file is too large"]="Die hochgeladene Datei ist zu groß";
 $GLOBALS['__l10n']["This field is too long"]="Dieses Feld ist zu lang";
