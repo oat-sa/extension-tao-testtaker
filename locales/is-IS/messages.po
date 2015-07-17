@@ -1,86 +1,89 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.1.0-rc01\n"
-"PO-Revision-Date: 2015-06-24T17:26:55\n"
-"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
-"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2015-06-10 15:06+0000\n"
+"Last-Translator: sveinbjorn <sveinbjorn@namsmat.is>\n"
 "Language: is-IS\n"
-"sourceLanguage: en-US\n"
-"targetLanguage: is-IS\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n%10!=1 || n%100==11);\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: is-IS\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-POOTLE-MTIME: 1433948805.000000\n"
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Eyða"
 
+# hér þarf að skoða hvað átt er við, einstaklingur eða viðfangsefni
 msgid "Edit subject"
 msgstr ""
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Flytja út"
 
 #, tao-public
 msgid "Filter"
-msgstr ""
+msgstr "Sía"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Flytja inn"
 
 #, tao-public
 msgid "Lists"
-msgstr ""
+msgstr "Listar"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Próftakastjórn"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Færa"
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Nýr flokkur"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Nýr próftaki"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Stillingar"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Skrá og sýsla með próftaka"
 
 #, tao-public
 msgid "Search"
-msgstr ""
+msgstr "Leita"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Próftaki vistaður"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Próftakar"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Próftakasafn"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Próftakar"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
-
+msgstr "Á próftakasvæði er hægt að skrá og sýsla með   próftaka."
