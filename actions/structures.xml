@@ -45,9 +45,6 @@
                     <action id="testtaker-export" name="Export" url="/tao/Export/index" context="resource" group="tree">
                         <icon id="icon-export"/>
                     </action>
-                    <action id="testtaker-lists" name="Lists" url="/tao/Lists/index" context="*" group="tree">
-                        <icon id="icon-ul"/>
-                    </action>
                     <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">
                         <icon id="icon-test-taker"/>
                     </action>

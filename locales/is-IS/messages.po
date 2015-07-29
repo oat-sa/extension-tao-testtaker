@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v3.1-dev\n"
-"PO-Revision-Date: 2015-06-18T17:01:30\n"
+"Project-Id-Version: TAO v3.1.0-sprint03\n"
+"PO-Revision-Date: 2015-07-21T16:49:03\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: is-IS\n"
@@ -15,72 +15,72 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Eyða"
 
 msgid "Edit subject"
 msgstr ""
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Flytja út"
 
 #, tao-public
 msgid "Filter"
-msgstr ""
+msgstr "Sía"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Flytja inn"
 
 #, tao-public
 msgid "Lists"
-msgstr ""
+msgstr "Listar"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Próftakastjórn"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Færa"
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Nýr flokkur"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Nýr próftaki"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Stillingar"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Skrá og sýsla með próftaka"
 
 #, tao-public
 msgid "Search"
-msgstr ""
+msgstr "Leita"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Próftaki vistaður"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Próftakar"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Próftakasafn"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr ""
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Próftakar"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Á próftakasvæði er hægt að skrá og sýsla með   próftaka."
 
