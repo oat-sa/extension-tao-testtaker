@@ -23,6 +23,8 @@ $GLOBALS['__l10n']["Add / Edit lists"]="Agregar / Editar listas";
 $GLOBALS['__l10n']["Add a CSV file"]="Agregar archivo CSV";
 $GLOBALS['__l10n']["Add a user"]="Agregar un usuario";
 $GLOBALS['__l10n']["Add an RDF/XML file"]="Agregar archivo RDF/XML";
+$GLOBALS['__l10n']["all"]="todos";
+$GLOBALS['__l10n']["All rights reserved."]="Todos los derechos reservados";
 $GLOBALS['__l10n']["Alpha version"]="Versión Alpha";
 $GLOBALS['__l10n']["An error occured during user deletion"]="Un error ocurrió durante la eliminación del usuario";
 $GLOBALS['__l10n']["Are you sure to delete the versioned resource?\nThe history will be lost as well."]="Está seguro de borrar este recurso versionado?\nLa historia se perderá también.";
@@ -46,8 +48,8 @@ $GLOBALS['__l10n']["Current language"]="Lenguaje actual";
 $GLOBALS['__l10n']["Data imported"]="Datos importados";
 $GLOBALS['__l10n']["Data imported successfully"]="Datos importados exitosamente";
 $GLOBALS['__l10n']["Data Lang."]="Lenguaje de datos";
-$GLOBALS['__l10n']["Data Language"]="Lenguaje de datos";
 $GLOBALS['__l10n']["Data language"]="Lenguaje de datos";
+$GLOBALS['__l10n']["Data Language"]="Lenguaje de datos";
 $GLOBALS['__l10n']["Date"]="Fecha";
 $GLOBALS['__l10n']["Default user cannot be deleted"]="El usuario por omisión no puede ser borrado";
 $GLOBALS['__l10n']["Define the default values"]="Define los valores por defecto";
@@ -99,5 +101,6 @@ $GLOBALS['__l10n']["List not saved"]="Lista no guardada";
 $GLOBALS['__l10n']["Log in"]="Iniciar sesión";
 $GLOBALS['__l10n']["Login"]="Inicio de sesión";
 $GLOBALS['__l10n']["Password"]="Contraseña";
+$GLOBALS['__l10n']["Yes"]="Sí";
 
 ?>
