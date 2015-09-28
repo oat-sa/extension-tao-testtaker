@@ -35,10 +35,6 @@ use tao_helpers_form_FormFactory;
 class Import extends \tao_actions_Import 
 {
 
-	protected function getFormClass(){
-		return 'oat\taoTestTaker\actions\form\Import';
-	}
-
     /**
      * (non-PHPdoc)
      * @see tao_actions_Import::getAvailableImportHandlers()
