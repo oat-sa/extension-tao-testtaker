@@ -46,7 +46,6 @@ $GLOBALS['__l10n']["Items"]="Frågor";
 $GLOBALS['__l10n']["Label"]="Etikett";
 $GLOBALS['__l10n']["Language"]="Språk";
 $GLOBALS['__l10n']["List"]="Lista";
-$GLOBALS['__l10n']["Lists"]="Listor";
 $GLOBALS['__l10n']["Login"]="Inloggning";
 $GLOBALS['__l10n']["Manage data list"]="Hantera datalista";
 $GLOBALS['__l10n']["Manage groups"]="Hantera grupper";
