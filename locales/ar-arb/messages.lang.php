@@ -51,7 +51,6 @@ $GLOBALS['__l10n']["Items"]="الاسئلة";
 $GLOBALS['__l10n']["Label"]="تسمية";
 $GLOBALS['__l10n']["Language"]="اللغة";
 $GLOBALS['__l10n']["List"]="قائمة";
-$GLOBALS['__l10n']["Lists"]="القوائم";
 $GLOBALS['__l10n']["Login"]="الدخول";
 $GLOBALS['__l10n']["Manage data list"]="إدارة قائمة البيانات";
 $GLOBALS['__l10n']["Manage groups"]="إدارة المجموعات";
