@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint03\n"
-"PO-Revision-Date: 2015-08-11T16:54:52\n"
+"Project-Id-Version: TAO 3.1.0-sprint15\n"
+"PO-Revision-Date: 2015-12-23T13:39:49\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: es-ES\n"
@@ -15,72 +15,68 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Editar asunto"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #, tao-public
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #, tao-public
 msgid "Import"
-msgstr ""
-
-#, tao-public
-msgid "Lists"
-msgstr ""
+msgstr "Importar"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Administrar participantes"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Mover"
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Nueva clase"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Nuevo participante"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Propiedades"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Resgistro y gestión de participantes."
 
 #, tao-public
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Participante guardado"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Participantes"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Biblioteca de participantes"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Los participantes pueden ser asignados a los conjuntos de acuerdo con el contexto pertinente evaluación (Gestión de recursos humanos, educación, monitoreo edumetric, etc.)."
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Participantes"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "El módulo de participantes permite registrar y gestionar  participantes."
 
