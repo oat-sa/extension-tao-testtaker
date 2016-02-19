@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"PO-Revision-Date: 2016-02-19T14:23:54\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: it-IT\n"
@@ -15,68 +15,68 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Modifica soggetto"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Esporta"
 
 #, tao-public
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Gestisci i partecipanti al test"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Sposta"
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Nuova classe"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Nuovo partecipante"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Proprietà"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Registra e gestisci i partecipanti"
 
 #, tao-public
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Partecipante salvato"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Partecipanti"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Biblioteca dei partecipanti"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "I partecipanti possono essere assegnati ad insiemi basati su rilevante contenuto di valutazione (gestione di risorse umane, educazione, ecc)."
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Partecipanti"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Il modulo dei partecipanti ti consente di registrare e gestire   partecipanti"
 
