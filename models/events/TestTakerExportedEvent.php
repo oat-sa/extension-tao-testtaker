@@ -14,35 +14,18 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2016  (original work) Open Assessment Technologies SA;
  *
- *
+ * @author Ivan klimchuk <klimchuk@1pt.com>
  */
 
-namespace oat\taoTestTaker\scripts\update;
+namespace oat\taoTestTaker\models\events;
 
 /**
- * Class Updater
- * @package oat\taoTestTaker\scripts\update
+ * Class TestTakerExportedEvent
+ * @package oat\taoTestTaker\models\events
  */
-class Updater extends \common_ext_ExtensionUpdater 
+class TestTakerExportedEvent extends AbstractTestTakerEvent
 {
-    /**
-     * @param $initialVersion
-     * @return string $versionUpdatedTo
-     * @internal param string $currentVersion
-     */
-    public function update($initialVersion) {
-        
-        $currentVersion = $initialVersion;
-		if ($currentVersion == '2.6' || $currentVersion == '2.6.1'  || $currentVersion == '2.7') {
-			$currentVersion = '2.7.1';
-		}
 
-		$this->setVersion($currentVersion);
-
-        $this->skip('2.7.1', '2.10.0');
-
-		return null;
-	}
 }

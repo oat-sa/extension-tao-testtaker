@@ -21,11 +21,14 @@
  */
 namespace oat\taoTestTaker\actions;
 
-use common_exception_BadRequest;
+use core_kernel_classes_Class;
+use oat\oatbox\event\EventManagerAwareTrait;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
+use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
 use oat\taoTestTaker\models\TestTakerService;
+use tao_actions_SaSModule;
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -33,10 +36,10 @@ use oat\taoTestTaker\models\TestTakerService;
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoTestTaker
  * @license GPLv2 http://www.opensource.org/licenses/gpl-2.0.php
- *         
  */
-class TestTaker extends \tao_actions_SaSModule
+class TestTaker extends tao_actions_SaSModule
 {
+    use EventManagerAwareTrait;
 
     /**
      * constructor: initialize the service and the default data
@@ -51,10 +54,6 @@ class TestTaker extends \tao_actions_SaSModule
         $this->service = TestTakerService::singleton();
         $this->defaultData();
     }
-    
-    /*
-     * conveniance methods
-     */
 
     /**
      * get the main class
@@ -96,13 +95,14 @@ class TestTaker extends \tao_actions_SaSModule
             $addMode = true;
             $this->setData('loginUri', \tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
         }
+
         if ($this->hasRequestParameter('reload')) {
             $this->setData('reload', true);
         }
-        
+
         $myFormContainer = new TestTakerForm($clazz, $subject, $addMode, false);
         $myForm = $myFormContainer->getForm();
-        
+
         if ($myForm->isSubmited()) {
             if ($myForm->isValid()) {
                 $this->setData('reload', false);
@@ -123,6 +123,8 @@ class TestTaker extends \tao_actions_SaSModule
                 
                 $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
                 $subject = $binder->bind($values);
+
+                $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(), $values));
                 
                 if ($addMode) {
                     // force default subject roles to be the Delivery Role:
@@ -135,7 +137,7 @@ class TestTaker extends \tao_actions_SaSModule
                 $userService->bindProperties($subject, array(
                     PROPERTY_USER_DEFLG => $lang->getUri()
                 ));
-                
+
                 $message = __('Test taker saved');
                 
                 if ($addMode) {
@@ -147,7 +149,7 @@ class TestTaker extends \tao_actions_SaSModule
                     );
                     $this->redirect(_url('editSubject', null, null, $params));
                 }
-                
+
                 $this->setData("selectNode", \tao_helpers_Uri::encode($subject->getUri()));
                 $this->setData('message', $message);
                 $this->setData('reload', true);
