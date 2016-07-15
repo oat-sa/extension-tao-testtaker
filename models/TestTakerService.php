@@ -21,28 +21,91 @@
  */
 namespace oat\taoTestTaker\models;
 
+use core_kernel_classes_Class;
+use core_kernel_classes_Resource;
+use oat\oatbox\event\EventManagerAwareTrait;
+use oat\taoTestTaker\models\events\TestTakerClassCreatedEvent;
+use oat\taoTestTaker\models\events\TestTakerClassRemovedEvent;
+use oat\taoTestTaker\models\events\TestTakerCreatedEvent;
+use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
+
 /**
  * Service methods to manage the Subjects business models using the RDF API.
  *
  * @access public
  * @author Joel Bout, <joel.bout@tudor.lu>
- *
- *
  */
 class TestTakerService extends \tao_models_classes_ClassService
 {
+    use EventManagerAwareTrait;
 
     protected $subjectClass = null;
 
+    /**
+     * TestTakerService constructor.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
     }
 
+    /**
+     * @return core_kernel_classes_Class|null
+     */
     public function getRootClass()
     {
         return $this->subjectClass;
+    }
+
+    /**
+     * @param core_kernel_classes_Class $clazz
+     * @param string $label
+     * @return core_kernel_classes_Resource
+     */
+    public function createInstance(core_kernel_classes_Class $clazz, $label = '')
+    {
+        $instance = parent::createInstance($clazz, $label);
+
+        $this->getEventManager()->trigger(new TestTakerCreatedEvent($instance->getUri()));
+
+        return $instance;
+    }
+
+    /**
+     * @param core_kernel_classes_Class $parentClazz
+     * @param string $label
+     * @return core_kernel_classes_Class
+     */
+    public function createSubClass(core_kernel_classes_Class $parentClazz, $label = '')
+    {
+        $subClass = parent::createSubClass($parentClazz, $label);
+
+        $this->getEventManager()->trigger(new TestTakerClassCreatedEvent($subClass->getUri()));
+
+        return $subClass;
+    }
+
+    /**
+     * @param core_kernel_classes_Resource $resource
+     * @return bool
+     */
+    public function deleteResource(core_kernel_classes_Resource $resource)
+    {
+        $this->getEventManager()->trigger(new TestTakerRemovedEvent($resource->getUri()));
+
+        return parent::deleteResource($resource);
+    }
+
+    /**
+     * @param core_kernel_classes_Class $clazz
+     * @return bool
+     */
+    public function deleteClass(core_kernel_classes_Class $clazz)
+    {
+        $this->getEventManager()->trigger(new TestTakerClassRemovedEvent($clazz->getUri()));
+
+        return parent::deleteClass($clazz);
     }
 
     /**
@@ -58,6 +121,7 @@ class TestTakerService extends \tao_models_classes_ClassService
         $returnValue = (bool) false;
 
         if (! is_null($subject)) {
+            $this->getEventManager()->trigger(new TestTakerRemovedEvent($subject->getUri()));
             $returnValue = $subject->delete();
         }
 

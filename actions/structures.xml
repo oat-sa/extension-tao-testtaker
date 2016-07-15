@@ -42,7 +42,7 @@
                     <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="resource" group="tree">
                         <icon id="icon-import"/>
                     </action>
-                    <action id="testtaker-export" name="Export" url="/tao/Export/index" context="resource" group="tree">
+                    <action id="testtaker-export" name="Export" url="/taoTestTaker/Export/index" context="resource" group="tree">
                         <icon id="icon-export"/>
                     </action>
                     <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">

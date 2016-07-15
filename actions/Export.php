@@ -19,33 +19,28 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  * 
  */
-namespace oat\taoTestTaker\actions\form;
+namespace oat\taoTestTaker\actions;
+
+use oat\oatbox\event\EventManagerAwareTrait;
+use oat\taoTestTaker\models\events\TestTakerExportedEvent;
+
 /**
- * Short description of class taoSubjects_actions_form_Subject
- *
- * @access public
- * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
- * @package taoSubjects
- 
+ * Class Export
+ * @package oat\taoTestTaker\actions
  */
-class TestTaker
-    extends \tao_actions_form_Users
+class Export extends \tao_actions_Export
 {
+    use EventManagerAwareTrait;
 
-    /**
-     * Short description of method initElements
-     *
-     * @access public
-     * @author Jerome Bogaerts, <jerome.bogaerts@tudor.lu>
-     * @return void
-     */
-    public function initElements()
+    public function index()
     {
-        
-        parent::initElements();
-		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
-		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_ROLES));
-        
-    }
+        if ($this->hasRequestParameter('exportChooser_sent')
+            && $this->getRequestParameter('exportChooser_sent') == 1
+            &&$this->hasRequestParameter('id')
+        ) {
+            $this->getEventManager()->trigger(new TestTakerExportedEvent($this->getRequestParameter('id')));
+        }
 
+        parent::index();
+    }
 }
