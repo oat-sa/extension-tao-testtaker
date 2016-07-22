@@ -68,20 +68,11 @@ class Import extends \tao_actions_Import
      */
     protected function onAfterImport(common_report_Report $report)
     {
-        if (!$report->hasChildren()) {
-            // CSV Import
-            $data = $report->getData();
-            foreach ($data['imported_resources'] as $uri) {
-                $this->getEventManager()->trigger(new TestTakerImportedEvent($uri));
-            }
-        } else {
-            // RDF Import
-            /** @var common_report_Report $success */
-            foreach ($report->getSuccesses() as $success) {
-                $resource = $success->getData();
-                if ($resource instanceof core_kernel_classes_Resource) {
-                    $this->getEventManager()->trigger(new TestTakerImportedEvent($resource->getUri()));
-                }
+        /** @var common_report_Report $success */
+        foreach ($report->getSuccesses() as $success) {
+            $resource = $success->getData();
+            if ($resource instanceof core_kernel_classes_Resource) {
+                $this->getEventManager()->trigger(new TestTakerImportedEvent($resource->getUri()));
             }
         }
     }
