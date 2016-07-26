@@ -21,10 +21,9 @@
 
 namespace oat\taoTestTaker\models\events;
 
-use JsonSerializable;
-use oat\oatbox\event\Event;
+use oat\tao\model\event\LoggableEvent;
 
-abstract class AbstractTestTakerEvent implements Event, JsonSerializable
+abstract class AbstractTestTakerEvent extends LoggableEvent
 {
     /** @var string */
     protected $testTakerUri;
@@ -36,14 +35,6 @@ abstract class AbstractTestTakerEvent implements Event, JsonSerializable
     public function __construct($testTakerUri)
     {
         $this->testTakerUri = $testTakerUri;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return get_class($this);
     }
 
     /**
