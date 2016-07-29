@@ -21,7 +21,10 @@
  */
 namespace oat\taoTestTaker\actions;
 
+use common_report_Report;
+use core_kernel_classes_Resource;
 use oat\taoTestTaker\models\CsvImporter;
+use oat\taoTestTaker\models\events\TestTakerImportedEvent;
 use tao_helpers_form_FormFactory;
 
 /**
@@ -59,4 +62,18 @@ class Import extends \tao_actions_Import
 			PROPERTY_USER_LOGIN => array(tao_helpers_form_FormFactory::getValidator('Unique')),
 		);
 	}
+
+    /**
+     * @param common_report_Report $report
+     */
+    protected function onAfterImport(common_report_Report $report)
+    {
+        /** @var common_report_Report $success */
+        foreach ($report->getSuccesses() as $success) {
+            $resource = $success->getData();
+            if ($resource instanceof core_kernel_classes_Resource) {
+                $this->getEventManager()->trigger(new TestTakerImportedEvent($resource->getUri()));
+            }
+        }
+    }
 }
