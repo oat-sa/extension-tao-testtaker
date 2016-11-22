@@ -37,7 +37,7 @@ use tao_helpers_form_FormFactory;
  */
 class Import extends \tao_actions_Import 
 {
-    
+
     /**
      * (non-PHPdoc)
      * @see tao_actions_Import::getAvailableImportHandlers()
@@ -60,6 +60,7 @@ class Import extends \tao_actions_Import
 	protected function getValidators(){
 		return array(
 			PROPERTY_USER_LOGIN => array(tao_helpers_form_FormFactory::getValidator('Unique')),
+			PROPERTY_USER_PASSWORD => array(tao_helpers_form_FormFactory::getValidator('PasswordStrength')),
 		);
 	}
 
