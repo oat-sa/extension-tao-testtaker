@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"Project-Id-Version: TAO 3.1.0-sprint33\n"
+"PO-Revision-Date: 2016-08-25T14:37:29\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: de-DE\n"
@@ -26,11 +26,11 @@ msgstr "Export"
 
 #, tao-public
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #, tao-public
 msgid "Manage test takers"
@@ -38,7 +38,7 @@ msgstr "Testpersonen verwalten"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Verschieben"
 
 #, tao-public
 msgid "New class"
@@ -46,22 +46,22 @@ msgstr "Neue Klasse"
 
 #, tao-public
 msgid "New test-taker"
-msgstr "New test taker"
+msgstr "Neue Test-Person"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Eigenschaften"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Testpersonen erstellen und verwalten"
 
 #, tao-public
 msgid "Search"
 msgstr "Suchen"
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Testperson gespeichert"
 
 msgid "Test takers"
 msgstr "Testpersonen"
@@ -75,8 +75,8 @@ msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Per
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Testpersonen"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von Testpersonen."
+msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von  Testpersonen."
 

@@ -37,7 +37,7 @@ return array(
     'author' => 'Open Assessment Technologies, CRP Henri Tudor',
     'requires' => array(
         'taoBackOffice' => '>=0.8',
-        'tao' => '>=6.3.0'
+        'tao' => '>=7.83.0'
     ),
 	'models' => array(
 		'http://www.tao.lu/Ontologies/TAOSubject.rdf'
