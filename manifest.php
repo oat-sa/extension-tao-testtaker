@@ -33,7 +33,7 @@ return array(
     'label' => 'Test-taker core extension',
 	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '2.10.2',
+    'version' => '3.0.0',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'requires' => array(
 	    'taoBackOffice' => '>=0.8'
@@ -74,8 +74,5 @@ return array(
 	
 		#BASE URL (usually the domain root)
 		'BASE_URL'				=> ROOT_URL	.'taoTestTaker/',
-	
-		#BASE WWW the web resources path
-		'BASE_WWW'				=> ROOT_URL	.'taoTestTaker/views/',
 	)
 );
