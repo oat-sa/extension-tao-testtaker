@@ -21,6 +21,10 @@
 
 namespace oat\taoTestTaker\scripts\update;
 
+use oat\tao\model\accessControl\func\AclProxy;
+use oat\tao\model\accessControl\func\AccessRule;
+use oat\tao\model\user\TaoRoles;
+use oat\taoTestTaker\actions\Api;
 /**
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
@@ -34,15 +38,11 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion) {
         
-        $currentVersion = $initialVersion;
-		if ($currentVersion == '2.6' || $currentVersion == '2.6.1'  || $currentVersion == '2.7') {
-			$currentVersion = '2.7.1';
-		}
-
-		$this->setVersion($currentVersion);
-
-        $this->skip('2.7.1', '3.0.0');
-
-		return null;
+        $this->skip('2.6', '3.0.0');
+        // fix anonymous access
+        if ($this->isVersion('3.0.0')) {
+            AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, Api::class));
+            $this->setVersion('3.0.1');
+        }
 	}
 }
