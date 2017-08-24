@@ -27,5 +27,5 @@ namespace oat\taoTestTaker\models\events;
  */
 class TestTakerRemovedEvent extends AbstractTestTakerEvent
 {
-
+    const EVENT_NAME = __CLASS__;
 }
