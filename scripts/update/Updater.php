@@ -44,5 +44,6 @@ class Updater extends \common_ext_ExtensionUpdater
             AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, Api::class));
             $this->setVersion('3.0.1');
         }
+        $this->skip('3.0.1', '3.0.2');
 	}
 }
