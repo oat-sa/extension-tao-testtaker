@@ -19,6 +19,7 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use oat\tao\model\TaoOntology;
 
 /**
  * A custom subject CSV importer
@@ -39,8 +40,8 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
        return array_merge(parent::getExludedProperties(), array(
            PROPERTY_USER_DEFLG,
            PROPERTY_USER_ROLES,
-           PROPERTY_USER_LASTEXTENSION,
-           PROPERTY_USER_FIRSTTIME,
+		   TaoOntology::PROPERTY_USER_LAST_EXTENSION,
+		   TaoOntology::PROPERTY_USER_FIRST_TIME,
            PROPERTY_USER_TIMEZONE
        ));
     }
@@ -56,7 +57,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return array(
             PROPERTY_USER_DEFLG => $lang,
             PROPERTY_USER_TIMEZONE => TIME_ZONE,
-            PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
+            PROPERTY_USER_ROLES => TaoOntology::INSTANCE_ROLE_DELIVERY
         );
     }
 

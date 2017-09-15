@@ -17,6 +17,7 @@
  */
 namespace oat\taoTestTaker\test;
 
+use oat\tao\model\TaoOntology;
 use oat\tao\test\RestTestCase;
 use \core_kernel_users_Service;
 
@@ -52,7 +53,7 @@ class RestTestTakerTest extends RestTestCase
         return array(
             array(
                 'taoTestTaker/Api',
-                TAO_SUBJECT_CLASS
+                TaoOntology::SUBJECT_CLASS
             )
         );
     }
