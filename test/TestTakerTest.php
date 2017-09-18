@@ -72,7 +72,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     {
         $subjectClass = $this->subjectsService->getRootClass();
         $this->assertIsA($subjectClass, 'core_kernel_classes_Class');
-        $this->assertEquals(TaoOntology::SUBJECT_CLASS, $subjectClass->getUri());
+        $this->assertEquals(TaoOntology::SUBJECT_CLASS_URI, $subjectClass->getUri());
 
         $this->assertTrue($this->subjectsService->isSubjectClass($subjectClass));
 
@@ -148,7 +148,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->subjectsService->setTestTakerRole($instance);
         $propertyRoles = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
         $values = $instance->getPropertyValues($propertyRoles);
-        $this->assertEquals($values[0], TaoOntology::INSTANCE_ROLE_DELIVERY);
+        $this->assertEquals($values[0], TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY);
     }
 
     /**

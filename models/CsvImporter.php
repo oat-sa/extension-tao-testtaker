@@ -57,7 +57,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return array(
             PROPERTY_USER_DEFLG => $lang,
             PROPERTY_USER_TIMEZONE => TIME_ZONE,
-            PROPERTY_USER_ROLES => TaoOntology::INSTANCE_ROLE_DELIVERY
+            PROPERTY_USER_ROLES => TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY
         );
     }
 

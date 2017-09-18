@@ -48,7 +48,7 @@ class TestTakerService extends \tao_models_classes_ClassService
     public function __construct()
     {
         parent::__construct();
-        $this->subjectClass = new \core_kernel_classes_Class(TaoOntology::SUBJECT_CLASS);
+        $this->subjectClass = new \core_kernel_classes_Class(TaoOntology::SUBJECT_CLASS_URI);
     }
 
     /**
@@ -163,7 +163,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function setTestTakerRole(\core_kernel_classes_Resource $instance){
         $roleProperty = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
-        $subjectRole = new \core_kernel_classes_Resource(TaoOntology::INSTANCE_ROLE_DELIVERY);
+        $subjectRole = new \core_kernel_classes_Resource(TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY);
         $instance->setPropertyValue($roleProperty, $subjectRole);
     }
 

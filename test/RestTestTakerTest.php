@@ -53,7 +53,7 @@ class RestTestTakerTest extends RestTestCase
         return array(
             array(
                 'taoTestTaker/Api',
-                TaoOntology::SUBJECT_CLASS
+                TaoOntology::SUBJECT_CLASS_URI
             )
         );
     }
