@@ -39,7 +39,7 @@ class TestTakerService extends \tao_models_classes_ClassService
 {
     use EventManagerAwareTrait;
 
-    const PROPERTY_TAO_CLASS_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
+    const CLASS_URI_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
 
     protected $subjectClass = null;
 
