@@ -22,6 +22,7 @@
 namespace oat\taoTestTaker\actions;
 
 use core_kernel_classes_Class;
+use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
@@ -90,10 +91,10 @@ class TestTaker extends tao_actions_SaSModule
         $subject = $this->getCurrentInstance();
         
         $addMode = false;
-        $login = (string) $subject->getOnePropertyValue(new \core_kernel_classes_Property(PROPERTY_USER_LOGIN));
+        $login = (string) $subject->getOnePropertyValue(new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN));
         if (empty($login)) {
             $addMode = true;
-            $this->setData('loginUri', \tao_helpers_Uri::encode(PROPERTY_USER_LOGIN));
+            $this->setData('loginUri', \tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN));
         }
 
         if ($this->hasRequestParameter('reload')) {
@@ -110,12 +111,12 @@ class TestTaker extends tao_actions_SaSModule
                 $values = $myForm->getValues();
                 
                 if ($addMode) {
-                    $values[PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
+                    $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
                     unset($values['password1']);
                     unset($values['password2']);
                 } else {
                     if (! empty($values['password2'])) {
-                        $values[PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
+                        $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
                     }
                     unset($values['password2']);
                     unset($values['password3']);
@@ -133,9 +134,9 @@ class TestTaker extends tao_actions_SaSModule
                 
                 // force the data language to be the same as the gui language
                 $userService = \tao_models_classes_UserService::singleton();
-                $lang = new \core_kernel_classes_Resource($values[PROPERTY_USER_UILG]);
+                $lang = new \core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
                 $userService->bindProperties($subject, array(
-                    PROPERTY_USER_DEFLG => $lang->getUri()
+                    GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
                 ));
 
                 $message = __('Test taker saved');

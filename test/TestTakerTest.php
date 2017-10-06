@@ -22,6 +22,8 @@
 
 namespace oat\taoTestTaker\test;
 
+use oat\generis\model\GenerisRdf;
+use oat\generis\model\OntologyRdfs;
 use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 
@@ -129,8 +131,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertIsA($instance, 'core_kernel_classes_Resource');
         $this->assertEquals($label, $instance->getLabel());
 
-        $this->assertTrue(defined('RDFS_LABEL'));
-        $instance->removePropertyValues(new \core_kernel_classes_Property(RDFS_LABEL));
+        $instance->removePropertyValues(new \core_kernel_classes_Property(OntologyRdfs::RDFS_LABEL));
         $instance->setLabel($label);
 
 
@@ -146,7 +147,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     public function testSetTestTakerRole($instance)
     {
         $this->subjectsService->setTestTakerRole($instance);
-        $propertyRoles = new \core_kernel_classes_Property(PROPERTY_USER_ROLES);
+        $propertyRoles = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_ROLES);
         $values = $instance->getPropertyValues($propertyRoles);
         $this->assertEquals($values[0], INSTANCE_ROLE_DELIVERY);
     }
@@ -168,10 +169,10 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     public function testClone($instance)
     {
 
-        $propertyLogin = new \core_kernel_classes_Property(PROPERTY_USER_LOGIN);
+        $propertyLogin = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN);
         $instance->setPropertyValue($propertyLogin, 'testUser');
 
-        $propertyName = new \core_kernel_classes_Property(PROPERTY_USER_FIRSTNAME);
+        $propertyName = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_FIRSTNAME);
         $instance->setPropertyValue($propertyName, 'Cool Name');
 
         $clone = $this->subjectsService->cloneInstance($instance);

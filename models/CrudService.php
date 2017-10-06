@@ -18,6 +18,9 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use oat\generis\model\GenerisRdf;
+use oat\generis\model\OntologyRdf;
+use oat\generis\model\OntologyRdfs;
 
 /**
  *
@@ -62,33 +65,33 @@ class CrudService extends \tao_models_classes_CrudService
     {
 
         // mandatory parameters
-        if (! isset($propertiesValues[PROPERTY_USER_LOGIN])) {
+        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_LOGIN])) {
             throw new \common_exception_MissingParameter("login");
         }
-        if (! isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
+        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD])) {
             throw new \common_exception_MissingParameter("password");
         }
         // default values
-        if (! isset($propertiesValues[PROPERTY_USER_UILG])) {
-            $propertiesValues[PROPERTY_USER_UILG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_UILG])) {
+            $propertiesValues[GenerisRdf::PROPERTY_USER_UILG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
         }
-        if (! isset($propertiesValues[PROPERTY_USER_DEFLG])) {
-            $propertiesValues[PROPERTY_USER_DEFLG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
+        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG])) {
+            $propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
         }
-        if (! isset($propertiesValues[RDFS_LABEL])) {
-            $propertiesValues[RDFS_LABEL] = "";
+        if (! isset($propertiesValues[OntologyRdfs::RDFS_LABEL])) {
+            $propertiesValues[OntologyRdfs::RDFS_LABEL] = "";
         }
         // check if login already exists
         $userService = \tao_models_classes_UserService::singleton();
-        if ($userService->loginExists($propertiesValues[PROPERTY_USER_LOGIN])) {
+        if ($userService->loginExists($propertiesValues[GenerisRdf::PROPERTY_USER_LOGIN])) {
             throw new \common_exception_PreConditionFailure("login already exists");
         }
-        $propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
-        $type = isset($propertiesValues[RDF_TYPE]) ? $propertiesValues[RDF_TYPE] : $this->getRootClass();
-        $label = $propertiesValues[RDFS_LABEL];
+        $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
+        $type = isset($propertiesValues[OntologyRdf::RDF_TYPE]) ? $propertiesValues[OntologyRdf::RDF_TYPE] : $this->getRootClass();
+        $label = $propertiesValues[OntologyRdfs::RDFS_LABEL];
         // hmmm
-        unset($propertiesValues[RDFS_LABEL]);
-        unset($propertiesValues[RDF_TYPE]);
+        unset($propertiesValues[OntologyRdfs::RDFS_LABEL]);
+        unset($propertiesValues[OntologyRdf::RDF_TYPE]);
 
         $resource = parent::create($label, $type, $propertiesValues);
         
@@ -105,11 +108,11 @@ class CrudService extends \tao_models_classes_CrudService
         if (is_null($uri)) {
             throw new \common_exception_MissingParameter("uri");
         }
-        if (isset($propertiesValues[PROPERTY_USER_LOGIN])) {
+        if (isset($propertiesValues[GenerisRdf::PROPERTY_USER_LOGIN])) {
             throw new \common_exception_PreConditionFailure("login update not allowed");
         }
-        if (isset($propertiesValues[PROPERTY_USER_PASSWORD])) {
-            $propertiesValues[PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[PROPERTY_USER_PASSWORD]);
+        if (isset($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD])) {
+            $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
         }
         parent::update($uri, $propertiesValues);
         // throw new common_exception_NotImplemented();

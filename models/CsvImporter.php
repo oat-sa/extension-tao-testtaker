@@ -19,6 +19,7 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use oat\generis\model\GenerisRdf;
 
 /**
  * A custom subject CSV importer
@@ -37,11 +38,11 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     protected function getExludedProperties()
     {
        return array_merge(parent::getExludedProperties(), array(
-           PROPERTY_USER_DEFLG,
-           PROPERTY_USER_ROLES,
+           GenerisRdf::PROPERTY_USER_DEFLG,
+           GenerisRdf::PROPERTY_USER_ROLES,
            PROPERTY_USER_LASTEXTENSION,
            PROPERTY_USER_FIRSTTIME,
-           PROPERTY_USER_TIMEZONE
+           GenerisRdf::PROPERTY_USER_TIMEZONE
        ));
     }
 
@@ -54,9 +55,9 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         $lang = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
 
         return array(
-            PROPERTY_USER_DEFLG => $lang,
-            PROPERTY_USER_TIMEZONE => TIME_ZONE,
-            PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
+            GenerisRdf::PROPERTY_USER_DEFLG => $lang,
+            GenerisRdf::PROPERTY_USER_TIMEZONE => TIME_ZONE,
+            GenerisRdf::PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
         );
     }
 
@@ -69,7 +70,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         $returnValue = array(
             'callbacks' => array(
                 '*' => array('trim'),
-                PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
+                GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
             )
         );
 
