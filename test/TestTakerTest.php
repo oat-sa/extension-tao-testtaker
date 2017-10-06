@@ -22,6 +22,7 @@
 
 namespace oat\taoTestTaker\test;
 
+use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdfs;
 use oat\tao\test\TaoPhpUnitTestRunner;
@@ -71,10 +72,9 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      */
     public function testGetRootClass()
     {
-        $this->assertTrue(defined('TAO_SUBJECT_CLASS'));
         $subjectClass = $this->subjectsService->getRootClass();
         $this->assertIsA($subjectClass, 'core_kernel_classes_Class');
-        $this->assertEquals(TAO_SUBJECT_CLASS, $subjectClass->getUri());
+        $this->assertEquals(TaoOntology::SUBJECT_CLASS_URI, $subjectClass->getUri());
 
         $this->assertTrue($this->subjectsService->isSubjectClass($subjectClass));
 
@@ -149,7 +149,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->subjectsService->setTestTakerRole($instance);
         $propertyRoles = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_ROLES);
         $values = $instance->getPropertyValues($propertyRoles);
-        $this->assertEquals($values[0], INSTANCE_ROLE_DELIVERY);
+        $this->assertEquals($values[0], TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY);
     }
 
     /**

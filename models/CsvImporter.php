@@ -19,6 +19,7 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 
 /**
@@ -40,8 +41,8 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
        return array_merge(parent::getExludedProperties(), array(
            GenerisRdf::PROPERTY_USER_DEFLG,
            GenerisRdf::PROPERTY_USER_ROLES,
-           PROPERTY_USER_LASTEXTENSION,
-           PROPERTY_USER_FIRSTTIME,
+		   TaoOntology::PROPERTY_USER_LAST_EXTENSION,
+		   TaoOntology::PROPERTY_USER_FIRST_TIME,
            GenerisRdf::PROPERTY_USER_TIMEZONE
        ));
     }
@@ -57,7 +58,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return array(
             GenerisRdf::PROPERTY_USER_DEFLG => $lang,
             GenerisRdf::PROPERTY_USER_TIMEZONE => TIME_ZONE,
-            GenerisRdf::PROPERTY_USER_ROLES => INSTANCE_ROLE_DELIVERY
+            GenerisRdf::PROPERTY_USER_ROLES => TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY
         );
     }
 

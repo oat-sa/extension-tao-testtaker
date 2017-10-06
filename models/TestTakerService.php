@@ -25,6 +25,7 @@ use core_kernel_classes_Class;
 use core_kernel_classes_Resource;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
+use oat\tao\model\TaoOntology;
 use oat\taoTestTaker\models\events\TestTakerClassCreatedEvent;
 use oat\taoTestTaker\models\events\TestTakerClassRemovedEvent;
 use oat\taoTestTaker\models\events\TestTakerCreatedEvent;
@@ -48,7 +49,7 @@ class TestTakerService extends \tao_models_classes_ClassService
     public function __construct()
     {
         parent::__construct();
-        $this->subjectClass = new \core_kernel_classes_Class(TAO_SUBJECT_CLASS);
+        $this->subjectClass = new \core_kernel_classes_Class(TaoOntology::SUBJECT_CLASS_URI);
     }
 
     /**
@@ -163,7 +164,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function setTestTakerRole(\core_kernel_classes_Resource $instance){
         $roleProperty = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_ROLES);
-        $subjectRole = new \core_kernel_classes_Resource(INSTANCE_ROLE_DELIVERY);
+        $subjectRole = new \core_kernel_classes_Resource(TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY);
         $instance->setPropertyValue($roleProperty, $subjectRole);
     }
 
