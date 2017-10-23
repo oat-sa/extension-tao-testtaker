@@ -26,6 +26,10 @@
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  *
  */
+
+/**
+ * @deprecated
+ */
 $todefine = array(
 	'TAO_CLASS_SUBJECT'		=> 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject'
 );
