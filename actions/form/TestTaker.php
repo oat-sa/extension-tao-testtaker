@@ -20,6 +20,8 @@
  * 
  */
 namespace oat\taoTestTaker\actions\form;
+use oat\generis\model\GenerisRdf;
+
 /**
  * Short description of class taoSubjects_actions_form_Subject
  *
@@ -43,8 +45,8 @@ class TestTaker
     {
         
         parent::initElements();
-		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_DEFLG));
-		$this->form->removeElement(\tao_helpers_Uri::encode(PROPERTY_USER_ROLES));
+		$this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_DEFLG));
+		$this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_ROLES));
         
     }
 
