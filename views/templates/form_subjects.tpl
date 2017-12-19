@@ -6,6 +6,9 @@ Template::inc('form_context.tpl', 'tao');
 
 <header class="flex-container-full">
     <h2><?=get_data('formTitle')?></h2>
+    <?php if(has_data('updatedAt')) : ?>
+        <p><?=__('Last updated on %2s', tao_helpers_Date::displayeDate(get_data('updatedAt')))?></p>
+    <?php endif?>
 </header>
 <div class="main-container flex-container-main-form">
     <div class="form-content">

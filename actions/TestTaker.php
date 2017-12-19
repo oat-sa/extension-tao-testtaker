@@ -24,6 +24,7 @@ namespace oat\taoTestTaker\actions;
 use core_kernel_classes_Class;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
+use oat\tao\model\resources\ResourceWatcher;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -160,7 +161,8 @@ class TestTaker extends tao_actions_SaSModule
         if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
             $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
         }
-        
+        $updatedAt = $this->getServiceManager()->get(ResourceWatcher::SERVICE_ID)->getUpdatedAt($subject);
+        $this->setData('updatedAt', $updatedAt);
         $this->setData('checkLogin', $addMode);
         $this->setData('formTitle', __('Edit subject'));
         $this->setData('myForm', $myForm->render());
