@@ -21,6 +21,8 @@
  */
 namespace oat\taoTestTaker\actions;
 
+use oat\generis\model\GenerisRdf;
+use oat\generis\model\OntologyRdf;
 use oat\taoTestTaker\models\CrudService;
 
 class Api extends \tao_actions_CommonRestModule {
@@ -36,14 +38,14 @@ class Api extends \tao_actions_CommonRestModule {
 	 */
 	protected function getParametersAliases(){
 	    return array_merge(parent::getParametersAliases(), array(
-		    "login"=> PROPERTY_USER_LOGIN,
-		    "password" => PROPERTY_USER_PASSWORD,
-		    "guiLg" => PROPERTY_USER_UILG,
-		    "dataLg" => PROPERTY_USER_DEFLG,
-		    "firstName"=> PROPERTY_USER_FIRSTNAME,
-            "lastName" => PROPERTY_USER_LASTNAME,
-		    "mail"=> PROPERTY_USER_MAIL,
-		    "type"=> RDF_TYPE
+		    "login"=> GenerisRdf::PROPERTY_USER_LOGIN,
+		    "password" => GenerisRdf::PROPERTY_USER_PASSWORD,
+		    "guiLg" => GenerisRdf::PROPERTY_USER_UILG,
+		    "dataLg" => GenerisRdf::PROPERTY_USER_DEFLG,
+		    "firstName"=> GenerisRdf::PROPERTY_USER_FIRSTNAME,
+            "lastName" => GenerisRdf::PROPERTY_USER_LASTNAME,
+		    "mail"=> GenerisRdf::PROPERTY_USER_MAIL,
+		    "type"=> OntologyRdf::RDF_TYPE
 	    ));
 	}
 	/**

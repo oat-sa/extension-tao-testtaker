@@ -23,6 +23,7 @@ namespace oat\taoTestTaker\actions;
 
 use common_report_Report;
 use core_kernel_classes_Resource;
+use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\CsvImporter;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
 use tao_helpers_form_FormFactory;
@@ -59,7 +60,7 @@ class Import extends \tao_actions_Import
 
 	protected function getValidators(){
 		return array(
-			PROPERTY_USER_LOGIN => array(tao_helpers_form_FormFactory::getValidator('Unique')),
+			GenerisRdf::PROPERTY_USER_LOGIN => array(tao_helpers_form_FormFactory::getValidator('Unique')),
 		);
 	}
 
