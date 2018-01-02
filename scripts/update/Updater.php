@@ -36,14 +36,14 @@ class Updater extends \common_ext_ExtensionUpdater
      * @return string $versionUpdatedTo
      * @internal param string $currentVersion
      */
-    public function update($initialVersion) {
-        
+    public function update($initialVersion)
+    {
         $this->skip('2.6', '3.0.0');
         // fix anonymous access
         if ($this->isVersion('3.0.0')) {
             AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, Api::class));
             $this->setVersion('3.0.1');
         }
-        $this->skip('3.0.1', '3.2.0');
-	}
+        $this->skip('3.0.1', '3.3.0');
+    }
 }
