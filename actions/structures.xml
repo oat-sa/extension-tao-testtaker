@@ -24,16 +24,13 @@
                     <action id="testtaker-properties" name="Properties"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance">
                         <icon id="icon-edit"/>
                     </action>
-                    <action id="testtaker-filter" name="Filter" context="*" group="search" binding="filter">
-                        <icon id="icon-filter"/>
-                    </action>
-                    <action id="testtaker-search" name="Search" url="/taoTestTaker/TestTaker/search" context="*" group="search" binding="launchFinder">
-                        <icon id="icon-find"/>
-                    </action>
                     <action id="testtaker-class-new" name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="resource" group="tree" binding="subClass">
                         <icon id="icon-folder-open"/>
                     </action>
                     <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
+                        <icon id="icon-bin"/>
+                    </action>
+                    <action id="testtaker-delete-all" name="Delete" url="/taoTestTaker/TestTaker/deleteAll" context="resource" multiple="true" group="tree" binding="removeNodes">
                         <icon id="icon-bin"/>
                     </action>
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
