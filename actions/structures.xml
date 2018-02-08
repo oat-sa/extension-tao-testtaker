@@ -45,6 +45,9 @@
                     <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">
                         <icon id="icon-test-taker"/>
                     </action>
+                    <action id="testtaker-copy-to" name="Copy To" url="/taoTestTaker/TestTaker/copyInstance" context="instance" group="tree" binding="copyTo">
+                        <icon id="icon-copy"/>
+                    </action>
                 </actions>
             </section>
         </sections>
