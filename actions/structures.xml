@@ -18,8 +18,11 @@
                         />
                 </trees>
                 <actions>
-                	<action id="testtaker-class-properties" name="Properties" url="/tao/PropertiesAuthoring/index" group="content" context="class">
+                    <action id="testtaker-class-properties" name="Properties" url="/taoTestTaker/TestTaker/editClassLabel" group="content" context="class">
                         <icon id="icon-edit"/>
+                    </action>
+                    <action id="testtaker-class-schema" name="Manage Schema" url="/tao/PropertiesAuthoring/index" group="content" context="class">
+                        <icon id="icon-property-add"/>
                     </action>
                     <action id="testtaker-properties" name="Properties"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance">
                         <icon id="icon-edit"/>
