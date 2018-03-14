@@ -44,7 +44,11 @@ return array(
 	'install' => array(
 		'rdf' => array(
 				dirname(__FILE__). '/models/ontology/taosubject.rdf'
-		)
+		),
+        'php' => [
+            \oat\taoTestTaker\scripts\install\SetupConfig::class,
+        ]
+
 	),
 	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
