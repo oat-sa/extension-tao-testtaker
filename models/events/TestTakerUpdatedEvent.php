@@ -27,7 +27,7 @@ namespace oat\taoTestTaker\models\events;
  */
 class TestTakerUpdatedEvent extends AbstractTestTakerEvent
 {
-    private $properties;
+    protected $properties;
 
     /**
      * TestTakerUpdatedEvent constructor.
