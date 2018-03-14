@@ -117,8 +117,8 @@ class TestTaker extends tao_actions_SaSModule
                     unset($values['password1']);
                     unset($values['password2']);
                 } else {
-                    $plainPassword = $values['password2'];
                     if (! empty($values['password2'])) {
+                        $plainPassword = $values['password2'];
                         $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
                     }
                     unset($values['password2']);
