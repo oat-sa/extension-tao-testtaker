@@ -19,6 +19,7 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use oat\oatbox\service\ServiceManager;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 
@@ -58,22 +59,34 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return array(
             GenerisRdf::PROPERTY_USER_DEFLG => $lang,
             GenerisRdf::PROPERTY_USER_TIMEZONE => TIME_ZONE,
-            GenerisRdf::PROPERTY_USER_ROLES => TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY
+            GenerisRdf::PROPERTY_USER_ROLES => TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY,
         );
     }
 
     /**
      * (non-PHPdoc)
      * @see tao_models_classes_import_CsvImporter::getAdditionAdapterOptions()
+     * @throws \common_ext_ExtensionException
      */
     protected function getAdditionAdapterOptions()
     {
-        $returnValue = array(
-            'callbacks' => array(
-                '*' => array('trim'),
-                GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
-            )
-        );
+        /** @var \common_ext_ExtensionsManager $extManager */
+        $extManager = ServiceManager::getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+        $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
+        $config = $taoTestTaker->getConfig('csvImporterCallbacks');
+
+        if (empty($config['callbacks'])){
+            $returnValue = array(
+                'callbacks' => array(
+                    '*' => array('trim'),
+                    GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
+                )
+            );
+        } else {
+            $returnValue = array(
+                'callbacks' => $config['callbacks']
+            );
+        }
 
         return $returnValue;
     }

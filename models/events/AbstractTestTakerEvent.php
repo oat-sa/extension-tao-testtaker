@@ -29,13 +29,19 @@ abstract class AbstractTestTakerEvent implements Event, JsonSerializable
     /** @var string */
     protected $testTakerUri;
 
+    /** @var array */
+    protected $properties;
+
     /**
      * AbstractTestTakerEvent constructor.
      * @param $testTakerUri
+     * @param array $properties
      */
-    public function __construct($testTakerUri)
+    public function __construct($testTakerUri, array $properties = [])
     {
         $this->testTakerUri = $testTakerUri;
+
+        $this->properties = $properties;
     }
 
     /**
@@ -56,7 +62,15 @@ abstract class AbstractTestTakerEvent implements Event, JsonSerializable
     function jsonSerialize()
     {
         return [
-            'testTakerUri' => $this->testTakerUri
+            'testTakerUri' => $this->testTakerUri,
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getProperties()
+    {
+        return $this->properties;
     }
 }

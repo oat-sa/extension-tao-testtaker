@@ -21,6 +21,7 @@
 
 namespace oat\taoTestTaker\scripts\update;
 
+use oat\generis\model\GenerisRdf;
 use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
@@ -35,6 +36,7 @@ class Updater extends \common_ext_ExtensionUpdater
      * @param $initialVersion
      * @return string $versionUpdatedTo
      * @internal param string $currentVersion
+     * @throws \common_ext_ExtensionException
      */
     public function update($initialVersion)
     {
@@ -44,6 +46,23 @@ class Updater extends \common_ext_ExtensionUpdater
             AclProxy::revokeRule(new AccessRule(AccessRule::GRANT, TaoRoles::ANONYMOUS, Api::class));
             $this->setVersion('3.0.1');
         }
-        $this->skip('3.0.1', '3.5.0');
+        $this->skip('3.0.1', '3.4.0');
+
+        if ($this->isVersion('3.4.0')) {
+
+            /** @var \common_ext_ExtensionsManager $extManager */
+            $extManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+            $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
+
+            $taoTestTaker->setConfig('csvImporterCallbacks', [
+                'callbacks' => array(
+                    '*' => array('trim'),
+                    GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
+                ),
+                'use_properties_for_event' => false
+            ]);
+
+            $this->setVersion('3.5.0');
+        }
     }
 }
