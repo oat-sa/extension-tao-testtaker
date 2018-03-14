@@ -21,10 +21,16 @@
 
 namespace oat\taoTestTaker\scripts\install;
 
+use oat\generis\model\GenerisRdf;
 use oat\oatbox\extension\InstallAction;
 
 class SetupConfig extends InstallAction
 {
+    /**
+     * @param $params
+     * @throws \common_exception_Error
+     * @throws \common_ext_ExtensionException
+     */
     public function __invoke($params)
     {
         /** @var \common_ext_ExtensionsManager $extManager */
