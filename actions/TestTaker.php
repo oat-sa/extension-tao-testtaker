@@ -22,6 +22,7 @@
 namespace oat\taoTestTaker\actions;
 
 use core_kernel_classes_Class;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
 use oat\tao\model\resources\ResourceWatcher;
@@ -129,7 +130,7 @@ class TestTaker extends tao_actions_SaSModule
                 $subject = $binder->bind($values);
 
                 $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(),
-                    array_merge($values, ['plainPassword' => $plainPassword])
+                    array_merge($values, ['hashForKey' => UserHashForEncryption::hash($plainPassword)])
                 ));
                 
                 if ($addMode) {

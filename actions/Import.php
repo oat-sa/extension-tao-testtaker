@@ -23,6 +23,7 @@ namespace oat\taoTestTaker\actions;
 
 use common_report_Report;
 use core_kernel_classes_Resource;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\CsvImporter;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
@@ -95,7 +96,7 @@ class Import extends \tao_actions_Import
 
         if ((bool)$config['use_properties_for_event']){
             return [
-                'plainPassword' => TestTakerSavePasswordInMemory::getPassword(),
+                'hashForKey' => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
                 GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
                     new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
                 )->literal
