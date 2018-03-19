@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -14,41 +15,38 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2016  (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
- * @author Ivan klimchuk <klimchuk@1pt.com>
  */
+namespace oat\taoTestTaker\models;
 
-namespace oat\taoTestTaker\models\events;
-
-/**
- * Class TestTakerUpdatedEvent
- * @package oat\taoTestTaker\models\events
- */
-class TestTakerUpdatedEvent extends AbstractTestTakerEvent
+class TestTakerSavePasswordInMemory
 {
-    protected $properties;
+    /** @var array  */
+    protected static $passwords = [];
+
+    /** @var int  */
+    protected static $index = 0;
 
     /**
-     * TestTakerUpdatedEvent constructor.
-     * @param $testTakerUri
-     * @param array $properties
+     * @return mixed
      */
-    public function __construct($testTakerUri, array $properties)
+    public static function getPassword()
     {
-        parent::__construct($testTakerUri);
+        $value = static::$passwords[static::$index];
+        static::$index++;
 
-        $this->properties = $properties;
+        return $value;
     }
 
     /**
-     * @return array
+     * @param $value
+     * @return mixed
      */
-    function jsonSerialize()
+    public static function saveUserPassword($value)
     {
-        return [
-            'testTakerUri' => $this->testTakerUri,
-            'properties' => $this->properties
-        ];
+        static::$passwords[] = $value;
+
+        return $value;
     }
 }

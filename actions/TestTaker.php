@@ -22,6 +22,7 @@
 namespace oat\taoTestTaker\actions;
 
 use core_kernel_classes_Class;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
 use oat\tao\model\resources\ResourceWatcher;
@@ -112,11 +113,13 @@ class TestTaker extends tao_actions_SaSModule
                 $values = $myForm->getValues();
                 
                 if ($addMode) {
+                    $plainPassword = $values['password1'];
                     $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
                     unset($values['password1']);
                     unset($values['password2']);
                 } else {
                     if (! empty($values['password2'])) {
+                        $plainPassword = $values['password2'];
                         $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
                     }
                     unset($values['password2']);
@@ -126,7 +129,9 @@ class TestTaker extends tao_actions_SaSModule
                 $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
                 $subject = $binder->bind($values);
 
-                $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(), $values));
+                $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(),
+                    array_merge($values, ['hashForKey' => UserHashForEncryption::hash($plainPassword)])
+                ));
                 
                 if ($addMode) {
                     // force default subject roles to be the Delivery Role:

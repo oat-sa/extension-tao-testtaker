@@ -23,9 +23,11 @@ namespace oat\taoTestTaker\actions;
 
 use common_report_Report;
 use core_kernel_classes_Resource;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\CsvImporter;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
+use oat\taoTestTaker\models\TestTakerSavePasswordInMemory;
 use tao_helpers_form_FormFactory;
 
 /**
@@ -66,6 +68,7 @@ class Import extends \tao_actions_Import
 
     /**
      * @param common_report_Report $report
+     * @throws \core_kernel_persistence_Exception
      */
     protected function onAfterImport(common_report_Report $report)
     {
@@ -73,8 +76,33 @@ class Import extends \tao_actions_Import
         foreach ($report->getSuccesses() as $success) {
             $resource = $success->getData();
             if ($resource instanceof core_kernel_classes_Resource) {
-                $this->getEventManager()->trigger(new TestTakerImportedEvent($resource->getUri()));
+                $this->getEventManager()->trigger(new TestTakerImportedEvent($resource->getUri(), $this->getProperties($resource)));
             }
         }
+    }
+
+    /**
+     * @param core_kernel_classes_Resource $resource
+     * @return array
+     * @throws \core_kernel_persistence_Exception
+     * @throws \common_ext_ExtensionException
+     */
+    protected function getProperties($resource)
+    {
+        /** @var \common_ext_ExtensionsManager $extManager */
+        $extManager = $this->getServiceLocator()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+        $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
+        $config = $taoTestTaker->getConfig('csvImporterCallbacks');
+
+        if ((bool)$config['use_properties_for_event']){
+            return [
+                'hashForKey' => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
+                GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
+                    new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
+                )->literal
+            ];
+        }
+
+        return [];
     }
 }
