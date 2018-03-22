@@ -68,15 +68,14 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('3.5.0');
         }
 
+        $this->skip('3.5.0', '3.6.0');
 
-        $this->skip('3.5.0', '3.5.1');
-
-        if ($this->isVersion('3.5.1')){
+        if ($this->isVersion('3.6.0')){
             $rdsUserImport = $this->getServiceManager()->get(RdsUserImportService::SERVICE_ID);
             $rdsUserImport->setOption(RdsUserImportService::OPTION_TEST_TAKER_EVENT, TestTakerUpdatedEvent::class);
 
             $this->getServiceManager()->register(RdsUserImportService::SERVICE_ID, $rdsUserImport);
-            $this->setVersion('3.6.0');
+            $this->setVersion('3.7.0');
         }
     }
 }
