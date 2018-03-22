@@ -129,8 +129,13 @@ class TestTaker extends tao_actions_SaSModule
                 $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
                 $subject = $binder->bind($values);
 
+                $data = [];
+                if (isset($plainPassword)){
+                    $data = ['hashForKey' => UserHashForEncryption::hash($plainPassword)];
+                }
+
                 $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(),
-                    array_merge($values, ['hashForKey' => UserHashForEncryption::hash($plainPassword)])
+                    array_merge($values, $data)
                 ));
                 
                 if ($addMode) {
