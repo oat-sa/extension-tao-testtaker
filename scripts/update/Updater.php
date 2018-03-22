@@ -24,8 +24,10 @@ namespace oat\taoTestTaker\scripts\update;
 use oat\generis\model\GenerisRdf;
 use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
+use oat\tao\model\user\Import\RdsUserImportService;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
+use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
 /**
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
@@ -37,6 +39,7 @@ class Updater extends \common_ext_ExtensionUpdater
      * @return string $versionUpdatedTo
      * @internal param string $currentVersion
      * @throws \common_ext_ExtensionException
+     * @throws \common_Exception
      */
     public function update($initialVersion)
     {
@@ -65,6 +68,15 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('3.5.0');
         }
 
+
         $this->skip('3.5.0', '3.5.1');
+
+        if ($this->isVersion('3.5.1')){
+            $rdsUserImport = $this->getServiceManager()->get(RdsUserImportService::SERVICE_ID);
+            $rdsUserImport->setOption(RdsUserImportService::OPTION_TEST_TAKER_EVENT, TestTakerUpdatedEvent::class);
+
+            $this->getServiceManager()->register(RdsUserImportService::SERVICE_ID, $rdsUserImport);
+            $this->setVersion('3.6.0');
+        }
     }
 }
