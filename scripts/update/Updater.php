@@ -26,7 +26,7 @@ use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
-use oat\tao\model\user\Import\UserCsvImporterFactory;
+use oat\tao\model\user\import\UserCsvImporterFactory;
 use oat\taoTestTaker\models\TestTakerImporter;
 
 /**

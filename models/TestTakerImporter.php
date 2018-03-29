@@ -24,7 +24,7 @@ use oat\generis\model\OntologyRdf;
 use oat\generis\model\user\UserRdf;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\TaoOntology;
-use oat\tao\model\user\Import\RdsUserImportService;
+use oat\tao\model\user\import\RdsUserImportService;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
 
@@ -39,6 +39,10 @@ use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
     $report = $importer->import($filePath);
    `
  *
+ * or by command line:
+`
+sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t test-taker -f tao/test/user/import/example.csv
+`
  * @package oat\taoTestTaker\models
  */
 class TestTakerImporter extends RdsUserImportService

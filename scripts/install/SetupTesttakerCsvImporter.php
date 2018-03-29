@@ -20,7 +20,7 @@
 namespace oat\taoTestTaker\scripts\install;
 
 use oat\oatbox\extension\InstallAction;
-use oat\tao\model\user\Import\UserCsvImporterFactory;
+use oat\tao\model\user\import\UserCsvImporterFactory;
 use oat\taoTestTaker\models\TestTakerImporter;
 
 class SetupTesttakerCsvImporter extends InstallAction
