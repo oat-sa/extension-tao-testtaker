@@ -28,6 +28,10 @@ use oat\tao\model\user\Import\RdsUserImportService;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
 use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
+use oat\tao\model\user\Import\UserCsvImporterFactory;
+use oat\tao\model\user\TaoRoles;
+use oat\taoTestTaker\actions\Api;
+
 /**
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
@@ -70,11 +74,16 @@ class Updater extends \common_ext_ExtensionUpdater
 
         $this->skip('3.5.0', '3.6.0');
 
-        if ($this->isVersion('3.6.0')){
-            $rdsUserImport = $this->getServiceManager()->get(RdsUserImportService::SERVICE_ID);
-            $rdsUserImport->setOption(RdsUserImportService::OPTION_TEST_TAKER_EVENT, TestTakerUpdatedEvent::class);
+        if ($this->isVersion('3.6.0')) {
+            /** @var UserCsvImporterFactory $importerFactory */
+            $importerFactory = $this->getServiceManager()->get(UserCsvImporterFactory::SERVICE_ID);
+            $typeOptions = $importerFactory->getOption(UserCsvImporterFactory::OPTION_MAPPERS);
+            $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = array(
+                UserCsvImporterFactory::OPTION_MAPPERS_IMPORTER => new TestTakerImporter()
+            );
+            $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
+            $this->getServiceManager()->register(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
 
-            $this->getServiceManager()->register(RdsUserImportService::SERVICE_ID, $rdsUserImport);
             $this->setVersion('3.7.0');
         }
     }
