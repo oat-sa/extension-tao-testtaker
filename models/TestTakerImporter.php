@@ -72,12 +72,14 @@ class TestTakerImporter extends RdsUserImportService
      */
     protected function getUserClass(array $properties)
     {
+        $testtakerRootClass = $this->getClass(TaoOntology::CLASS_URI_SUBJECT);
         if (isset($properties[OntologyRdf::RDF_TYPE])){
-            $class = $properties[OntologyRdf::RDF_TYPE];
-        } else {
-            $class = TaoOntology::CLASS_URI_SUBJECT;
+            $class = $this->getClass($properties[OntologyRdf::RDF_TYPE]);
+            if ($class->isSubClassOf($testtakerRootClass)) {
+                return $class;
+            }
         }
-        return $this->getClass($class);
+        return $testtakerRootClass;
     }
 
     /**

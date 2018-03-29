@@ -47,10 +47,5 @@ class SetupConfig extends InstallAction
             ),
             'use_properties_for_event' => false
         ]);
-
-        $rdsUserImport = $this->getServiceLocator()->get(RdsUserImportService::SERVICE_ID);
-        $rdsUserImport->setOption(RdsUserImportService::OPTION_TEST_TAKER_EVENT, TestTakerUpdatedEvent::class);
-
-        $this->registerService(RdsUserImportService::SERVICE_ID, $rdsUserImport);
     }
 }
