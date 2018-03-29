@@ -23,8 +23,6 @@ namespace oat\taoTestTaker\scripts\install;
 
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\extension\InstallAction;
-use oat\tao\model\user\Import\RdsUserImportService;
-use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
 
 class SetupConfig extends InstallAction
 {
@@ -32,7 +30,6 @@ class SetupConfig extends InstallAction
      * @param $params
      * @throws \common_exception_Error
      * @throws \common_ext_ExtensionException
-     * @throws \common_Exception
      */
     public function __invoke($params)
     {

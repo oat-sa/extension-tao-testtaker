@@ -35,7 +35,7 @@ use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
  *
    `
     $userImporter = $this->getServiceLocator()->get(UserCsvImporterFactory::SERVICE_ID);
-    $importer = $userImporter->getImporter($this->getOption('test-taker'));
+    $importer = $userImporter->getImporter(TestTakerImporter::USER_IMPORTER_TYPE);
     $report = $importer->import($filePath);
    `
  *
