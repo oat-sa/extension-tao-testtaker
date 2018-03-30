@@ -33,9 +33,10 @@ return array(
     'label' => 'Test-taker core extension',
 	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '3.6.0',
+    'version' => '3.7.0',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'requires' => array(
+	    'tao' => '17.14.0',
 	    'taoBackOffice' => '>=1.3.0'
     ),
 	'models' => array(
@@ -47,6 +48,7 @@ return array(
 		),
         'php' => [
             \oat\taoTestTaker\scripts\install\SetupConfig::class,
+            \oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter::class,
         ]
 
 	),
