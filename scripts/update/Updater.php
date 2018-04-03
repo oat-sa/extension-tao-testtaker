@@ -26,6 +26,9 @@ use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
+use oat\tao\model\user\import\UserCsvImporterFactory;
+use oat\taoTestTaker\models\TestTakerImporter;
+
 /**
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
@@ -37,6 +40,7 @@ class Updater extends \common_ext_ExtensionUpdater
      * @return string $versionUpdatedTo
      * @internal param string $currentVersion
      * @throws \common_ext_ExtensionException
+     * @throws \common_Exception
      */
     public function update($initialVersion)
     {
@@ -66,5 +70,19 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         $this->skip('3.5.0', '3.6.0');
+
+        if ($this->isVersion('3.6.0')) {
+            /** @var UserCsvImporterFactory $importerFactory */
+            $importerFactory = $this->getServiceManager()->get(UserCsvImporterFactory::SERVICE_ID);
+            $typeOptions = $importerFactory->getOption(UserCsvImporterFactory::OPTION_MAPPERS);
+            $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = array(
+                UserCsvImporterFactory::OPTION_MAPPERS_IMPORTER => new TestTakerImporter()
+            );
+            $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
+            $this->getServiceManager()->register(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
+
+            $this->setVersion('3.7.0');
+        }
+        $this->skip('3.7.0', '3.7.1');
     }
 }
