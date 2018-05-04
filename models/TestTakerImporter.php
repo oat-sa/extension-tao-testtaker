@@ -62,6 +62,7 @@ class TestTakerImporter extends RdsUserImportService
     public function import($filePath, $extraProperties = [], $options = [])
     {
         $extraProperties[UserRdf::PROPERTY_ROLES] = TaoRoles::DELIVERY;
+        $extraProperties['roles'] = TaoRoles::DELIVERY;
         return parent::import($filePath, $extraProperties, $options);
     }
 
