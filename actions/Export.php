@@ -21,26 +21,10 @@
  */
 namespace oat\taoTestTaker\actions;
 
-use oat\oatbox\event\EventManagerAwareTrait;
-use oat\taoTestTaker\models\events\TestTakerExportedEvent;
-
 /**
  * Class Export
  * @package oat\taoTestTaker\actions
  */
 class Export extends \tao_actions_Export
 {
-    use EventManagerAwareTrait;
-
-    public function index()
-    {
-        if ($this->hasRequestParameter('exportChooser_sent')
-            && $this->getRequestParameter('exportChooser_sent') == 1
-            &&$this->hasRequestParameter('id')
-        ) {
-            $this->getEventManager()->trigger(new TestTakerExportedEvent($this->getRequestParameter('id')));
-        }
-
-        parent::index();
-    }
 }
