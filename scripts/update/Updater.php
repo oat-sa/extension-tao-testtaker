@@ -22,11 +22,14 @@
 namespace oat\taoTestTaker\scripts\update;
 
 use oat\generis\model\GenerisRdf;
+use oat\oatbox\event\EventManager;
 use oat\tao\model\accessControl\func\AclProxy;
 use oat\tao\model\accessControl\func\AccessRule;
+use oat\tao\model\event\CsvImportEvent;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
 use oat\tao\model\user\import\UserCsvImporterFactory;
+use oat\taoTestTaker\models\events\TestTakerImportListenerService;
 use oat\taoTestTaker\models\TestTakerImporter;
 
 /**
@@ -84,5 +87,17 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('3.7.0');
         }
         $this->skip('3.7.0', '3.9.0');
+
+        if ($this->isVersion('3.9.0')) {
+            $testTakerImportListener = new TestTakerImportListenerService([]);
+            $this->getServiceManager()->register(TestTakerImportListenerService::SERVICE_ID, $testTakerImportListener);
+
+            /** @var EventManager $eventManager */
+            $eventManager = $this->getServiceManager()->get(EventManager::SERVICE_ID);
+            $eventManager->attach(CsvImportEvent::class, [TestTakerImportListenerService::SERVICE_ID, 'catchCsvImportEvent']);
+
+            $this->getServiceManager()->register(EventManager::SERVICE_ID , $eventManager);
+            $this->setVersion('3.10.0');
+        }
     }
 }

@@ -33,7 +33,7 @@ return array(
     'label' => 'Test-taker core extension',
 	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '3.9.0',
+    'version' => '3.10.0',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'requires' => array(
 	    'tao' => '>=19.11.0',
@@ -49,8 +49,8 @@ return array(
         'php' => [
             \oat\taoTestTaker\scripts\install\SetupConfig::class,
             \oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter::class,
+            \oat\taoTestTaker\scripts\install\SetupTestTakerEvent::class,
         ]
-
 	),
 	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
