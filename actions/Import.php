@@ -64,29 +64,4 @@ class Import extends \tao_actions_Import
             GenerisRdf::PROPERTY_USER_LOGIN => [tao_helpers_form_FormFactory::getValidator('Unique')],
         ];
     }
-
-    /**
-     * @param core_kernel_classes_Resource $resource
-     * @return array
-     * @throws \core_kernel_persistence_Exception
-     * @throws \common_ext_ExtensionException
-     */
-    protected function getProperties($resource)
-    {
-        /** @var \common_ext_ExtensionsManager $extManager */
-        $extManager = $this->getServiceLocator()->get(\common_ext_ExtensionsManager::SERVICE_ID);
-        $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
-        $config = $taoTestTaker->getConfig('csvImporterCallbacks');
-
-        if ((bool)$config['use_properties_for_event']) {
-            return [
-                'hashForKey'                       => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
-                GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
-                    new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
-                )->literal
-            ];
-        }
-
-        return [];
-    }
 }
