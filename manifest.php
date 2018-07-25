@@ -49,7 +49,6 @@ return array(
         'php' => [
             \oat\taoTestTaker\scripts\install\SetupConfig::class,
             \oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter::class,
-            \oat\taoTestTaker\scripts\install\SetupTestTakerEvent::class,
         ]
 	),
 	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
