@@ -22,8 +22,8 @@ include_once dirname(__FILE__) . '/../../includes/raw_start.php';
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use oat\tao\test\RestTestCase;
 use \core_kernel_users_Service;
+use oat\tao\test\integration\RestTestCase;
 
 /**
  * connects as a client agent on the rest controller
