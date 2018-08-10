@@ -15,12 +15,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  */
-namespace oat\taoTestTaker\test;
+
+namespace oat\taoTestTaker\test\integration;
+
+include_once dirname(__FILE__) . '/../../includes/raw_start.php';
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use oat\tao\test\RestTestCase;
 use \core_kernel_users_Service;
+use oat\tao\test\integration\RestTestCase;
 
 /**
  * connects as a client agent on the rest controller
@@ -31,9 +34,6 @@ use \core_kernel_users_Service;
  */
 class RestTestTakerTest extends RestTestCase
 {
-
-    private $genLogin;
-
     private function checkPropertyValues($propertyValues, $property, $valueType = "literal", $value)
     {
         if (is_array($propertyValues)) {
@@ -59,13 +59,11 @@ class RestTestTakerTest extends RestTestCase
         );
     }
 
-    private function getUrl() {
-        return $this->host.'taoTestTaker/Api';
+    private function getUrl()
+    {
+        return $this->host . 'taoTestTaker/Api';
     }
 
-    /**
-     *
-     */
     public function testCreateTestTaker()
     {
         // create a new test taker without aprameters, should return a 400
@@ -157,54 +155,52 @@ class RestTestTakerTest extends RestTestCase
         }
 
         $this->checkPropertyValues($data["data"]["properties"], GenerisRdf::PROPERTY_USER_LASTNAME, "literal", 'patrick');
-	}
+    }
 
-	public function testCreateTestTaker2()
-	{
-	    $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", array(
-	        'login: 2_dummy_login',
-	        'password: dummy'
-	    ));
-	    $data = json_decode($returnedData, true);
-	    $this->assertEquals($data["success"], true);
-	    return $data["data"]["uriResource"];
-	}
+    public function testCreateTestTaker2()
+    {
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", array(
+            'login: 2_dummy_login',
+            'password: dummy'
+        ));
+        $data = json_decode($returnedData, true);
+        $this->assertEquals($data["success"], true);
+        return $data["data"]["uriResource"];
+    }
 
-	/**
-	 * remove all test takers
-	 *
-	 * @depends testCreateTestTaker
-	 * @depends testCreateTestTaker2
-	 */
-	public function testDeleteTestTakers($uriSubject, $uri2Subject)
-	{
-	    // get all test takers
+    /**
+     * remove all test takers
+     *
+     * @depends testCreateTestTaker
+     * @depends testCreateTestTaker2
+     */
+    public function testDeleteTestTakers($uriSubject, $uri2Subject)
+    {
+        // get all test takers
 
-	    $returnedData = $this->curl($this->getUrl());
-	    $data = json_decode($returnedData, true);
-	    $this->assertEquals($data["success"], true);
-	    $this->assertGreaterThanOrEqual(2, count($data["data"]));
-	    $beforeDelete = count($data["data"]);
-
-
-	    $returnedData = $this->curl($this->getUrl(), "DELETE", CURLINFO_HTTP_CODE, array(
-	        'uri: ' . $uriSubject
-	    ));
-	    $this->assertEquals($returnedData, 200);
-
-	    $returnedData = $this->curl($this->getUrl(), "DELETE", "data", array(
-	        'uri: ' . $uri2Subject
-	    ));
-	    $data = json_decode($returnedData, true);
-	    $this->assertEquals($data["success"], true);
+        $returnedData = $this->curl($this->getUrl());
+        $data = json_decode($returnedData, true);
+        $this->assertEquals($data["success"], true);
+        $this->assertGreaterThanOrEqual(2, count($data["data"]));
+        $beforeDelete = count($data["data"]);
 
 
-	     //check the removal
-	    $returnedData = $this->curl($this->getUrl());
-	    $data = json_decode($returnedData, true);
-	    $this->assertEquals($data["success"], true);
-	    $this->assertCount($beforeDelete - 2 , $data["data"]);
+        $returnedData = $this->curl($this->getUrl(), "DELETE", CURLINFO_HTTP_CODE, array(
+            'uri: ' . $uriSubject
+        ));
+        $this->assertEquals($returnedData, 200);
 
-	}
+        $returnedData = $this->curl($this->getUrl(), "DELETE", "data", array(
+            'uri: ' . $uri2Subject
+        ));
+        $data = json_decode($returnedData, true);
+        $this->assertEquals($data["success"], true);
 
+
+        //check the removal
+        $returnedData = $this->curl($this->getUrl());
+        $data = json_decode($returnedData, true);
+        $this->assertEquals($data["success"], true);
+        $this->assertCount($beforeDelete - 2, $data["data"]);
+    }
 }
