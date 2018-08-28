@@ -57,11 +57,4 @@ class Import extends \tao_actions_Import
 
         return $returnValue;
     }
-
-    protected function getValidators()
-    {
-        return [
-            GenerisRdf::PROPERTY_USER_LOGIN => [tao_helpers_form_FormFactory::getValidator('Unique')],
-        ];
-    }
 }

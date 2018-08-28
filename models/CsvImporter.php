@@ -57,6 +57,14 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return $report;
     }
 
+    public function getValidators()
+    {
+        return [
+            GenerisRdf::PROPERTY_USER_LOGIN => [\tao_helpers_form_FormFactory::getValidator('Unique')],
+            GenerisRdf::PROPERTY_USER_UILG => [\tao_helpers_form_FormFactory::getValidator('NotEmpty')],
+        ];
+    }
+
     /**
      * @param core_kernel_classes_Resource $resource
      * @return array
