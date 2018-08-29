@@ -33,7 +33,7 @@ use oat\taoTestTaker\models\TestTakerImporter;
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
  */
-class Updater extends \common_ext_ExtensionUpdater 
+class Updater extends \common_ext_ExtensionUpdater
 {
     /**
      * @param $initialVersion
@@ -83,6 +83,6 @@ class Updater extends \common_ext_ExtensionUpdater
 
             $this->setVersion('3.7.0');
         }
-        $this->skip('3.7.0', '3.9.0');
+        $this->skip('3.7.0', '3.9.1');
     }
 }
