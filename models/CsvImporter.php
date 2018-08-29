@@ -19,9 +19,14 @@
  *
  */
 namespace oat\taoTestTaker\models;
+use common_Logger;
+use common_report_Report;
+use core_kernel_classes_Resource;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\oatbox\service\ServiceManager;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
+use oat\taoTestTaker\models\events\TestTakerImportedEvent;
 
 /**
  * A custom subject CSV importer
@@ -33,19 +38,59 @@ use oat\generis\model\GenerisRdf;
  */
 class CsvImporter extends \tao_models_classes_import_CsvImporter
 {
+    public function import($class, $form)
+    {
+        $report = parent::import($class, $form);
+        /** @var common_report_Report $success */
+        foreach ($report->getSuccesses() as $success) {
+            $resource = $success->getData();
+            try {
+                $this->getEventManager()->trigger(
+                    new TestTakerImportedEvent($resource->getUri(), $this->getProperties($resource))
+                );
+            } catch (\Exception $e) {
+                common_Logger::e($e->getMessage());
+            }
+        }
+        return $report;
+    }
+
+    /**
+     * @param core_kernel_classes_Resource $resource
+     * @return array
+     * @throws \core_kernel_persistence_Exception
+     * @throws \common_ext_ExtensionException
+     */
+    protected function getProperties($resource)
+    {
+        /** @var \common_ext_ExtensionsManager $extManager */
+        $extManager =  ServiceManager::getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+        $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
+        $config = $taoTestTaker->getConfig('csvImporterCallbacks');
+        if ((bool)$config['use_properties_for_event']) {
+            return [
+                'hashForKey'                       => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
+                GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
+                    new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
+                )->literal
+            ];
+        }
+        return [];
+    }
+
     /**
      * (non-PHPdoc)
      * @see tao_models_classes_import_CsvImporter::getExludedProperties()
      */
     protected function getExludedProperties()
     {
-       return array_merge(parent::getExludedProperties(), array(
-           GenerisRdf::PROPERTY_USER_DEFLG,
-           GenerisRdf::PROPERTY_USER_ROLES,
-		   TaoOntology::PROPERTY_USER_LAST_EXTENSION,
-		   TaoOntology::PROPERTY_USER_FIRST_TIME,
-           GenerisRdf::PROPERTY_USER_TIMEZONE
-       ));
+        return array_merge(parent::getExludedProperties(), array(
+            GenerisRdf::PROPERTY_USER_DEFLG,
+            GenerisRdf::PROPERTY_USER_ROLES,
+            TaoOntology::PROPERTY_USER_LAST_EXTENSION,
+            TaoOntology::PROPERTY_USER_FIRST_TIME,
+            GenerisRdf::PROPERTY_USER_TIMEZONE
+        ));
     }
 
     /**
