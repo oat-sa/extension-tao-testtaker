@@ -24,6 +24,7 @@ use common_report_Report;
 use core_kernel_classes_Resource;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\oatbox\service\ServiceManager;
+use oat\oatbox\user\UserLanguageService;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
@@ -78,6 +79,8 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
                 )->literal
             ];
         }
+
+
 
         return [];
     }
