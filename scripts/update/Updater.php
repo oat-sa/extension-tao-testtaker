@@ -33,7 +33,7 @@ use oat\taoTestTaker\models\TestTakerImporter;
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
  */
-class Updater extends \common_ext_ExtensionUpdater 
+class Updater extends \common_ext_ExtensionUpdater
 {
     /**
      * @param $initialVersion
@@ -83,6 +83,19 @@ class Updater extends \common_ext_ExtensionUpdater
 
             $this->setVersion('3.7.0');
         }
+
         $this->skip('3.7.0', '3.10.2');
+
+        if ($this->isVersion('3.10.2')) {
+            /** @var \common_ext_ExtensionsManager $extensionManager */
+            $extensionManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+            $extension = $extensionManager->getExtensionById('taoTestTaker');
+            $config = $extension->getConfig('csvImporterCallbacks');
+            $config['callbacks'][GenerisRdf::PROPERTY_USER_UILG] = ['\tao_models_classes_LanguageService::filterLanguage'];
+            $extension->setConfig('csvImporterCallbacks', $config);
+            $this->setVersion('3.11.0');
+        }
+        $this->skip('3.11.0', '3.11.1');
+
     }
 }

@@ -24,6 +24,7 @@ use common_report_Report;
 use core_kernel_classes_Resource;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\oatbox\service\ServiceManager;
+use oat\oatbox\user\UserLanguageService;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
@@ -57,6 +58,14 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         return $report;
     }
 
+    public function getValidators()
+    {
+        return [
+            GenerisRdf::PROPERTY_USER_LOGIN => [\tao_helpers_form_FormFactory::getValidator('Unique')],
+            GenerisRdf::PROPERTY_USER_UILG => [\tao_helpers_form_FormFactory::getValidator('NotEmpty')],
+        ];
+    }
+
     /**
      * @param core_kernel_classes_Resource $resource
      * @return array
@@ -78,6 +87,8 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
                 )->literal
             ];
         }
+
+
 
         return [];
     }
