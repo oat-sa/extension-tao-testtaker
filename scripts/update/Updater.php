@@ -83,6 +83,7 @@ class Updater extends \common_ext_ExtensionUpdater
 
             $this->setVersion('3.7.0');
         }
+
         $this->skip('3.7.0', '3.10.2');
 
         if ($this->isVersion('3.10.2')) {
@@ -94,5 +95,7 @@ class Updater extends \common_ext_ExtensionUpdater
             $extension->setConfig('csvImporterCallbacks', $config);
             $this->setVersion('3.11.0');
         }
+        $this->skip('3.11.0', '3.11.1');
+
     }
 }
