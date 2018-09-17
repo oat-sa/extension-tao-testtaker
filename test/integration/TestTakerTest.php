@@ -27,6 +27,9 @@ use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdfs;
 use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
+use core_kernel_classes_Resource;
+use core_kernel_classes_Class;
+use tao_models_classes_Service;
 
 
 /**
@@ -62,17 +65,17 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      */
     public function testService()
     {
-        $this->assertIsA($this->subjectsService, '\tao_models_classes_Service');
-        $this->assertIsA($this->subjectsService, 'oat\taoTestTaker\models\TestTakerService');
+        $this->assertIsA($this->subjectsService, tao_models_classes_Service::class);
+        $this->assertIsA($this->subjectsService, TestTakerService::class);
     }
 
     /**
-     * @return \core_kernel_classes_Class|null
+     * @return core_kernel_classes_Class|null
      */
     public function testGetRootClass()
     {
         $subjectClass = $this->subjectsService->getRootClass();
-        $this->assertIsA($subjectClass, 'core_kernel_classes_Class');
+        $this->assertIsA($subjectClass, core_kernel_classes_Class::class);
         $this->assertEquals(TaoOntology::SUBJECT_CLASS_URI, $subjectClass->getUri());
 
         $this->assertTrue($this->subjectsService->isSubjectClass($subjectClass));
@@ -83,13 +86,13 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @depends testGetRootClass
      * @param $subjectClass
-     * @return \core_kernel_classes_Class
+     * @return core_kernel_classes_Class
      */
     public function testSubClassCreate($subjectClass)
     {
         $subSubjectClassLabel = 'subSubject class';
         $subSubjectClass = $this->subjectsService->createSubClass($subjectClass, $subSubjectClassLabel);
-        $this->assertIsA($subSubjectClass, 'core_kernel_classes_Class');
+        $this->assertIsA($subSubjectClass, core_kernel_classes_Class::class);
         $this->assertEquals($subSubjectClassLabel, $subSubjectClass->getLabel());
 
         $this->assertTrue($this->subjectsService->isSubjectClass($subSubjectClass));
@@ -100,7 +103,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @depends testGetRootClass
      * @param $class
-     * @return \core_kernel_classes_Resource
+     * @return core_kernel_classes_Resource
      */
     public function testInstantiateClass($class)
     {
@@ -111,7 +114,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @depends testSubClassCreate
      * @param $class
-     * @return \core_kernel_classes_Resource
+     * @return core_kernel_classes_Resource
      */
     public function testInstantiateSubClass($class)
     {
@@ -122,26 +125,26 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @param $class
      * @param $label
-     * @return \core_kernel_classes_Resource
+     * @return core_kernel_classes_Resource
      */
     protected function instantiateClass($class, $label)
     {
         $instance = $this->subjectsService->createInstance($class, $label);
-        $this->assertIsA($instance, 'core_kernel_classes_Resource');
+        $this->assertIsA($instance, core_kernel_classes_Resource::class);
         $this->assertEquals($label, $instance->getLabel());
 
         $instance->removePropertyValues(new \core_kernel_classes_Property(OntologyRdfs::RDFS_LABEL));
         $instance->setLabel($label);
 
 
-        $this->assertIsA($instance, 'core_kernel_classes_Resource');
+        $this->assertIsA($instance, core_kernel_classes_Resource::class);
         $this->assertEquals($label, $instance->getLabel());
         return $instance;
     }
 
     /**
      * @depends testInstantiateClass
-     * @param \core_kernel_classes_Resource $instance
+     * @param core_kernel_classes_Resource $instance
      */
     public function testSetTestTakerRole($instance)
     {
@@ -163,7 +166,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
     /**
      * @depends testInstantiateClass
-     * @param \core_kernel_classes_Resource $instance
+     * @param core_kernel_classes_Resource $instance
      */
     public function testClone($instance)
     {
@@ -189,17 +192,6 @@ class TestTakerTest extends TaoPhpUnitTestRunner
 
     }
 
-
-    /**
-     * @depends testSubClassCreate
-     * @param $class
-     */
-    public function testDeleteClass($class)
-    {
-        $this->assertTrue($this->subjectsService->deleteClass($class));
-        $this->assertFalse($class->exists());
-    }
-
     /**
      * @depends testInstantiateClass
      * @depends testInstantiateSubClass
@@ -210,8 +202,18 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertTrue($this->subjectsService->deleteSubject($instance1));
         $this->assertFalse($instance1->exists());
 
-        // @todo fix deletion (returns false)
         $this->assertTrue($this->subjectsService->deleteSubject($instance2));
         $this->assertFalse($instance2->exists());
+    }
+
+    /**
+     * @depends testGetRootClass
+     * @depends testSubClassCreate
+     * @param $class
+     */
+    public function testDeleteClass($rootClass, $subClass)
+    {
+        $this->assertTrue($this->subjectsService->deleteClass($subClass));
+        $this->assertFalse($subClass->exists());
     }
 }
