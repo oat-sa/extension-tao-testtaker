@@ -207,11 +207,10 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     }
 
     /**
-     * @depends testGetRootClass
      * @depends testSubClassCreate
-     * @param $class
+     * @param core_kernel_classes_Class $subClass
      */
-    public function testDeleteClass($rootClass, $subClass)
+    public function testDeleteClass($subClass)
     {
         $this->assertTrue($this->subjectsService->deleteClass($subClass));
         $this->assertFalse($subClass->exists());
