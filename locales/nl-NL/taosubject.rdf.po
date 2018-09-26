@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"Project-Id-Version: TAO 3.3.0-sprint86\n"
+"PO-Revision-Date: 2018-09-26T12:04:42\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nl-NL\n"
@@ -13,20 +13,20 @@ msgstr ""
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test-taker"
-msgstr ""
+msgstr "Kandidaat"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test-taker class"
-msgstr ""
+msgstr "De kandidaat klasse"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test Takers Manager"
-msgstr ""
+msgstr "Kandidaat beheerder"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test Takers Manager Role"
-msgstr ""
+msgstr "De kandidaat beheerder rol"
 
