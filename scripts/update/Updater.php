@@ -95,7 +95,7 @@ class Updater extends \common_ext_ExtensionUpdater
             $extension->setConfig('csvImporterCallbacks', $config);
             $this->setVersion('3.11.0');
         }
-        $this->skip('3.11.0', '3.11.4');
+        $this->skip('3.11.0', '4.0.0');
 
     }
 }
