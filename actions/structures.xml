@@ -14,7 +14,7 @@
                           selectClass="testtaker-class-properties"
                           selectInstance="testtaker-properties"
                           moveInstance="testtaker-move"
-                          delete="testtaker-delete" 
+                          delete="testtaker-delete"
                         />
                 </trees>
                 <actions>
@@ -37,6 +37,12 @@
                         <icon id="icon-bin"/>
                     </action>
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
+                        <icon id="icon-move-item"/>
+                    </action>
+                    <action id="testtaker-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveResource" context="resource" group="tree" binding="moveTo">
+                        <icon id="icon-move-item"/>
+                    </action>
+                    <action id="testtaker-move-all" name="Move To" url="/taoTestTaker/TestTaker/moveAll" context="resource" multiple="true" group="tree" binding="moveTo">
                         <icon id="icon-move-item"/>
                     </action>
                     <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="resource" group="tree">
