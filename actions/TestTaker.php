@@ -1,19 +1,19 @@
 <?php
-/**  
+/**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
  * of the License (non-upgradable).
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- * 
+ *
  * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
  *               2002-2008 (update and modification) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
@@ -52,7 +52,7 @@ class TestTaker extends tao_actions_SaSModule
     public function __construct()
     {
         parent::__construct();
-        
+
         // the service is initialized by default
         $this->service = TestTakerService::singleton();
         $this->defaultData();
@@ -60,7 +60,7 @@ class TestTaker extends tao_actions_SaSModule
 
     /**
      * get the main class
-     * 
+     *
      * @return core_kernel_classes_Classes
      */
     protected function getClassService()
@@ -71,7 +71,7 @@ class TestTaker extends tao_actions_SaSModule
     /**
      *
      * @author Lionel Lecaque, lionel@taotesting.com
-     * @param core_kernel_classes_Class $clazz            
+     * @param core_kernel_classes_Class $clazz
      * @return tao_actions_form_Search
      */
     protected function getSearchForm($clazz)
@@ -83,15 +83,15 @@ class TestTaker extends tao_actions_SaSModule
 
     /**
      * edit an subject instance
-     * 
+     *
      */
     public function editSubject()
     {
         $clazz = $this->getCurrentClass();
-        
+
         // get the subject to edit
         $subject = $this->getCurrentInstance();
-        
+
         $addMode = false;
         $login = (string) $subject->getOnePropertyValue(new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN));
         if (empty($login)) {
@@ -109,9 +109,9 @@ class TestTaker extends tao_actions_SaSModule
         if ($myForm->isSubmited()) {
             if ($myForm->isValid()) {
                 $this->setData('reload', false);
-                
+
                 $values = $myForm->getValues();
-                
+
                 if ($addMode) {
                     $plainPassword = $values['password1'];
                     $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
@@ -125,7 +125,7 @@ class TestTaker extends tao_actions_SaSModule
                     unset($values['password2']);
                     unset($values['password3']);
                 }
-                
+
                 $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
                 $subject = $binder->bind($values);
 
@@ -137,12 +137,12 @@ class TestTaker extends tao_actions_SaSModule
                 $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(),
                     array_merge($values, $data)
                 ));
-                
+
                 if ($addMode) {
                     // force default subject roles to be the Delivery Role:
                     $this->service->setTestTakerRole($subject);
                 }
-                
+
                 // force the data language to be the same as the gui language
                 $userService = \tao_models_classes_UserService::singleton();
                 $lang = new \core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
@@ -151,7 +151,7 @@ class TestTaker extends tao_actions_SaSModule
                 ));
 
                 $message = __('Test taker saved');
-                
+
                 if ($addMode) {
                     $params = array(
                         'uri' => \tao_helpers_Uri::encode($subject->getUri()),
@@ -167,7 +167,7 @@ class TestTaker extends tao_actions_SaSModule
                 $this->setData('reload', true);
             }
         }
-        
+
         if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
             $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
         }
@@ -177,5 +177,24 @@ class TestTaker extends tao_actions_SaSModule
         $this->setData('formTitle', __('Edit subject'));
         $this->setData('myForm', $myForm->render());
         $this->setView('form_subjects.tpl');
+    }
+
+    /**
+     * overwrite the parent moveAllInstances to add the requiresRight only in Items
+     * @see tao_actions_TaoModule::moveResource()
+     * @requiresRight uri WRITE
+     */
+    public function moveResource()
+    {
+        return parent::moveResource();
+    }
+    /**
+     * overwrite the parent moveAllInstances to add the requiresRight only in Items
+     * @see tao_actions_TaoModule::moveAll()
+     * @requiresRight ids WRITE
+     */
+    public function moveAll()
+    {
+        return parent::moveAll();
     }
 }
