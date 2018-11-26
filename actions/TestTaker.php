@@ -25,6 +25,7 @@ use core_kernel_classes_Class;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
+use oat\tao\model\controller\SignatureCheckTrait;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
@@ -43,6 +44,7 @@ use tao_actions_SaSModule;
 class TestTaker extends tao_actions_SaSModule
 {
     use EventManagerAwareTrait;
+    use SignatureCheckTrait;
 
     /**
      * constructor: initialize the service and the default data
@@ -83,7 +85,6 @@ class TestTaker extends tao_actions_SaSModule
 
     /**
      * edit an subject instance
-     *
      */
     public function editSubject()
     {
@@ -103,7 +104,9 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        $myFormContainer = new TestTakerForm($clazz, $subject, $addMode, false);
+        $signature = $this->getGeneratedSignatureFromRequest();
+
+        $myFormContainer = new TestTakerForm($clazz, $signature, $subject, $addMode);
         $myForm = $myFormContainer->getForm();
 
         if ($myForm->isSubmited()) {
@@ -186,8 +189,18 @@ class TestTaker extends tao_actions_SaSModule
      */
     public function moveResource()
     {
+        $this->checkSignature();
+
         return parent::moveResource();
     }
+
+    public function moveInstance()
+    {
+        $this->checkSignature();
+
+        return parent::moveInstance();
+    }
+
     /**
      * overwrite the parent moveAllInstances to add the requiresRight only in Items
      * @see tao_actions_TaoModule::moveAll()
@@ -195,6 +208,15 @@ class TestTaker extends tao_actions_SaSModule
      */
     public function moveAll()
     {
+        $this->checkSignature();
+
         return parent::moveAll();
+    }
+
+    public function delete()
+    {
+        $this->checkSignature();
+
+        return parent::delete();
     }
 }
