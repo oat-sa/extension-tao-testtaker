@@ -25,8 +25,9 @@ use core_kernel_classes_Class;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\oatbox\event\EventManagerAwareTrait;
-use oat\tao\model\controller\SignatureCheckTrait;
+use oat\oatbox\service\ServiceManager;
 use oat\tao\model\resources\ResourceWatcher;
+use oat\tao\model\security\SignatureGenerator;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -44,7 +45,6 @@ use tao_actions_SaSModule;
 class TestTaker extends tao_actions_SaSModule
 {
     use EventManagerAwareTrait;
-    use SignatureCheckTrait;
 
     /**
      * constructor: initialize the service and the default data
@@ -104,7 +104,12 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        $signature = $this->getGeneratedSignatureFromRequest();
+        /** @var SignatureGenerator $signatureGenerator */
+        $signatureGenerator = ServiceManager::getServiceManager()->get(SignatureGenerator::class);
+
+        $signature = $signatureGenerator->generate(
+            \tao_helpers_Uri::encode($this->getRequestParameter('uri'))
+        );
 
         $myFormContainer = new TestTakerForm($clazz, $signature, $subject, $addMode);
         $myForm = $myFormContainer->getForm();
@@ -180,43 +185,5 @@ class TestTaker extends tao_actions_SaSModule
         $this->setData('formTitle', __('Edit subject'));
         $this->setData('myForm', $myForm->render());
         $this->setView('form_subjects.tpl');
-    }
-
-    /**
-     * overwrite the parent moveAllInstances to add the requiresRight only in Items
-     * @see tao_actions_TaoModule::moveResource()
-     * @requiresRight uri WRITE
-     */
-    public function moveResource()
-    {
-        $this->checkSignature();
-
-        return parent::moveResource();
-    }
-
-    public function moveInstance()
-    {
-        $this->checkSignature();
-
-        return parent::moveInstance();
-    }
-
-    /**
-     * overwrite the parent moveAllInstances to add the requiresRight only in Items
-     * @see tao_actions_TaoModule::moveAll()
-     * @requiresRight ids WRITE
-     */
-    public function moveAll()
-    {
-        $this->checkSignature();
-
-        return parent::moveAll();
-    }
-
-    public function delete()
-    {
-        $this->checkSignature();
-
-        return parent::delete();
     }
 }
