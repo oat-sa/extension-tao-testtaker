@@ -104,14 +104,7 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        /** @var SignatureGenerator $signatureGenerator */
-        $signatureGenerator = ServiceManager::getServiceManager()->get(SignatureGenerator::class);
-
-        $signature = $signatureGenerator->generate(
-            \tao_helpers_Uri::encode($this->getRequestParameter('uri'))
-        );
-
-        $myFormContainer = new TestTakerForm($clazz, $signature, $subject, $addMode);
+        $myFormContainer = new TestTakerForm($clazz, $subject, $addMode);
         $myForm = $myFormContainer->getForm();
 
         if ($myForm->isSubmited()) {
