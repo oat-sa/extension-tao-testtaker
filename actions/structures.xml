@@ -17,7 +17,7 @@
                           delete="testtaker-delete"
                         />
                 </trees>
-                <actions>
+                <actions allowClassActions="true">
                     <action id="testtaker-class-properties" name="Properties" url="/taoTestTaker/TestTaker/editClassLabel" group="content" context="class">
                         <icon id="icon-edit"/>
                     </action>
