@@ -24,6 +24,7 @@ namespace oat\taoTestTaker\actions;
 use core_kernel_classes_Class;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
+use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManagerAwareTrait;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\taoTestTaker\actions\form\Search;
@@ -42,29 +43,39 @@ use tao_actions_SaSModule;
  */
 class TestTaker extends tao_actions_SaSModule
 {
+    use OntologyAwareTrait;
     use EventManagerAwareTrait;
 
     /**
-     * constructor: initialize the service and the default data
-     *
-     * @return Subjects
+     * TestTaker constructor.
+     * @throws \common_ext_ExtensionException
      */
     public function __construct()
     {
-        parent::__construct();
-
-        // the service is initialized by default
-        $this->service = TestTakerService::singleton();
-        $this->defaultData();
+        parent::defaultData();
     }
 
     /**
-     * get the main class
-     *
-     * @return core_kernel_classes_Classes
+     * overwrite the parent getOntologyData to add the requiresRight only in TestTakers
+     * @see tao_actions_TaoModule::getOntologyData()
+     * @requiresRight classUri READ
+     */
+    public function getOntologyData()
+    {
+        return parent::getOntologyData();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see tao_actions_RdfController::getClassService()
+     * @return TestTakerService
      */
     protected function getClassService()
     {
+        if (is_null($this->service)) {
+            $this->service = TestTakerService::singleton();
+        }
+
         return $this->service;
     }
 
@@ -84,6 +95,7 @@ class TestTaker extends tao_actions_SaSModule
     /**
      * edit an subject instance
      *
+     * @requiresRight id READ
      */
     public function editSubject()
     {
@@ -180,7 +192,7 @@ class TestTaker extends tao_actions_SaSModule
     }
 
     /**
-     * overwrite the parent moveAllInstances to add the requiresRight only in Items
+     * overwrite the parent moveAllInstances to add the requiresRight only in TestTakers
      * @see tao_actions_TaoModule::moveResource()
      * @requiresRight uri WRITE
      */
@@ -188,13 +200,54 @@ class TestTaker extends tao_actions_SaSModule
     {
         return parent::moveResource();
     }
+
     /**
-     * overwrite the parent moveAllInstances to add the requiresRight only in Items
+     * overwrite the parent moveAllInstances to add the requiresRight only in TestTakers
      * @see tao_actions_TaoModule::moveAll()
      * @requiresRight ids WRITE
      */
     public function moveAll()
     {
         return parent::moveAll();
+    }
+
+    /**
+     * overwrite the parent addInstance to add the requiresRight only in TestTakers
+     * @requiresRight id WRITE
+     */
+    public function addInstance()
+    {
+        parent::addInstance();
+    }
+
+    /**
+     * overwrite the parent addSubClass to add the requiresRight only in TestTakers
+     * @requiresRight id WRITE
+     */
+    public function addSubClass()
+    {
+        parent::addSubClass();
+    }
+
+    /**
+     * overwrite the parent cloneInstance to add the requiresRight only in TestTakers
+     * @see tao_actions_TaoModule::cloneInstance()
+     * @requiresRight uri READ
+     * @requiresRight classUri WRITE
+     */
+    public function cloneInstance()
+    {
+        return parent::cloneInstance();
+    }
+
+    /**
+     * overwrite the parent moveInstance to add the requiresRight only in TestTakers
+     * @see tao_actions_TaoModule::moveInstance()
+     * @requiresRight uri WRITE
+     * @requiresRight destinationClassUri WRITE
+     */
+    public function moveInstance()
+    {
+        return parent::moveInstance();
     }
 }
