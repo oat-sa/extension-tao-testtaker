@@ -1,0 +1,104 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TAO Test Taker API",
+    "version": "2.0"
+  },
+  "paths": {
+    "/taoTestTaker/ApiV2": {
+      "post": {
+        "summary": "Create new test taker",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/taoTestTaker.TestTaker.New"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test taker created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tao.RestTrait.FailureResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "taoTestTaker.TestTaker.New": {
+        "required": [
+          "login",
+          "password"
+        ],
+        "properties": {
+          "login": {
+            "description": "Test taker login",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/taoTestTaker.TestTaker.Update"
+          }
+        ]
+      },
+      "taoTestTaker.TestTaker.Update": {
+        "properties": {
+          "label": {
+            "description": "Test taker label",
+            "type": "string"
+          },
+          "login": {
+            "description": "Test taker login",
+            "type": "string"
+          },
+          "password": {
+            "description": "Test taker password",
+            "type": "string"
+          },
+          "uiLg": {
+            "description": "Test taker interface language",
+            "type": "string"
+          },
+          "defLg": {
+            "description": "Test taker default language",
+            "type": "string"
+          },
+          "firstName": {
+            "description": "Test taker first name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Test taker last name",
+            "type": "string"
+          },
+          "mail": {
+            "description": "Test taker email",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}
