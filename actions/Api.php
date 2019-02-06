@@ -25,6 +25,10 @@ use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdf;
 use oat\taoTestTaker\models\CrudService;
 
+/**
+ * @deprecated
+ * @see ApiV2
+ */
 class Api extends \tao_actions_CommonRestModule {
 
 	public function __construct(){
