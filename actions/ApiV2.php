@@ -21,8 +21,6 @@
 
 namespace oat\taoTestTaker\actions;
 
-use common_exception_PreConditionFailure;
-use common_exception_RestApi;
 use oat\generis\model\OntologyRdf;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\TaoOntology;
@@ -30,6 +28,27 @@ use oat\taoTestTaker\models\CrudService;
 
 /**
  * @OA\Info(title="TAO Test Taker API", version="2.0")
+ * @OA\Post(
+ *     path="/taoTestTaker/ApiV2",
+ *     summary="Create new test taker",
+ *     @OA\RequestBody(
+ *         @OA\MediaType(
+ *             mediaType="application/x-www-form-urlencoded",
+ *             @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.New")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="200",
+ *         description="Test taker created",
+ *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResource")
+ *     ),
+ *     @OA\Response(
+ *         response="400",
+ *         description="Invalid request data",
+ *         @OA\JsonContent(ref="#/components/schemas/tao.RestTrait.FailureResponse")
+ *     )
+ * )
+ *
  */
 class ApiV2 extends \tao_actions_CommonRestModule
 {
@@ -38,7 +57,7 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     schema="taoTestTaker.TestTaker.New",
      *     type="object",
      *     allOf={
-     *          @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.Update"),
+     *          @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.Update")
      *     },
      *     @OA\Property(
      *         property="login",
@@ -50,9 +69,6 @@ class ApiV2 extends \tao_actions_CommonRestModule
      * @OA\Schema(
      *     schema="taoTestTaker.TestTaker.Update",
      *     type="object",
-     *     allOf={
-     *          @OA\Schema(ref="#/components/schemas/tao.GenerisClass.NewOrExistent"),
-     *     },
      *     @OA\Property(
      *         property="label",
      *         type="string",
@@ -129,88 +145,6 @@ class ApiV2 extends \tao_actions_CommonRestModule
     }
 
     /**
-     * @OA\Post(
-     *     path="/taoTestTaker/ApiV2",
-     *     summary="Create new test taker",
-     *     @OA\RequestBody(
-     *         @OA\MediaType(
-     *             mediaType="application/x-www-form-urlencoded",
-     *             @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.New")
-     *         ),
-     *     ),
-     *     @OA\Response(
-     *         response="200",
-     *         description="Test taker created",
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(
-     *                 type="object",
-     *                 @OA\Property(
-     *                     property="success",
-     *                     type="boolean",
-     *                     description="`false` on failure, `true` on success",
-     *                 ),
-     *                 @OA\Property(
-     *                     property="uri",
-     *                     type="string",
-     *                     description="Created test taker URI",
-     *                 ),
-     *                 example={
-     *                     "success": true,
-     *                     "uri": "http://sample/first.rdf#i1536680377163171"
-     *                 }
-     *             ),
-     *         ),
-     *     ),
-     *     @OA\Response(
-     *         response=400,
-     *         description="Invalid request data",
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(
-     *                 example={
-     *                     "success": false,
-     *                     "errorCode": 0,
-     *                     "errorMsg": "Missed required parameter: login",
-     *                     "version": "3.3.0-sprint95"
-     *                 }
-     *             )
-     *         ),
-     *     )
-     * )
-     *
-     * @return mixed
-     * @throws \common_Exception
-     * @throws \common_exception_InconsistentData
-     * @throws \common_exception_MissingParameter
-     * @throws \common_exception_RestApi
-     */
-    protected function post()
-    {
-        $parameters = $this->getParameters();
-
-        try {
-            $classResource = $this->getOrCreateClassFromRequest($this->getClass(self::ROOT_CLASS));
-        }
-        catch (\common_exception_NotFound $notFoundException) {
-            throw new \common_exception_RestApi($notFoundException->getMessage());
-        }
-
-        if ($classResource) {
-            $parameters[OntologyRdf::RDF_TYPE] = $classResource->getUri();
-        }
-
-        try {
-            /** @noinspection PhpUndefinedMethodInspection */
-            return $this->getCrudService()->createFromArray($parameters);
-        }
-        /** @noinspection PhpRedundantCatchClauseInspection */
-        catch (common_exception_PreConditionFailure $e) {
-            throw new common_exception_RestApi($e->getMessage());
-        }
-    }
-
-    /**
      * @param null $uri
      * @return mixed
      * @throws \common_exception_NotImplemented
@@ -235,5 +169,18 @@ class ApiV2 extends \tao_actions_CommonRestModule
      */
     protected function delete($uri = null) {
         throw new \common_exception_NotImplemented('Not implemented');
+    }
+
+    protected function getParameters()
+    {
+        $parameters = parent::getParameters();
+
+        if ($this->getRequestMethod() === 'POST' &&
+            $classResource = $this->getClassFromRequest($this->getClass(self::ROOT_CLASS))
+        ) {
+            $parameters[OntologyRdf::RDF_TYPE] = $classResource->getUri();
+        }
+
+        return $parameters;
     }
 }

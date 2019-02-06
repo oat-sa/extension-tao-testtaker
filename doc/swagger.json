@@ -1,0 +1,174 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TAO Test Taker API",
+    "version": "2.0"
+  },
+  "paths": {
+    "/taoTestTaker/ApiV2": {
+      "post": {
+        "summary": "Create new test taker",
+        "operationId": "oat\\taoTestTaker\\actions\\ApiV2::post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/taoTestTaker.TestTaker.New"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test taker created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "success": {
+                      "description": "`false` on failure, `true` on success",
+                      "type": "boolean"
+                    },
+                    "uri": {
+                      "description": "Created test taker URI",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "example": {
+                    "success": true,
+                    "uri": "http://sample/first.rdf#i1536680377163171"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "success": false,
+                    "errorCode": 0,
+                    "errorMsg": "Missed required parameter: login",
+                    "version": "3.3.0-sprint95"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "taoTestTaker.TestTaker.New": {
+        "required": [
+          "login",
+          "password"
+        ],
+        "properties": {
+          "login": {
+            "description": "Test taker login",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/taoTestTaker.TestTaker.Update"
+          },
+          {
+            "$ref": "#/components/schemas/tao.GenerisClass.NewOrExistent"
+          }
+        ]
+      },
+      "taoTestTaker.TestTaker.Update": {
+        "properties": {
+          "label": {
+            "description": "Test taker label",
+            "type": "string"
+          },
+          "login": {
+            "description": "Test taker login",
+            "type": "string"
+          },
+          "password": {
+            "description": "Test taker password",
+            "type": "string"
+          },
+          "uiLg": {
+            "description": "Test taker interface language",
+            "type": "string"
+          },
+          "defLg": {
+            "description": "Test taker default language",
+            "type": "string"
+          },
+          "firstName": {
+            "description": "Test taker first name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Test taker last name",
+            "type": "string"
+          },
+          "mail": {
+            "description": "Test taker email",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.GenerisClass.NewOrExistent": {
+        "properties": {
+          "class-label": {
+            "description": "Label for search in existent classes or for assigning to new class",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.GenerisClass.New"
+          },
+          {
+            "$ref": "#/components/schemas/tao.GenerisClass.Search"
+          }
+        ]
+      },
+      "tao.GenerisClass.Search": {
+        "properties": {
+          "class-uri": {
+            "description": "Target class uri. If not specified root class will be used.",
+            "type": "string"
+          },
+          "class-label": {
+            "description": "Target class label. If not specified root class will be used. If label is not unique first match will be used",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.GenerisClass.New": {
+        "properties": {
+          "class-label": {
+            "description": "Class label",
+            "type": "string"
+          },
+          "class-comment": {
+            "description": "Class comment",
+            "type": "string"
+          },
+          "parent-class-uri": {
+            "description": "Parent class uri, root class by default",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}
