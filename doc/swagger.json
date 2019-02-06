@@ -8,7 +8,6 @@
     "/taoTestTaker/ApiV2": {
       "post": {
         "summary": "Create new test taker",
-        "operationId": "oat\\taoTestTaker\\actions\\ApiV2::post",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -24,21 +23,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "success": {
-                      "description": "`false` on failure, `true` on success",
-                      "type": "boolean"
-                    },
-                    "uri": {
-                      "description": "Created test taker URI",
-                      "type": "string"
-                    }
-                  },
-                  "type": "object",
-                  "example": {
-                    "success": true,
-                    "uri": "http://sample/first.rdf#i1536680377163171"
-                  }
+                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResource"
                 }
               }
             }
@@ -48,12 +33,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "example": {
-                    "success": false,
-                    "errorCode": 0,
-                    "errorMsg": "Missed required parameter: login",
-                    "version": "3.3.0-sprint95"
-                  }
+                  "$ref": "#/components/schemas/tao.RestTrait.FailureResponse"
                 }
               }
             }
@@ -79,9 +59,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/taoTestTaker.TestTaker.Update"
-          },
-          {
-            "$ref": "#/components/schemas/tao.GenerisClass.NewOrExistent"
           }
         ]
       },
@@ -117,53 +94,6 @@
           },
           "mail": {
             "description": "Test taker email",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "tao.GenerisClass.NewOrExistent": {
-        "properties": {
-          "class-label": {
-            "description": "Label for search in existent classes or for assigning to new class",
-            "type": "string"
-          }
-        },
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/tao.GenerisClass.New"
-          },
-          {
-            "$ref": "#/components/schemas/tao.GenerisClass.Search"
-          }
-        ]
-      },
-      "tao.GenerisClass.Search": {
-        "properties": {
-          "class-uri": {
-            "description": "Target class uri. If not specified root class will be used.",
-            "type": "string"
-          },
-          "class-label": {
-            "description": "Target class label. If not specified root class will be used. If label is not unique first match will be used",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "tao.GenerisClass.New": {
-        "properties": {
-          "class-label": {
-            "description": "Class label",
-            "type": "string"
-          },
-          "class-comment": {
-            "description": "Class comment",
-            "type": "string"
-          },
-          "parent-class-uri": {
-            "description": "Parent class uri, root class by default",
             "type": "string"
           }
         },
