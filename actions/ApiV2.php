@@ -40,7 +40,7 @@ use oat\taoTestTaker\models\CrudService;
  *     @OA\Response(
  *         response="200",
  *         description="Test taker created",
- *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResource")
+ *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResourceResponse")
  *     ),
  *     @OA\Response(
  *         response="400",
@@ -57,6 +57,7 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     schema="taoTestTaker.TestTaker.New",
      *     type="object",
      *     allOf={
+     *          @OA\Schema(ref="#/components/schemas/tao.GenerisClass.Search"),
      *          @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.Update")
      *     },
      *     @OA\Property(
