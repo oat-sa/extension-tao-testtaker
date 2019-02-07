@@ -152,7 +152,7 @@ class TestTaker extends tao_actions_SaSModule
 
                 if ($addMode) {
                     // force default subject roles to be the Delivery Role:
-                    $this->service->setTestTakerRole($subject);
+                    $this->getClassService()->setTestTakerRole($subject);
                 }
 
                 // force the data language to be the same as the gui language
