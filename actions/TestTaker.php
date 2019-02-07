@@ -166,6 +166,7 @@ class TestTaker extends tao_actions_SaSModule
 
                 if ($addMode) {
                     $params = array(
+                        'id' => $subject->getUri(),
                         'uri' => \tao_helpers_Uri::encode($subject->getUri()),
                         'classUri' => \tao_helpers_Uri::encode($clazz->getUri()),
                         'reload' => true,
