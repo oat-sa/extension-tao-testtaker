@@ -63,7 +63,7 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     @OA\Property(
      *         property="login",
      *         type="string",
-     *         description="Test taker login"
+     *         description="Login"
      *     ),
      *     required={"login", "password"}
      * )
@@ -73,42 +73,42 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     @OA\Property(
      *         property="label",
      *         type="string",
-     *         description="Test taker label"
+     *         description="Label"
      *     ),
      *     @OA\Property(
      *         property="login",
      *         type="string",
-     *         description="Test taker login"
+     *         description="Login"
      *     ),
      *     @OA\Property(
      *         property="password",
      *         type="string",
-     *         description="Test taker password"
+     *         description="Password"
      *     ),
      *     @OA\Property(
      *         property="uiLg",
      *         type="string",
-     *         description="Test taker interface language"
+     *         description="Interface language (uri or language code, 'fr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="defLg",
      *         type="string",
-     *         description="Test taker default language"
+     *         description="Default language (uri or language code, 'fr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="firstName",
      *         type="string",
-     *         description="Test taker first name"
+     *         description="First name"
      *     ),
      *     @OA\Property(
      *         property="lastName",
      *         type="string",
-     *         description="Test taker last name"
+     *         description="Last name"
      *     ),
      *     @OA\Property(
      *         property="mail",
      *         type="string",
-     *         description="Test taker email"
+     *         description="Email"
      *     )
      * )
      */
