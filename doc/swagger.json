@@ -23,7 +23,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResource"
+                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResourceResponse"
                 }
               }
             }
@@ -51,12 +51,15 @@
         ],
         "properties": {
           "login": {
-            "description": "Test taker login",
+            "description": "Login",
             "type": "string"
           }
         },
         "type": "object",
         "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.GenerisClass.Search"
+          },
           {
             "$ref": "#/components/schemas/taoTestTaker.TestTaker.Update"
           }
@@ -65,35 +68,118 @@
       "taoTestTaker.TestTaker.Update": {
         "properties": {
           "label": {
-            "description": "Test taker label",
+            "description": "Label",
             "type": "string"
           },
           "login": {
-            "description": "Test taker login",
+            "description": "Login",
             "type": "string"
           },
           "password": {
-            "description": "Test taker password",
+            "description": "Password",
             "type": "string"
           },
           "uiLg": {
-            "description": "Test taker interface language",
+            "description": "Interface language (uri or language code, 'fr-FR' for example)",
             "type": "string"
           },
           "defLg": {
-            "description": "Test taker default language",
+            "description": "Default language (uri or language code, 'fr-FR' for example)",
             "type": "string"
           },
           "firstName": {
-            "description": "Test taker first name",
+            "description": "First name",
             "type": "string"
           },
           "lastName": {
-            "description": "Test taker last name",
+            "description": "Last name",
             "type": "string"
           },
           "mail": {
-            "description": "Test taker email",
+            "description": "Email",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.CommonRestModule.CreatedResourceResponse": {
+        "description": "Created resource data",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResource"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.RestTrait.BaseResponse"
+          }
+        ]
+      },
+      "tao.RestTrait.FailureResponse": {
+        "description": "Error response with success=false",
+        "properties": {
+          "success": {
+            "description": "Indicates error",
+            "type": "boolean",
+            "example": false
+          },
+          "errorCode": {
+            "description": "Exception error code",
+            "type": "integer"
+          },
+          "errorMsg": {
+            "description": "Exception message, not localized",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.RestTrait.BaseResponse"
+          }
+        ]
+      },
+      "tao.GenerisClass.Search": {
+        "properties": {
+          "class-uri": {
+            "description": "Target class uri",
+            "type": "string"
+          },
+          "class-label": {
+            "description": "Target class label. If label is not unique first match will be used",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.CommonRestModule.CreatedResource": {
+        "description": "Created resource data",
+        "properties": {
+          "uriResource": {
+            "description": "Method to wrap creating to service",
+            "type": "string",
+            "example": "http://sample/first.rdf#i1536680377163171"
+          },
+          "label": {
+            "description": "Method to wrap creating to service",
+            "type": "string"
+          },
+          "comment": {
+            "description": "Method to wrap creating to service",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.RestTrait.BaseResponse": {
+        "properties": {
+          "success": {
+            "description": "Indicates error",
+            "type": "boolean"
+          },
+          "version": {
+            "description": "Build version",
             "type": "string"
           }
         },
