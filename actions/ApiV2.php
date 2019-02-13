@@ -40,7 +40,7 @@ use oat\taoTestTaker\models\CrudService;
  *     @OA\Response(
  *         response="200",
  *         description="Test taker created",
- *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResource")
+ *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResourceResponse")
  *     ),
  *     @OA\Response(
  *         response="400",
@@ -57,12 +57,13 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     schema="taoTestTaker.TestTaker.New",
      *     type="object",
      *     allOf={
+     *          @OA\Schema(ref="#/components/schemas/tao.GenerisClass.Search"),
      *          @OA\Schema(ref="#/components/schemas/taoTestTaker.TestTaker.Update")
      *     },
      *     @OA\Property(
      *         property="login",
      *         type="string",
-     *         description="Test taker login"
+     *         description="Login"
      *     ),
      *     required={"login", "password"}
      * )
@@ -72,42 +73,42 @@ class ApiV2 extends \tao_actions_CommonRestModule
      *     @OA\Property(
      *         property="label",
      *         type="string",
-     *         description="Test taker label"
+     *         description="Label"
      *     ),
      *     @OA\Property(
      *         property="login",
      *         type="string",
-     *         description="Test taker login"
+     *         description="Login"
      *     ),
      *     @OA\Property(
      *         property="password",
      *         type="string",
-     *         description="Test taker password"
+     *         description="Password"
      *     ),
      *     @OA\Property(
      *         property="uiLg",
      *         type="string",
-     *         description="Test taker interface language"
+     *         description="Interface language (uri or language code, 'fr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="defLg",
      *         type="string",
-     *         description="Test taker default language"
+     *         description="Default language (uri or language code, 'fr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="firstName",
      *         type="string",
-     *         description="Test taker first name"
+     *         description="First name"
      *     ),
      *     @OA\Property(
      *         property="lastName",
      *         type="string",
-     *         description="Test taker last name"
+     *         description="Last name"
      *     ),
      *     @OA\Property(
      *         property="mail",
      *         type="string",
-     *         description="Test taker email"
+     *         description="Email"
      *     )
      * )
      */
