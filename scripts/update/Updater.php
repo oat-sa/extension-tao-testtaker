@@ -27,7 +27,9 @@ use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
 use oat\tao\model\user\import\UserCsvImporterFactory;
+use oat\taoTestTaker\actions\RestTestTakers;
 use oat\taoTestTaker\models\TestTakerImporter;
+use oat\taoTestTaker\models\TestTakerService;
 
 /**
  * Class Updater
@@ -97,5 +99,11 @@ class Updater extends \common_ext_ExtensionUpdater
         }
         $this->skip('3.11.0', '4.2.2');
 
+        if ($this->isVersion('4.2.2')) {
+            AclProxy::applyRule(new AccessRule(AccessRule::GRANT,  TaoRoles::SYSTEM_ADMINISTRATOR, RestTestTakers::class));
+            AclProxy::applyRule(new AccessRule(AccessRule::GRANT,  TaoRoles::GLOBAL_MANAGER, RestTestTakers::class));
+
+            $this->setVersion('5.0.0');
+        }
     }
 }
