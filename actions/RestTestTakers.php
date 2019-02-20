@@ -92,12 +92,12 @@ class RestTestTakers extends \tao_actions_CommonRestModule
      *     @OA\Property(
      *         property="uiLg",
      *         type="string",
-     *         description="Interface language (uri or language code, 'fr-FR' for example)"
+     *         description="Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="defLg",
      *         type="string",
-     *         description="Default language (uri or language code, 'fr-FR' for example)"
+     *         description="Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)"
      *     ),
      *     @OA\Property(
      *         property="firstName",

@@ -80,11 +80,11 @@
             "type": "string"
           },
           "uiLg": {
-            "description": "Interface language (uri or language code, 'fr-FR' for example)",
+            "description": "Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
           "defLg": {
-            "description": "Default language (uri or language code, 'fr-FR' for example)",
+            "description": "Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
           "firstName": {
