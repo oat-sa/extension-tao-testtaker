@@ -27,7 +27,7 @@ use oat\taoTestTaker\models\CrudService;
 
 /**
  * @deprecated
- * @see ApiV2
+ * @see RestTestTakers
  */
 class Api extends \tao_actions_CommonRestModule {
 

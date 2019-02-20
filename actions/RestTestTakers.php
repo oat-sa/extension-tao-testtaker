@@ -21,7 +21,11 @@
 
 namespace oat\taoTestTaker\actions;
 
+use Exception;
+use common_exception_RestApi;
+use common_exception_ValidationFailed;
 use oat\generis\model\OntologyRdf;
+use oat\generis\model\user\PasswordConstraintsException;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\TaoOntology;
 use oat\taoTestTaker\models\CrudService;
@@ -29,7 +33,7 @@ use oat\taoTestTaker\models\CrudService;
 /**
  * @OA\Info(title="TAO Test Taker API", version="2.0")
  * @OA\Post(
- *     path="/taoTestTaker/ApiV2",
+ *     path="/taoTestTaker/api/testTakers",
  *     summary="Create new test taker",
  *     @OA\RequestBody(
  *         @OA\MediaType(
@@ -50,7 +54,7 @@ use oat\taoTestTaker\models\CrudService;
  * )
  *
  */
-class ApiV2 extends \tao_actions_CommonRestModule
+class RestTestTakers extends \tao_actions_CommonRestModule
 {
     /**
      * @OA\Schema(
@@ -115,16 +119,23 @@ class ApiV2 extends \tao_actions_CommonRestModule
 
     const ROOT_CLASS = TaoOntology::CLASS_URI_SUBJECT;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->service = CrudService::singleton();
+    }
+
+    public function index()
+    {
+        $this->returnFailure(new common_exception_RestApi('Not implemented.'));
     }
 
     /**
      * Optionally a specific rest controller may declare
      * aliases for parameters used for the rest communication
      */
-    protected function getParametersAliases(){
+    protected function getParametersAliases()
+    {
         return array_merge(parent::getParametersAliases(), [
             'login' => UserRdf::PROPERTY_LOGIN,
             'password' => UserRdf::PROPERTY_PASSWORD,
@@ -139,7 +150,8 @@ class ApiV2 extends \tao_actions_CommonRestModule
     /**
      * Optional Requirements for parameters to be sent on every service
      */
-    protected function getParametersRequirements() {
+    protected function getParametersRequirements()
+    {
         return [
             'post' => array("login", "password")
         ];
@@ -150,8 +162,9 @@ class ApiV2 extends \tao_actions_CommonRestModule
      * @return mixed
      * @throws \common_exception_NotImplemented
      */
-    protected function get($uri = null) {
-        throw new \common_exception_NotImplemented('Not implemented');
+    public function get($uri = null)
+    {
+        $this->returnFailure(new common_exception_RestApi('Not implemented.'));
     }
 
     /**
@@ -159,8 +172,23 @@ class ApiV2 extends \tao_actions_CommonRestModule
      * @return mixed
      * @throws \common_exception_NotImplemented
      */
-    protected function put($uri) {
-        throw new \common_exception_NotImplemented('Not implemented');
+    public function put($uri)
+    {
+        $this->returnFailure(new common_exception_RestApi('Not implemented.'));
+    }
+
+    public function post()
+    {
+        try {
+            $this->returnSuccess(parent::post());
+        } catch (PasswordConstraintsException $e) {
+            $this->returnFailure(new common_exception_RestApi($e->getMessage()));
+        } catch (common_exception_ValidationFailed $e) {
+            $alias = $this->reverseSearchAlias($e->getField());
+            $this->returnFailure(new common_exception_ValidationFailed($alias, null, $e->getCode()));
+        } catch (Exception $e) {
+            $this->returnFailure($e);
+        }
     }
 
     /**
@@ -168,8 +196,9 @@ class ApiV2 extends \tao_actions_CommonRestModule
      * @return mixed
      * @throws \common_exception_NotImplemented
      */
-    protected function delete($uri = null) {
-        throw new \common_exception_NotImplemented('Not implemented');
+    public function delete($uri = null)
+    {
+        $this->returnFailure(new common_exception_RestApi('Not implemented.'));
     }
 
     protected function getParameters()
