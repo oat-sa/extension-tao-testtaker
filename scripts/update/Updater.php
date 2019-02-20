@@ -97,13 +97,7 @@ class Updater extends \common_ext_ExtensionUpdater
             $extension->setConfig('csvImporterCallbacks', $config);
             $this->setVersion('3.11.0');
         }
-        $this->skip('3.11.0', '4.2.2');
 
-        if ($this->isVersion('4.2.2')) {
-            AclProxy::applyRule(new AccessRule(AccessRule::GRANT,  TaoRoles::SYSTEM_ADMINISTRATOR, RestTestTakers::class));
-            AclProxy::applyRule(new AccessRule(AccessRule::GRANT,  TaoRoles::GLOBAL_MANAGER, RestTestTakers::class));
-
-            $this->setVersion('5.0.0');
-        }
+        $this->skip('3.11.0', '5.0.0');
     }
 }
