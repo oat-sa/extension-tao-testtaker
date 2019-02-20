@@ -28,8 +28,8 @@
                       "description": "`false` on failure, `true` on success",
                       "type": "boolean"
                     },
-                    "data": {
-                      "description": "Created test center URI",
+                    "uri": {
+                      "description": "Created test taker URI",
                       "type": "string"
                     },
                     "version": {
@@ -40,8 +40,7 @@
                   "type": "object",
                   "example": {
                     "success": true,
-                    "data": "http://sample/first.rdf#i1536680377163171",
-                    "version": "3.3.0-sprint96"
+                    "uri": "http://sample/first.rdf#i1536680377163171"
                   }
                 }
               }

@@ -54,19 +54,13 @@ use oat\taoTestTaker\models\CrudService;
  *                     description="`false` on failure, `true` on success",
  *                 ),
  *                 @OA\Property(
- *                     property="data",
+ *                     property="uri",
  *                     type="string",
- *                     description="Created test center URI",
- *                 ),
- *                 @OA\Property(
- *                     property="version",
- *                     type="string",
- *                     description="Platform version",
+ *                     description="Created test taker URI",
  *                 ),
  *                 example={
  *                     "success": true,
- *                     "data": "http://sample/first.rdf#i1536680377163171",
- *                     "version": "3.3.0-sprint96"
+ *                     "uri": "http://sample/first.rdf#i1536680377163171"
  *                 }
  *             ),
  *         ),
@@ -208,7 +202,10 @@ class RestTestTakers extends \tao_actions_CommonRestModule
             /** @var \core_kernel_classes_Resource $testTakerResource */
             $testTakerResource = parent::post();
 
-            $this->returnSuccess($testTakerResource->getUri());
+            $this->returnSuccess([
+                'success' => true,
+                'uri' => $testTakerResource->getUri(),
+            ], false);
         } catch (PasswordConstraintsException $e) {
             $this->returnFailure(new common_exception_RestApi($e->getMessage()));
         } catch (common_exception_ValidationFailed $e) {
