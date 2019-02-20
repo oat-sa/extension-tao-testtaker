@@ -23,7 +23,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResourceResponse"
+                  "properties": {
+                    "success": {
+                      "description": "`false` on failure, `true` on success",
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "description": "Created test center URI",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Platform version",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "example": {
+                    "success": true,
+                    "data": "http://sample/first.rdf#i1536680377163171",
+                    "version": "3.3.0-sprint96"
+                  }
                 }
               }
             }

@@ -44,7 +44,32 @@ use oat\taoTestTaker\models\CrudService;
  *     @OA\Response(
  *         response="200",
  *         description="Test taker created",
- *         @OA\JsonContent(ref="#/components/schemas/tao.CommonRestModule.CreatedResourceResponse")
+ *         @OA\MediaType(
+ *             mediaType="application/json",
+ *             @OA\Schema(
+ *                 type="object",
+ *                 @OA\Property(
+ *                     property="success",
+ *                     type="boolean",
+ *                     description="`false` on failure, `true` on success",
+ *                 ),
+ *                 @OA\Property(
+ *                     property="data",
+ *                     type="string",
+ *                     description="Created test center URI",
+ *                 ),
+ *                 @OA\Property(
+ *                     property="version",
+ *                     type="string",
+ *                     description="Platform version",
+ *                 ),
+ *                 example={
+ *                     "success": true,
+ *                     "data": "http://sample/first.rdf#i1536680377163171",
+ *                     "version": "3.3.0-sprint96"
+ *                 }
+ *             ),
+ *         ),
  *     ),
  *     @OA\Response(
  *         response="400",
