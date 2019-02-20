@@ -54,7 +54,9 @@ return array(
 	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
     'acl' => array(
-        array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoTestTaker'))
+        array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoTestTaker')),
+        array('grant', \oat\tao\model\user\TaoRoles::SYSTEM_ADMINISTRATOR, \oat\taoTestTaker\actions\RestTestTakers::class),
+        array('grant', \oat\tao\model\user\TaoRoles::GLOBAL_MANAGER, \oat\taoTestTaker\actions\RestTestTakers::class)
     ),
     'routes' => array(
         '/taoTestTaker/api' => ['class' => \oat\taoTestTaker\models\routing\ApiRoute::class],

@@ -180,7 +180,10 @@ class RestTestTakers extends \tao_actions_CommonRestModule
     public function post()
     {
         try {
-            $this->returnSuccess(parent::post());
+            /** @var \core_kernel_classes_Resource $testTakerResource */
+            $testTakerResource = parent::post();
+
+            $this->returnSuccess($testTakerResource->getUri());
         } catch (PasswordConstraintsException $e) {
             $this->returnFailure(new common_exception_RestApi($e->getMessage()));
         } catch (common_exception_ValidationFailed $e) {
