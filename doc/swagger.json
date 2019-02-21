@@ -5,7 +5,7 @@
     "version": "2.0"
   },
   "paths": {
-    "/taoTestTaker/ApiV2": {
+    "/taoTestTaker/api/testTakers": {
       "post": {
         "summary": "Create new test taker",
         "requestBody": {
@@ -23,7 +23,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResourceResponse"
+                  "properties": {
+                    "success": {
+                      "description": "`false` on failure, `true` on success",
+                      "type": "boolean"
+                    },
+                    "uri": {
+                      "description": "Created test taker URI",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Platform version",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "example": {
+                    "success": true,
+                    "uri": "http://sample/first.rdf#i1536680377163171"
+                  }
                 }
               }
             }
@@ -80,11 +98,11 @@
             "type": "string"
           },
           "uiLg": {
-            "description": "Interface language (uri or language code, 'fr-FR' for example)",
+            "description": "Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
           "defLg": {
-            "description": "Default language (uri or language code, 'fr-FR' for example)",
+            "description": "Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
           "firstName": {

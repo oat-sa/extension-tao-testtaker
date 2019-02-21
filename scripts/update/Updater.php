@@ -27,7 +27,9 @@ use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
 use oat\tao\model\user\import\UserCsvImporterFactory;
+use oat\taoTestTaker\actions\RestTestTakers;
 use oat\taoTestTaker\models\TestTakerImporter;
+use oat\taoTestTaker\models\TestTakerService;
 
 /**
  * Class Updater
@@ -95,7 +97,7 @@ class Updater extends \common_ext_ExtensionUpdater
             $extension->setConfig('csvImporterCallbacks', $config);
             $this->setVersion('3.11.0');
         }
-        $this->skip('3.11.0', '4.2.2');
 
+        $this->skip('3.11.0', '5.1.0');
     }
 }
