@@ -20,6 +20,8 @@
  * 
  */
 namespace oat\taoTestTaker\actions;
+use oat\tao\model\routing\AnnotationReader\security;
+
 /**
  * Extends the common Import class to update the behavior
  * 
@@ -33,6 +35,7 @@ class SasImport extends Import {
 
  	/**
      * @see Subjects::__construct()
+     * @security("hide")
      */
     public function __construct() {
     	\tao_helpers_Context::load('STANDALONE_MODE');

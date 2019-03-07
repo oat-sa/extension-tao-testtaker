@@ -27,6 +27,7 @@ use common_exception_ValidationFailed;
 use oat\generis\model\OntologyRdf;
 use oat\generis\model\user\PasswordConstraintsException;
 use oat\generis\model\user\UserRdf;
+use oat\tao\model\routing\AnnotationReader\security;
 use oat\tao\model\TaoOntology;
 use oat\taoTestTaker\models\CrudService;
 
@@ -138,6 +139,10 @@ class RestTestTakers extends \tao_actions_CommonRestModule
 
     const ROOT_CLASS = TaoOntology::CLASS_URI_SUBJECT;
 
+    /**
+     * RestTestTakers constructor.
+     * @security("hide");
+     */
     public function __construct()
     {
         parent::__construct();

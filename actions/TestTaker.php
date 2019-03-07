@@ -25,8 +25,9 @@ use core_kernel_classes_Class;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyAwareTrait;
-use oat\oatbox\event\EventManagerAwareTrait;
+use oat\oatbox\event\EventManager;
 use oat\tao\model\resources\ResourceWatcher;
+use oat\tao\model\routing\AnnotationReader\security;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -44,11 +45,16 @@ use tao_actions_SaSModule;
 class TestTaker extends tao_actions_SaSModule
 {
     use OntologyAwareTrait;
-    use EventManagerAwareTrait;
+
+    protected function getEventManager()
+    {
+        return $this->getServiceLocator()->get(EventManager::SERVICE_ID);
+    }
 
     /**
      * TestTaker constructor.
      * @throws \common_ext_ExtensionException
+     * @security("hide")
      */
     public function __construct()
     {
