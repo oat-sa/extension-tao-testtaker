@@ -20,6 +20,7 @@
  * 
  */
 namespace oat\taoTestTaker\actions;
+
 use oat\tao\model\routing\AnnotationReader\security;
 
 /**

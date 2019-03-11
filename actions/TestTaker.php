@@ -46,6 +46,9 @@ class TestTaker extends tao_actions_SaSModule
 {
     use OntologyAwareTrait;
 
+    /**
+     * @return EventManager
+     */
     protected function getEventManager()
     {
         return $this->getServiceLocator()->get(EventManager::SERVICE_ID);
