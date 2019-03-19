@@ -21,6 +21,7 @@
  */
 namespace oat\taoTestTaker\actions;
 
+use common_ext_ExtensionException;
 use core_kernel_classes_Class;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
@@ -55,13 +56,14 @@ class TestTaker extends tao_actions_SaSModule
     }
 
     /**
-     * TestTaker constructor.
-     * @throws \common_ext_ExtensionException
+     * @throws common_ext_ExtensionException
      * @security("hide")
      */
     public function __construct()
     {
-        parent::defaultData();
+        parent::__construct();
+
+        $this->defaultData();
     }
 
     /**
