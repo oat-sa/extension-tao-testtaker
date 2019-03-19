@@ -23,10 +23,19 @@ namespace oat\taoTestTaker\actions;
 
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdf;
+use oat\tao\model\routing\AnnotationReader\security;
 use oat\taoTestTaker\models\CrudService;
 
+/**
+ * @deprecated
+ * @see RestTestTakers
+ */
 class Api extends \tao_actions_CommonRestModule {
 
+    /**
+     * Api constructor.
+     * @security("hide");
+     */
 	public function __construct(){
 		parent::__construct();
 		$this->service = CrudService::singleton();

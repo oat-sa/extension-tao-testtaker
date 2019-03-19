@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"Project-Id-Version: TAO 3.3.0-sprint91\n"
+"PO-Revision-Date: 2019-03-15T09:35:33\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
@@ -25,12 +25,15 @@ msgid "Export"
 msgstr "تصدير"
 
 #, tao-public
-msgid "Filter"
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Last updated on %2s"
 msgstr ""
 
 #, tao-public
-msgid "Import"
-msgstr "استيراد"
+msgid "Manage Schema"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
@@ -39,6 +42,10 @@ msgstr "إدارة المتقدمين للاختبار"
 #, tao-public
 msgid "Move"
 msgstr "حرك"
+
+#, tao-public
+msgid "Move To"
+msgstr ""
 
 #, tao-public
 msgid "New class"
@@ -55,10 +62,6 @@ msgstr ""
 #, tao-public
 msgid "Record and manage test takers."
 msgstr ""
-
-#, tao-public
-msgid "Search"
-msgstr "بحث"
 
 msgid "Test taker saved"
 msgstr "حفظ المترشح"

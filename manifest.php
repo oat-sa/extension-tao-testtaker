@@ -33,10 +33,10 @@ return array(
     'label' => 'Test-taker core extension',
 	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '4.1.0',
+    'version' => '5.2.0',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'requires' => array(
-	    'tao' => '>=21.0.0',
+	    'tao' => '>=27.4.1',
 	    'taoBackOffice' => '>=3.0.0'
     ),
 	'models' => array(
@@ -54,9 +54,10 @@ return array(
 	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
 	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
     'acl' => array(
-        array('grant', 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole', array('ext'=>'taoTestTaker'))
+        array('grant', \oat\taoTestTaker\models\TestTakerService::ROLE_SUBJECT_MANAGER, array('ext'=>'taoTestTaker'))
     ),
     'routes' => array(
+        '/taoTestTaker/api' => ['class' => \oat\taoTestTaker\models\routing\ApiRoute::class],
         '/taoTestTaker' => 'oat\\taoTestTaker\\actions'
     ),
 	'constants' => array(

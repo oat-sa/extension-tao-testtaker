@@ -57,9 +57,12 @@ class CrudService extends \tao_models_classes_CrudService
      *
      * @author Patrick Plichart, patrick@taotesting.com
      * @param  array $propertiesValues
+     * @return \core_kernel_classes_Resource
+     * @throws \common_exception_Error
      * @throws \common_exception_MissingParameter
      * @throws \common_exception_PreConditionFailure
-     * @return \core_kernel_classes_Resource
+     * @throws \common_exception_ValidationFailed
+     * @throws \oat\generis\model\user\PasswordConstraintsException
      */
     public function createFromArray($propertiesValues = array())
     {
@@ -71,13 +74,14 @@ class CrudService extends \tao_models_classes_CrudService
         if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD])) {
             throw new \common_exception_MissingParameter("password");
         }
-        // default values
-        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_UILG])) {
-            $propertiesValues[GenerisRdf::PROPERTY_USER_UILG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-        }
-        if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG])) {
-            $propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG] = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG);
-        }
+        // default values and validation
+        $propertiesValues[GenerisRdf::PROPERTY_USER_UILG] =
+            self::readLangProperty($propertiesValues, GenerisRdf::PROPERTY_USER_UILG);
+
+        $propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG] =
+            self::readLangProperty($propertiesValues, GenerisRdf::PROPERTY_USER_DEFLG);
+
+
         if (! isset($propertiesValues[OntologyRdfs::RDFS_LABEL])) {
             $propertiesValues[OntologyRdfs::RDFS_LABEL] = "";
         }
@@ -99,6 +103,7 @@ class CrudService extends \tao_models_classes_CrudService
         
         return $resource;
     }
+
     /**
      * (non-PHPdoc)
      * @see tao_models_classes_CrudService::update()
@@ -116,5 +121,25 @@ class CrudService extends \tao_models_classes_CrudService
         }
         parent::update($uri, $propertiesValues);
         // throw new common_exception_NotImplemented();
+    }
+
+    /**
+     * @param array $properties
+     * @param string $propKey
+     * @return string
+     * @throws \common_exception_Error
+     * @throws \common_exception_ValidationFailed
+     */
+    protected static function readLangProperty(array &$properties, $propKey) {
+        if (!isset($properties[$propKey])) {
+            return \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
+        }
+
+        $existingUri = \tao_models_classes_LanguageService::getExistingLanguageUri($properties[$propKey]);
+        if ($existingUri === null) {
+            throw new \common_exception_ValidationFailed($propKey);
+        }
+
+        return $existingUri;
     }
 }

@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TAO Test Taker API",
+    "version": "2.0"
+  },
+  "paths": {
+    "/taoTestTaker/api/testTakers": {
+      "post": {
+        "summary": "Create new test taker",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/taoTestTaker.TestTaker.New"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test taker created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "success": {
+                      "description": "`false` on failure, `true` on success",
+                      "type": "boolean"
+                    },
+                    "uri": {
+                      "description": "Created test taker URI",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Platform version",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "example": {
+                    "success": true,
+                    "uri": "http://sample/first.rdf#i1536680377163171"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tao.RestTrait.FailureResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "taoTestTaker.TestTaker.New": {
+        "required": [
+          "login",
+          "password"
+        ],
+        "properties": {
+          "login": {
+            "description": "Login",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.GenerisClass.Search"
+          },
+          {
+            "$ref": "#/components/schemas/taoTestTaker.TestTaker.Update"
+          }
+        ]
+      },
+      "taoTestTaker.TestTaker.Update": {
+        "properties": {
+          "label": {
+            "description": "Label",
+            "type": "string"
+          },
+          "login": {
+            "description": "Login",
+            "type": "string"
+          },
+          "password": {
+            "description": "Password",
+            "type": "string"
+          },
+          "uiLg": {
+            "description": "Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
+            "type": "string"
+          },
+          "defLg": {
+            "description": "Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
+            "type": "string"
+          },
+          "firstName": {
+            "description": "First name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last name",
+            "type": "string"
+          },
+          "mail": {
+            "description": "Email",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.CommonRestModule.CreatedResourceResponse": {
+        "description": "Created resource data",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/tao.CommonRestModule.CreatedResource"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.RestTrait.BaseResponse"
+          }
+        ]
+      },
+      "tao.RestTrait.FailureResponse": {
+        "description": "Error response with success=false",
+        "properties": {
+          "success": {
+            "description": "Indicates error",
+            "type": "boolean",
+            "example": false
+          },
+          "errorCode": {
+            "description": "Exception error code",
+            "type": "integer"
+          },
+          "errorMsg": {
+            "description": "Exception message, not localized",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/tao.RestTrait.BaseResponse"
+          }
+        ]
+      },
+      "tao.GenerisClass.Search": {
+        "properties": {
+          "class-uri": {
+            "description": "Target class uri",
+            "type": "string"
+          },
+          "class-label": {
+            "description": "Target class label. If label is not unique first match will be used",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.CommonRestModule.CreatedResource": {
+        "description": "Created resource data",
+        "properties": {
+          "uriResource": {
+            "description": "Method to wrap creating to service",
+            "type": "string",
+            "example": "http://sample/first.rdf#i1536680377163171"
+          },
+          "label": {
+            "description": "Method to wrap creating to service",
+            "type": "string"
+          },
+          "comment": {
+            "description": "Method to wrap creating to service",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "tao.RestTrait.BaseResponse": {
+        "properties": {
+          "success": {
+            "description": "Indicates error",
+            "type": "boolean"
+          },
+          "version": {
+            "description": "Build version",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

@@ -13,18 +13,19 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2014-2019 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
+ * Copyright (c) 2019 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
+ *
+ * @author Ilya Yarkavets <ilya.yarkavets@1pt.com>
  */
 
-//@see http://forge.taotesting.com/projects/tao/wiki/Front_js
-define(function(){
-    'use strict';
+define(['module', 'jquery','ui/lock'],
+    function(module, $, lock){
 
-    return {
-        'TestTaker' : {
-            'actions' : {
-                'editSubject' : 'controller/testtaker/editSubject'
+        var editSubjectController = {
+            start : function(options){
+                $('#lock-box').each(function() {lock($(this)).register()});
             }
-        }
-    };
-});
+        };
+
+        return editSubjectController;
+    });
