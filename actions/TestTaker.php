@@ -21,7 +21,12 @@
  */
 namespace oat\taoTestTaker\actions;
 
+use common_ext_ExtensionException;
+use common_ext_ExtensionsManager;
 use core_kernel_classes_Class;
+use core_kernel_classes_Property;
+use core_kernel_classes_Resource;
+use core_kernel_users_Service;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyAwareTrait;
@@ -34,6 +39,8 @@ use oat\taoGroups\helpers\TestTakerForm as GroupForm;
 use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
 use oat\taoTestTaker\models\TestTakerService;
 use tao_actions_SaSModule;
+use tao_helpers_Uri;
+use tao_models_classes_UserService;
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -55,13 +62,14 @@ class TestTaker extends tao_actions_SaSModule
     }
 
     /**
-     * TestTaker constructor.
-     * @throws \common_ext_ExtensionException
+     * @throws common_ext_ExtensionException
      * @security("hide")
      */
     public function __construct()
     {
-        parent::defaultData();
+        parent::__construct();
+
+        $this->defaultData();
     }
 
     /**
@@ -105,6 +113,14 @@ class TestTaker extends tao_actions_SaSModule
      * edit an subject instance
      *
      * @requiresRight id READ
+     *
+     * @throws \InterruptedActionException
+     * @throws \common_exception_Error
+     * @throws \core_kernel_persistence_Exception
+     * @throws \oat\generis\model\user\PasswordConstraintsException
+     * @throws \oat\tao\model\security\SecurityException
+     * @throws \tao_models_classes_MissingRequestParameterException
+     * @throws \tao_models_classes_dataBinding_GenerisFormDataBindingException
      */
     public function editSubject()
     {
@@ -114,83 +130,84 @@ class TestTaker extends tao_actions_SaSModule
         $subject = $this->getCurrentInstance();
 
         $addMode = false;
-        $login = (string) $subject->getOnePropertyValue(new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN));
+        $login = (string) $subject->getOnePropertyValue(new core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN));
         if (empty($login)) {
             $addMode = true;
-            $this->setData('loginUri', \tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN));
+            $this->setData('loginUri', tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN));
         }
 
         if ($this->hasRequestParameter('reload')) {
             $this->setData('reload', true);
         }
 
-        $myFormContainer = new TestTakerForm($clazz, $subject, $addMode, false);
+        $myFormContainer = new TestTakerForm($clazz, $subject, $addMode);
         $myForm = $myFormContainer->getForm();
 
-        if ($myForm->isSubmited()) {
-            if ($myForm->isValid()) {
-                $this->setData('reload', false);
+        $subjectUri = $subject->getUri();
 
-                $values = $myForm->getValues();
+        if ($myForm->isSubmited() && $myForm->isValid()) {
+            $this->validateInstanceRoot($subjectUri);
+            $this->setData('reload', false);
 
-                if ($addMode) {
-                    $plainPassword = $values['password1'];
-                    $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
-                    unset($values['password1']);
-                    unset($values['password2']);
-                } else {
-                    if (! empty($values['password2'])) {
-                        $plainPassword = $values['password2'];
-                        $values[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
-                    }
-                    unset($values['password2']);
-                    unset($values['password3']);
+            $values = $myForm->getValues();
+
+            if ($addMode) {
+                $plainPassword = $values['password1'];
+                $values[GenerisRdf::PROPERTY_USER_PASSWORD] =
+                    core_kernel_users_Service::getPasswordHash()->encrypt($values['password1']);
+                unset($values['password1'], $values['password2']);
+            } else {
+                if (! empty($values['password2'])) {
+                    $plainPassword = $values['password2'];
+                    $values[GenerisRdf::PROPERTY_USER_PASSWORD] =
+                        core_kernel_users_Service::getPasswordHash()->encrypt($values['password2']);
                 }
-
-                $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
-                $subject = $binder->bind($values);
-
-                $data = [];
-                if (isset($plainPassword)){
-                    $data = ['hashForKey' => UserHashForEncryption::hash($plainPassword)];
-                }
-
-                $this->getEventManager()->trigger(new TestTakerUpdatedEvent($subject->getUri(),
-                    array_merge($values, $data)
-                ));
-
-                if ($addMode) {
-                    // force default subject roles to be the Delivery Role:
-                    $this->getClassService()->setTestTakerRole($subject);
-                }
-
-                // force the data language to be the same as the gui language
-                $userService = \tao_models_classes_UserService::singleton();
-                $lang = new \core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
-                $userService->bindProperties($subject, array(
-                    GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
-                ));
-
-                $message = __('Test taker saved');
-
-                if ($addMode) {
-                    $params = array(
-                        'id' => $subject->getUri(),
-                        'uri' => \tao_helpers_Uri::encode($subject->getUri()),
-                        'classUri' => \tao_helpers_Uri::encode($clazz->getUri()),
-                        'reload' => true,
-                        'message' => $message
-                    );
-                    $this->redirect(_url('editSubject', null, null, $params));
-                }
-
-                $this->setData("selectNode", \tao_helpers_Uri::encode($subject->getUri()));
-                $this->setData('message', $message);
-                $this->setData('reload', true);
+                unset($values['password2'], $values['password3']);
             }
+
+            $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($subject);
+            $subject = $binder->bind($values);
+
+            $data = [];
+            if (isset($plainPassword)){
+                $data = ['hashForKey' => UserHashForEncryption::hash($plainPassword)];
+            }
+
+            $this->getEventManager()->trigger(
+                new TestTakerUpdatedEvent($subjectUri,array_merge($values, $data))
+            );
+
+            if ($addMode) {
+                // force default subject roles to be the Delivery Role:
+                $this->getClassService()->setTestTakerRole($subject);
+            }
+
+            // force the data language to be the same as the gui language
+            $userService = tao_models_classes_UserService::singleton();
+            $lang = new core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
+            $userService->bindProperties($subject, array(
+                GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
+            ));
+
+            $message = __('Test taker saved');
+
+            if ($addMode) {
+                $params = array(
+                    'id' => $subjectUri,
+                    'uri' => tao_helpers_Uri::encode($subjectUri),
+                    'classUri' => tao_helpers_Uri::encode($clazz->getUri()),
+                    'reload' => true,
+                    'message' => $message
+                );
+                $this->redirect(_url('editSubject', null, null, $params));
+            }
+
+            $this->setData('selectNode', tao_helpers_Uri::encode($subjectUri));
+            $this->setData('message', $message);
+            $this->setData('reload', true);
         }
 
-        if (\common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
+        if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
             $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
         }
         $updatedAt = $this->getServiceManager()->get(ResourceWatcher::SERVICE_ID)->getUpdatedAt($subject);
