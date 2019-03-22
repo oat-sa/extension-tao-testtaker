@@ -74,13 +74,18 @@ class CrudService extends \tao_models_classes_CrudService
         if (! isset($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD])) {
             throw new \common_exception_MissingParameter("password");
         }
+
+        // validate parameters
+        if (empty($propertiesValues[GenerisRdf::PROPERTY_USER_LOGIN])) {
+            throw new \common_exception_ValidationFailed(GenerisRdf::PROPERTY_USER_LOGIN);
+        }
+
         // default values and validation
         $propertiesValues[GenerisRdf::PROPERTY_USER_UILG] =
             self::readLangProperty($propertiesValues, GenerisRdf::PROPERTY_USER_UILG);
 
         $propertiesValues[GenerisRdf::PROPERTY_USER_DEFLG] =
             self::readLangProperty($propertiesValues, GenerisRdf::PROPERTY_USER_DEFLG);
-
 
         if (! isset($propertiesValues[OntologyRdfs::RDFS_LABEL])) {
             $propertiesValues[OntologyRdfs::RDFS_LABEL] = "";
