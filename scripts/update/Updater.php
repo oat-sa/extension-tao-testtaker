@@ -98,6 +98,6 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('3.11.0');
         }
 
-        $this->skip('3.11.0', '5.2.1');
+        $this->skip('3.11.0', '6.0.0');
     }
 }
