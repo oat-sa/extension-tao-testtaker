@@ -89,7 +89,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
      *         type="string",
      *         description="Login"
      *     ),
-     *     required={"login", "password"}
+     *     required={"login", "password", "userLanguage"}
      * )
      * @OA\Schema(
      *     schema="taoTestTaker.TestTaker.Update",

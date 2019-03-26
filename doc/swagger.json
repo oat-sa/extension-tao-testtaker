@@ -65,7 +65,8 @@
       "taoTestTaker.TestTaker.New": {
         "required": [
           "login",
-          "password"
+          "password",
+          "userLanguage"
         ],
         "properties": {
           "login": {
