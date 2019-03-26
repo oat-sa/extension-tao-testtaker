@@ -65,7 +65,8 @@
       "taoTestTaker.TestTaker.New": {
         "required": [
           "login",
-          "password"
+          "password",
+          "userLanguage"
         ],
         "properties": {
           "login": {
@@ -97,11 +98,11 @@
             "description": "Password",
             "type": "string"
           },
-          "uiLg": {
+          "userLanguage": {
             "description": "Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
-          "defLg": {
+          "defaultLanguage": {
             "description": "Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)",
             "type": "string"
           },
