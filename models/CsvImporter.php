@@ -39,7 +39,7 @@ use oat\taoTestTaker\models\events\TestTakerImportedEvent;
  */
 class CsvImporter extends \tao_models_classes_import_CsvImporter
 {
-    public function import($class, $form)
+    public function import($class, $form, $userId = null)
     {
         $report = parent::import($class, $form);
 

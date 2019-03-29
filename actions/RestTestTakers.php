@@ -89,7 +89,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
      *         type="string",
      *         description="Login"
      *     ),
-     *     required={"login", "password"}
+     *     required={"login", "password", "userLanguage"}
      * )
      * @OA\Schema(
      *     schema="taoTestTaker.TestTaker.Update",
@@ -110,12 +110,12 @@ class RestTestTakers extends \tao_actions_CommonRestModule
      *         description="Password"
      *     ),
      *     @OA\Property(
-     *         property="uiLg",
+     *         property="userLanguage",
      *         type="string",
      *         description="Interface language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)"
      *     ),
      *     @OA\Property(
-     *         property="defLg",
+     *         property="defaultLanguage",
      *         type="string",
      *         description="Default language (uri or language code, 'fr-FR' or 'http://www.tao.lu/Ontologies/TAO.rdf#Langfr-FR' for example)"
      *     ),
@@ -163,8 +163,8 @@ class RestTestTakers extends \tao_actions_CommonRestModule
         return array_merge(parent::getParametersAliases(), [
             'login' => UserRdf::PROPERTY_LOGIN,
             'password' => UserRdf::PROPERTY_PASSWORD,
-            'uiLg' => UserRdf::PROPERTY_UILG,
-            'defLg' => UserRdf::PROPERTY_DEFLG,
+            'userLanguage' => UserRdf::PROPERTY_UILG,
+            'defaultLanguage' => UserRdf::PROPERTY_DEFLG,
             'firstName'=> UserRdf::PROPERTY_FIRSTNAME,
             'lastName' => UserRdf::PROPERTY_LASTNAME,
             'mail' => UserRdf::PROPERTY_MAIL
@@ -177,7 +177,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
     protected function getParametersRequirements()
     {
         return [
-            'post' => array("login", "password")
+            'post' => array("login", "password", "userLanguage")
         ];
     }
 
