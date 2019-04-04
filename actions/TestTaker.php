@@ -142,10 +142,12 @@ class TestTaker extends tao_actions_SaSModule
 
         $myFormContainer = new TestTakerForm($clazz, $subject, $addMode);
         $myForm = $myFormContainer->getForm();
+        $myForm->addCsrfTokenProtection();
 
         $subjectUri = $subject->getUri();
 
         if ($myForm->isSubmited() && $myForm->isValid()) {
+            $this->validateCsrf();
             $this->validateInstanceRoot($subjectUri);
             $this->setData('reload', false);
 
