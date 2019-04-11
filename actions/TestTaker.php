@@ -147,7 +147,6 @@ class TestTaker extends tao_actions_SaSModule
         $subjectUri = $subject->getUri();
 
         if ($myForm->isSubmited() && $myForm->isValid()) {
-            $this->validateCsrf();
             $this->validateInstanceRoot($subjectUri);
             $this->setData('reload', false);
 
@@ -207,12 +206,6 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('selectNode', tao_helpers_Uri::encode($subjectUri));
             $this->setData('message', $message);
             $this->setData('reload', true);
-
-            $this->returnJson([
-                'success' => true,
-                'message' => $message
-            ]);
-            return;
         }
 
         if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
