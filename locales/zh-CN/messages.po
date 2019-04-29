@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"Project-Id-Version: TAO 3.3.0-sprint96\n"
+"PO-Revision-Date: 2019-04-25T01:10:28\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: zh-CN\n"
@@ -25,12 +25,15 @@ msgid "Export"
 msgstr "导出"
 
 #, tao-public
-msgid "Filter"
-msgstr "过滤条件"
-
-#, tao-public
 msgid "Import"
 msgstr "导入"
+
+msgid "Last updated on %2s"
+msgstr ""
+
+#, tao-public
+msgid "Manage Schema"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
@@ -39,6 +42,10 @@ msgstr "管理考生"
 #, tao-public
 msgid "Move"
 msgstr "移动"
+
+#, tao-public
+msgid "Move To"
+msgstr ""
 
 #, tao-public
 msgid "New class"
@@ -55,10 +62,6 @@ msgstr "属性"
 #, tao-public
 msgid "Record and manage test takers."
 msgstr "储存以及管理考生。"
-
-#, tao-public
-msgid "Search"
-msgstr "搜索"
 
 msgid "Test taker saved"
 msgstr "考生已储存"

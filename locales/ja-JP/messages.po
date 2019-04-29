@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint33\n"
-"PO-Revision-Date: 2016-08-25T14:34:35\n"
+"Project-Id-Version: TAO 3.3.0-sprint96\n"
+"PO-Revision-Date: 2019-04-25T01:06:29\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ja-JP\n"
@@ -18,19 +18,22 @@ msgid "Delete"
 msgstr "削除"
 
 msgid "Edit subject"
-msgstr "オブジェクト編集"
+msgstr "受験者の編集"
 
 #, tao-public
 msgid "Export"
 msgstr "エクスポート"
 
 #, tao-public
-msgid "Filter"
-msgstr "フィルター"
-
-#, tao-public
 msgid "Import"
 msgstr "インポート"
+
+msgid "Last updated on %2s"
+msgstr ""
+
+#, tao-public
+msgid "Manage Schema"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
@@ -41,8 +44,12 @@ msgid "Move"
 msgstr "移動"
 
 #, tao-public
+msgid "Move To"
+msgstr ""
+
+#, tao-public
 msgid "New class"
-msgstr "新規クラス"
+msgstr "新規フォルダー"
 
 #, tao-public
 msgid "New test-taker"
@@ -50,15 +57,11 @@ msgstr "新規受験者"
 
 #, tao-public
 msgid "Properties"
-msgstr "属性"
+msgstr "プロパティ"
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr "受験者の記録と管理"
-
-#, tao-public
-msgid "Search"
-msgstr "検索"
 
 msgid "Test taker saved"
 msgstr "受験者が保存されました"
@@ -71,12 +74,12 @@ msgid "Test takers library"
 msgstr "受験者ライブラリ"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "受験者は関連する評価の文脈（人材管理・教育組織・教育測定上の監視単位など）に応じて，セットに割り当てられるかもしれません。"
+msgstr "受験者は関連する評価の文脈（人材管理・教育組織・教育測定上の監視単位など）に応じて、セットに割り当てられるかもしれません。"
 
 #, tao-public
 msgid "Test-takers"
-msgstr "受験者たち"
+msgstr "受験者"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "受験者モジュールは受験者　の記録と管理を許可する。"
+msgstr "受験者モジュールは受験者の記録と管理を許可する。"
 

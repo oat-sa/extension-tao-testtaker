@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.3.0-sprint96\n"
+"PO-Revision-Date: 2019-04-25T01:14:01\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: lt-LT\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: lt-LT\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#, tao-public
+msgid "Delete"
+msgstr "Ištrinti"
+
+msgid "Edit subject"
+msgstr "Redaguoti dalyką"
+
+#, tao-public
+msgid "Export"
+msgstr "Eksportuoti"
+
+#, tao-public
+msgid "Import"
+msgstr "Importuoti"
+
+msgid "Last updated on %2s"
+msgstr ""
+
+#, tao-public
+msgid "Manage Schema"
+msgstr ""
+
+#, tao-public
+msgid "Manage test takers"
+msgstr "Tvarkyti testo laikytojus"
+
+#, tao-public
+msgid "Move"
+msgstr "Perkelti"
+
+#, tao-public
+msgid "Move To"
+msgstr ""
+
+#, tao-public
+msgid "New class"
+msgstr "Nauja klasė"
+
+#, tao-public
+msgid "New test-taker"
+msgstr "Naujas testo laikytojas"
+
+#, tao-public
+msgid "Properties"
+msgstr "Savybės"
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr "Įrašyti ir tvarkyti testo laikytojus."
+
+msgid "Test taker saved"
+msgstr "Testo laikytojas išsaugotas"
+
+msgid "Test takers"
+msgstr "Testo laikytojai"
+
+#, tao-public
+msgid "Test takers library"
+msgstr "Testo laikytojų biblioteka"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "Testo laikytojai gali būti priskirti prie rinkinių, pagal atitinkamą įvertinimo kontekstą (Žmogiškųjų resursų valdyme, edukacijai, edumetrikos stebėjimui, t.t.)"
+
+#, tao-public
+msgid "Test-takers"
+msgstr "Testo laikytojai"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "Testo laikytojų modulis leidžia įrašyti ir tvarkyti testo laikytojus."
+

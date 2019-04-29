@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.1.0-sprint15\n"
-"PO-Revision-Date: 2015-12-23T13:39:49\n"
+"Project-Id-Version: TAO 3.3.0-sprint96\n"
+"PO-Revision-Date: 2019-04-25T01:03:20\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr "حذف"
+msgstr "حدف"
 
 msgid "Edit subject"
 msgstr "تحرير الموضوع"
@@ -25,12 +25,15 @@ msgid "Export"
 msgstr "تصدير"
 
 #, tao-public
-msgid "Filter"
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Last updated on %2s"
 msgstr ""
 
 #, tao-public
-msgid "Import"
-msgstr "استيراد"
+msgid "Manage Schema"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
@@ -39,6 +42,10 @@ msgstr "إدارة المتقدمين للاختبار"
 #, tao-public
 msgid "Move"
 msgstr "حرك"
+
+#, tao-public
+msgid "Move To"
+msgstr ""
 
 #, tao-public
 msgid "New class"
@@ -50,15 +57,11 @@ msgstr "مترشح جديد"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "خصائص"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
-
-#, tao-public
-msgid "Search"
-msgstr "بحث"
+msgstr "تسجيل وإدارة الممتحنين"
 
 msgid "Test taker saved"
 msgstr "حفظ المترشح"
@@ -75,7 +78,7 @@ msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مج�
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "الممتحنين"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"

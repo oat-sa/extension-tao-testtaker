@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.3.0-sprint96\n"
+"PO-Revision-Date: 2019-04-25T01:07:38\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: vi-VN\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: vi-VN\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#, tao-public
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Edit subject"
+msgstr "Chỉnh sửa chủ đề"
+
+#, tao-public
+msgid "Export"
+msgstr "Xuất ra"
+
+#, tao-public
+msgid "Import"
+msgstr "Nhập vào"
+
+msgid "Last updated on %2s"
+msgstr ""
+
+#, tao-public
+msgid "Manage Schema"
+msgstr ""
+
+#, tao-public
+msgid "Manage test takers"
+msgstr "Quản lý thí sinh"
+
+#, tao-public
+msgid "Move"
+msgstr "Di chuyển"
+
+#, tao-public
+msgid "Move To"
+msgstr ""
+
+#, tao-public
+msgid "New class"
+msgstr "Lớp mới"
+
+#, tao-public
+msgid "New test-taker"
+msgstr "Thí sinh mới"
+
+#, tao-public
+msgid "Properties"
+msgstr "Thuộc tính"
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr "Ghi âm và quản tý thí sinh."
+
+msgid "Test taker saved"
+msgstr "Lưu thí sinh"
+
+msgid "Test takers"
+msgstr "Thí sinh"
+
+#, tao-public
+msgid "Test takers library"
+msgstr "Thư viện người làm kiểm tra"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "Thí sinh có thể được chỉ định cho các bộ theo ngữ cảnh đánh giá có liên quan (Quản lý nguồn nhân lực, giáo dục, theo dõi thang đo, vv)."
+
+#, tao-public
+msgid "Test-takers"
+msgstr "Thí sinh"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "Mô-đun thí sinh cho phép ghi lại và quản lý thí sinh"
+

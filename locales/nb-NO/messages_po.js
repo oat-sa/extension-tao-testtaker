@@ -1,0 +1,1 @@
+{"Authoring":"Innhold","Delete":"Slett","Edit subject":"E-postens emnelinje","Export":"Eksporter","Import":"Importer","Move":"Flytt","New test":"Ny test","New test-taker":"Ny testkandidat","Properties":"Egenskaper","Test takers":"Testtaker","Users":"Brukere"}
