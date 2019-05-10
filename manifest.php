@@ -33,10 +33,10 @@ return array(
     'label' => 'Test-taker core extension',
 	'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '6.1.0',
+    'version' => '7.0.0',
 	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
 	'requires' => array(
-	    'tao' => '>=31.0.0',
+	    'tao' => '>=34.0.0',
 	    'taoBackOffice' => '>=3.0.0'
     ),
 	'models' => array(

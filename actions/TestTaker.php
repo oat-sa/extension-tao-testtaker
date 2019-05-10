@@ -41,6 +41,7 @@ use oat\taoTestTaker\models\TestTakerService;
 use tao_actions_SaSModule;
 use tao_helpers_Uri;
 use tao_models_classes_UserService;
+use tao_helpers_form_FormContainer as FormContainer;
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -140,7 +141,13 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        $myFormContainer = new TestTakerForm($clazz, $subject, $addMode);
+        $myFormContainer = new TestTakerForm(
+            $clazz,
+            $subject,
+            $addMode,
+            false,
+            [FormContainer::CSRF_PROTECTION_OPTION => true]
+        );
         $myForm = $myFormContainer->getForm();
 
         $subjectUri = $subject->getUri();
