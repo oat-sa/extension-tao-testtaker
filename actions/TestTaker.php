@@ -145,7 +145,6 @@ class TestTaker extends tao_actions_SaSModule
             $clazz,
             $subject,
             $addMode,
-            false,
             [FormContainer::CSRF_PROTECTION_OPTION => true]
         );
         $myForm = $myFormContainer->getForm();
