@@ -21,8 +21,7 @@
 define([
     'jquery',
     'ui/lock'
-], function(module, $, lock){
-
+], function($, lock){
     return {
         start() {
             $('#lock-box').each(function() {
