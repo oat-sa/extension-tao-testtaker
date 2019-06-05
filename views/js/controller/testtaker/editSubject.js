@@ -18,14 +18,16 @@
  * @author Ilya Yarkavets <ilya.yarkavets@1pt.com>
  */
 
-define(['module', 'jquery','ui/lock'],
-    function(module, $, lock){
+define([
+    'jquery',
+    'ui/lock'
+], function(module, $, lock){
 
-        var editSubjectController = {
-            start : function(options){
-                $('#lock-box').each(function() {lock($(this)).register()});
-            }
-        };
-
-        return editSubjectController;
-    });
+    return {
+        start() {
+            $('#lock-box').each(function() {
+                lock($(this)).register();
+            });
+        }
+    };
+});
