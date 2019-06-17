@@ -45,23 +45,12 @@ class TestTakerService extends \tao_models_classes_ClassService
 
     const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
 
-    protected $subjectClass = null;
-
-    /**
-     * TestTakerService constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->subjectClass = new \core_kernel_classes_Class(TaoOntology::SUBJECT_CLASS_URI);
-    }
-
     /**
      * @return core_kernel_classes_Class|null
      */
     public function getRootClass()
     {
-        return $this->subjectClass;
+        return $this->getClass(TaoOntology::CLASS_URI_SUBJECT);
     }
 
     /**
@@ -144,20 +133,7 @@ class TestTakerService extends \tao_models_classes_ClassService
      */
     public function isSubjectClass(\core_kernel_classes_Class $clazz)
     {
-        $returnValue = (bool) false;
-
-        if ($clazz->getUri() == $this->subjectClass->getUri()) {
-            $returnValue = true;
-        } else {
-            foreach ($this->subjectClass->getSubClasses(true) as $subclass) {
-                if ($clazz->getUri() == $subclass->getUri()) {
-                    $returnValue = true;
-                    break;
-                }
-            }
-        }
-
-        return (bool) $returnValue;
+        return $clazz->equals($this->getRootClass()) || $clazz->isSubClassOf($this->getRootClass());
     }
 
     /**
