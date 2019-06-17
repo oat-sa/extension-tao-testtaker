@@ -45,7 +45,8 @@ class Api extends \tao_actions_CommonRestModule {
 	 * Optionnaly a specific rest controller may declare
 	 * aliases for parameters used for the rest communication
 	 */
-	protected function getParametersAliases(){
+	protected function getParametersAliases()
+	{
 	    return array_merge(parent::getParametersAliases(), array(
 		    "login"=> GenerisRdf::PROPERTY_USER_LOGIN,
 		    "password" => GenerisRdf::PROPERTY_USER_PASSWORD,
