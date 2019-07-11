@@ -30,6 +30,7 @@ use oat\taoTestTaker\models\events\TestTakerClassCreatedEvent;
 use oat\taoTestTaker\models\events\TestTakerClassRemovedEvent;
 use oat\taoTestTaker\models\events\TestTakerCreatedEvent;
 use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
+use oat\tao\model\OntologyClassService;
 
 /**
  * Service methods to manage the Subjects business models using the RDF API.
@@ -37,7 +38,7 @@ use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
  * @access public
  * @author Joel Bout, <joel.bout@tudor.lu>
  */
-class TestTakerService extends \tao_models_classes_ClassService
+class TestTakerService extends OntologyClassService
 {
     use EventManagerAwareTrait;
 
@@ -45,23 +46,12 @@ class TestTakerService extends \tao_models_classes_ClassService
 
     const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
 
-    protected $subjectClass = null;
-
-    /**
-     * TestTakerService constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->subjectClass = new \core_kernel_classes_Class(TaoOntology::SUBJECT_CLASS_URI);
-    }
-
     /**
      * @return core_kernel_classes_Class|null
      */
     public function getRootClass()
     {
-        return $this->subjectClass;
+        return $this->getClass(TaoOntology::SUBJECT_CLASS_URI);
     }
 
     /**
@@ -146,10 +136,10 @@ class TestTakerService extends \tao_models_classes_ClassService
     {
         $returnValue = (bool) false;
 
-        if ($clazz->getUri() == $this->subjectClass->getUri()) {
+        if ($clazz->getUri() == $this->getRootClass()->getUri()) {
             $returnValue = true;
         } else {
-            foreach ($this->subjectClass->getSubClasses(true) as $subclass) {
+            foreach ($this->getRootClass()->getSubClasses(true) as $subclass) {
                 if ($clazz->getUri() == $subclass->getUri()) {
                     $returnValue = true;
                     break;
