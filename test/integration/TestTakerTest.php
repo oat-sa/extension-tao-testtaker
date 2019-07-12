@@ -54,7 +54,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         TaoPhpUnitTestRunner::initTest();
         // load constants
         \common_ext_ExtensionsManager::singleton()->getExtensionById('taoTestTaker');
-        $this->subjectsService = TestTakerService::singleton();
+        $this->subjectsService = new TestTakerService();
     }
 
     /**
