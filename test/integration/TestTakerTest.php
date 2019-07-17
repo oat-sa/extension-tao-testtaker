@@ -30,7 +30,8 @@ use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 use core_kernel_classes_Resource;
 use core_kernel_classes_Class;
-
+use oat\generis\test\TestCase;
+use oat\taoLti\models\classes\user\UserService as UserService;
 
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
@@ -52,9 +53,14 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     public function setUp()
     {
         TaoPhpUnitTestRunner::initTest();
-        // load constants
-        \common_ext_ExtensionsManager::singleton()->getExtensionById('taoTestTaker');
-        $this->subjectsService = new TestTakerService();
+
+        $testTakerService = new TestTakerService();
+        $userService = new UserService();
+        $serviceLocatorMock = $this->getServiceLocatorMock([
+            UserService::SERVICE_ID => $userService,
+        ]);
+        $testTakerService->setServiceLocator($serviceLocatorMock);
+        $this->subjectsService = $testTakerService;
     }
 
     /**
