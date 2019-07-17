@@ -30,7 +30,6 @@ use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 use core_kernel_classes_Resource;
 use core_kernel_classes_Class;
-use oat\generis\test\TestCase;
 use oat\taoLti\models\classes\user\UserService as UserService;
 
 /**
@@ -55,9 +54,9 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         TaoPhpUnitTestRunner::initTest();
 
         $testTakerService = new TestTakerService();
-        $userService = new UserService();
+        $userServiceMock = $this->getMockBuilder(UserService::class)->getMock();
         $serviceLocatorMock = $this->getServiceLocatorMock([
-            UserService::SERVICE_ID => $userService,
+            UserService::SERVICE_ID => $userServiceMock,
         ]);
         $testTakerService->setServiceLocator($serviceLocatorMock);
         $this->subjectsService = $testTakerService;
