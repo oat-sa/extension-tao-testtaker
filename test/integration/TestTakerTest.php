@@ -22,6 +22,7 @@
 
 namespace oat\taoTestTaker\test\integration;
 
+use oat\tao\model\OntologyClassService;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdfs;
@@ -29,7 +30,6 @@ use oat\tao\test\TaoPhpUnitTestRunner;
 use oat\taoTestTaker\models\TestTakerService;
 use core_kernel_classes_Resource;
 use core_kernel_classes_Class;
-use tao_models_classes_Service;
 
 
 /**
@@ -54,7 +54,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         TaoPhpUnitTestRunner::initTest();
         // load constants
         \common_ext_ExtensionsManager::singleton()->getExtensionById('taoTestTaker');
-        $this->subjectsService = TestTakerService::singleton();
+        $this->subjectsService = new TestTakerService();
     }
 
     /**
@@ -65,7 +65,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      */
     public function testService()
     {
-        $this->assertIsA($this->subjectsService, tao_models_classes_Service::class);
+        $this->assertIsA($this->subjectsService, OntologyClassService::class);
         $this->assertIsA($this->subjectsService, TestTakerService::class);
     }
 
