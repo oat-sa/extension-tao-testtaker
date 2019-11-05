@@ -18,7 +18,7 @@ msgid "Delete"
 msgstr "Ištrinti"
 
 msgid "Edit subject"
-msgstr "Redaguoti dalyką"
+msgstr "Edit test-taker"
 
 #, tao-public
 msgid "Export"
@@ -61,17 +61,17 @@ msgstr "Savybės"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "Įrašyti ir tvarkyti testo laikytojus."
+msgstr "Record and manage test-takers."
 
 msgid "Test taker saved"
-msgstr "Testo laikytojas išsaugotas"
+msgstr "Test-taker saved"
 
 msgid "Test takers"
 msgstr "Testo laikytojai"
 
 #, tao-public
 msgid "Test takers library"
-msgstr "Testo laikytojų biblioteka"
+msgstr "Test-takers library"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Testo laikytojai gali būti priskirti prie rinkinių, pagal atitinkamą įvertinimo kontekstą (Žmogiškųjų resursų valdyme, edukacijai, edumetrikos stebėjimui, t.t.)"
