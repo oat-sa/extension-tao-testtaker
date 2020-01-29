@@ -34,7 +34,7 @@ return [
     'label' => 'Test-taker core extension',
     'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
-    'version' => '7.2.1',
+    'version' => '7.2.2',
     'author' => 'Open Assessment Technologies, CRP Henri Tudor',
     'requires' => [
         'tao' => '>=36.1.0',
