@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -34,13 +35,12 @@ class SetupTesttakerCsvImporter extends InstallAction
     {
         $importerFactory = $this->getServiceLocator()->get(UserCsvImporterFactory::SERVICE_ID);
         $typeOptions = $importerFactory->getOption(UserCsvImporterFactory::OPTION_MAPPERS);
-        $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = array(
+        $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = [
             UserCsvImporterFactory::OPTION_MAPPERS_IMPORTER => new TestTakerImporter()
-        );
+        ];
         $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
         $this->registerService(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
 
         return \common_report_Report::createSuccess('Testtaker csv importer successfully registered.');
     }
-
 }

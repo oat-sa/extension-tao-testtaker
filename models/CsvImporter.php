@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +19,9 @@
  *
  *
  */
+
 namespace oat\taoTestTaker\models;
+
 use common_Logger;
 use common_report_Report;
 use core_kernel_classes_Resource;
@@ -99,13 +102,13 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
      */
     protected function getExludedProperties()
     {
-        return array_merge(parent::getExludedProperties(), array(
+        return array_merge(parent::getExludedProperties(), [
             GenerisRdf::PROPERTY_USER_DEFLG,
             GenerisRdf::PROPERTY_USER_ROLES,
             TaoOntology::PROPERTY_USER_LAST_EXTENSION,
             TaoOntology::PROPERTY_USER_FIRST_TIME,
             GenerisRdf::PROPERTY_USER_TIMEZONE
-        ));
+        ]);
     }
 
     /**
@@ -116,11 +119,11 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     {
         $lang = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
 
-        return array(
+        return [
             GenerisRdf::PROPERTY_USER_DEFLG => $lang,
             GenerisRdf::PROPERTY_USER_TIMEZONE => TIME_ZONE,
             GenerisRdf::PROPERTY_USER_ROLES => TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY,
-        );
+        ];
     }
 
     /**
@@ -135,17 +138,17 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
         $config = $taoTestTaker->getConfig('csvImporterCallbacks');
 
-        if (empty($config['callbacks'])){
-            $returnValue = array(
-                'callbacks' => array(
-                    '*' => array('trim'),
-                    GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
-                )
-            );
+        if (empty($config['callbacks'])) {
+            $returnValue = [
+                'callbacks' => [
+                    '*' => ['trim'],
+                    GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
+                ]
+            ];
         } else {
-            $returnValue = array(
+            $returnValue = [
                 'callbacks' => $config['callbacks']
-            );
+            ];
         }
 
         return $returnValue;
@@ -161,5 +164,4 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     {
         return \core_kernel_users_Service::getPasswordHash()->encrypt($value);
     }
-
 }
