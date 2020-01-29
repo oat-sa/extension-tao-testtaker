@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -47,7 +48,7 @@ sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t 
  */
 class TestTakerImporter extends RdsUserImportService
 {
-    CONST USER_IMPORTER_TYPE = 'test-taker';
+    const USER_IMPORTER_TYPE = 'test-taker';
 
     /**
      * Add test taker role to user to import
@@ -78,7 +79,7 @@ class TestTakerImporter extends RdsUserImportService
     protected function getUserClass(array $properties)
     {
         $testtakerRootClass = $this->getClass(TaoOntology::CLASS_URI_SUBJECT);
-        if (isset($properties[OntologyRdf::RDF_TYPE])){
+        if (isset($properties[OntologyRdf::RDF_TYPE])) {
             $class = $this->getClass($properties[OntologyRdf::RDF_TYPE]);
             if ($class->isSubClassOf($testtakerRootClass)) {
                 return $class;

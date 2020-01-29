@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -39,7 +40,6 @@ class RestTestTakerTest extends RestTestCase
         if (is_array($propertyValues)) {
             foreach ($propertyValues as $propertyValue) {
                 if ($propertyValue["predicateUri"] == $property) {
-
                     $this->assertEquals($propertyValue["values"][0]["valueType"], $valueType);
                     $this->assertEquals($propertyValue["values"][0]["value"], $value);
                 }
@@ -51,12 +51,12 @@ class RestTestTakerTest extends RestTestCase
 
     public function serviceProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'taoTestTaker/Api',
                 TaoOntology::SUBJECT_CLASS_URI
-            )
-        );
+            ]
+        ];
     }
 
     private function getUrl()
@@ -71,17 +71,17 @@ class RestTestTakerTest extends RestTestCase
         $this->assertEquals($http_status, "400");
 
         // login but no password, should return a 400
-        $http_status = $this->curl($this->getUrl(), CURLOPT_POST, CURLINFO_HTTP_CODE, array(
+        $http_status = $this->curl($this->getUrl(), CURLOPT_POST, CURLINFO_HTTP_CODE, [
             'login: dummy'
-        ));
+        ]);
         $this->assertEquals($http_status, "400");
 
         // should be 200
         $genLogin = 'dummy_login';
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", [
             'login: dummy_login',
             'password: dummy'
-        ));
+        ]);
         $data = json_decode($returnedData, true);
         $this->assertNotEquals(false, $returnedData);
         $this->assertEquals(true, $data["success"]);
@@ -89,7 +89,6 @@ class RestTestTakerTest extends RestTestCase
         $this->assertArrayHasKey("uriResource", $data["data"]);
 
         return $data["data"]["uriResource"];
-
     }
 
     /**
@@ -98,9 +97,9 @@ class RestTestTakerTest extends RestTestCase
     public function testReadTestTaker($uriSubject)
     {
         // get this test taker
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_HTTPGET, "data", array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_HTTPGET, "data", [
             'uri: ' . $uriSubject
-        ));
+        ]);
         $data = json_decode($returnedData, true);
         $this->assertEquals($data["success"], true);
         $this->assertEquals($data["data"]["uri"], $uriSubject);
@@ -120,28 +119,28 @@ class RestTestTakerTest extends RestTestCase
     public function testUpdateTestTaker($uriSubject)
     {
         // modifying the login of a subject is not allowed : 412
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, CURLINFO_HTTP_CODE, array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, CURLINFO_HTTP_CODE, [
             'uri: ' . $uriSubject,
             'login: blabla'
-        ));
+        ]);
         $this->assertEquals($returnedData, 412);
 
         // modifying the password of a subject is allowed : 200
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, CURLINFO_HTTP_CODE, array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, CURLINFO_HTTP_CODE, [
             'uri: ' . $uriSubject,
             'password: blabla'
-        ));
+        ]);
         $this->assertEquals($returnedData, 200);
 
         // edit this test taker
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, "data", array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_PUT, "data", [
             'uri: ' . $uriSubject,
             'firstName: patrick',
             'password: blabla'
-        ));
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_HTTPGET, "data", array(
+        ]);
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_HTTPGET, "data", [
             'uri: ' . $uriSubject
-        ));
+        ]);
         $data = json_decode($returnedData, true);
 
         $this->assertEquals($data["success"], true);
@@ -159,10 +158,10 @@ class RestTestTakerTest extends RestTestCase
 
     public function testCreateTestTaker2()
     {
-        $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", array(
+        $returnedData = $this->curl($this->getUrl(), CURLOPT_POST, "data", [
             'login: 2_dummy_login',
             'password: dummy'
-        ));
+        ]);
         $data = json_decode($returnedData, true);
         $this->assertEquals($data["success"], true);
         return $data["data"]["uriResource"];
@@ -185,14 +184,14 @@ class RestTestTakerTest extends RestTestCase
         $beforeDelete = count($data["data"]);
 
 
-        $returnedData = $this->curl($this->getUrl(), "DELETE", CURLINFO_HTTP_CODE, array(
+        $returnedData = $this->curl($this->getUrl(), "DELETE", CURLINFO_HTTP_CODE, [
             'uri: ' . $uriSubject
-        ));
+        ]);
         $this->assertEquals($returnedData, 200);
 
-        $returnedData = $this->curl($this->getUrl(), "DELETE", "data", array(
+        $returnedData = $this->curl($this->getUrl(), "DELETE", "data", [
             'uri: ' . $uri2Subject
-        ));
+        ]);
         $data = json_decode($returnedData, true);
         $this->assertEquals($data["success"], true);
 

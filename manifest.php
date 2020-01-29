@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -25,58 +26,58 @@
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  *
  */
-$extpath = dirname(__FILE__).DIRECTORY_SEPARATOR;
-$taopath = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'tao'.DIRECTORY_SEPARATOR;
+$extpath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
+$taopath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'tao' . DIRECTORY_SEPARATOR;
 
-return array(
-	'name' => 'taoTestTaker',
+return [
+    'name' => 'taoTestTaker',
     'label' => 'Test-taker core extension',
-	'description' => 'TAO TestTaker extension',
+    'description' => 'TAO TestTaker extension',
     'license' => 'GPL-2.0',
     'version' => '7.2.1',
-	'author' => 'Open Assessment Technologies, CRP Henri Tudor',
-	'requires' => array(
-	    'tao' => '>=36.1.0',
-	    'taoBackOffice' => '>=3.0.0'
-    ),
-	'models' => array(
-		'http://www.tao.lu/Ontologies/TAOSubject.rdf'
-	),
-	'install' => array(
-		'rdf' => array(
-				dirname(__FILE__). '/models/ontology/taosubject.rdf'
-		),
+    'author' => 'Open Assessment Technologies, CRP Henri Tudor',
+    'requires' => [
+        'tao' => '>=36.1.0',
+        'taoBackOffice' => '>=3.0.0'
+    ],
+    'models' => [
+        'http://www.tao.lu/Ontologies/TAOSubject.rdf'
+    ],
+    'install' => [
+        'rdf' => [
+                dirname(__FILE__) . '/models/ontology/taosubject.rdf'
+        ],
         'php' => [
             \oat\taoTestTaker\scripts\install\SetupConfig::class,
             \oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter::class,
         ]
-	),
-	'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
-	'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
-    'acl' => array(
-        array('grant', \oat\taoTestTaker\models\TestTakerService::ROLE_SUBJECT_MANAGER, array('ext'=>'taoTestTaker'))
-    ),
-    'routes' => array(
+    ],
+    'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
+    'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
+    'acl' => [
+        ['grant', \oat\taoTestTaker\models\TestTakerService::ROLE_SUBJECT_MANAGER, ['ext' => 'taoTestTaker']]
+    ],
+    'routes' => [
         '/taoTestTaker/api' => ['class' => \oat\taoTestTaker\models\routing\ApiRoute::class],
         '/taoTestTaker' => 'oat\\taoTestTaker\\actions'
-    ),
-	'constants' => array(
-		# actions directory
-		"DIR_ACTIONS"			=> $extpath."actions".DIRECTORY_SEPARATOR,
+    ],
+    'constants' => [
+        # actions directory
+        "DIR_ACTIONS"           => $extpath . "actions" . DIRECTORY_SEPARATOR,
 
-		# views directory
-		"DIR_VIEWS"				=> $extpath."views".DIRECTORY_SEPARATOR,
+        # views directory
+        "DIR_VIEWS"             => $extpath . "views" . DIRECTORY_SEPARATOR,
 
-		# default module name
-		'DEFAULT_MODULE_NAME'	=> 'TestTaker',
+        # default module name
+        'DEFAULT_MODULE_NAME'   => 'TestTaker',
 
-		#default action name
-		'DEFAULT_ACTION_NAME'	=> 'index',
+        #default action name
+        'DEFAULT_ACTION_NAME'   => 'index',
 
-		#BASE PATH: the root path in the file system (usually the document root)
-		'BASE_PATH'				=> $extpath,
+        #BASE PATH: the root path in the file system (usually the document root)
+        'BASE_PATH'             => $extpath,
 
-		#BASE URL (usually the domain root)
-		'BASE_URL'				=> ROOT_URL	.'taoTestTaker/',
-	)
-);
+        #BASE URL (usually the domain root)
+        'BASE_URL'              => ROOT_URL . 'taoTestTaker/',
+    ]
+];

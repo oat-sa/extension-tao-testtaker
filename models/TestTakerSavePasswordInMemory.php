@@ -18,6 +18,7 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
+
 namespace oat\taoTestTaker\models;
 
 class TestTakerSavePasswordInMemory

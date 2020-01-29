@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -38,10 +39,10 @@ class SetupConfig extends InstallAction
         $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
 
         $taoTestTaker->setConfig('csvImporterCallbacks', [
-            'callbacks' => array(
-                '*' => array('trim'),
-                GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
-            ),
+            'callbacks' => [
+                '*' => ['trim'],
+                GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
+            ],
             'use_properties_for_event' => false
         ]);
     }

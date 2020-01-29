@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -61,10 +62,10 @@ class Updater extends \common_ext_ExtensionUpdater
             $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
 
             $taoTestTaker->setConfig('csvImporterCallbacks', [
-                'callbacks' => array(
-                    '*' => array('trim'),
-                    GenerisRdf::PROPERTY_USER_PASSWORD => array('oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode')
-                ),
+                'callbacks' => [
+                    '*' => ['trim'],
+                    GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
+                ],
                 'use_properties_for_event' => false
             ]);
 
@@ -77,9 +78,9 @@ class Updater extends \common_ext_ExtensionUpdater
             /** @var UserCsvImporterFactory $importerFactory */
             $importerFactory = $this->getServiceManager()->get(UserCsvImporterFactory::SERVICE_ID);
             $typeOptions = $importerFactory->getOption(UserCsvImporterFactory::OPTION_MAPPERS);
-            $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = array(
+            $typeOptions[TestTakerImporter::USER_IMPORTER_TYPE] = [
                 UserCsvImporterFactory::OPTION_MAPPERS_IMPORTER => new TestTakerImporter()
-            );
+            ];
             $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
             $this->getServiceManager()->register(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
 
