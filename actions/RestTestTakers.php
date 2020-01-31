@@ -1,4 +1,6 @@
-<?php /** @noinspection UnNecessaryDoubleQuotesInspection */
+<?php
+
+/** @noinspection UnNecessaryDoubleQuotesInspection */
 
 /**
  * This program is free software; you can redistribute it and/or
@@ -165,7 +167,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
             'password' => UserRdf::PROPERTY_PASSWORD,
             'userLanguage' => UserRdf::PROPERTY_UILG,
             'defaultLanguage' => UserRdf::PROPERTY_DEFLG,
-            'firstName'=> UserRdf::PROPERTY_FIRSTNAME,
+            'firstName' => UserRdf::PROPERTY_FIRSTNAME,
             'lastName' => UserRdf::PROPERTY_LASTNAME,
             'mail' => UserRdf::PROPERTY_MAIL
         ]);
@@ -177,7 +179,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
     protected function getParametersRequirements()
     {
         return [
-            'post' => array("login", "password", "userLanguage")
+            'post' => ["login", "password", "userLanguage"]
         ];
     }
 
@@ -235,7 +237,8 @@ class RestTestTakers extends \tao_actions_CommonRestModule
     {
         $parameters = parent::getParameters();
 
-        if ($this->getRequestMethod() === 'POST' &&
+        if (
+            $this->getRequestMethod() === 'POST' &&
             $classResource = $this->getClassFromRequest($this->getClass(self::ROOT_CLASS))
         ) {
             $parameters[OntologyRdf::RDF_TYPE] = $classResource->getUri();

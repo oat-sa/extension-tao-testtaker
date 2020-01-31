@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,6 +20,7 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  *               2013-2014 (update and modification) Open Assessment Technologies SA
  */
+
 namespace oat\taoTestTaker\models;
 
 use core_kernel_classes_Class;
@@ -152,11 +154,12 @@ class TestTakerService extends OntologyClassService
 
     /**
      * Set the proper role to the testTaker
-     * 
+     *
      * @author Lionel Lecaque, lionel@taotesting.com
      * @param \core_kernel_classes_Resource $instance
      */
-    public function setTestTakerRole(\core_kernel_classes_Resource $instance){
+    public function setTestTakerRole(\core_kernel_classes_Resource $instance)
+    {
         $roleProperty = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_ROLES);
         $subjectRole = new \core_kernel_classes_Resource(TaoOntology::PROPERTY_INSTANCE_ROLE_DELIVERY);
         $instance->setPropertyValue($roleProperty, $subjectRole);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,7 +18,9 @@
  * Copyright (c) 2013-2014 (original work) Open Assessment Technologies SA
  *
  */
+
 namespace oat\taoTestTaker\models;
+
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyRdf;
 use oat\generis\model\OntologyRdfs;
@@ -39,7 +42,8 @@ class CrudService extends \tao_models_classes_CrudService
      * (non-PHPdoc)
      * @see tao_models_classes_CrudService::getClassService()
      */
-    protected function getClassService(){
+    protected function getClassService()
+    {
         return TestTakerService::singleton();
     }
 
@@ -64,7 +68,7 @@ class CrudService extends \tao_models_classes_CrudService
      * @throws \common_exception_ValidationFailed
      * @throws \oat\generis\model\user\PasswordConstraintsException
      */
-    public function createFromArray($propertiesValues = array())
+    public function createFromArray($propertiesValues = [])
     {
 
         // mandatory parameters
@@ -113,7 +117,7 @@ class CrudService extends \tao_models_classes_CrudService
      * (non-PHPdoc)
      * @see tao_models_classes_CrudService::update()
      */
-    public function update($uri = null, $propertiesValues = array())
+    public function update($uri = null, $propertiesValues = [])
     {
         if (is_null($uri)) {
             throw new \common_exception_MissingParameter("uri");
@@ -135,7 +139,8 @@ class CrudService extends \tao_models_classes_CrudService
      * @throws \common_exception_Error
      * @throws \common_exception_ValidationFailed
      */
-    protected static function readLangProperty(array &$properties, $propKey) {
+    protected static function readLangProperty(array &$properties, $propKey)
+    {
         if (!isset($properties[$propKey])) {
             return \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
         }

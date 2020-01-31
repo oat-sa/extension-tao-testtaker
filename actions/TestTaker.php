@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,6 +20,7 @@
  *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
  *               2013-2014 (update and modification) Open Assessment Technologies SA
  */
+
 namespace oat\taoTestTaker\actions;
 
 use common_ext_ExtensionException;
@@ -105,9 +107,9 @@ class TestTaker extends tao_actions_SaSModule
      */
     protected function getSearchForm($clazz)
     {
-        return new Search($clazz, null, array(
+        return new Search($clazz, null, [
             'recursive' => true
-        ));
+        ]);
     }
 
     /**
@@ -175,12 +177,12 @@ class TestTaker extends tao_actions_SaSModule
             $subject = $binder->bind($values);
 
             $data = [];
-            if (isset($plainPassword)){
+            if (isset($plainPassword)) {
                 $data = ['hashForKey' => UserHashForEncryption::hash($plainPassword)];
             }
 
             $this->getEventManager()->trigger(
-                new TestTakerUpdatedEvent($subjectUri,array_merge($values, $data))
+                new TestTakerUpdatedEvent($subjectUri, array_merge($values, $data))
             );
 
             if ($addMode) {
@@ -191,20 +193,20 @@ class TestTaker extends tao_actions_SaSModule
             // force the data language to be the same as the gui language
             $userService = tao_models_classes_UserService::singleton();
             $lang = new core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
-            $userService->bindProperties($subject, array(
+            $userService->bindProperties($subject, [
                 GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
-            ));
+            ]);
 
             $message = __('Test taker saved');
 
             if ($addMode) {
-                $params = array(
+                $params = [
                     'id' => $subjectUri,
                     'uri' => tao_helpers_Uri::encode($subjectUri),
                     'classUri' => tao_helpers_Uri::encode($clazz->getUri()),
                     'reload' => true,
                     'message' => $message
-                );
+                ];
                 $this->redirect(_url('editSubject', null, null, $params));
             }
 

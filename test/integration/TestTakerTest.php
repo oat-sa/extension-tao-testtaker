@@ -31,7 +31,6 @@ use oat\taoTestTaker\models\TestTakerService;
 use core_kernel_classes_Resource;
 use core_kernel_classes_Class;
 
-
 /**
  * @author Bertrand Chevrier, <taosupport@tudor.lu>
  * @package taoTestTaker
@@ -189,7 +188,6 @@ class TestTakerTest extends TaoPhpUnitTestRunner
         $this->assertNotEquals($instance, $clone);
         $this->assertTrue($this->subjectsService->deleteSubject($clone));
         $this->assertFalse($clone->exists());
-
     }
 
     /**
