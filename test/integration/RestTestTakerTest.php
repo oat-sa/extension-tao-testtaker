@@ -23,7 +23,6 @@ include_once dirname(__FILE__) . '/../../includes/raw_start.php';
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use \core_kernel_users_Service;
 use oat\tao\test\integration\RestTestCase;
 
 /**
@@ -31,7 +30,6 @@ use oat\tao\test\integration\RestTestCase;
  *
  * @author patrick
  * @package taoTestTaker
- *
  */
 class RestTestTakerTest extends RestTestCase
 {
@@ -61,7 +59,7 @@ class RestTestTakerTest extends RestTestCase
 
     private function getUrl()
     {
-        return $this->host . 'taoTestTaker/Api';
+        return $this->host . 'taoTestTaker/api';
     }
 
     public function testCreateTestTaker()
@@ -201,5 +199,22 @@ class RestTestTakerTest extends RestTestCase
         $data = json_decode($returnedData, true);
         $this->assertEquals($data["success"], true);
         $this->assertCount($beforeDelete - 2, $data["data"]);
+    }
+
+    public function testCreateTestTakerWithInvalidField()
+    {
+        $response = $this->send('POST', $this->getUrl() . '/testTakers', [
+            'form_params' => [
+                'userLanguage' => 'Invalid language',
+                'login' => 'test',
+                'password' => 'Qwerty123!!',
+            ],
+        ]);
+
+        $this->assertEquals(400, $response->getStatusCode());
+
+        // Response must contain valid JSON that can be decoded.
+        // If response cannot be decoded - value will be null.
+        $this->assertNotEquals(null, json_decode((string) $response->getBody(), true));
     }
 }
