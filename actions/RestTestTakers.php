@@ -25,8 +25,10 @@ namespace oat\taoTestTaker\actions;
 
 use Exception;
 use common_exception_RestApi;
+use tao_models_classes_UserService;
 use common_exception_ValidationFailed;
 use oat\generis\model\OntologyRdf;
+use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\user\PasswordConstraintsException;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\routing\AnnotationReader\security;
@@ -78,6 +80,9 @@ use oat\taoTestTaker\models\CrudService;
  */
 class RestTestTakers extends \tao_actions_CommonRestModule
 {
+    /** @var array */
+    protected $parameters;
+
     /**
      * @OA\Schema(
      *     schema="taoTestTaker.TestTaker.New",
@@ -208,6 +213,18 @@ class RestTestTakers extends \tao_actions_CommonRestModule
         try {
             /** @var \core_kernel_classes_Resource $testTakerResource */
             $testTakerResource = parent::post();
+            $parameters = $this->getParameters();
+            $hashForKey = array_key_exists(UserRdf::PROPERTY_PASSWORD, $parameters)
+                ? UserHashForEncryption::hash($parameters[UserRdf::PROPERTY_PASSWORD])
+                : null;
+
+            /** @var tao_models_classes_UserService $userService */
+            $userService = $this->getServiceLocator()->get(tao_models_classes_UserService::SERVICE_ID);
+            $userService->triggerUpdatedEvent(
+                $testTakerResource,
+                [UserRdf::PROPERTY_PASSWORD => $testTakerResource->getProperty(UserRdf::PROPERTY_PASSWORD)],
+                $hashForKey
+            );
 
             $this->returnSuccess([
                 'success' => true,
@@ -233,17 +250,24 @@ class RestTestTakers extends \tao_actions_CommonRestModule
         $this->returnFailure(new common_exception_RestApi('Not implemented.'));
     }
 
+    /**
+     * @throws common_exception_RestApi
+     *
+     * @return array
+     */
     protected function getParameters()
     {
-        $parameters = parent::getParameters();
+        if (!$this->parameters) {
+            $this->parameters = parent::getParameters();
+        }
 
         if (
             $this->getRequestMethod() === 'POST' &&
             $classResource = $this->getClassFromRequest($this->getClass(self::ROOT_CLASS))
         ) {
-            $parameters[OntologyRdf::RDF_TYPE] = $classResource->getUri();
+            $this->parameters[OntologyRdf::RDF_TYPE] = $classResource->getUri();
         }
 
-        return $parameters;
+        return $this->parameters;
     }
 }
