@@ -214,13 +214,16 @@ class RestTestTakers extends \tao_actions_CommonRestModule
             /** @var \core_kernel_classes_Resource $testTakerResource */
             $testTakerResource = parent::post();
             $parameters = $this->getParameters();
+            $hashForKey = array_key_exists(UserRdf::PROPERTY_PASSWORD, $parameters)
+                ? UserHashForEncryption::hash($parameters[UserRdf::PROPERTY_PASSWORD])
+                : null;
 
             /** @var tao_models_classes_UserService $userService */
             $userService = $this->getServiceLocator()->get(tao_models_classes_UserService::SERVICE_ID);
             $userService->triggerUpdatedEvent(
                 $testTakerResource,
                 [UserRdf::PROPERTY_PASSWORD => $testTakerResource->getProperty(UserRdf::PROPERTY_PASSWORD)],
-                isset($parameters['password']) ? UserHashForEncryption::hash($parameters['password']) : null
+                $hashForKey
             );
 
             $this->returnSuccess([
