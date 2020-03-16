@@ -22,6 +22,7 @@
 
 namespace oat\taoTestTaker\test\integration;
 
+use core_kernel_classes_EmptyProperty;
 use oat\tao\model\OntologyClassService;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
@@ -48,7 +49,7 @@ class TestTakerTest extends TaoPhpUnitTestRunner
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         TaoPhpUnitTestRunner::initTest();
         // load constants
@@ -156,10 +157,10 @@ class TestTakerTest extends TaoPhpUnitTestRunner
     /**
      * @depends testInstantiateClass
      * @param $instance
-     * @expectedException \core_kernel_classes_EmptyProperty
      */
     public function testFailClone($instance)
     {
+        $this->expectException(core_kernel_classes_EmptyProperty::class);
         $this->subjectsService->cloneInstance($instance);
     }
 
