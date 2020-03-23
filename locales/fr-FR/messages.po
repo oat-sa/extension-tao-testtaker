@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: TAO 3.4.0-sprint124\n"
+"PO-Revision-Date: 2020-03-20T08:13:49\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr-FR\n"
@@ -18,7 +18,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Edit subject"
-msgstr "Modifier le participant"
+msgstr "Édition du participant"
 
 #, tao-public
 msgid "Export"
@@ -29,11 +29,11 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "Last updated on %2s"
-msgstr ""
+msgstr "Dernière mise à jour le %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr ""
+msgstr "Gérer le schéma"
 
 #, tao-public
 msgid "Manage test takers"
@@ -45,7 +45,7 @@ msgstr "Déplacer"
 
 #, tao-public
 msgid "Move To"
-msgstr ""
+msgstr "Déplacer vers"
 
 #, tao-public
 msgid "New class"
@@ -78,8 +78,8 @@ msgstr "Les participants peuvent être assignés à des ensembles selon le conte
 
 #, tao-public
 msgid "Test-takers"
-msgstr "Les participants"
+msgstr "Participants"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Le module <i>Participants</i> vous permet d'ajouter et de gérer les sujets des tests."
+msgstr "Le module Participants vous permet d'ajouter et de gérer les sujets des tests."
 
