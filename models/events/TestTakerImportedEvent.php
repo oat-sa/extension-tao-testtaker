@@ -22,11 +22,34 @@
 
 namespace oat\taoTestTaker\models\events;
 
+use oat\tao\model\webhooks\WebhookSerializableEventInterface;
+
 /**
  * Class TestTakerImportedEvent
  * @package oat\taoTestTaker\models\events
  */
-class TestTakerImportedEvent extends AbstractTestTakerEvent
+class TestTakerImportedEvent extends AbstractTestTakerEvent implements WebhookSerializableEventInterface
 {
+    /**
+     * @inheritDoc
+     */
+    public function getWebhookEventName()
+    {
+        return 'test-taker-created';
+    }
 
+    /**
+     * @inheritDoc
+     */
+    public function serializeForWebhook()
+    {
+        return [
+            'name' => $this->getWebhookEventName(),
+            'payload' => [
+                'testTakerUri' => $this->testTakerUri,
+                'unit' => 1,
+                'tenant' => defined('LOCAL_NAMESPACE') ? LOCAL_NAMESPACE : ROOT_URL
+            ],
+        ];
+    }
 }
