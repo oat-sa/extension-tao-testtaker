@@ -35,7 +35,7 @@ class TestTakerImportedEvent extends AbstractTestTakerEvent implements WebhookSe
      */
     public function getWebhookEventName()
     {
-        return 'test-taker-created';
+        return 'test-taker-imported';
     }
 
     /**

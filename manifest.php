@@ -26,6 +26,12 @@
  * @license GPLv2  http://www.opensource.org/licenses/gpl-2.0.php
  *
  */
+
+use oat\taoTestTaker\models\routing\ApiRoute;
+use oat\taoTestTaker\models\TestTakerService;
+use oat\taoTestTaker\scripts\install\SetupConfig;
+use oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter;
+
 $extpath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
 $taopath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'tao' . DIRECTORY_SEPARATOR;
 
@@ -49,17 +55,17 @@ return [
                 dirname(__FILE__) . '/models/ontology/taosubject.rdf'
         ],
         'php' => [
-            \oat\taoTestTaker\scripts\install\SetupConfig::class,
-            \oat\taoTestTaker\scripts\install\SetupTesttakerCsvImporter::class,
+            SetupConfig::class,
+            SetupTesttakerCsvImporter::class,
         ]
     ],
     'update' => "oat\\taoTestTaker\\scripts\\update\\Updater",
     'managementRole' => 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole',
     'acl' => [
-        ['grant', \oat\taoTestTaker\models\TestTakerService::ROLE_SUBJECT_MANAGER, ['ext' => 'taoTestTaker']]
+        ['grant', TestTakerService::ROLE_SUBJECT_MANAGER, ['ext' => 'taoTestTaker']]
     ],
     'routes' => [
-        '/taoTestTaker/api' => ['class' => \oat\taoTestTaker\models\routing\ApiRoute::class],
+        '/taoTestTaker/api' => ['class' => ApiRoute::class],
         '/taoTestTaker' => 'oat\\taoTestTaker\\actions'
     ],
     'constants' => [
