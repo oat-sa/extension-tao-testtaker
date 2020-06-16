@@ -23,14 +23,11 @@
 
 namespace oat\taoTestTaker\actions;
 
-use common_report_Report;
-use core_kernel_classes_Resource;
-use oat\generis\Helper\UserHashForEncryption;
-use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\CsvImporter;
-use oat\taoTestTaker\models\events\TestTakerImportedEvent;
-use oat\taoTestTaker\models\TestTakerSavePasswordInMemory;
-use tao_helpers_form_FormFactory;
+use oat\taoTestTaker\models\RdfImporter;
+use tao_actions_Import;
+use tao_models_classes_import_CsvImporter;
+use tao_models_classes_import_RdfImporter;
 
 /**
  * Extends the common Import class to exchange the generic
@@ -38,20 +35,24 @@ use tao_helpers_form_FormFactory;
  *
  * @author  Bertrand Chevrier, <taosupport@tudor.lu>
  */
-class Import extends \tao_actions_Import
+class Import extends tao_actions_Import
 {
     /**
-     * (non-PHPdoc)
-     * @see tao_actions_Import::getAvailableImportHandlers()
+     * @inheritDoc
      */
     public function getAvailableImportHandlers()
     {
         $returnValue = parent::getAvailableImportHandlers();
 
         foreach (array_keys($returnValue) as $key) {
-            if ($returnValue[$key] instanceof \tao_models_classes_import_CsvImporter) {
+            if ($returnValue[$key] instanceof tao_models_classes_import_CsvImporter) {
                 $importer = new CsvImporter();
                 $importer->setValidators($this->getValidators());
+                $returnValue[$key] = $importer;
+            }
+
+            if ($returnValue[$key] instanceof tao_models_classes_import_RdfImporter) {
+                $importer = new RdfImporter();
                 $returnValue[$key] = $importer;
             }
         }
