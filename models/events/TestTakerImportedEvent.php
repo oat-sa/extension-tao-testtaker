@@ -44,12 +44,9 @@ class TestTakerImportedEvent extends AbstractTestTakerEvent implements WebhookSe
     public function serializeForWebhook()
     {
         return [
-            'name' => $this->getWebhookEventName(),
-            'payload' => [
-                'testTakerUri' => $this->testTakerUri,
-                'unit' => 1,
-                'tenant' => defined('LOCAL_NAMESPACE') ? LOCAL_NAMESPACE : ROOT_URL
-            ],
+            'testTakerUri' => $this->testTakerUri,
+            'unit' => 1,
+            'tenant' => defined('LOCAL_NAMESPACE') ? LOCAL_NAMESPACE : ROOT_URL
         ];
     }
 }
