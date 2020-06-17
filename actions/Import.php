@@ -45,15 +45,18 @@ class Import extends tao_actions_Import
         $returnValue = parent::getAvailableImportHandlers();
 
         foreach (array_keys($returnValue) as $key) {
-            if ($returnValue[$key] instanceof tao_models_classes_import_CsvImporter) {
-                $importer = new CsvImporter();
-                $importer->setValidators($this->getValidators());
-                $returnValue[$key] = $importer;
-            }
+            switch (get_class($returnValue[$key])) {
+                case tao_models_classes_import_CsvImporter::class:
+                    $importer = new CsvImporter();
+                    $importer->setValidators($this->getValidators());
+                    $returnValue[$key] = $importer;
 
-            if ($returnValue[$key] instanceof tao_models_classes_import_RdfImporter) {
-                $importer = new RdfImporter();
-                $returnValue[$key] = $importer;
+                    break;
+                case tao_models_classes_import_RdfImporter::class:
+                    $importer = new RdfImporter();
+                    $returnValue[$key] = $importer;
+
+                    break;
             }
         }
 

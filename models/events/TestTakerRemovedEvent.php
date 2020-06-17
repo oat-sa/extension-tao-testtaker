@@ -30,14 +30,15 @@ use oat\tao\model\webhooks\WebhookSerializableEventInterface;
  */
 class TestTakerRemovedEvent extends AbstractTestTakerEvent implements WebhookSerializableEventInterface
 {
-    const EVENT_NAME = __CLASS__;
+    private const WEBHOOK_EVENT_NAME = 'test-taker-removed';
+    public const EVENT_NAME = __CLASS__;
 
     /**
      * @inheritDoc
      */
     public function getWebhookEventName()
     {
-        return 'test-taker-removed';
+        return self::WEBHOOK_EVENT_NAME;
     }
 
     /**

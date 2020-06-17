@@ -30,12 +30,14 @@ use oat\tao\model\webhooks\WebhookSerializableEventInterface;
  */
 class TestTakerCreatedEvent extends AbstractTestTakerEvent implements WebhookSerializableEventInterface
 {
+    private const WEBHOOK_EVENT_NAME = 'test-taker-created';
+
     /**
      * @inheritDoc
      */
     public function getWebhookEventName()
     {
-        return 'test-taker-created';
+        return self::WEBHOOK_EVENT_NAME;
     }
 
     /**
