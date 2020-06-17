@@ -45,8 +45,7 @@ class TestTakerCreatedEvent extends AbstractTestTakerEvent implements WebhookSer
     {
         return [
             'testTakerUri' => $this->testTakerUri,
-            'unit' => 1,
-            'tenant' => defined('LOCAL_NAMESPACE') ? LOCAL_NAMESPACE : ROOT_URL,
+            'unit' => 1
         ];
     }
 }
