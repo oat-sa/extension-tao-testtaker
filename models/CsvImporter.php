@@ -22,15 +22,12 @@
 
 namespace oat\taoTestTaker\models;
 
-use common_Logger;
-use common_report_Report;
 use core_kernel_classes_Resource;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\oatbox\service\ServiceManager;
-use oat\oatbox\user\UserLanguageService;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use oat\taoTestTaker\models\events\TestTakerImportedEvent;
+use oat\taoTestTaker\models\events\dispatcher\TestTakerImportEventDispatcher;
 
 /**
  * A custom subject CSV importer
@@ -46,17 +43,11 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     {
         $report = parent::import($class, $form);
 
-        /** @var common_report_Report $success */
-        foreach ($report->getSuccesses() as $success) {
-            $resource = $success->getData();
-            try {
-                $this->getEventManager()->trigger(
-                    new TestTakerImportedEvent($resource->getUri(), $this->getProperties($resource))
-                );
-            } catch (\Exception $e) {
-                common_Logger::e($e->getMessage());
-            }
-        }
+        $this->getTestTakerImportEventDispatcher()
+            ->dispatch(
+                $report,
+                [$this, 'getProperties']
+            );
 
         return $report;
     }
@@ -163,5 +154,10 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     public static function taoSubjectsPasswordEncode($value)
     {
         return \core_kernel_users_Service::getPasswordHash()->encrypt($value);
+    }
+
+    private function getTestTakerImportEventDispatcher(): TestTakerImportEventDispatcher
+    {
+        return $this->getServiceLocator()->get(TestTakerImportEventDispatcher::class);
     }
 }
