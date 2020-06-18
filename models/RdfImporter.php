@@ -33,7 +33,10 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
         $this->getTestTakerImportEventDispatcher()
             ->dispatch(
                 $report,
-                [$this, 'getProperties']
+                function ($resource)
+                {
+                    return $this->getProperties($resource);
+                }
             );
 
         return $report;
