@@ -27,6 +27,8 @@
  *
  */
 
+declare(strict_types=1);
+
 use oat\taoTestTaker\models\routing\ApiRoute;
 use oat\taoTestTaker\models\TestTakerService;
 use oat\taoTestTaker\scripts\install\SetupConfig;

@@ -21,6 +21,8 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace oat\taoTestTaker\actions;
 
 use oat\taoTestTaker\models\CsvImporter;
