@@ -15,18 +15,41 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2016  (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2016-2020  (original work) Open Assessment Technologies SA;
  *
  * @author Ivan klimchuk <klimchuk@1pt.com>
  */
 
+declare(strict_types=1);
+
 namespace oat\taoTestTaker\models\events;
+
+use oat\tao\model\webhooks\WebhookSerializableEventInterface;
 
 /**
  * Class TestTakerCreatedEvent
  * @package oat\taoTestTaker\models\events
  */
-class TestTakerCreatedEvent extends AbstractTestTakerEvent
+class TestTakerCreatedEvent extends AbstractTestTakerEvent implements WebhookSerializableEventInterface
 {
+    private const WEBHOOK_EVENT_NAME = 'test-taker-created';
 
+    /**
+     * @inheritDoc
+     */
+    public function getWebhookEventName()
+    {
+        return self::WEBHOOK_EVENT_NAME;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function serializeForWebhook()
+    {
+        return [
+            'testTakerUri' => $this->testTakerUri,
+            'unit' => 1
+        ];
+    }
 }
