@@ -15,10 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
- *
- *
+ * Copyright (c) 2015-2020 (original work) Open Assessment Technologies SA;
  */
+
+declare(strict_types=1);
 
 namespace oat\taoTestTaker\scripts\update;
 
@@ -28,22 +28,17 @@ use oat\tao\model\accessControl\func\AccessRule;
 use oat\tao\model\user\TaoRoles;
 use oat\taoTestTaker\actions\Api;
 use oat\tao\model\user\import\UserCsvImporterFactory;
-use oat\taoTestTaker\actions\RestTestTakers;
 use oat\taoTestTaker\models\TestTakerImporter;
-use oat\taoTestTaker\models\TestTakerService;
 
 /**
  * Class Updater
  * @package oat\taoTestTaker\scripts\update
+ * @deprecated use migrations instead. See https://github.com/oat-sa/generis/wiki/Tao-Update-Process
  */
 class Updater extends \common_ext_ExtensionUpdater
 {
     /**
-     * @param $initialVersion
-     * @return string $versionUpdatedTo
-     * @internal param string $currentVersion
-     * @throws \common_ext_ExtensionException
-     * @throws \common_Exception
+     * @inheritDoc
      */
     public function update($initialVersion)
     {
@@ -99,6 +94,11 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('3.11.0');
         }
 
-        $this->skip('3.11.0', '7.5.1');
+        $this->skip('3.11.0', '7.6.0');
+        
+        //Updater files are deprecated. Please use migrations.
+        //See: https://github.com/oat-sa/generis/wiki/Tao-Update-Process
+
+        $this->setVersion($this->getExtension()->getManifest()->getVersion());
     }
 }
