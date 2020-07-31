@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: TAO 3.4.0-sprint121\n"
+"PO-Revision-Date: 2020-07-31T14:20:50\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: uk-UA\n"
@@ -15,18 +15,18 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Редагувати тему"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Експорт"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Імпортувати"
 
 msgid "Last updated on %2s"
 msgstr ""
@@ -37,11 +37,11 @@ msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Менеджер тестовими програмами"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Переміщення"
 
 #, tao-public
 msgid "Move To"
@@ -49,37 +49,37 @@ msgstr ""
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Новий клас"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Новий тестувальник"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Властивості"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Записывайте и управляйте тестировщиками."
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Тестовий засіб збережено"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Тестувальники"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Бібліотека для тестування"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Тестувальники можуть бути призначені для наборів відповідно до відповідного контексту оцінки (управління людськими ресурсами, навчання, едмметричний моніторинг тощо)."
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Тестувальники"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Модуль «Тестування» дозволяє записувати та керувати учасниками тестування."
 
