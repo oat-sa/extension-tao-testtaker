@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: TAO 3.4.0-sprint121\n"
+"PO-Revision-Date: 2020-07-31T14:20:44\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr "حذف"
+msgstr "حدف"
 
 msgid "Edit subject"
 msgstr "تحرير الموضوع"
@@ -57,11 +57,11 @@ msgstr "مترشح جديد"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "خصائص"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "تسجيل وإدارة الممتحنين"
 
 msgid "Test taker saved"
 msgstr "حفظ المترشح"
@@ -78,7 +78,7 @@ msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مج�
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "الممتحنين"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"

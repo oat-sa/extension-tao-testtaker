@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.4.0-sprint121\n"
+"PO-Revision-Date: 2020-07-31T14:20:47\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: ka-GE\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: ka-GE\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#, tao-public
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Edit subject"
+msgstr "ობიექტის რედაქტირება"
+
+#, tao-public
+msgid "Export"
+msgstr "ექსპორტი"
+
+#, tao-public
+msgid "Import"
+msgstr "იმპორტი"
+
+msgid "Last updated on %2s"
+msgstr "ბოლო განახლება %2s"
+
+#, tao-public
+msgid "Manage Schema"
+msgstr "სქემის მართვა"
+
+#, tao-public
+msgid "Manage test takers"
+msgstr "ტესტირებაში მონაწილეების მართვა"
+
+#, tao-public
+msgid "Move"
+msgstr "გადატანა"
+
+#, tao-public
+msgid "Move To"
+msgstr "გადატანა"
+
+#, tao-public
+msgid "New class"
+msgstr "ახალი კლასი"
+
+#, tao-public
+msgid "New test-taker"
+msgstr "ახალი ტესტის მიმღები"
+
+#, tao-public
+msgid "Properties"
+msgstr "პარამეტრები"
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr "ტესტირებაში მონაწილეების აღრიცხვა და მართვა"
+
+msgid "Test taker saved"
+msgstr "ტესტირებაში მონაწილე შენახულია"
+
+msgid "Test takers"
+msgstr "ტესტირებაში მონაწილე"
+
+#, tao-public
+msgid "Test takers library"
+msgstr "ტესტირებაში მონაწილეების ბიბლიოთეკა"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "ტესტირების მონაწილეები შეიძლება დაინიშნონ კომპლექტში შესაბამისი შეფასების კონტექსტის თანახმად (ადამიანური რესურსების მართვა, განათლება,შესაფების მონიტორინგი, ა.შ)."
+
+#, tao-public
+msgid "Test-takers"
+msgstr "ტესტირების მონაწილეები"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "ტესტირების მონაწილეების მოდული იძლევა მათი აღრიცხვისა და მართვის საშუალებას"
+
