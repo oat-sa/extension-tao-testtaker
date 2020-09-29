@@ -179,10 +179,6 @@ class TestTaker extends tao_actions_SaSModule
                 $data = ['hashForKey' => UserHashForEncryption::hash($plainPassword)];
             }
 
-            $this->getEventManager()->trigger(
-                new TestTakerUpdatedEvent($subjectUri,array_merge($values, $data))
-            );
-
             if ($addMode) {
                 // force default subject roles to be the Delivery Role:
                 $this->getClassService()->setTestTakerRole($subject);
@@ -194,6 +190,10 @@ class TestTaker extends tao_actions_SaSModule
             $userService->bindProperties($subject, array(
                 GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
             ));
+
+            $this->getEventManager()->trigger(
+                new TestTakerUpdatedEvent($subjectUri, array_merge($values, $data))
+            );
 
             $message = __('Test taker saved');
 
