@@ -46,7 +46,6 @@ class TestTakerFormService extends ConfigurableService
         foreach ($props as $propUri) {
             $property = new \core_kernel_classes_Property($propUri);
             $groupForm = \tao_helpers_form_GenerisTreeForm::buildTree($subject, $property);
-            $groupForm->setData('title', __('Add to group'));
             $forms[] = $groupForm->render();
         }
         return $forms;
