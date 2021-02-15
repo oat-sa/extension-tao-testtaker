@@ -53,6 +53,8 @@
 		}
 	},
 	"require" : {
-		"oat-sa/oatbox-extension-installer" : "~1.1||dev-master"
+		"oat-sa/oatbox-extension-installer" : "~1.1||dev-master",
+		"oat-sa/tao-core" : ">=46.14.4",
+		"oat-sa/generis" : ">=13.14.1"
 	}
 }
