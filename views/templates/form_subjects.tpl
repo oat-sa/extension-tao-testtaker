@@ -15,10 +15,11 @@ Template::inc('form_context.tpl', 'tao');
         <?=get_data('myForm')?>
     </div>
 </div>
-  
-<div class="data-container-wrapper flex-container-remainder">
-    <?=get_data('groupForm')?>
-</div>
+<?php foreach(get_data('additionalForms') as $additionalForm): ?>
+    <div class="data-container-wrapper flex-container-remainder">
+        <?= $additionalForm ?>
+    </div>
+<?php endforeach; ?>
 
 <?php if(get_data('checkLogin')):?>
 	<script>

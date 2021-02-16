@@ -34,11 +34,11 @@ use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\resources\ResourceWatcher;
-use oat\tao\model\routing\AnnotationReader\security;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
 use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
+use oat\taoTestTaker\models\TestTakerFormService;
 use oat\taoTestTaker\models\TestTakerService;
 use tao_actions_SaSModule;
 use tao_helpers_Uri;
@@ -214,11 +214,9 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('message', $message);
             $this->setData('reload', true);
         }
-
-        if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
-            $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
-        }
-        $updatedAt = $this->getServiceManager()->get(ResourceWatcher::SERVICE_ID)->getUpdatedAt($subject);
+        $testTakerFormService = $this->getServiceLocator()->get(TestTakerFormService::SERVICE_ID);
+        $this->setData('additionalForms', $testTakerFormService->renderAdditionalForms($subject));
+        $updatedAt = $this->getServiceLocator()->get(ResourceWatcher::SERVICE_ID)->getUpdatedAt($subject);
         $this->setData('updatedAt', $updatedAt);
         $this->setData('checkLogin', $addMode);
         $this->setData('formTitle', __('Edit subject'));
