@@ -1,9 +1,4 @@
 {
-	"repositories" : [{
-			"type" : "composer",
-			"url" : "http://packages.taocloud.org/"
-		}
-	],
 	"support" : {
 		"forum" : "http://forum.taotesting.com",
 		"issues" : "http://forge.taotesting.com"
