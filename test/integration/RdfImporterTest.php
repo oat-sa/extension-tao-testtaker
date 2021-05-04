@@ -20,7 +20,7 @@
 
 declare(strict_types=1);
 
-namespace oat\taoTestTaker\test\functional;
+namespace oat\taoTestTaker\test\integration;
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Resource;
