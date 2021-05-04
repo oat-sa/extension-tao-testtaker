@@ -38,7 +38,7 @@ use tao_models_classes_import_RdfImporter;
 
 class RdfImporter extends tao_models_classes_import_RdfImporter
 {
-    private const CONFIG_ID = 'taoTestTaker/rdfImporterConfig';
+    public const CONFIG_ID = 'taoTestTaker/rdfImporterConfig';
 
     public const OPTION_STRATEGY = 'strategy';
 
@@ -72,6 +72,8 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
                 $strategy,
                 implode(',', self::AVAILABLE_STRATEGIES)
             );
+
+            $this->getLogger()->logError($message);
 
             throw new InconsistencyConfigException($message);
         }
@@ -132,6 +134,9 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
                     self::class . " configured incorrectly"
                 )
             );
+
+            $report->setType(Report::TYPE_ERROR);
+            $report->setMessage('Data import failed');
 
             $this->getLogger()->logError($e->getMessage());
 
