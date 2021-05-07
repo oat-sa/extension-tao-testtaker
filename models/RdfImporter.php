@@ -80,11 +80,6 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
 
         $this->strategy = $strategy;
 
-        return $this->getStrategy();
-    }
-
-    private function getStrategy(): string
-    {
         return $this->strategy;
     }
 
