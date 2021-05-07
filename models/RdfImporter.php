@@ -122,7 +122,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
 
         try {
             $strategy = $this->readStrategyFromConfig();
-        } catch (InconsistencyConfigException $e) {
+        } catch (InconsistencyConfigException $exception) {
             $report->add(
                 new Report(
                     Report::TYPE_ERROR,
@@ -133,7 +133,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
             $report->setType(Report::TYPE_ERROR);
             $report->setMessage('Data import failed');
 
-            $this->getLogger()->logError($e->getMessage());
+            $this->getLogger()->logError($exception->getMessage());
 
             return $report;
         }
