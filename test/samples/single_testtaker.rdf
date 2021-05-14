@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:ns0="http://www.tao.lu/Ontologies/generis.rdf#"
+         xmlns:ns1="http://www.tao.lu/Ontologies/TAO.rdf#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <rdf:Description rdf:about="http://depp.docker/ontologies/tao.rdf#i60755aa3a08ca139917ccd38e666b588a">
+    <ns0:login>sample-TT</ns0:login>
+    <ns0:password>vPYxCcxWcg964b1e45f689afb47701de4c112eb688cd7a6c11703ce94dacf041ce97433352</ns0:password>
+    <ns0:userDefLg>http://www.tao.lu/Ontologies/TAO.rdf#Langen-US</ns0:userDefLg>
+    <ns0:userRoles>http://www.tao.lu/Ontologies/TAO.rdf#DeliveryRole</ns0:userRoles>
+    <ns0:userUILg>http://www.tao.lu/Ontologies/TAO.rdf#Langen-US</ns0:userUILg>
+    <ns1:UpdatedAt>1618303663.68</ns1:UpdatedAt>
+    <rdf:type>http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject</rdf:type>
+    <rdfs:label xml:lang="en-US">sample-TT</rdfs:label>
+  </rdf:Description>
+
+</rdf:RDF>
