@@ -216,8 +216,13 @@ class TestTaker extends tao_actions_SaSModule
         }
 
         if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
-            $this->setData('groupForm', GroupForm::renderGroupTreeForm($subject));
+            $groupForm = GroupForm::returnGroupTreeForm($subject);
+
+            $groupForm->setData('saveUrl', _url('setValues', 'TestTakerGenerisTree', 'taoTestTaker'));
+
+            $this->setData('groupForm', $groupForm->render());
         }
+
         $updatedAt = $this->getServiceManager()->get(ResourceWatcher::SERVICE_ID)->getUpdatedAt($subject);
         $this->setData('updatedAt', $updatedAt);
         $this->setData('checkLogin', $addMode);
