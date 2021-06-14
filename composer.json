@@ -51,7 +51,6 @@
 		"oat-sa/oatbox-extension-installer" : "~1.1||dev-master",
 		"oat-sa/tao-core" : ">=47.0.0",
 		"oat-sa/generis" : ">=14.0.0",
-		"oat-sa/extension-tao-backoffice" : ">=6.0.0",
-		"oat-sa/extension-tao-group" : ">=7.1.0"
+		"oat-sa/extension-tao-backoffice" : ">=6.0.0"
 	}
 }
