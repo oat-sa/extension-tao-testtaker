@@ -24,8 +24,7 @@ describe('Test Takers Page', () => {
      */
     before(() => {
         cy.loginAsAdmin();
-        cy.server();
-        cy.route('POST', '**/edit*').as('edit');
+        cy.intercept('POST', '**/edit*').as('edit');
         cy.visit(urls.testTakers);
         cy.wait('@edit', {
             requestTimeout: 10000
