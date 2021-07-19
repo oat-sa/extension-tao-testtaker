@@ -232,40 +232,12 @@ class TestTaker extends tao_actions_SaSModule
 
     /**
      * overwrite the parent moveAllInstances to add the requiresRight only in TestTakers
-     * @see tao_actions_TaoModule::moveResource()
-     * @requiresRight classUri WRITE
-     */
-    public function moveResource()
-    {
-        return parent::moveResource();
-    }
-
-    /**
-     * overwrite the parent moveAllInstances to add the requiresRight only in TestTakers
      * @see tao_actions_TaoModule::moveAll()
      * @requiresRight ids WRITE
      */
     public function moveAll()
     {
         return parent::moveAll();
-    }
-
-    /**
-     * overwrite the parent addInstance to add the requiresRight only in TestTakers
-     * @requiresRight id WRITE
-     */
-    public function addInstance()
-    {
-        parent::addInstance();
-    }
-
-    /**
-     * overwrite the parent addSubClass to add the requiresRight only in TestTakers
-     * @requiresRight id WRITE
-     */
-    public function addSubClass()
-    {
-        parent::addSubClass();
     }
 
     /**
