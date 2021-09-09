@@ -261,4 +261,13 @@ class TestTaker extends tao_actions_SaSModule
     {
         return parent::moveInstance();
     }
+
+    /**
+     * Move class to another location
+     * @requiresRight classUri WRITE
+     */
+    public function moveClass()
+    {
+        return parent::moveResource();
+    }
 }
