@@ -39,7 +39,10 @@
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
                         <icon id="icon-move-item"/>
                     </action>
-                    <action id="testtaker-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveResource" context="resource" group="tree" binding="moveTo">
+                    <action id="testtaker-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveResource" context="instance" group="tree" binding="moveTo">
+                        <icon id="icon-move-item"/>
+                    </action>
+                    <action id="class-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveClass" context="class" group="tree" binding="moveTo">
                         <icon id="icon-move-item"/>
                     </action>
                     <action id="testtaker-move-all" name="Move To" url="/taoTestTaker/TestTaker/moveAll" context="resource" multiple="true" group="tree" binding="moveTo">
