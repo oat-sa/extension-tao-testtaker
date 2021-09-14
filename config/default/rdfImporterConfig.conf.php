@@ -1,5 +1,7 @@
 <?php
 
+use oat\taoTestTaker\models\RdfImporter;
+
 return new oat\oatbox\config\ConfigurationService(array(
-    'strategy' => 'fail'
+    RdfImporter::OPTION_STRATEGY => RdfImporter::OPTION_STRATEGY_FAIL_ON_DUPLICATE
 ));
