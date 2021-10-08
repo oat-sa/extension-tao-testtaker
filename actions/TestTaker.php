@@ -29,6 +29,7 @@ use core_kernel_classes_Class;
 use core_kernel_classes_Property;
 use core_kernel_classes_Resource;
 use core_kernel_users_Service;
+use oat\oatbox\validator\ValidatorInterface;
 use oat\generis\Helper\UserHashForEncryption;
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyAwareTrait;
@@ -44,6 +45,7 @@ use tao_actions_SaSModule;
 use tao_helpers_Uri;
 use tao_models_classes_UserService;
 use tao_helpers_form_FormContainer as FormContainer;
+use oat\tao\model\Lists\Business\Validation\DependsOnPropertyValidator;
 
 /**
  * Subjects Controller provide actions performed from url resolution
@@ -147,7 +149,14 @@ class TestTaker extends tao_actions_SaSModule
             $clazz,
             $subject,
             $addMode,
-            [FormContainer::CSRF_PROTECTION_OPTION => true]
+            [
+                FormContainer::CSRF_PROTECTION_OPTION => true,
+                FormContainer::ATTRIBUTE_VALIDATORS => [
+                    'data-depends-on-property' => [
+                        $this->getDependsOnPropertyValidator(),
+                    ],
+                ],
+            ]
         );
         $myForm = $myFormContainer->getForm();
 
@@ -269,5 +278,10 @@ class TestTaker extends tao_actions_SaSModule
     public function moveClass()
     {
         return parent::moveResource();
+    }
+
+    private function getDependsOnPropertyValidator(): ValidatorInterface
+    {
+        return $this->getPsrContainer()->get(DependsOnPropertyValidator::class);
     }
 }
