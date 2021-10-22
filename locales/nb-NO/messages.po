@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 2021.10\n"
+"PO-Revision-Date: 2021-10-22T12:02:52\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: nb-NO\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: nb-NO\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Data import started"
+msgstr "Dataimport startet"
+
+msgid "Data imported successfully"
+msgstr "Data importert"
+
+#, tao-public
+msgid "Delete"
+msgstr "Slette"
+
+msgid "Edit subject"
+msgstr "Rediger emne"
+
+#, tao-public
+msgid "Export"
+msgstr "Eksporter"
+
+#, tao-public
+msgid "Import"
+msgstr "Importer"
+
+msgid "Last updated on %2s"
+msgstr "Sist oppdatert på %2s"
+
+#, tao-public
+msgid "Manage Schema"
+msgstr "Administrer skjema"
+
+#, tao-public
+msgid "Manage test takers"
+msgstr "Administrer elever"
+
+#, tao-public
+msgid "Move"
+msgstr "Gå"
+
+#, tao-public
+msgid "Move To"
+msgstr "Gå til"
+
+#, tao-public
+msgid "New class"
+msgstr "Ny mappe"
+
+#, tao-public
+msgid "New test-taker"
+msgstr "Ny elev"
+
+#, tao-public
+msgid "Properties"
+msgstr "Egenskaper"
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr "Registrer og administrer elevene."
+
+msgid "Test taker saved"
+msgstr "Elev lagret"
+
+msgid "Test takers"
+msgstr "Elever"
+
+#, tao-public
+msgid "Test takers library"
+msgstr "Elevens bibliotek"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "Elevene kanbli tildelt oppgavesett i henhold til den relevante vurderingskonteksten (personaladministrasjon, utdanning, overvåking, etc.)."
+
+#, tao-public
+msgid "Test-takers"
+msgstr "Elever"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "Elevmodulen lar deg registrere og administrere elever."
+
