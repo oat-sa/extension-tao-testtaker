@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"PO-Revision-Date: 2021-12-29 15:53+0100\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar-arb\n"
@@ -9,77 +9,67 @@ msgstr ""
 "targetLanguage: ar-arb\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Basepath: ../../\n"
+"X-Poedit-Basepath: ../..\n"
 "X-Poedit-KeywordsList: __\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"POT-Creation-Date: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#, tao-public
 msgid "Delete"
 msgstr "حذف"
 
 msgid "Edit subject"
 msgstr "تحرير الموضوع"
 
-#, tao-public
 msgid "Export"
 msgstr "تصدير"
 
-#, tao-public
 msgid "Import"
 msgstr "استيراد"
 
 msgid "Last updated on %2s"
-msgstr ""
+msgstr "آخر تحديث في %2s"
 
-#, tao-public
 msgid "Manage Schema"
-msgstr ""
+msgstr "إدارة الخطاطة"
 
-#, tao-public
 msgid "Manage test takers"
 msgstr "إدارة المتقدمين للاختبار"
 
-#, tao-public
 msgid "Move"
 msgstr "حرك"
 
-#, tao-public
 msgid "Move To"
-msgstr ""
+msgstr "حرك نحو"
 
-#, tao-public
 msgid "New class"
 msgstr "صنف جديد"
 
-#, tao-public
 msgid "New test-taker"
 msgstr "مترشح جديد"
 
-#, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "خصائص"
 
-#, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "تسجيل وإدارة المتقدمين للرائز."
 
 msgid "Test taker saved"
 msgstr "حفظ المترشح"
 
 msgid "Test takers"
-msgstr "المترشحون للااختبار"
+msgstr "المترشحون للرائز"
 
-#, tao-public
 msgid "Test takers library"
-msgstr "مكتبة المترشحين"
+msgstr "مكتبة المترشحين للرائز"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مجموعات وفقا لسياق التقييم ذات الصلة (إدارة الموارد البشرية، والتعليم، ورصد، الخ"
 
-#, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "المترشحون للرائز"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"
-
