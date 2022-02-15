@@ -26,8 +26,8 @@ use common_report_Report as Report;
 use common_Utils;
 use core_kernel_classes_Class;
 use core_kernel_classes_Resource;
-use EasyRdf_Format;
-use EasyRdf_Graph;
+use EasyRdf\Format;
+use EasyRdf\Graph;
 use oat\generis\model\OntologyRdf;
 use oat\generis\model\user\UserRdf;
 use oat\oatbox\log\LoggerService;
@@ -103,7 +103,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
     {
         $report = new Report(Report::TYPE_INFO, __('Data import started'));
 
-        $graph = new EasyRdf_Graph();
+        $graph = new Graph();
         $graph->parse($content);
 
         // keep type property
@@ -115,7 +115,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
             $map[$resource->getUri()] = common_Utils::getNewUri();
         }
 
-        $format = EasyRdf_Format::getFormat('php');
+        $format = Format::getFormat('php');
         $data = $graph->serialise($format);
 
         $importedCount = 0;
