@@ -21,7 +21,7 @@ msgstr "Data importert"
 
 #, tao-public
 msgid "Delete"
-msgstr "Slette"
+msgstr "Slett"
 
 msgid "Edit subject"
 msgstr "Rediger emne"
@@ -39,7 +39,7 @@ msgstr "Sist oppdatert på %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr "Administrer skjema"
+msgstr "Administrer egenskaper"
 
 #, tao-public
 msgid "Manage test takers"
@@ -47,11 +47,11 @@ msgstr "Administrer elever"
 
 #, tao-public
 msgid "Move"
-msgstr "Gå"
+msgstr "Flytt"
 
 #, tao-public
 msgid "Move To"
-msgstr "Gå til"
+msgstr "Flytt til"
 
 #, tao-public
 msgid "New class"
