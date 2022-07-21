@@ -53,19 +53,9 @@ class TestTakTestTakerImportEventDispatcherTesterTest extends TestCase
     public function testDispatch(): void
     {
         $resourceUri = 'abc123';
-        $report = $this->createMock(common_report_Report::class);
-        $successReport = $this->createMock(common_report_Report::class);
         $resource = $this->createMock(core_kernel_classes_Resource::class);
-
-        $report->method('getSuccesses')
-            ->willReturn(
-                [
-                    $successReport
-                ]
-            );
-
-        $successReport->method('getData')
-            ->willReturn($resource);
+        $successReport = new common_report_Report(common_report_Report::TYPE_SUCCESS, '', $resource);
+        $report = new common_report_Report(common_report_Report::TYPE_INFO, '', null, [$successReport]);
 
         $resource->method('getUri')
             ->willReturn($resourceUri);
