@@ -57,12 +57,8 @@
     },
     "require": {
         "oat-sa/oatbox-extension-installer": "~1.1||dev-master",
-        "oat-sa/tao-core": ">=48.45.0",
-        "oat-sa/generis": ">=15.17.0",
+        "oat-sa/tao-core": ">=50.24.6",
+        "oat-sa/generis": ">=15.22",
         "oat-sa/extension-tao-backoffice": ">=6.0.0"
-    },
-    "require-dev": {
-        "oat-sa/generis": "dev-php8-migration as v16.0.0",
-        "oat-sa/tao-core": "dev-php8-migration as v51.0.0"
     }
 }
