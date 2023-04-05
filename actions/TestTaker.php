@@ -36,6 +36,8 @@ use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\routing\AnnotationReader\security;
+use oat\taoDelivery\model\AssignmentService;
+use oat\taoDeliveryRdf\model\GroupAssignment;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -224,7 +226,11 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        if (common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups')) {
+        $assignmentService = $this->getServiceLocator()->get(AssignmentService::SERVICE_ID);
+        if (
+            common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups') &&
+            get_class($assignmentService) == GroupAssignment::class
+        ) {
             $groupForm = GroupForm::returnGroupTreeFormObject($subject);
 
             $groupForm->setData('saveUrl', _url('setValues', 'TestTakerGenerisTree', 'taoTestTaker'));
