@@ -36,8 +36,6 @@ use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\routing\AnnotationReader\security;
-use oat\taoDelivery\model\AssignmentService;
-use oat\taoDeliveryRdf\model\GroupAssignment;
 use oat\taoTestTaker\actions\form\Search;
 use oat\taoTestTaker\actions\form\TestTaker as TestTakerForm;
 use oat\taoGroups\helpers\TestTakerForm as GroupForm;
@@ -59,6 +57,8 @@ use oat\tao\model\Lists\Business\Validation\DependsOnPropertyValidator;
 class TestTaker extends tao_actions_SaSModule
 {
     use OntologyAwareTrait;
+
+    private const GROUP_MANAGER_ROLE = 'http://www.tao.lu/Ontologies/TAOGroup.rdf#GroupsManagerRole';
 
     /**
      * @return EventManager
@@ -163,6 +163,7 @@ class TestTaker extends tao_actions_SaSModule
         $myForm = $myFormContainer->getForm();
 
         $subjectUri = $subject->getUri();
+        $userService = tao_models_classes_UserService::singleton();
 
         if ($myForm->isSubmited() && $myForm->isValid()) {
             $this->validateInstanceRoot($subjectUri);
@@ -198,7 +199,6 @@ class TestTaker extends tao_actions_SaSModule
             }
 
             // force the data language to be the same as the gui language
-            $userService = tao_models_classes_UserService::singleton();
             $lang = new core_kernel_classes_Resource($values[GenerisRdf::PROPERTY_USER_UILG]);
             $userService->bindProperties($subject, [
                 GenerisRdf::PROPERTY_USER_DEFLG => $lang->getUri()
@@ -226,10 +226,11 @@ class TestTaker extends tao_actions_SaSModule
             $this->setData('reload', true);
         }
 
-        $assignmentService = $this->getServiceLocator()->get(AssignmentService::SERVICE_ID);
+        $currentUser = $userService->getCurrentUser();
+        $groupManagerRole = new core_kernel_classes_Resource(self::GROUP_MANAGER_ROLE);
         if (
             common_ext_ExtensionsManager::singleton()->isEnabled('taoGroups') &&
-            get_class($assignmentService) == GroupAssignment::class
+            $userService->userHasRoles($currentUser, $groupManagerRole)
         ) {
             $groupForm = GroupForm::returnGroupTreeFormObject($subject);
 
