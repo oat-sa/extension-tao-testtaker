@@ -163,7 +163,7 @@ class TestTaker extends tao_actions_SaSModule
         $myForm = $myFormContainer->getForm();
 
         $subjectUri = $subject->getUri();
-        $userService = tao_models_classes_UserService::singleton();
+        $userService = $this->getServiceLocator()->get(tao_models_classes_UserService::SERVICE_ID);
 
         if ($myForm->isSubmited() && $myForm->isValid()) {
             $this->validateInstanceRoot($subjectUri);
