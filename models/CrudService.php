@@ -37,7 +37,6 @@ use oat\generis\model\OntologyRdfs;
  */
 class CrudService extends \tao_models_classes_CrudService
 {
-
     /**
      * (non-PHPdoc)
      * @see tao_models_classes_CrudService::getClassService()
@@ -107,9 +106,9 @@ class CrudService extends \tao_models_classes_CrudService
         unset($propertiesValues[OntologyRdf::RDF_TYPE]);
 
         $resource = parent::create($label, $type, $propertiesValues);
-        
+
         $this->getClassService()->setTestTakerRole($resource);
-        
+
         return $resource;
     }
 

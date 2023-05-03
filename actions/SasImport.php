@@ -36,7 +36,6 @@ use oat\tao\model\routing\AnnotationReader\security;
 
 class SasImport extends Import
 {
-
     /**
      * @see Subjects::__construct()
      * @security("hide")

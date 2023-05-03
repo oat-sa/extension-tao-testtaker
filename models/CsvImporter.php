@@ -46,8 +46,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
         $this->getTestTakerImportEventDispatcher()
             ->dispatch(
                 $report,
-                function ($resource)
-                {
+                function ($resource) {
                     return $this->getProperties($resource);
                 }
             );

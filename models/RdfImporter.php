@@ -90,8 +90,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
         $this->getTestTakerImportEventDispatcher()
             ->dispatch(
                 $report,
-                function ($resource)
-                {
+                function ($resource) {
                     return $this->getProperties($resource);
                 }
             );
@@ -181,7 +180,7 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
                 $importedCount++;
             }
 
-            if ($isDuplicated && $strategy === self::OPTION_STRATEGY_IMPORT_ON_DUPLICATE){
+            if ($isDuplicated && $strategy === self::OPTION_STRATEGY_IMPORT_ON_DUPLICATE) {
                 $report->add(
                     new Report(
                         Report::TYPE_WARNING,

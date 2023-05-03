@@ -38,7 +38,6 @@ use core_kernel_classes_Class;
  */
 class TestTakerTest extends TaoPhpUnitTestRunner
 {
-
     /**
      * @var TestTakerService
      */

@@ -25,7 +25,6 @@ use oat\generis\model\GenerisRdf;
 
 class Search extends \tao_actions_form_Search
 {
-    
     /**
      * (non-PHPdoc)
      * @see tao_actions_form_Search::getClassProperties()

@@ -23,7 +23,7 @@ include_once dirname(__FILE__) . '/../../includes/raw_start.php';
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use \core_kernel_users_Service;
+use core_kernel_users_Service;
 use oat\tao\test\integration\RestTestCase;
 
 /**

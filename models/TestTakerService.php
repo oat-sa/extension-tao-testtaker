@@ -44,9 +44,9 @@ class TestTakerService extends OntologyClassService
 {
     use EventManagerAwareTrait;
 
-    const CLASS_URI_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
+    public const CLASS_URI_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
 
-    const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
+    public const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
 
     /**
      * @return core_kernel_classes_Class|null
@@ -180,7 +180,7 @@ class TestTakerService extends OntologyClassService
     {
         $loginProperty = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN);
         $login = $instance->getUniquePropertyValue($loginProperty);
-        
+
         $returnValue = parent::cloneInstance($instance, $clazz);
         $userService = \tao_models_classes_UserService::singleton();
         try {

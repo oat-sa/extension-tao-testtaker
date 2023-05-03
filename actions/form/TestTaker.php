@@ -35,7 +35,6 @@ use oat\generis\model\GenerisRdf;
  */
 class TestTaker extends \tao_actions_form_Users
 {
-
     /**
      * Short description of method initElements
      *
@@ -45,7 +44,7 @@ class TestTaker extends \tao_actions_form_Users
      */
     public function initElements()
     {
-        
+
         parent::initElements();
         $this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_DEFLG));
         $this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_ROLES));

@@ -144,7 +144,7 @@ class RestTestTakers extends \tao_actions_CommonRestModule
      * )
      */
 
-    const ROOT_CLASS = TaoOntology::CLASS_URI_SUBJECT;
+    public const ROOT_CLASS = TaoOntology::CLASS_URI_SUBJECT;
 
     /**
      * RestTestTakers constructor.

@@ -31,5 +31,4 @@ namespace oat\taoTestTaker\actions;
  */
 class Main extends \tao_actions_Main
 {
-    
 }

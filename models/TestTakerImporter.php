@@ -48,7 +48,7 @@ sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t 
  */
 class TestTakerImporter extends RdsUserImportService
 {
-    const USER_IMPORTER_TYPE = 'test-taker';
+    public const USER_IMPORTER_TYPE = 'test-taker';
 
     /**
      * Add test taker role to user to import

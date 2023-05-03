@@ -14,7 +14,6 @@ use oat\taoTestTaker\models\RdfImporter;
  */
 final class Version202105041023253148_taoTestTaker extends AbstractMigration
 {
-
     public function getDescription(): string
     {
         return 'Register validation config for `' . RdfImporter::class . '`';
