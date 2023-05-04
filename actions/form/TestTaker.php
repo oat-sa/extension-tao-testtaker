@@ -15,10 +15,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
- *               2002-2008 (update and modification) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
- *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
- *
+ * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg
+ *                         (under the project TAO & TAO2);
+ *               2002-2008 (update and modification) Public Research Centre Henri Tudor & University of Luxembourg
+ *                         (under the project TAO & TAO2);
+ *               2009-2012 (update and modification) Public Research Centre Henri Tudor
+ *                         (under the project TAO-SUSTAIN & TAO-DEV);
  */
 
 namespace oat\taoTestTaker\actions\form;
@@ -35,7 +37,6 @@ use oat\generis\model\GenerisRdf;
  */
 class TestTaker extends \tao_actions_form_Users
 {
-
     /**
      * Short description of method initElements
      *
@@ -45,7 +46,7 @@ class TestTaker extends \tao_actions_form_Users
      */
     public function initElements()
     {
-        
+
         parent::initElements();
         $this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_DEFLG));
         $this->form->removeElement(\tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_ROLES));
