@@ -56,13 +56,18 @@ class Updater extends \common_ext_ExtensionUpdater
             $extManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
             $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
 
-            $taoTestTaker->setConfig('csvImporterCallbacks', [
-                'callbacks' => [
-                    '*' => ['trim'],
-                    GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
-                ],
-                'use_properties_for_event' => false
-            ]);
+            $taoTestTaker->setConfig(
+                'csvImporterCallbacks',
+                [
+                    'callbacks' => [
+                        '*' => ['trim'],
+                        GenerisRdf::PROPERTY_USER_PASSWORD => [
+                            'oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode',
+                        ]
+                    ],
+                    'use_properties_for_event' => false
+                ]
+            );
 
             $this->setVersion('3.5.0');
         }
@@ -89,13 +94,15 @@ class Updater extends \common_ext_ExtensionUpdater
             $extensionManager = $this->getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
             $extension = $extensionManager->getExtensionById('taoTestTaker');
             $config = $extension->getConfig('csvImporterCallbacks');
-            $config['callbacks'][GenerisRdf::PROPERTY_USER_UILG] = ['\tao_models_classes_LanguageService::filterLanguage'];
+            $config['callbacks'][GenerisRdf::PROPERTY_USER_UILG] = [
+                '\tao_models_classes_LanguageService::filterLanguage',
+            ];
             $extension->setConfig('csvImporterCallbacks', $config);
             $this->setVersion('3.11.0');
         }
 
         $this->skip('3.11.0', '7.6.0');
-        
+
         //Updater files are deprecated. Please use migrations.
         //See: https://github.com/oat-sa/generis/wiki/Tao-Update-Process
 

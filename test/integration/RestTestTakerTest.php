@@ -19,11 +19,13 @@
 
 namespace oat\taoTestTaker\test\integration;
 
+// phpcs:disable PSR1.Files.SideEffects
 include_once dirname(__FILE__) . '/../../includes/raw_start.php';
+// phpcs:enable PSR1.Files.SideEffects
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
-use \core_kernel_users_Service;
+use core_kernel_users_Service;
 use oat\tao\test\integration\RestTestCase;
 
 /**
@@ -35,6 +37,7 @@ use oat\tao\test\integration\RestTestCase;
  */
 class RestTestTakerTest extends RestTestCase
 {
+    // phpcs:disable PEAR.Functions.ValidDefaultValue
     private function checkPropertyValues($propertyValues, $property, $valueType = "literal", $value)
     {
         if (is_array($propertyValues)) {
@@ -48,6 +51,7 @@ class RestTestTakerTest extends RestTestCase
             $this->fail('$propertyValues should be an array');
         }
     }
+    // phpcs:enable PEAR.Functions.ValidDefaultValue
 
     public function serviceProvider()
     {
@@ -104,11 +108,21 @@ class RestTestTakerTest extends RestTestCase
         $this->assertEquals($data["success"], true);
         $this->assertEquals($data["data"]["uri"], $uriSubject);
 
-        $this->checkPropertyValues($data["data"]["properties"], GenerisRdf::PROPERTY_USER_LOGIN, "literal", 'dummy_login');
+        $this->checkPropertyValues(
+            $data["data"]["properties"],
+            GenerisRdf::PROPERTY_USER_LOGIN,
+            "literal",
+            'dummy_login'
+        );
 
         foreach ($data["data"]["properties"] as $propertyValue) {
             if ($propertyValue["predicateUri"] == GenerisRdf::PROPERTY_USER_PASSWORD) {
-                $this->assertTrue(\core_kernel_users_Service::getPasswordHash()->verify('dummy', $propertyValue["values"][0]["value"]));
+                $this->assertTrue(
+                    \core_kernel_users_Service::getPasswordHash()->verify(
+                        'dummy',
+                        $propertyValue["values"][0]["value"]
+                    )
+                );
             }
         }
     }
@@ -145,15 +159,30 @@ class RestTestTakerTest extends RestTestCase
 
         $this->assertEquals($data["success"], true);
         $this->assertEquals($data["data"]["uri"], $uriSubject);
-        $this->checkPropertyValues($data["data"]["properties"], GenerisRdf::PROPERTY_USER_LOGIN, "literal", 'dummy_login');
+        $this->checkPropertyValues(
+            $data["data"]["properties"],
+            GenerisRdf::PROPERTY_USER_LOGIN,
+            "literal",
+            'dummy_login'
+        );
 
         foreach ($data["data"]["properties"] as $propertyValue) {
             if ($propertyValue["predicateUri"] == GenerisRdf::PROPERTY_USER_PASSWORD) {
-                $this->assertTrue(\core_kernel_users_Service::getPasswordHash()->verify('blabla', $propertyValue["values"][0]["value"]));
+                $this->assertTrue(
+                    \core_kernel_users_Service::getPasswordHash()->verify(
+                        'blabla',
+                        $propertyValue["values"][0]["value"]
+                    )
+                );
             }
         }
 
-        $this->checkPropertyValues($data["data"]["properties"], GenerisRdf::PROPERTY_USER_LASTNAME, "literal", 'patrick');
+        $this->checkPropertyValues(
+            $data["data"]["properties"],
+            GenerisRdf::PROPERTY_USER_LASTNAME,
+            "literal",
+            'patrick'
+        );
     }
 
     public function testCreateTestTaker2()

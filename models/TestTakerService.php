@@ -15,9 +15,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg (under the project TAO & TAO2);
- *               2008-2010 (update and modification) Deutsche Institut für Internationale Pädagogische Forschung (under the project TAO-TRANSFER);
- *               2009-2012 (update and modification) Public Research Centre Henri Tudor (under the project TAO-SUSTAIN & TAO-DEV);
+ * Copyright (c) 2002-2008 (original work) Public Research Centre Henri Tudor & University of Luxembourg
+ *                         (under the project TAO & TAO2);
+ *               2008-2010 (update and modification) Deutsche Institut für Internationale Pädagogische Forschung
+ *                         (under the project TAO-TRANSFER);
+ *               2009-2012 (update and modification) Public Research Centre Henri Tudor
+ *                         (under the project TAO-SUSTAIN & TAO-DEV);
  *               2013-2014 (update and modification) Open Assessment Technologies SA
  */
 
@@ -44,9 +47,9 @@ class TestTakerService extends OntologyClassService
 {
     use EventManagerAwareTrait;
 
-    const CLASS_URI_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
+    public const CLASS_URI_SUBJECT = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject';
 
-    const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
+    public const ROLE_SUBJECT_MANAGER = 'http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole';
 
     /**
      * @return core_kernel_classes_Class|null
@@ -180,7 +183,7 @@ class TestTakerService extends OntologyClassService
     {
         $loginProperty = new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_LOGIN);
         $login = $instance->getUniquePropertyValue($loginProperty);
-        
+
         $returnValue = parent::cloneInstance($instance, $clazz);
         $userService = \tao_models_classes_UserService::singleton();
         try {

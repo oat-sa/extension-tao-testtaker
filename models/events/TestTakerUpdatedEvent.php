@@ -45,7 +45,7 @@ class TestTakerUpdatedEvent extends AbstractTestTakerEvent
     /**
      * @return array
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return [
             'testTakerUri' => $this->testTakerUri,

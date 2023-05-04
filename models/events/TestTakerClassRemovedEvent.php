@@ -28,5 +28,4 @@ namespace oat\taoTestTaker\models\events;
  */
 class TestTakerClassRemovedEvent extends AbstractTestTakerEvent
 {
-
 }

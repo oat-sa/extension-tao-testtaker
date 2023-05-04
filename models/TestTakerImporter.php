@@ -34,21 +34,22 @@ use oat\taoTestTaker\models\events\TestTakerUpdatedEvent;
  *
  * Implementation of RdsUserImportService to import test-taker resource from a CSV
  *
-   `
-    $userImporter = $this->getServiceLocator()->get(UserCsvImporterFactory::SERVICE_ID);
-    $importer = $userImporter->getImporter(TestTakerImporter::USER_IMPORTER_TYPE);
-    $report = $importer->import($filePath);
-   `
+ *  `
+ *   $userImporter = $this->getServiceLocator()->get(UserCsvImporterFactory::SERVICE_ID);
+ *   $importer = $userImporter->getImporter(TestTakerImporter::USER_IMPORTER_TYPE);
+ *   $report = $importer->import($filePath);
+ *  `
  *
  * or by command line:
-`
-sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t test-taker -f tao/test/user/import/example.csv
-`
+ * `
+ * sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t test-taker
+ * -f tao/test/user/import/example.csv
+ * `
  * @package oat\taoTestTaker\models
  */
 class TestTakerImporter extends RdsUserImportService
 {
-    const USER_IMPORTER_TYPE = 'test-taker';
+    public const USER_IMPORTER_TYPE = 'test-taker';
 
     /**
      * Add test taker role to user to import
