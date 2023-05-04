@@ -164,7 +164,8 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
                     $report->add(
                         new Report(
                             Report::TYPE_WARNING,
-                            'Since the `Skip on duplicate` strategy was chosen, import will now skip this user, without importing it'
+                            'Since the `Skip on duplicate` strategy was chosen, import will now skip this '
+                                . 'user, without importing it'
                         )
                     );
 
@@ -184,7 +185,8 @@ class RdfImporter extends tao_models_classes_import_RdfImporter
                 $report->add(
                     new Report(
                         Report::TYPE_WARNING,
-                        'Since the `Import on duplicate` strategy was chosen, import will import the user, but behaviour is unpredicted'
+                        'Since the `Import on duplicate` strategy was chosen, import will import the user, '
+                            . 'but behaviour is unpredicted'
                     )
                 );
             }

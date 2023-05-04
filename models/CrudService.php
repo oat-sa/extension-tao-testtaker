@@ -98,8 +98,9 @@ class CrudService extends \tao_models_classes_CrudService
         if ($userService->loginExists($propertiesValues[GenerisRdf::PROPERTY_USER_LOGIN])) {
             throw new \common_exception_PreConditionFailure("login already exists");
         }
-        $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
-        $type = isset($propertiesValues[OntologyRdf::RDF_TYPE]) ? $propertiesValues[OntologyRdf::RDF_TYPE] : $this->getRootClass();
+        $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()
+            ->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
+        $type = $propertiesValues[OntologyRdf::RDF_TYPE] ?? $this->getRootClass();
         $label = $propertiesValues[OntologyRdfs::RDFS_LABEL];
         // hmmm
         unset($propertiesValues[OntologyRdfs::RDFS_LABEL]);
@@ -125,7 +126,8 @@ class CrudService extends \tao_models_classes_CrudService
             throw new \common_exception_PreConditionFailure("login update not allowed");
         }
         if (isset($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD])) {
-            $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
+            $propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD] = \core_kernel_users_Service::getPasswordHash()
+                ->encrypt($propertiesValues[GenerisRdf::PROPERTY_USER_PASSWORD]);
         }
         parent::update($uri, $propertiesValues);
         // throw new common_exception_NotImplemented();

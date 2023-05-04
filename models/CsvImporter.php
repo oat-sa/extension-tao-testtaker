@@ -77,7 +77,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
 
         if ((bool)$config['use_properties_for_event']) {
             return [
-                'hashForKey'                       => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
+                'hashForKey' => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
                 GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
                     new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
                 )->literal
@@ -135,8 +135,10 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
             $returnValue = [
                 'callbacks' => [
                     '*' => ['trim'],
-                    GenerisRdf::PROPERTY_USER_PASSWORD => ['oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode']
-                ]
+                    GenerisRdf::PROPERTY_USER_PASSWORD => [
+                        'oat\taoTestTaker\models\CsvImporter::taoSubjectsPasswordEncode',
+                    ],
+                ],
             ];
         } else {
             $returnValue = [

@@ -32,7 +32,11 @@ class Search extends \tao_actions_form_Search
     protected function getClassProperties()
     {
         $testTakerProps = \tao_helpers_form_GenerisFormFactory::getClassProperties($this->clazz, $this->getTopClazz());
-        $userProps = \tao_helpers_form_GenerisFormFactory::getClassProperties(new \core_kernel_classes_Class(GenerisRdf::CLASS_GENERIS_USER), $this->getTopClazz());
+        $userProps = \tao_helpers_form_GenerisFormFactory::getClassProperties(
+            new \core_kernel_classes_Class(GenerisRdf::CLASS_GENERIS_USER),
+            $this->getTopClazz()
+        );
+
         return array_merge($testTakerProps, $userProps);
     }
 }
