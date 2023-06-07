@@ -1,23 +1,24 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2021.10\n"
-"PO-Revision-Date: 2021-10-22T12:02:52\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-06-07 09:15\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nb-NO\n"
+"Language: nb_NO\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nb-NO\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-
-msgid "Data import started"
-msgstr "Dataimport startet"
-
-msgid "Data imported successfully"
-msgstr "Data importert"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: nb\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: Norwegian Bokmal\n"
 
 #, tao-public
 msgid "Delete"
@@ -28,7 +29,7 @@ msgstr "Rediger emne"
 
 #, tao-public
 msgid "Export"
-msgstr "Eksporter"
+msgstr ""
 
 #, tao-public
 msgid "Import"
@@ -63,7 +64,7 @@ msgstr "Ny elev"
 
 #, tao-public
 msgid "Properties"
-msgstr "Egenskaper"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
