@@ -1,38 +1,39 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2022.11\n"
-"PO-Revision-Date: 2022-11-24T15:39:13\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-06-07 09:15\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: de-DE\n"
+"Language: de\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: de-DE\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-
-msgid "Data import started"
-msgstr ""
-
-msgid "Data imported successfully"
-msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: German\n"
 
 #, tao-public
 msgid "Delete"
-msgstr "Löschen"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Testperson bearbeiten"
 
 #, tao-public
 msgid "Export"
-msgstr "Export"
+msgstr ""
 
 #, tao-public
 msgid "Import"
-msgstr "Import"
+msgstr ""
 
 msgid "Last updated on %2s"
 msgstr "Letztes Update vom %2s"
@@ -63,7 +64,7 @@ msgstr "Neue Test-Person"
 
 #, tao-public
 msgid "Properties"
-msgstr "Eigenschaften"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -84,7 +85,7 @@ msgstr "Testpersonen können entsprechend dem relevanten Assessment-Kontext (Per
 
 #, tao-public
 msgid "Test-takers"
-msgstr "Testpersonen"
+msgstr "Testteilnehmer"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Das Testpersonen-Modul ermöglicht das Speichern und Verwalten von  Testpersonen."
