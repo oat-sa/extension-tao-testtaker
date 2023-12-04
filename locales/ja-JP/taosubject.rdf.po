@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 09:16\n"
+"PO-Revision-Date: 2023-12-04 16:11\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ja\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Project-ID: 590867\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/taosubject.rdf.po\n"
-"X-Crowdin-File-ID: 547\n"
+"X-Crowdin-File-ID: 972\n"
 "Language-Team: Japanese\n"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
