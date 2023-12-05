@@ -1,28 +1,35 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint104\n"
-"PO-Revision-Date: 2019-07-19T08:17:18\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-06-07 09:15\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: it-IT\n"
+"Language: it\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: it-IT\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: it\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: Italian\n"
 
 #, tao-public
 msgid "Delete"
-msgstr "Elimina"
+msgstr ""
 
 msgid "Edit subject"
 msgstr "Modifica soggetto"
 
 #, tao-public
 msgid "Export"
-msgstr "Esporta"
+msgstr ""
 
 #, tao-public
 msgid "Import"
@@ -57,7 +64,7 @@ msgstr "Nuovo partecipante"
 
 #, tao-public
 msgid "Properties"
-msgstr "Proprietà"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -78,7 +85,7 @@ msgstr "I partecipanti possono essere assegnati ad insiemi basati su rilevante c
 
 #, tao-public
 msgid "Test-takers"
-msgstr "Partecipanti"
+msgstr "Partecipanti al test"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "Il modulo dei partecipanti ti consente di registrare e gestire   partecipanti"

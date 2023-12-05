@@ -1,17 +1,24 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.4.0-sprint124\n"
-"PO-Revision-Date: 2020-03-20T08:13:49\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-06-07 09:15\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: fr-FR\n"
+"Language: fr\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: fr-FR\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: French\n"
 
 #, tao-public
 msgid "Delete"
@@ -22,11 +29,11 @@ msgstr "Édition du participant"
 
 #, tao-public
 msgid "Export"
-msgstr "Exporter"
+msgstr ""
 
 #, tao-public
 msgid "Import"
-msgstr "Importer"
+msgstr ""
 
 msgid "Last updated on %2s"
 msgstr "Dernière mise à jour le %2s"
@@ -57,7 +64,7 @@ msgstr "Créer participant"
 
 #, tao-public
 msgid "Properties"
-msgstr "Propriétés"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."

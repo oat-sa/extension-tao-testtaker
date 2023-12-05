@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-06-07 09:15\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: de_LI\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: de-LI\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: German, Liechtenstein\n"
+
+#, tao-public
+msgid "Delete"
+msgstr ""
+
+msgid "Edit subject"
+msgstr ""
+
+#, tao-public
+msgid "Export"
+msgstr ""
+
+#, tao-public
+msgid "Import"
+msgstr ""
+
+msgid "Last updated on %2s"
+msgstr ""
+
+#, tao-public
+msgid "Manage Schema"
+msgstr ""
+
+#, tao-public
+msgid "Manage test takers"
+msgstr ""
+
+#, tao-public
+msgid "Move"
+msgstr ""
+
+#, tao-public
+msgid "Move To"
+msgstr ""
+
+#, tao-public
+msgid "New class"
+msgstr ""
+
+#, tao-public
+msgid "New test-taker"
+msgstr ""
+
+#, tao-public
+msgid "Properties"
+msgstr ""
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr ""
+
+msgid "Test taker saved"
+msgstr ""
+
+msgid "Test takers"
+msgstr ""
+
+#, tao-public
+msgid "Test takers library"
+msgstr ""
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr ""
+
+#, tao-public
+msgid "Test-takers"
+msgstr ""
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr ""
+
