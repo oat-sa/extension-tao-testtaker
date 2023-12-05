@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-14 15:18\n"
+"PO-Revision-Date: 2023-12-04 16:11\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar\n"
@@ -22,14 +22,14 @@ msgstr ""
 
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Edit subject"
 msgstr "تحرير الموضوع"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "تصدير"
 
 #, tao-public
 msgid "Import"
@@ -64,7 +64,7 @@ msgstr "مترشح جديد"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "خصائص"
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -85,7 +85,7 @@ msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مج�
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "الخاضعون للاختبار"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"
