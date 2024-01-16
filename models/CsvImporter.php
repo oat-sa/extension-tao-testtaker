@@ -22,12 +22,22 @@ declare(strict_types=1);
 
 namespace oat\taoTestTaker\models;
 
+use common_ext_ExtensionException;
+use common_ext_ExtensionsManager;
+use core_kernel_classes_Property;
 use core_kernel_classes_Resource;
+use core_kernel_persistence_Exception;
+use core_kernel_users_Service;
 use oat\generis\Helper\UserHashForEncryption;
+use oat\generis\model\user\UserRdf;
 use oat\oatbox\service\ServiceManager;
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;
 use oat\taoTestTaker\models\events\dispatcher\TestTakerImportEventDispatcher;
+use tao_helpers_form_Form;
+use tao_helpers_form_FormFactory;
+use tao_helpers_I18n;
+use tao_models_classes_import_CsvImporter;
 
 /**
  * A custom subject CSV importer
@@ -37,10 +47,34 @@ use oat\taoTestTaker\models\events\dispatcher\TestTakerImportEventDispatcher;
  * @package taoSubjects
 
  */
-class CsvImporter extends \tao_models_classes_import_CsvImporter
+class CsvImporter extends tao_models_classes_import_CsvImporter
 {
+    private function addResourceImportedCallback($form)
+    {
+        $callback = function (core_kernel_classes_Resource $resource) {
+            \common_Logger::i(__METHOD__);
+
+            $resource->editPropertyValues(
+                new core_kernel_classes_Property(UserRdf::PROPERTY_DEFLG),
+                $resource->getOnePropertyValue(new core_kernel_classes_Property(UserRdf::PROPERTY_UILG))->getUri()
+            );
+        };
+
+        if ($form instanceof tao_helpers_form_Form) {
+            $values = $form->getValues();
+            $values['onResourceImported'][] = $callback;
+            $form->setValues($values);
+        } else {
+            $form['onResourceImported'][] = $callback;
+        }
+
+        return $form;
+    }
+
     public function import($class, $form, $userId = null)
     {
+        $form = $this->addResourceImportedCallback($form);
+
         $report = parent::import($class, $form);
 
         $this->getTestTakerImportEventDispatcher()
@@ -57,21 +91,21 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     public function getValidators()
     {
         return [
-            GenerisRdf::PROPERTY_USER_LOGIN => [\tao_helpers_form_FormFactory::getValidator('Unique')],
-            GenerisRdf::PROPERTY_USER_UILG => [\tao_helpers_form_FormFactory::getValidator('NotEmpty')],
+            GenerisRdf::PROPERTY_USER_LOGIN => [tao_helpers_form_FormFactory::getValidator('Unique')],
+            GenerisRdf::PROPERTY_USER_UILG => [tao_helpers_form_FormFactory::getValidator('NotEmpty')],
         ];
     }
 
     /**
      * @param core_kernel_classes_Resource $resource
      * @return array
-     * @throws \core_kernel_persistence_Exception
-     * @throws \common_ext_ExtensionException
+     * @throws core_kernel_persistence_Exception
+     * @throws common_ext_ExtensionException
      */
     protected function getProperties($resource)
     {
-        /** @var \common_ext_ExtensionsManager $extManager */
-        $extManager =  ServiceManager::getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+        /** @var common_ext_ExtensionsManager $extManager */
+        $extManager =  ServiceManager::getServiceManager()->get(common_ext_ExtensionsManager::SERVICE_ID);
         $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
         $config = $taoTestTaker->getConfig('csvImporterCallbacks');
 
@@ -79,7 +113,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
             return [
                 'hashForKey' => UserHashForEncryption::hash(TestTakerSavePasswordInMemory::getPassword()),
                 GenerisRdf::PROPERTY_USER_PASSWORD => $resource->getOnePropertyValue(
-                    new \core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
+                    new core_kernel_classes_Property(GenerisRdf::PROPERTY_USER_PASSWORD)
                 )->literal
             ];
         }
@@ -110,7 +144,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
      */
     protected function getStaticData()
     {
-        $lang = \tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
+        $lang = tao_helpers_I18n::getLangResourceByCode(DEFAULT_LANG)->getUri();
 
         return [
             GenerisRdf::PROPERTY_USER_DEFLG => $lang,
@@ -122,12 +156,12 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
     /**
      * (non-PHPdoc)
      * @see tao_models_classes_import_CsvImporter::getAdditionAdapterOptions()
-     * @throws \common_ext_ExtensionException
+     * @throws common_ext_ExtensionException
      */
     protected function getAdditionAdapterOptions()
     {
-        /** @var \common_ext_ExtensionsManager $extManager */
-        $extManager = ServiceManager::getServiceManager()->get(\common_ext_ExtensionsManager::SERVICE_ID);
+        /** @var common_ext_ExtensionsManager $extManager */
+        $extManager = ServiceManager::getServiceManager()->get(common_ext_ExtensionsManager::SERVICE_ID);
         $taoTestTaker = $extManager->getExtensionById('taoTestTaker');
         $config = $taoTestTaker->getConfig('csvImporterCallbacks');
 
@@ -146,6 +180,14 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
             ];
         }
 
+        $returnValue['onResourceImported'] = [];
+        $returnValue['onResourceImported'][] = function (core_kernel_classes_Resource $resource) {
+            $resource->editPropertyValues(
+                new core_kernel_classes_Property(UserRdf::PROPERTY_DEFLG),
+                $resource->getOnePropertyValue(new core_kernel_classes_Property(UserRdf::PROPERTY_UILG))->getUri()
+            );
+        };
+
         return $returnValue;
     }
 
@@ -157,7 +199,7 @@ class CsvImporter extends \tao_models_classes_import_CsvImporter
      */
     public static function taoSubjectsPasswordEncode($value)
     {
-        return \core_kernel_users_Service::getPasswordHash()->encrypt($value);
+        return core_kernel_users_Service::getPasswordHash()->encrypt($value);
     }
 
     private function getTestTakerImportEventDispatcher(): TestTakerImportEventDispatcher
