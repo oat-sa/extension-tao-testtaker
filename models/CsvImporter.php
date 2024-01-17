@@ -49,32 +49,8 @@ use tao_models_classes_import_CsvImporter;
  */
 class CsvImporter extends tao_models_classes_import_CsvImporter
 {
-    private function addResourceImportedCallback($form)
-    {
-        $callback = function (core_kernel_classes_Resource $resource) {
-            \common_Logger::i(__METHOD__);
-
-            $resource->editPropertyValues(
-                new core_kernel_classes_Property(UserRdf::PROPERTY_DEFLG),
-                $resource->getOnePropertyValue(new core_kernel_classes_Property(UserRdf::PROPERTY_UILG))->getUri()
-            );
-        };
-
-        if ($form instanceof tao_helpers_form_Form) {
-            $values = $form->getValues();
-            $values['onResourceImported'][] = $callback;
-            $form->setValues($values);
-        } else {
-            $form['onResourceImported'][] = $callback;
-        }
-
-        return $form;
-    }
-
     public function import($class, $form, $userId = null)
     {
-        $form = $this->addResourceImportedCallback($form);
-
         $report = parent::import($class, $form);
 
         $this->getTestTakerImportEventDispatcher()
@@ -180,13 +156,9 @@ class CsvImporter extends tao_models_classes_import_CsvImporter
             ];
         }
 
-        $returnValue['onResourceImported'] = [];
-        $returnValue['onResourceImported'][] = function (core_kernel_classes_Resource $resource) {
-            $resource->editPropertyValues(
-                new core_kernel_classes_Property(UserRdf::PROPERTY_DEFLG),
-                $resource->getOnePropertyValue(new core_kernel_classes_Property(UserRdf::PROPERTY_UILG))->getUri()
-            );
-        };
+        $returnValue['onResourceImported'] = [
+            $this->getResourceImportedCallback(),
+        ];
 
         return $returnValue;
     }
@@ -200,6 +172,16 @@ class CsvImporter extends tao_models_classes_import_CsvImporter
     public static function taoSubjectsPasswordEncode($value)
     {
         return core_kernel_users_Service::getPasswordHash()->encrypt($value);
+    }
+
+    private function getResourceImportedCallback(): callable
+    {
+        return function (core_kernel_classes_Resource $resource): void {
+            $resource->editPropertyValues(
+                new core_kernel_classes_Property(UserRdf::PROPERTY_DEFLG),
+                $resource->getOnePropertyValue(new core_kernel_classes_Property(UserRdf::PROPERTY_UILG))->getUri()
+            );
+        };
     }
 
     private function getTestTakerImportEventDispatcher(): TestTakerImportEventDispatcher
