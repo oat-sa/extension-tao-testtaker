@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-12-04 16:11\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: ar\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: ar\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: Arabic\n"
+
+#, tao-public
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Edit subject"
+msgstr "تحرير الموضوع"
+
+#, tao-public
+msgid "Export"
+msgstr "تصدير"
+
+#, tao-public
+msgid "Import"
+msgstr "استورد"
+
+msgid "Last updated on %2s"
+msgstr "آخر تحديث في %2s"
+
+#, tao-public
+msgid "Manage Schema"
+msgstr "إدارة الخطاطة"
+
+#, tao-public
+msgid "Manage test takers"
+msgstr "إدارة المتقدمين للاختبار"
+
+#, tao-public
+msgid "Move"
+msgstr "حرك"
+
+#, tao-public
+msgid "Move To"
+msgstr "حرك نحو"
+
+#, tao-public
+msgid "New class"
+msgstr "صنف جديد"
+
+#, tao-public
+msgid "New test-taker"
+msgstr "مترشح جديد"
+
+#, tao-public
+msgid "Properties"
+msgstr "خصائص"
+
+#, tao-public
+msgid "Record and manage test takers."
+msgstr "تسجيل وإدارة المتقدمين للرائز."
+
+msgid "Test taker saved"
+msgstr "حفظ المترشح"
+
+msgid "Test takers"
+msgstr "المترشحون للرائز"
+
+#, tao-public
+msgid "Test takers library"
+msgstr "مكتبة المترشحين للرائز"
+
+msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
+msgstr "(قد يتم تعيين المتقدمين للاختبار إلى مجموعات وفقا لسياق التقييم ذات الصلة (إدارة الموارد البشرية، والتعليم، ورصد، الخ"
+
+#, tao-public
+msgid "Test-takers"
+msgstr "الخاضعون للاختبار"
+
+msgid "The Test takers module allows to record and manage  test takers."
+msgstr "وحدة المتقدمون للاختبار تسمح بتسجيل وإدارة المتقدمين للاختبار"
+
