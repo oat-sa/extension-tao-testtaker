@@ -27,13 +27,13 @@
                     <action id="testtaker-properties" name="Properties"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance">
                         <icon id="icon-edit"/>
                     </action>
-                    <action id="testtaker-class-new" name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="resource" group="tree" binding="subClass">
+                    <action id="testtaker-class-new" name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="resource" group="tree" binding="subClass" weight="10">
                         <icon id="icon-folder-open"/>
                     </action>
-                    <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode">
+                    <action id="testtaker-delete" name="Delete" url="/taoTestTaker/TestTaker/delete" context="resource" group="tree" binding="removeNode" weight="-1">
                         <icon id="icon-bin"/>
                     </action>
-                    <action id="testtaker-delete-all" name="Delete" url="/taoTestTaker/TestTaker/deleteAll" context="resource" multiple="true" group="tree" binding="removeNodes">
+                    <action id="testtaker-delete-all" name="Delete" url="/taoTestTaker/TestTaker/deleteAll" context="resource" multiple="true" group="tree" binding="removeNodes" weight="-2">
                         <icon id="icon-bin"/>
                     </action>
                     <action id="testtaker-move" name="Move" url="/taoTestTaker/TestTaker/moveInstance" context="instance" group="none" binding="moveNode">
@@ -42,19 +42,19 @@
                     <action id="testtaker-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveResource" context="instance" group="tree" binding="moveTo">
                         <icon id="icon-move-item"/>
                     </action>
-                    <action id="class-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveClass" context="class" group="tree" binding="moveTo">
+                    <action id="class-move-to" name="Move To" url="/taoTestTaker/TestTaker/moveClass" context="class" group="tree" binding="moveTo" weight="8">
                         <icon id="icon-move-item"/>
                     </action>
                     <action id="testtaker-move-all" name="Move To" url="/taoTestTaker/TestTaker/moveAll" context="resource" multiple="true" group="tree" binding="moveTo">
                         <icon id="icon-move-item"/>
                     </action>
-                    <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="resource" group="tree">
+                    <action id="testtaker-import" name="Import" url="/taoTestTaker/Import/index" context="resource" group="tree" weight="7">
                         <icon id="icon-import"/>
                     </action>
-                    <action id="testtaker-export" name="Export" url="/taoTestTaker/Export/index" context="resource" group="tree">
+                    <action id="testtaker-export" name="Export" url="/taoTestTaker/Export/index" context="resource" group="tree" weight="6">
                         <icon id="icon-export"/>
                     </action>
-                    <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate">
+                    <action id="testtaker-new" name="New test-taker" url="/taoTestTaker/TestTaker/addInstance" context="resource" group="tree" binding="instanciate" weight="9">
                         <icon id="icon-test-taker"/>
                     </action>
                 </actions>
