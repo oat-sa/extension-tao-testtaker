@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2025-12-05 09:20\n"
+"PO-Revision-Date: 2025-12-05 09:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: hu\n"
+"Language: ro\n"
 "sourceLanguage: en-US\n"
 "targetLanguage: en-US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,81 +12,81 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
 "X-Crowdin-Project: tao-open-source\n"
 "X-Crowdin-Project-ID: 590867\n"
-"X-Crowdin-Language: hu\n"
+"X-Crowdin-Language: ro\n"
 "X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 545\n"
-"Language-Team: Hungarian\n"
+"Language-Team: Romanian\n"
 
 #, tao-public
 msgid "Delete"
-msgstr "Töröl"
+msgstr ""
 
 msgid "Edit subject"
-msgstr "Tárgy szerkesztése"
+msgstr ""
 
 #, tao-public
 msgid "Export"
-msgstr "Export"
+msgstr ""
 
 #, tao-public
 msgid "Import"
-msgstr "Importálás"
+msgstr ""
 
 msgid "Last updated on %2s"
-msgstr "Utolsó frissítés: %2s"
+msgstr ""
 
 #, tao-public
 msgid "Manage Schema"
-msgstr "Séma kezelése"
+msgstr ""
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "Tesztelők kezelése"
+msgstr ""
 
 #, tao-public
 msgid "Move"
-msgstr "Mozog"
+msgstr ""
 
 #, tao-public
 msgid "Move To"
-msgstr "Áthelyezés ide"
+msgstr ""
 
 #, tao-public
 msgid "New class"
-msgstr "Új osztály"
+msgstr ""
 
 #, tao-public
 msgid "New test-taker"
-msgstr "Új vizsgázó"
+msgstr ""
 
 #, tao-public
 msgid "Properties"
-msgstr "Tulajdonságok"
+msgstr ""
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "Tesztelők rögzítése és kezelése."
+msgstr ""
 
 msgid "Test taker saved"
-msgstr "Tesztelő mentve"
+msgstr ""
 
 msgid "Test takers"
-msgstr "Tesztelők"
+msgstr ""
 
 #, tao-public
 msgid "Test takers library"
-msgstr "Tesztelők könyvtára"
+msgstr ""
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "A vizsgázók a vonatkozó értékelési kontextusnak (humánerőforrás-menedzsment, oktatás, edumetriai monitoring stb.) megfelelően csoportokba oszthatók."
+msgstr ""
 
 #, tao-public
 msgid "Test-takers"
-msgstr "Tesztelők"
+msgstr ""
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "A Tesztvizsgálók modul lehetővé teszi a vizsgázók rögzítését és kezelését."
+msgstr ""
 
