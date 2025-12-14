@@ -25,7 +25,8 @@ namespace oat\taoTestTaker\test\unit\models\events\dispatcher;
 
 use common_report_Report;
 use core_kernel_classes_Resource;
-use oat\generis\test\TestCase;
+use oat\generis\test\ServiceManagerMockTrait;
+use PHPUnit\Framework\TestCase;
 use oat\oatbox\event\EventManager;
 use oat\taoTestTaker\models\events\dispatcher\TestTakerImportEventDispatcher;
 use oat\taoTestTaker\models\events\TestTakerImportedEvent;
@@ -33,18 +34,17 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 class TestTakTestTakerImportEventDispatcherTesterTest extends TestCase
 {
-    /** @var TestTakerImportEventDispatcher */
-    protected $subject = null;
+    use ServiceManagerMockTrait;
 
-    /** @var EventManager|MockObject */
-    protected $eventManager = null;
+    private TestTakerImportEventDispatcher $subject;
+    private EventManager|MockObject $eventManager;
 
     public function setUp(): void
     {
         $this->eventManager = $this->createMock(EventManager::class);
         $this->subject = new TestTakerImportEventDispatcher();
         $this->subject->setServiceLocator(
-            $this->getServiceLocatorMock(
+            $this->getServiceManagerMock(
                 [
                     EventManager::SERVICE_ID => $this->eventManager
                 ]
