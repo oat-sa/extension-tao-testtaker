@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2025-12-05 09:20\n"
+"PO-Revision-Date: 2026-02-03 19:21\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: hu\n"
@@ -19,6 +19,12 @@ msgstr ""
 "X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 545\n"
 "Language-Team: Hungarian\n"
+
+msgid "Data import started"
+msgstr "Adatimportálás elkezdve"
+
+msgid "Data imported successfully"
+msgstr "Az adatok importálása sikeresen megtörtént"
 
 #, tao-public
 msgid "Delete"
