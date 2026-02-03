@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 09:15\n"
+"PO-Revision-Date: 2026-02-03 19:21\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: fr\n"
@@ -20,6 +20,12 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 "Language-Team: French\n"
 
+msgid "Data import started"
+msgstr "Importation des données démarrée"
+
+msgid "Data imported successfully"
+msgstr "Données importées avec succès."
+
 #, tao-public
 msgid "Delete"
 msgstr "Supprimer"
@@ -29,11 +35,11 @@ msgstr "Édition du participant"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Exportation"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Importation"
 
 msgid "Last updated on %2s"
 msgstr "Dernière mise à jour le %2s"
@@ -64,7 +70,7 @@ msgstr "Créer participant"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Propriétés"
 
 #, tao-public
 msgid "Record and manage test takers."
