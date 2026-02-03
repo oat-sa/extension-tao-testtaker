@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 09:15\n"
+"PO-Revision-Date: 2026-02-03 19:21\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: es\n"
@@ -20,27 +20,33 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 "Language-Team: Spanish\n"
 
+msgid "Data import started"
+msgstr "Importación de datos iniciada"
+
+msgid "Data imported successfully"
+msgstr "Datos importados exitosamente"
+
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Edit subject"
 msgstr "Editar asunto"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #, tao-public
 msgid "Import"
 msgstr "Importar"
 
 msgid "Last updated on %2s"
-msgstr ""
+msgstr "Última actualización de %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr ""
+msgstr "Administrar esquema"
 
 #, tao-public
 msgid "Manage test takers"
@@ -52,7 +58,7 @@ msgstr "Mover"
 
 #, tao-public
 msgid "Move To"
-msgstr ""
+msgstr "Mover a"
 
 #, tao-public
 msgid "New class"
@@ -64,7 +70,7 @@ msgstr "Nuevo participante"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Propiedades"
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -85,7 +91,7 @@ msgstr "Los participantes pueden ser asignados a los conjuntos de acuerdo con el
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Pruebas"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "El módulo de participantes permite registrar y gestionar  participantes."
