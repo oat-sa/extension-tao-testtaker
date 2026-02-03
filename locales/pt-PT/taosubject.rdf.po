@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-12-04 16:12\n"
+"PO-Revision-Date: 2026-02-03 19:22\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: pt\n"
@@ -20,20 +20,20 @@ msgstr ""
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test-taker"
-msgstr ""
+msgstr "Teste-taker"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test-taker class"
-msgstr ""
+msgstr "A aula do Test-taker"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test Takers Manager"
-msgstr ""
+msgstr "Gerente de testes"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test Takers Manager Role"
-msgstr ""
+msgstr "Função de gerente de testes"
 
