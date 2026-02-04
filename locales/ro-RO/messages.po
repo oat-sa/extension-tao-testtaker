@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2026.02 LTS\n"
-"PO-Revision-Date: 2026-02-03T14:44:45\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2026-02-03 19:21\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ro-RO\n"
@@ -19,73 +19,79 @@ msgstr ""
 msgid "Data imported successfully"
 msgstr ""
 
+msgid "Data import started"
+msgstr "Importul datelor a început"
+
+msgid "Data imported successfully"
+msgstr "Date importate cu succes"
+
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "Ștergere"
 
 msgid "Edit subject"
-msgstr ""
+msgstr "Editare subiect"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Exportă"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Importă"
 
 msgid "Last updated on %2s"
-msgstr ""
+msgstr "Ultima actualizare la %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr ""
+msgstr "Gestionare schemă"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr ""
+msgstr "Gestionează tastatura de test"
 
 #, tao-public
 msgid "Move"
-msgstr ""
+msgstr "Mutare"
 
 #, tao-public
 msgid "Move To"
-msgstr ""
+msgstr "Mutare în"
 
 #, tao-public
 msgid "New class"
-msgstr ""
+msgstr "Clasa noua"
 
 #, tao-public
 msgid "New test-taker"
-msgstr ""
+msgstr "Tigru nou"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "Proprietăți"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr ""
+msgstr "Înregistrați și gestionați factorii de testare."
 
 msgid "Test taker saved"
-msgstr ""
+msgstr "Testează taierul salvat"
 
 msgid "Test takers"
-msgstr ""
+msgstr "Tutori de încercare"
 
 #, tao-public
 msgid "Test takers library"
-msgstr ""
+msgstr "Biblioteca Test takers"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr ""
+msgstr "Se pot atribui grupuri de teste în funcție de contextul de evaluare relevant (gestionarea resurselor umane, educație, monitorizare edumetrică etc.)."
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Test-takeri"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr ""
+msgstr "Modulul Test takers permite înregistrarea și gestionarea testelor."
 

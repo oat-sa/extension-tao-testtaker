@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2026.02 LTS\n"
-"PO-Revision-Date: 2026-02-03T14:44:45\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2026-02-03 19:22\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: it-IT\n"
@@ -18,6 +18,12 @@ msgstr ""
 
 msgid "Data imported successfully"
 msgstr ""
+
+msgid "Data import started"
+msgstr "Importazione dati avviata"
+
+msgid "Data imported successfully"
+msgstr "Dati importati con successo"
 
 #, tao-public
 msgid "Delete"
