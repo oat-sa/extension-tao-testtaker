@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2026.02 LTS\n"
-"PO-Revision-Date: 2026-02-03T14:44:45\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2026-02-03 19:22\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: pt-PT\n"
@@ -19,27 +19,33 @@ msgstr ""
 msgid "Data imported successfully"
 msgstr ""
 
+msgid "Data import started"
+msgstr "Importação de dados iniciada"
+
+msgid "Data imported successfully"
+msgstr "Informação importada com sucesso"
+
 #, tao-public
 msgid "Delete"
-msgstr ""
+msgstr "excluir"
 
 msgid "Edit subject"
 msgstr "Editar assunto"
 
 #, tao-public
 msgid "Export"
-msgstr ""
+msgstr "Exportação"
 
 #, tao-public
 msgid "Import"
-msgstr ""
+msgstr "Importação"
 
 msgid "Last updated on %2s"
-msgstr ""
+msgstr "Última atualização em %2s"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr ""
+msgstr "Gerenciar esquema"
 
 #, tao-public
 msgid "Manage test takers"
@@ -51,7 +57,7 @@ msgstr "Mover"
 
 #, tao-public
 msgid "Move To"
-msgstr ""
+msgstr "Mover para"
 
 #, tao-public
 msgid "New class"
@@ -63,7 +69,7 @@ msgstr "Novo examinado"
 
 #, tao-public
 msgid "Properties"
-msgstr ""
+msgstr "propriedades"
 
 #, tao-public
 msgid "Record and manage test takers."
@@ -84,7 +90,7 @@ msgstr "Examinados podem ser atribuídos a grupos de acordo com o contexto de av
 
 #, tao-public
 msgid "Test-takers"
-msgstr ""
+msgstr "Testar-tomador"
 
 msgid "The Test takers module allows to record and manage  test takers."
 msgstr "O modulo de examinados permite gerir e gravar os examinados."
