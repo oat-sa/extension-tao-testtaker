@@ -18,13 +18,13 @@
                         />
                 </trees>
                 <actions allowClassActions="true">
-                    <action id="testtaker-class-properties" name="Properties" url="/taoTestTaker/TestTaker/editClassLabel" group="content" context="class" weight="10">
+                    <action id="testtaker-class-properties" name="Properties" url="/taoTestTaker/TestTaker/editClassLabel" group="content" context="class" weight="1">
                         <icon id="icon-edit"/>
                     </action>
-                    <action id="testtaker-class-schema" name="Manage Schema" url="/tao/PropertiesAuthoring/index" group="content" context="class" weight="3">
+                    <action id="testtaker-class-schema" name="Manage Schema" url="/tao/PropertiesAuthoring/index" group="content" context="class" weight="8">
                         <icon id="icon-property-add"/>
                     </action>
-                    <action id="testtaker-properties" name="Properties"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance" weight="10">
+                    <action id="testtaker-properties" name="Properties"  url="/taoTestTaker/TestTaker/editSubject" group="content" context="instance" weight="1">
                         <icon id="icon-edit"/>
                     </action>
                     <action id="testtaker-class-new" name="New class" url="/taoTestTaker/TestTaker/addSubClass" context="resource" group="tree" binding="subClass" weight="10">
