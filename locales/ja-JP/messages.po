@@ -1,5 +1,5 @@
 msgid ""
-msgstr ""
+msgstr " {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 "Project-Id-Version: tao-open-source\n"
 "PO-Revision-Date: 2026-02-03 19:22\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
@@ -14,84 +14,84 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Data import started"
-msgstr ""
+msgstr "Data import started {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Data imported successfully"
-msgstr ""
+msgstr "Data imported successfully {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Data import started"
-msgstr "データのインポートを開始しました"
+msgstr "データのインポートを開始しました {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Data imported successfully"
-msgstr "インポートが完了しました"
+msgstr "インポートが完了しました {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Delete"
-msgstr "削除"
+msgstr "削除 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Edit subject"
-msgstr "オブジェクト編集"
+msgstr "オブジェクト編集 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Export"
-msgstr "エクスポート"
+msgstr "エクスポート {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Import"
-msgstr "インポート"
+msgstr "インポート {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Last updated on %2s"
-msgstr "最終更新日： %2s"
+msgstr "最終更新日： %2s {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Manage Schema"
-msgstr "スキーム管理"
+msgstr "スキーム管理 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Manage test takers"
-msgstr "受験者管理"
+msgstr "受験者管理 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Move"
-msgstr "移動"
+msgstr "移動 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Move To"
-msgstr "移動"
+msgstr "移動 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "New class"
-msgstr "新規クラス"
+msgstr "新規クラス {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "New test-taker"
-msgstr "新規受験者"
+msgstr "新規受験者 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Properties"
-msgstr "プロパティ"
+msgstr "プロパティ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Record and manage test takers."
-msgstr "受験者の記録と管理"
+msgstr "受験者の記録と管理 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Test taker saved"
-msgstr "受験者が保存されました"
+msgstr "受験者が保存されました {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Test takers"
-msgstr "受験者"
+msgstr "受験者 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Test takers library"
-msgstr "受験者ライブラリ"
+msgstr "受験者ライブラリ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
-msgstr "受験者は関連する評価の文脈（人材管理・教育組織・教育測定上の監視単位など）に応じて，セットに割り当てられるかもしれません。"
+msgstr "受験者は関連する評価の文脈（人材管理・教育組織・教育測定上の監視単位など）に応じて，セットに割り当てられるかもしれません。 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 #, tao-public
 msgid "Test-takers"
-msgstr "受験者"
+msgstr "受験者 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "受験者モジュールは受験者　の記録と管理を許可する。"
+msgstr "受験者モジュールは受験者　の記録と管理を許可する。 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
