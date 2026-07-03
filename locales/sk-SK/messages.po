@@ -1,23 +1,24 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2026-02-03 19:22\n"
+"PO-Revision-Date: 2026-07-03 14:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: sk-SK\n"
+"Language: sk\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: sk-SK\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-
-msgid "Data import started"
-msgstr ""
-
-msgid "Data imported successfully"
-msgstr ""
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: sk\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 545\n"
+"Language-Team: Slovak\n"
 
 msgid "Data import started"
 msgstr "Import údajov sa začal"
@@ -61,7 +62,7 @@ msgstr "Presunúť do"
 
 #, tao-public
 msgid "New class"
-msgstr "Nová trieda"
+msgstr "Nový priečinok"
 
 #, tao-public
 msgid "New test-taker"
@@ -69,21 +70,21 @@ msgstr "Nový účastník testu"
 
 #, tao-public
 msgid "Properties"
-msgstr "Nehnuteľnosti"
+msgstr "Vlastnosti"
 
 #, tao-public
 msgid "Record and manage test takers."
 msgstr "Zaznamenávajte a spravujte účastníkov testov."
 
 msgid "Test taker saved"
-msgstr "Účastník testu je uložený"
+msgstr "Účastník testu bol uložený"
 
 msgid "Test takers"
 msgstr "Účastníci testu"
 
 #, tao-public
 msgid "Test takers library"
-msgstr "Knižnica pre účastníkov testov"
+msgstr "Knižnica účastníkov testov"
 
 msgid "Test takers may be assigned to sets according to the relevant assessment context (Human resources management, education, edumetric monitoring, etc.)."
 msgstr "Účastníci testu môžu byť zaradení do skupín podľa relevantného kontextu hodnotenia (riadenie ľudských zdrojov, vzdelávanie, edumetrické monitorovanie atď.)."
@@ -93,5 +94,5 @@ msgid "Test-takers"
 msgstr "Účastníci testov"
 
 msgid "The Test takers module allows to record and manage  test takers."
-msgstr "Modul pre účastníkov testov umožňuje zaznamenávať a spravovať účastníkov testov."
+msgstr "Modul „Účastníci testu“ umožňuje registráciu a správu účastníkov testu."
 
