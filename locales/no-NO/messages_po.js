@@ -1,1 +1,1 @@
-{"Data import started":"Dataimport startet","Some items could not be deleted":"Noen elementer kunne ikke slettes","Unable to clone the resource":"Ikke mulig \u00e5 klone ressursen"}
+{"Data import started":"Dataimport startet","Item Statistics":"Statistikk for enhet","Preview (legacy)":"Forh\u00e5ndsvisning (legenskap)","Some items could not be deleted":"Noen elementer kunne ikke slettes","taoTestPreviewUILoader":"taoTestPreviewUILoader","Template":"Mal","Unable to clone the resource":"Ikke mulig \u00e5 klone ressursen","Usage":"Bruk"}
