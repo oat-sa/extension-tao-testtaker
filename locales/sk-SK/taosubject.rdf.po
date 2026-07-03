@@ -1,14 +1,21 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2026.02 LTS\n"
-"PO-Revision-Date: 2026-02-03T14:44:45\n"
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2026-07-03 14:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: sk-SK\n"
+"Language: sk\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: sk-SK\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: sk\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-testtaker] develop/locales/en-US/taosubject.rdf.po\n"
+"X-Crowdin-File-ID: 972\n"
+"Language-Team: Slovak\n"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
@@ -18,15 +25,15 @@ msgstr "Účastník testu"
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#Subject
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test-taker class"
-msgstr "Trieda pre absolventov testov"
+msgstr "Trieda pre účastníkov testov"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#label"
 msgid "Test Takers Manager"
-msgstr "Manažér účastníkov testov"
+msgstr "Správca účastníkov testov"
 
 # http://www.tao.lu/Ontologies/TAOSubject.rdf#SubjectsManagerRole
 msgctxt "http://www.w3.org/2000/01/rdf-schema#comment"
 msgid "The Test Takers Manager Role"
-msgstr "Rola Manažér účastníkov testu"
+msgstr "Rola Správcu účastníkov testu"
 
