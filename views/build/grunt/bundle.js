@@ -31,6 +31,7 @@ module.exports = function(grunt) {
                 options : {
                     extension : 'taoTestTaker',
                     outputDir : 'loader',
+                    babelPreTransform: { enabled: true },
                     bundles : [{
                         name : 'taoTestTaker',
                         default : true,
